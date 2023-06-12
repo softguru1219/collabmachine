@@ -1,0 +1,50 @@
+h2 = t('dashboard.index.partners_tools')
+
+.ibox
+  .ibox-content
+    a.icon-link data-target="#myModalWagon" data-toggle="modal" type="button"
+      = image_tag 'lewagon-logo.png', width: "18%"
+
+    span.clearfix =< t('dashboard.index.invite_lewagon').html_safe
+
+    br
+    p
+      a(
+        data-target="#myModalWagon"
+        data-toggle="modal"
+        type="button"
+        )
+        i.fa.fa-globe
+        =< t('default.more_details')
+
+#myModalWagon.modal.inmodal aria-hidden="true" role="dialog" tabindex="-1"
+  .modal-dialog
+    .modal-content.animated.slideInDown
+      .modal-header
+        button.close data-dismiss="modal" type="button"
+          span aria-hidden="true"  &times;
+          span.sr-only = t('default.close')
+        = image_tag 'lewagon-logo.png', width: "25%"
+        h4.modal-title = t('dashboard.index.wagon_title')
+        .font-bold
+
+        span &nbsp;
+        a(
+          href= t('dashboard.index.website_url_lewagon')
+          target="_blank"
+          )
+          i.fa.fa-globe
+          =< t('dashboard.index.website_url_lewagon')
+
+
+      .modal-body.white-bg
+        = render partial: "dashboard/partner_wagon_#{I18n.locale}_body"
+
+      .modal-footer
+        a.btn.btn-success.btn-outline(
+          href="https://www.lewagon.com/fr"
+          target="_blank"
+          ) = t('dashboard.index.visit_website')
+        button.btn.btn-primary.btn-outline(
+          data-dismiss="modal"
+          type="button") = t('default.close').upf

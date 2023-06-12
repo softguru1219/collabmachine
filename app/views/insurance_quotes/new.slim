@@ -1,0 +1,26 @@
+.container.estimate
+  .row
+    .col-md-6.col-md-offset-3
+      .ibox
+        .ibox-content
+          .text-center
+            = image_tag 'logo-La-Turquoise.jpg', width: "60%"
+          .row.text-center.instructions
+            = t('insurance_quote.turquoise_description').html_safe
+
+          = form_for @quote, :html => { :class => 'ui form'} do |f|
+            .fields
+              h2.text-center = t('insurance_quote.form.invite')
+
+              = render 'shared/error_messages', record: @quote
+              = render 'shared/notices_banner'
+              .form-group
+                = f.text_field :name, placeholder: t('insurance_quote.form.name_placeholder'), class: 'form-control'
+              .form-group
+                = f.text_field :email, placeholder: t('insurance_quote.form.email_placeholder'), class: 'form-control'
+              .form-group
+                = f.text_field :phone, placeholder: t('insurance_quote.form.phone_placeholder'), class: 'form-control'
+              .form-group
+                = f.text_area :note, placeholder: t('insurance_quote.form.note_placeholder'), row: 20, class: 'form-control'
+              .form-group.text-center
+                = f.submit t('insurance_quote.form.send'), class: 'btn btn-group-justified btn-info'

@@ -1,0 +1,60 @@
+.container
+  .row
+    .col-md-6.col-md-offset-3.text-center
+
+      .embed-box
+        h1.ui.center.aligned.icon.header Payment gateway (Stripe)
+
+        p Collab Machine utilise Stripe pour les transactions faites entre les clients et les professionnels.
+        p Il est donc nécessaire pour les professionnels qui souhaitent facturer au travers Collab Machine de se créer un compte Stripe, et de le lier avec la plateforme.
+
+        h2 Première étape:&nbsp;
+        p
+          = link_to "S'enregistrer auprès de Stripe.", "https://dashboard.stripe.com/register"
+
+        h2 Deuxième étape:
+        p Ajouter un compte bancaire.
+
+        p Aller dans Balance > Settings et cliquer sur Add Bank :
+        = link_to image_tag('payment/1-bank-accounts.png', style: 'width: 100%'), image_url('payment/1-bank-accounts.png')
+        p
+
+        p Cliquer sur Add Bank Account:
+        = link_to image_tag('payment/2-form-popup.png', style: 'width: 100%'), image_url('payment/2-form-popup.png')
+        p
+
+        p Une notification sera envoyée à votre adresse email:
+        = link_to image_tag('payment/3-notification.png', style: 'width: 100%'), image_url('payment/3-notification.png')
+        p
+
+        p Une notification sera envoyée à votre adresse email:
+        = link_to image_tag('payment/4-email.png', style: 'width: 100%'), image_url('payment/4-email.png')
+        p
+
+        p Cliquer sur le lien vous amènera sur ce genre de message de confirmation:
+        = link_to image_tag('payment/5-confirmation-message.png', style: 'width: 100%'), image_url('payment/5-confirmation-message.png')
+        p
+
+        h2 Troisième étape:
+        p Lier le compte Stripe avec Collab Machine.
+
+        p Aller sur https://collabmachine.com/invoices , et sur le lien "connecter à un compte Stripe".
+        = link_to image_tag('payment/6-invoices-section.png', style: 'width: 100%'), image_url('payment/6-invoices-section.png')
+        p
+
+        p Vous verrez la page de connection pour lier Collab Machine à votre compte Stripe. Cliquez sur le lien "Sign in", en haut à droite.
+        = link_to image_tag('payment/7-stripe-connect-login-page.png', style: 'width: 100%'), image_url('payment/7-stripe-connect-login-page.png')
+        p
+
+        p Une fois identifié, vous pourrez cliquer sur Connect my Stripe account:
+        = link_to image_tag('payment/8-stripe-connect-permissions.png', style: 'width: 100%'), image_url('payment/8-stripe-connect-permissions.png')
+
+        p
+        p Si tout a fonctionné, ceci devrait vous ramener à Collab Machine avec le message de confirmation "Stripe Account Created And Connected":
+        = link_to image_tag('payment/9-stripe-connected.png', style: 'width: 100%'), image_url('payment/9-stripe-connected.png')
+
+        p
+        p Fin!
+
+      / = t('home.overview').html_safe
+

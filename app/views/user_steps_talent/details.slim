@@ -1,0 +1,97 @@
+.speech-bubble.alert.alert-dismissible role="alert"
+  h3
+    = t('users.step.bubble_message_title')
+    button.close type="button" class="close" data-dismiss="alert" aria-label="Close"
+      span aria-hidden="true" &times;
+  = t('users.step.bubble_message_body')
+
+.row
+  = form_for @user, url: wizard_path, html: { multipart: true, role: 'form' } do |f|
+    .col-md-4
+      .ibox
+        .ibox-content
+          .form-group
+            = f.label 'Avatar'
+            span.tooltip-button
+              button.btn.btn-xs.btn-warning.btn-outline.b-r-xl(
+                  type="button"
+                  data-toggle="tooltip"
+                  data-placement="right"
+                  title=""
+                  data-original-title=t('users.step.avatar_info')
+                )
+                i.fa.fa-question
+            .clear
+            = image_tag @user.avatar.url(:medium)
+            = f.file_field :avatar
+            br
+            br
+    .col-xs-12.col-md-8
+      .ibox
+        .ibox-content
+          h1 = t('users.step.detail_title')
+          / .form-group
+          /   = f.label :username
+          /   = f.text_field :username,
+          /     class: 'form-control'
+
+
+
+          .form-group.col-sm-12
+            = f.text_field :first_name,
+              class: 'form-control',
+              placeholder: t('users.first_name').upf
+
+          .form-group.col-sm-12
+            = f.text_field :last_name,
+              class: 'form-control',
+              placeholder: t('users.last_name').upf
+
+          .form-group.col-sm-12
+            = f.text_field :company,
+              class: 'form-control',
+              placeholder: t('users.company').upf
+
+          .form-group.col-sm-12.registration-field-icon
+            i.fa.fa-phone
+            = f.text_field :phone,
+              autofocus: true,
+              class: 'form-control',
+              placeholder: t('users.phone_placeholder').upf
+
+          .form-group.col-sm-12.registration-field-icon
+            i.fa.fa-map
+            = f.text_field :phone,
+              autofocus: true,
+              class: 'form-control',
+              placeholder: t('users.location_placeholder').upf
+
+          p &nbsp;
+
+          .form-group.col-sm-12.registration-field-icon
+            i.fa.fa-github
+            = f.url_field :github_url,
+              autofocus: true,
+              class: 'form-control',
+              placeholder: t('users.github_url').upf
+
+          .form-group.col-sm-12.registration-field-icon
+            i.fa.fa-linkedin
+            = f.url_field :linkedin_url,
+              autofocus: true,
+              class: 'form-control',
+              placeholder: t('users.linkedin_url').upf
+
+          .form-group.col-sm-12.registration-field-icon
+            i.fa.fa-globe
+            = f.url_field :web_site_url,
+              autofocus: true,
+              class: 'form-control',
+              placeholder: t('users.web_site_url').upf
+
+          .row
+            .col-md-12
+              = f.submit t('users.step.next'), class: "btn btn-primary btn-lg pull-right"
+              = link_to t('users.step.skip'), next_wizard_path, class: 'pull-right btn btn-lg btn-default', style: 'margin-right: 15px'
+
+

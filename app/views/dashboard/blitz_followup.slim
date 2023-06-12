@@ -1,0 +1,120 @@
+.row
+  .col-sm-6
+    h1
+      span Follow up / Grille de suivi:
+      span.badge-danger #{@from}
+
+    = select("state", "state",
+        options_for_select( blitz_time_slots.map { |slot| [slot, blitz_followup_path(from: slot) ]} ),
+        { include_blank: "Sélectionnez une heure de rencontre" },
+        { onchange: "if (this.value) window.location.href=this.value", class: "mdb-select colorful-select dropdown-primary"})
+    br
+    hr
+
+  .col-sm-6
+    p
+      span style="background-color:violet" VIOLET
+      span - Jamais connectés
+      br
+      span Ceux qui ne se sont jamais connectés sur Collab Machine (ou pas depuis la création de leur compte) - on peut supposer qu'ils n'ont même pas vu leur agenda de rencontres.
+
+    p
+      span style="background-color:red"ROUGE
+      span - Pas au Blitz
+      br
+      span Ceux qui ne se sont pas encore connectés durant la journée du Blitz
+
+    p
+      span style="background-color:orange"ORANGE
+      span - Pas connectés
+      br
+      span Ceux qui se sont déjà connectés durant la journée mais ne le sont pas en ce moment
+
+    p
+      span style="background-color:yellow" JAUNE
+      span - Pas au rendez-vous
+      br
+      span Ceux qui sont connectés sur Collab Machine mais qui ne sont pas encore connectés dans leur salle de rencontre
+
+    p
+      span style="background-color:green" VERT
+      span - Arrivés
+      br
+      span Les participants qui sont déjà arrivés et connectés dans leur salle de rencontre avec leur coach
+
+.row
+  .col-sm-12
+    - hours = @schedules_data[:coachs][:titles].values.first
+    - cols = @schedules_data[:coachs][:col_names]
+    - time_selection = @from
+
+    table.table.table-striped.table-bordered.dataTable-blitz-followup
+      tr
+        th width="100px" heure
+        th Status
+        th Participant(e)
+        th Email
+        th Profil LinkedIn
+        th Salle
+
+        - @schedules_data[:coachs][:rows].values.each do |coach|
+          - next if coach[cols[:PROCESS]] == "FALSE"
+          - next if no_meeting_no_row?(hours, time_selection, coach)
+          - if current_user.email == coach[cols[:"Email"]] || current_user.admin? || policy(User).blitz_admin?
+
+            - room = coach[cols[:"Salle jitsi"]]
+            / Coach row
+            tr
+              td width="100px" = @from
+              td
+                - if user = User.find_by_email(coach[cols[:"Email"]])
+                  - u_status = participant_status(user, room, @from)
+                  div style="background-color: #{u_status[:color]}"
+                    = u_status[:caption]
+
+              td
+                - if user = User.find_by_email(coach[cols[:"Email"]])
+                  = avatar_link_to_user(user.id, {class: 'image mini-avatar right spaced'}) || nil
+
+                span #{coach[cols[:"Nom complet"]]}
+                span.label.label-success.m-l-sm Coach
+              td #{coach[cols[:"Email"]]}
+              td = link_to "Linkedin", coach[cols[:"Linkedin"]], target: '_blank'
+              td = link_to room_url(room), room_url(room), target: '_blank'
+
+
+            / Participant row
+            - min_index = hours.length - 13
+            - hours.each_with_index do |meeting_time, i|
+              - if meeting_time == time_selection
+                - if i > min_index - 1
+                  tr
+                    td #{meeting_time}
+                    td
+                      / - if user = User.find_by_email(coach[cols[:"Email"]])
+                      /   - u_status = participant_status(user, room, @from)
+                      /   div style="background-color: #{u_status[:color]}"
+                      /     = u_status[:caption]
+
+                    td
+                      - participant = coach[i].split('::')
+                      - p_name = participant[0]
+                      - email = participant[1]
+
+                      - if u_participant = User.find_by_email(email)
+                        - if current_user.admin? || policy(User).blitz_admin?
+                          span.status
+                            span.small
+                              i.fa.fa-circle class=(u_participant&.last_seen_at&.today? ? 'text-navy' : 'text-muted-pale')
+                            span.small
+                              - time_ago = time_since_last_log(u_participant)
+                              - color = time_ago ? 'text-navy' : 'text-muted-pale'
+                              - title = time_ago ? t('time.ago', { minutes: time_ago}) : ''
+                              i.fa.fa-circle class=color title=title
+
+                        =< avatar_link_to_user(u_participant.id, {class: 'image mini-avatar right spaced'}) || nil
+                      span #{p_name}
+
+                    td = email
+                    td
+                    td = link_to room_url(room), room_url(room), target: '_blank'

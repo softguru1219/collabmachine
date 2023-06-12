@@ -1,0 +1,24 @@
+#flash
+  - if flash[:notice]
+    .alert.alert-dismissable.home-notice
+      = flash[:notice]
+      button data-dismiss="alert" class="close" type="button" ×
+
+
+.container.styledeck
+  .row
+    .col-sm-2
+    .col-sm-8
+      p Lorem ipsum...
+    .col-sm-2
+  .row
+    .col-sm-2
+    .col-sm-8
+      / p.manifesto = t('hello.index.manifesto_main').html_safe
+    .col-sm-2
+  .row
+    .col-sm-3
+    .col-sm-6
+    .col-sm-3
+
+

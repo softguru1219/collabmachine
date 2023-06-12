@@ -1,0 +1,61 @@
+#missions.tab-pane.active role="tabpanel" aria-labelledby="mission-tab"
+  .row.p-h-md
+    .col-sm-3
+      div = t('mission.index.state')
+      = select("state", "state",
+        options_for_select(Mission.states.map { |state| [ state[1], state[0] ]}),
+        { include_blank: t('mission.index.all') },
+        { class: "mdb-select colorful-select dropdown-primary state-select-assigned", id: "stateSelect"})
+    .col-sm-6
+      .form-group
+        div = t('mission.index.search')
+        = text_field(:search, :mission, class: 'form-control')
+
+  .row.p-h-md
+    .col-sm-12
+      table.table.table-striped.table-hover.dataTable-missions
+        thead
+          tr
+            th = t('mission.index.date')
+            th = t('mission.index.state')
+            th width="300" = t('mission.index.name')
+            th = t('mission.index.assignee')
+            th = t('mission.index.owner')
+            th = 'Admin notes'
+            - if MissionPolicy::Scope.new(current_user, @missions).resolve.any?
+              th
+        tbody
+          - @missions.each do |mission|
+            - if policy(mission).index?
+              tr
+                td = link_to I18n.l(mission.created_at.to_date), mission
+                td
+                  = link_to mission do
+                    = render 'shared/status_tag', status: mission.state, size: 'tiny', on_hold: mission.on_hold
+                td
+                  h4 = link_to mission.title, mission
+
+                  - if policy(mission.project).admin_or_mine?
+                    span project:
+                    span =< link_to mission.project_title, project_path(mission.project)
+                td
+                  = link_to mission do
+                    = render 'shared/applicant_counter', mission: mission
+                td
+                  div
+                    = avatar_link_to_user(mission.project_user_id, {class: 'ui image mini-avatar right spaced'})
+                    =< link_to_user(mission.project_user_id)
+
+                td
+                  - if policy(mission).admin_or_mine?
+                    = sanitize(mission.admin_notes)
+
+                - if MissionPolicy::Scope.new(current_user, @missions).resolve.any?
+                  td
+                    - if policy(mission).admin_or_mine?
+
+                      .btn-group.pull-right
+                        = link_to edit_mission_path(mission), class: 'btn btn-xs btn-white', title: t('shared.edit_title')
+                            i.fa.fa-pencil
+                        = link_to mission_path(mission), class: 'btn btn-xs btn-white', title: t('shared.delete_title'), method: :delete, data: { confirm: t('shared.delete_confirm') }
+                            i.fa.fa-trash

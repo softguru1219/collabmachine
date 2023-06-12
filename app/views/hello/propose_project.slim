@@ -1,0 +1,105 @@
+.container.m-t-xl.m-b-xl.well
+  .row
+    .col-sm-12.text-center
+      h1 Comment faire réaliser un projet?
+      p Réaliser un projet par des spécialistes est simple avec CollabMachine
+      hr.hr
+
+  section.two-column
+    .cell
+      span
+        p Sur la page d’entrée de CollabMachine.com, <strong class="font-larger">cliquer le bouton «Dépose ton projet».</strong>
+    .cell
+      = image_tag 'landing-pages/Dropdown menu-amico.svg', class: 'w70 center-block'
+
+  section.two-column.reverse
+    .cell
+      span
+        p
+          => link_to 'Remplir le bref questionnaire', new_estimate_path, target: '_blank', class: 'bold'
+          span de demande de réalisation d’un projet.
+        p Cette page vous permet de préciser la nature du projet à réaliser.
+    .cell
+      = image_tag 'landing-pages/Forms-amico.svg', class: 'w70 center-block'
+
+  section.two-column
+    .cell
+      p Après une vérification des disponibilités du spécialiste, un représentant de <strong>CollabMachine communiquera avec vous</strong> si au moins une des spécialités proposées est acceptée. Vous profiterez ainsi de tous les avantages d’être membre.
+    .cell
+      = image_tag 'landing-pages/Call center-amico.svg', class: 'w70 center-block'
+
+  section.two-column.reverse
+    .cell
+      span
+        p Suite à notre analyse du projet, nous formons une équipe de spécialistes puis <strong>nous vous soumettons un devis</strong> indiquant la durée du projet, les technologies utilisées, chacun des biens livrables et chacune des étapes de validation.
+        p Si le devis vous convient, <strong>nos spécialistes réalisent le projet.</strong>
+    .cell
+      = image_tag 'landing-pages/Project Stages-amico.svg', class: 'w70 center-block'
+
+
+  section.two-column
+    .cell
+      p Après avoir validé chacune des étapes de sa réalisation, <strong>CollabMachine vous livre le projet réalisé</strong> et accompagne votre personnel afin que son intégration se passe bien dans votre entreprise.
+
+    .cell
+      = image_tag 'landing-pages/Cheer up-amico.svg', class: 'w70 center-block'
+
+
+.container
+  /.well
+  .row
+    .col-sm-12
+
+  .row
+    .col-sm-12
+
+      #accordion.panel-group
+        .panel.panel-default
+          .panel-heading
+            h2.panel-title
+              a[data-toggle="collapse" data-parent="#accordion" href="#collapseOne"]
+                | Quelques informations utiles
+          #collapseOne.panel-collapse.collapse.in
+            .panel-body
+              ul
+                li
+                  | Nous réalisons des projets dans les domaines suivants :
+                  ul
+                    li Site web e-commerce
+                    li Site web corporatif
+                    li Application mobile
+                    li Application PC
+                    li Marketing numérique
+                    li Marketing e-commerce
+                    li Modèle d’affaires numérique
+                li Afin de garantir la qualité des livrables, <strong>nous n’utilisons que des spécialistes</strong> pour la réalisation des projets.
+                li Les compétences des spécialistes participant aux projets ont été <strong>vérifiées par notre personnel.</strong>
+                li Nous avons réalisé des centaines de projets jusqu’ici avec un taux de satisfaction de 99%.
+                li <strong>Le travail s’effectue généralement à distance.</strong> Cependant, afin de faciliter les analyses, certaines visites à vos bureaux sont probables.
+
+        .panel.panel-default
+          .panel-heading
+            h2.panel-title
+              a[data-toggle="collapse" data-parent="#accordion" href="#collapseTwo"]
+                | Notre garantie
+          #collapseTwo.panel-collapse.collapse
+            .panel-body
+              p Si vous êtes insatisfaits d’une partie de notre travail lors d’une étape de validation du projet (illustration, rédaction, ergonomie, interface, SEO…), nous ferons le nécessaire pour que vous soyez satisfait ou que le spécialiste concerné par cette insatisfaction soit remplacé.
+
+
+.container
+  p.text-center.action-bar
+    span
+      =< link_to 'DÉPOSER UN PROJET', new_estimate_path, target: '_blank', class: 'btn btn-warning btn-lg m-t-lg'
+
+
+  br
+  br
+  br
+  br
+  br
+  br
+  br
+  br
+  br
+

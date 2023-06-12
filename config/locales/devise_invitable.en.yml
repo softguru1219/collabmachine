@@ -1,0 +1,42 @@
+en:
+  devise:
+    failure:
+      invited: "You have a pending invitation, accept it to finish creating your account."
+    invitations:
+      send_instructions: "An invitation email has been sent to %{email}."
+      invitation_token_invalid: "The invitation token provided is not valid!"
+      updated: "Your password was set successfully. You are now signed in."
+      updated_not_active: "Your password was set successfully."
+      no_invitations_remaining: "No invitations remaining"
+      invitation_removed: "Your invitation was removed."
+      edit:
+        welcome: WELCOME!
+        main_title: SOLID FOUNDATIONS!
+        enum: Respect, sharing, empathy, virtue, trust.
+        smaller: We want to make sure we're all on the same page.
+        header: "Set a password for your profile"
+        submit_button: "Set my password"
+        see_in: "Voir en %{lang}"
+        accept_term_label: "I read and I agree with <a data-target=\"#modalRules\" data-toggle=\"modal\" type=\"button\" class=\"underline\">Collab Machine's rules & regs.</a>"
+        accept_terms_must_be_checked: 'You have to accept terms and conditions to create your account.'
+    mailer:
+      invitation_instructions:
+        subject: "Collab Machine, your invitation instructions."
+        title: "You're invited!"
+        hello: "Hello %{handle}"
+        someone_invited_you: "%{handle} invites you to Collab Machine, you can accept it through the button below. You need to set up a password for your account, then, you can add information to your profile."
+        accept: "Accept invitation"
+        who_are_we: "Who are we"
+        who_are_we_explication: "Collab Machine is an organized community that facilitates business relationships between talents and organizations. It provides the support needed to collaborate from A to Z independently in a supportive network based on trust."
+        our_site: "Visit our site"
+        our_site_url: "https://collabmachine.com/en/hello"
+        presentation_video: "Here is our presentation video"
+        presentation_video_url: "https://www.youtube.com/watch?v=T2HY3jcMyVI&feature=youtu.be"
+        accept_until: "This invitation will expire at %{due_date}."
+        ignore: "If you don't want to accept the invitation, please ignore this email.<br />\nYour account won't be created until you access the link above and set your password."
+  time:
+    formats:
+      devise:
+        mailer:
+          invitation_instructions:
+            accept_until_format: "%B %d, %Y %I:%M %p"

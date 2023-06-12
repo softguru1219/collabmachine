@@ -1,0 +1,54 @@
+
+= render 'landingpage_slider'
+
+/ .container.main
+  .head
+    / h1.text-center = t('.landing_page.main_title')
+    br
+    br
+
+.container
+  .row
+    .col-md-12.text-center.text-lg
+      .embed-box.font-larger
+
+        .jumbotron.text-center
+          h1 == t('.landing_page.at_collab_machine')
+
+
+          h1 == t('.landing_page.invite')
+
+          - t('.landing_page.bullets').each do |item|
+            p = item
+
+          .text-center.m-lg
+            p = t('.landing_page.talkabout')
+            p
+              =link_to t('g.subscription_plans'), subscription_plans_path(locale: I18n.locale), target: '_blank', class: 'btn btn-primary btn-lg', role: 'button'
+
+        .col-md-4
+          .panel.panel-heading
+            .panel-heading
+              h3.text-center = t('.landing_page.productizing_services_title')
+            - t('.landing_page.productizing_services').each do |item|
+              .panel-body.font-normal
+                p = item
+
+        .col-md-4
+          .panel.panel-heading
+            .panel-heading
+              h3.text-center = t('.landing_page.your_space_title')
+            - t('.landing_page.your_space').each do |item|
+              .panel-body.font-normal
+                p = item
+        .col-md-4
+          .panel.panel-heading
+            .panel-heading
+              h3.text-center = t('.landing_page.sell_your_services_title')
+            - t('.landing_page.sell_your_services').each do |item|
+              .panel-body.font-normal
+                p = item
+
+        p.text-center.action-bar
+          span
+            =< link_to 'SERVICE PLACE', serviceplace_path, target: '_blank', class: 'btn btn-danger btn-lg m-t-lg'

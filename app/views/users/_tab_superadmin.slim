@@ -1,0 +1,95 @@
+#superadmin.cm-tab-pane[v-if="tab === 'superadmin'"]
+  .inner[v-pre]
+
+    h2 Status de client
+
+    - if user.client_activation_date.blank?
+      p Client not activated yet
+    - else
+      span Client activated since
+      span =< user.client_activation_date.strftime('%B %e %Y at %l:%M %p')
+
+
+
+    - if superadmin_data[:missions_for_review].count
+
+      h2 Projects "for_review"
+
+      table.ui.table.table-striped.table-hover
+        - superadmin_data[:missions_for_review].each do |mission|
+          tr
+            td
+              p = link_to_mission(mission.id)
+
+    .row
+      .col-lg-4
+        = link_to 'Create new project »', new_project_path(user_id: user.id), class: 'btn btn-sm btn-primary'
+
+        h2 Actions
+        = link_to 'Delete user', user_path(user.id), method: :delete, class: 'btn btn-danger btn-sm'
+
+        h2 Re-send invitation
+        = link_to 'Re-send invitation »', resend_invitation_path(id: user.id), class: 'btn btn-sm btn-primary', method: :post
+
+        hr
+        h2 Fetch & update data
+        .btn-group
+          = link_to 'For this member »', fetch_user_data_path(email: user.email), class: 'btn btn-sm btn-warning',
+              method: :post,
+              data: { confirm: "Are you sure ? This action will overwrite with data found in the spreadsheet."}
+          = link_to 'ALL members»', fetch_all_users_data_path(), class: 'btn btn-sm btn-danger',
+              method: :post,
+              data: { confirm: "Are you sure ? This action will overwrite with data found in the spreadsheet."}
+
+
+      .col-lg-4
+        h2 User metrics
+        - user.compile_weight
+        p = sanitize(user.rating_log)
+
+      .col-md-4
+        h2 Scores
+
+        ul.list-group.no-padding
+          li.list-group-item
+            strong Profile data
+            span.pull-right =< user.meta_attributes.where(name: 'cm__profile_score').first.value
+          li.list-group-item
+            strong Client
+            span.pull-right =< user.meta_attributes.where(name: 'cm__client_score').first.value
+          li.list-group-item
+            strong Talent
+            span.pull-right =< user.meta_attributes.where(name: 'cm__talent_score').first.value
+          li.list-group-item
+            strong Behavioral
+            span.pull-right =< user.meta_attributes.where(name: 'cm__behavior_score').first.value
+          li.list-group-item
+            strong Relational
+            span.pull-right =< user.meta_attributes.where(name: 'cm__relations_score').first.value
+
+
+        - user_rating = user.meta_attributes.where(name: 'cm__rating_score').first.value.to_f
+        ul.list-group.no-padding
+          li.list-group-item
+            strong User score (majorated)
+            span.pull-right =< user_rating
+          li.list-group-item
+            strong Average score (over all users):
+            - all_avg = User.average(:rating)&.round(2)
+            span.pull-right =< all_avg
+          li.list-group-item
+            strong This user compared to average
+            - if all_avg
+              - comparison = (user_rating / all_avg).to_f
+            - else
+              - comparison = (user_rating / user_rating).to_f
+            - ratio = comparison.round(2) if comparison
+            span.pull-right =< ratio
+
+
+        table.ui.table.table-striped.table-hover
+          - superadmin_data[:missions_for_review].each do |mission|
+            tr
+              td
+                p = link_to_mission(mission.id)
+

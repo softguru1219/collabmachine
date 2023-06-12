@@ -1,0 +1,193 @@
+#summary.cm-tab-pane[v-if="tab === 'summary'"]
+  .row
+    .col-lg-12
+      .ibox
+        .profile-head class=( user.poster.attached? ? "has-poster":"" )
+          = image_tag user.regular_poster, class: 'empty' if user.poster.attached?
+        h2 = t('users.show.about')
+        p.small
+          - if user.description?
+            = sanitize(user.description)
+          - elsif user_signed_in? and policy(user).admin_or_mine?
+            = link_to t('users.show.profile_text'), edit_user_path(user), class: 'btn btn-secondary'
+        
+        - unless current_user&.has_company.nil?
+          p.small = t('users.show.this_is_employee_of_user')
+        end
+
+        hr
+          - if user_signed_in? and policy(user).see_personal_info?
+            - if user.web_site_url?
+              h2 Website
+              = link_to user.web_site_url, user.web_site_url, target: '_blank'
+            - if user.linkedin_url?
+              h2 LinkedIn
+              = link_to user.linkedin_url, user.linkedin_url, target: '_blank'
+            - if user.github_url?
+              h2 Github
+              = link_to user.github_url, user.github_url, target: '_blank'
+
+      h2 = t('users.show.interested_in')
+      p
+        = t('users.show.interest_text')
+      p
+        - user.interests.map(&:name).each do |interest|
+          span.label.label-primary.tag =< interest
+
+      h2 = t('users.show.skills')
+      p
+        = t('users.show.skills_text')
+      p
+        - user.skill_list.each do |skill|
+          span.label.label-default.tag =< skill
+
+      - if user_signed_in? and policy(User).admin?
+        h2 = "Admin tags"
+        p
+          - user.admin_tag_list.each do |tag|
+            span.label.label-default.tag =< tag
+
+      h2 = t('users.show.languages')
+      ul
+        - @user.spoken_languages.each do |lang|
+          li
+            - loc = APP_LOCALES.find_all { |el| el[1] == lang.language }[0]
+            = t("locales.#{loc[1]}")
+            =< "(#{t("levels.#{lang.language_level}")})"
+
+      h2 = t("specialty.specialties")
+      ul
+        - @user.specialties.order(:title).each do |specialty|
+          li
+            = specialty.title
+
+
+      h2 = t('users.show.details')
+      table.ui.table.table-condensed.table-hover
+        - if user_signed_in? and policy(user).see_personal_info?
+          - if user.has_company.nil?
+            tr
+              td = t('users.show.email')
+              td = mail_to(user.email)
+          tr
+            td = t('users.show.phone')
+            td = user.phone
+          tr
+            td = t('users.show.location')
+            td = user.location
+        - else
+          - if user.has_company.nil?
+            tr
+              td = t('users.show.email')
+              td = t('g.no_access')
+          tr
+            td = t('users.show.phone')
+            td No access to this information
+          tr
+            td = t('users.show.location')
+            td = t('g.no_access')
+        tr
+          td = t('users.show.communities')
+          td
+            - user.communities.reject { |e| e.to_s.empty? }.each do |e|
+              span.label.label-default.label-outline.tag =< e
+        tr
+          td = t('users.show.specific_expertise')
+          td
+            - user.blitz_expertises.reject { |e| e.to_s.empty? }.each do |e|
+              span.label.label-default.label-outline.tag =< e
+
+        - if user.company
+          tr
+            td = t('users.show.company_name')
+            td = user.company
+
+        - if user_signed_in? and policy(User).admin?
+          tr
+            td = t('users.show.since')
+            td = user.created_at
+          tr
+            td = t('users.show.location')
+            td = user.location
+          tr
+            td = t("users.show.blitz_roles")
+            td
+              - user.blitz_roles.reject { |e| e.to_s.empty? }.each do |e|
+                span.label.label-default.label-outline.tag =< e
+          tr
+            td = t('users.show.access_level')
+            td = user.translate_access_level
+          tr
+            td = t('users.show.updated_at')
+            td = user.updated_at
+          tr
+            td = t('users.show.invitation_accepted_at')
+            td = user.invitation_accepted_at
+          tr
+            td = t('users.show.terms_accepted')
+            td = user.terms_accepted_at.to_s
+          tr
+            td = t('users.show.user_id')
+            td = user.id
+
+
+      - if user_signed_in? and policy(user).admin?
+        h2
+          strong.colon = t('mission.show.admin_notes')
+        div =< sanitize(user.admin_notes)
+
+
+      - if user.meta_attributes
+        table#created-invoices-list.table.table-striped.table-bordered.table-hover
+          thead
+            tr
+              th = t('users.show.table.attribute')
+              th = t('users.show.table.value')
+              th = t('users.show.table.created')
+              th = t('users.show.table.updated')
+              th
+          tbody
+            - user.meta_attributes.each do |atr|
+              - if user_signed_in?
+                - if atr.visibility == 'private' && current_user.admin?
+                  tr
+                    td
+                      span= atr.name
+                    td= atr.value
+                    td= atr.created_at
+                    td= atr.updated_at
+                    td
+                      = link_to [user, atr], class: 'btn btn-default btn-xs btn-outline',
+                          method: :delete,
+                          data: {confirm: "Are you sure?"} do
+                            i.fa.fa-trash
+                      = link_to edit_user_meta_attribute_path(user, atr),
+                        class: 'btn btn-default btn-xs btn-outline' do
+                            i.fa.fa-pencil
+                - elsif atr.visibility == 'public'
+                  tr
+                    td
+                      span= atr.name
+                    td= atr.value
+                    td= atr.created_at
+                    td= atr.updated_at
+                    td
+                      = link_to [user, atr], class: 'btn btn-default btn-xs btn-outline',
+                          method: :delete,
+                          data: {confirm: "Are you sure?"} do
+                            i.fa.fa-trash
+                      = link_to edit_user_meta_attribute_path(user, atr),
+                        class: 'btn btn-default btn-xs btn-outline' do
+                            i.fa.fa-pencil
+
+        p
+          = link_to t('users.show.meta_attrs_visible_to_all'), new_user_meta_attribute_path(user)+"?visibility=public", class: 'btn btn-sm btn-default'
+        p
+        - if user_signed_in? and current_user.admin?
+          = link_to t('users.show.meta_attrs_visible_to_admins'), new_user_meta_attribute_path(user), class: 'btn btn-sm btn-default'
+
+        - if user_signed_in? and policy(user).admin_or_mine?
+          hr
+          p
+            = link_to t('users.show.edit_profile'), edit_user_path,
+              class: "btn btn-success btn-lg btn-block pull-right"

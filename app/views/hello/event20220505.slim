@@ -1,0 +1,24 @@
+
+/ = render 'landingpage_slider'
+
+/ .container.main
+  .head
+    / h1.text-center = t('.landing_page.main_title')
+    br
+    br
+
+.container
+  .row
+    .col-md-12.text-center.text-lg
+      .embed-box.font-larger
+
+        .jumbotron
+          h1 Hello!
+
+          p Questionnaire atelier:
+          p
+            = link_to 'Acceder au formulaire', 'https://docs.google.com/forms/d/e/1FAIpQLScsg9FfrR71-1kBgsE3_5dJYoIiKeHD5RKtaR424PBjFzZgsA/viewform'
+
+          p
+            span
+              =< link_to 'Visiter le SERVICE PLACE', serviceplace_path, target: '_blank'

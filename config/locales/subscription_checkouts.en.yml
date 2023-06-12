@@ -1,0 +1,8 @@
+en:
+  subscription_checkouts:
+    new:
+      sign_up: Please sign up or sign in in order to check out.  Thanks!
+    success:
+      flash: Your subscription was successful
+    cancel:
+      flash: Purchase cancelled

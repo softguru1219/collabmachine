@@ -1,0 +1,50 @@
+.row.wrapper.wrapper-content.ibox-content.middle-box
+  .col.ibox-content
+    = form_for @user, url: wizard_path, html: { multipart: true, role: 'form' } do |f|
+      .row
+        .col-sm-12
+          = image_tag 'dashboard/banner_defi_montreal.png', class: 'full-width m-b-lg'
+          h2 Bienvenue au Blitz coaching de défi Montréal!
+
+          br
+          br
+
+          .form-group
+            = f.label :communities, "Réseau(x) de soutien aux entrepreneurs *"
+            p.red_defi_montreal Sélectionnez un ou plusieurs éléments de la liste.
+            = f.select(:communities,
+              options_for_select(User::COMMUNITIES.sort, @user.communities),
+              {},
+              { required: true, multiple: true, class: "mdb-select colorful-select dropdown-primary filter-select btn-warning" })
+
+          .form-group
+            = f.label :company, "Company *"
+            p.red_defi_montreal Nom de la société / Raison sociale
+            = f.text_field  :company,
+              required: true,
+              class: 'form-control'
+
+          .form-group.registration-field-icon
+            i.fa.fa-phone
+            = f.phone_field :phone,
+              autofocus: true,
+              class: 'form-control',
+              placeholder: t('users.phone_blitz_placeholder').upf
+
+          .form-group.registration-field-icon
+            i.fa.fa-linkedin
+            = f.url_field :linkedin_url,
+              autofocus: true,
+              class: 'form-control',
+              placeholder: t('users.linkedin_url').upf
+
+          .form-group.registration-field-icon
+            i.fa.fa-globe
+            = f.url_field :web_site_url,
+              autofocus: true,
+              class: 'form-control',
+              placeholder: t('users.web_site_url').upf
+      .row
+        .col-md-12
+          = f.submit t('users.step.next'), class: "btn btn-primary btn-lg pull-right"
+

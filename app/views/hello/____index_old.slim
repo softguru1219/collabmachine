@@ -1,0 +1,74 @@
+#flash
+  - if flash[:notice]
+    .alert.alert-dismissable.home-notice
+      = flash[:notice]
+      button data-dismiss="alert" class="close" type="button" ×
+
+.main style='background: url(#{image_path('landing/slider/nasa.png')}) no-repeat; background-size: cover;'
+  .fill
+    .container.text-left
+      .row.ctas
+        .col-sm-6
+          h2.text-white= t('.serviceplace')
+          h1 == t('.serviceplace_blurb')
+          p
+            = link_to t('.create_your_shop'),
+              serviceplace_path,
+              class: 'btn btn-blue-solid',
+              role: 'button'
+            = link_to t('.explore_serviceplace'),
+              serviceplace_path,
+              class: 'btn btn-blue-outline',
+              role: 'button'
+        .col-sm-6
+          h2.text-white = t('.custom_projects')
+          h1 == t('.best_place_best_talents_hero')
+          p
+            = link_to t('.find_talent'),
+              new_estimate_path,
+              class: 'btn btn-blue-solid',
+              role: 'button'
+            = link_to t('.join_us'),
+              new_user_registration_path,
+              class: 'btn btn-blue-outline',
+              role: 'button'
+
+= render 'shared/product_swiper', swiper_items: @swiper_items
+
+
+section
+  .container
+    .row
+      .col-sm-6.text-center
+        = image_tag "landing/COLLAB-MACHINE-WEB-COLAGE_500k.gif?c=#{rand()}", class: 'img-responsive', alt:"collage"
+      .col-sm-6.text-left
+        p.tagline = t('hello.index.dream_your_team')
+        p.manifesto = t('hello.index.manifesto_main').html_safe
+        p.font-bold.finale = t('hello.index.manifesto_finale').html_safe
+/ .row
+  .col-sm-12
+    p.tagline = t('hello.index.best_place_for_best_talents').html_safe
+
+
+.section.container
+  .row
+    .col-sm-12
+      h2.m-t-lg.m-b-xl = t('hello.index.skills_title')
+      - t('hello.index.skills').each do |skill|
+        span.badge.badge-outline.m-xxs.p-xs = skill
+    .col-sm-4
+    .col-sm-2
+
+section.container.question
+  .row
+    .col-sm-3
+    .col-sm-6
+      h2 = t('.question_for_you')
+      p.question= t('.question')
+      p.invite == t('.question_invite', veezav_url: Figaro.env.veezav_url)
+    .col-sm-3
+
+
+
+
+

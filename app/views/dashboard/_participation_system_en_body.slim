@@ -1,0 +1,56 @@
+.container
+  .row
+    .col-md-6.col-md-offset-3.text-center
+
+      .embed-box
+        h1.center.aligned.icon.header Referral system
+
+        h2 What it is?
+
+        p The intention of this system is to enhance the volume and potential of our beautiful community with people we trust: sharing our core values of co-creation. This will also create turnover in the machine and friendships among our members.
+
+        p It will be possible for you to create an additional income by referring your acquaintances to join us.
+
+        / = link_to "https://share.vidyard.com/watch/V6WLFqu9i9bd9E9q7YBvkp?", target: "_blank" do
+          = image_tag "doc/video-participation-system-referral.png", class: 'full-width'
+
+        h2 How to benefit from it?
+
+        ol
+          li Invite a new client/talent to collaborate on the platform and you will become a <strong>referrer</strong> if he/she accepts the invitation. By accepting your invitation, the guest will be directed to her/his profile and will be able start collaborating.
+
+          li
+            p By being <strong>referrer</strong>, you will benefit from the referral commission:
+
+            p For a period of 24 months after the guest's activation*, you will receive 5% on all their issued invoices.
+
+            p
+              i
+                sup *
+                span activation is recognized when the customer pays the first invoice.
+
+            p This bond of friendship will allow you to follow the progress of their projects and keep a collaborative contact between the two of you. This link is done automatically on the platform at the time of the invitation.
+
+            p This system is linear, which means that you benefit from direct relationship, and, for those engaging in a remunerated project.
+
+          li
+            | Take a few minutes to link your stripe account to receive the commission
+            span =<> link_to t('invoice.index.connect_a_stripe_account').upf, stripe_url, class: 'btn btn-sm btn-outline btn-primary'
+            br
+            br
+          li
+            strong =< link_to "Set up your Stripe account.", payment_gateway_path, class: 'btn btn-sm btn-outline btn-primary'
+
+
+        h2.m-t-xl Different ways to invite:
+        h5 Direct link
+        span =<> link_to "Use this link #{new_user_invitation_path}.", new_user_invitation_path
+
+        h5 Via the dashboard
+        p Use the button on the dashboard.
+        = link_to image_tag('doc/dashboard-invite.png', style: 'width: 100%'), image_url('doc/dashboard-invite.png')
+        p
+
+        h5 From the member menu
+        p Click on the "#{t('shared.top_nav.invite')}" link, which can be found in the member menu (top right).
+

@@ -1,0 +1,87 @@
+#filterrific_results
+  .row
+    .col-md-12
+      h3
+        => t('invoice.index.to_receive')
+        span.tooltip-button
+          button.btn.btn-xs.btn-warning.btn-outline.b-r-xl(
+            type="button"
+            data-toggle="tooltip"
+            data-placement="right"
+            title=""
+            data-original-title = t('invoice.index.invoices_i_created')
+          )
+            i.fa.fa-question
+
+      table#created-invoices-list.table.table-striped.table-bordered.table-hover
+        thead
+          tr
+            th = t('invoice.index.customer_name')
+            th = t('invoice.index.amount')
+            th = t('invoice.index.paid')
+            th
+        tbody
+          - if current_user.stripe_profile && created_invoices.any?
+            - created_invoices.each do |invoice|
+              tr
+                td= user_caption_for_dropdown(invoice.customer)
+                td= number_to_currency invoice.amount + invoice.application_fee
+                td= check(invoice.paid?)
+                - if policy(invoice).update? || policy(invoice).destroy? || policy(invoice).show?
+                  td
+                    .btn-group
+                      - if policy(invoice).show?
+                        = link_to t('invoice.show.show'), invoice_path(invoice),
+                          class: 'btn btn-xs btn-white'
+                      - if policy(invoice).update?
+                        = link_to t('invoice.show.edit'), edit_invoice_path(invoice),
+                          class: 'btn btn-xs btn-white'
+                      - if policy(invoice).destroy?
+                        = link_to t('invoice.show.destroy'), invoice, method: :delete, id: invoice.id,
+                          data: { confirm: 'Are you sure?' },
+                          class: 'btn btn-xs btn-white', title: 'Delete'
+          - elsif !current_user.stripe_profile
+            tr
+              td[colspan='4']
+                span = t('invoice.index.you_have_to')
+                span =<> link_to t('invoice.index.connect_a_stripe_account'), stripe_url
+                span = t('invoice.index.to_be_able_to_receive_payments')
+          - else
+            tr
+              td[colspan='4'] = t('invoice.index.no_results')
+
+  .row
+    .col-md-12
+      h3
+        => t('invoice.index.to_pay')
+        span.tooltip-button
+          button.btn.btn-xs.btn-warning.btn-outline.b-r-xl(
+            type="button"
+            data-toggle="tooltip"
+            data-placement="right"
+            title=""
+            data-original-title = t('invoice.index.invoices_where_i_am_the_customer')
+          )
+            i.fa.fa-question
+
+      table#customer-invoices-list.table.table-striped.table-bordered.table-hover
+        thead
+          tr
+            th = t('invoice.index.sender_name')
+            th = t('invoice.index.amount')
+            th = t('invoice.index.paid')
+            th
+        tbody
+          - if customer_invoices.any?
+            - customer_invoices.each do |invoice|
+              tr
+                td= user_caption_for_dropdown(invoice.user)
+                td= number_to_currency invoice.amount + invoice.application_fee
+                td= check(invoice.paid?)
+                td
+                  .btn-group
+                    = link_to t('invoice.show.show'), invoice_path(invoice),
+                      class: 'btn btn-xs btn-white'
+          - else
+            tr
+              td[colspan='4'] = t('invoice.index.no_results')

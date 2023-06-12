@@ -1,0 +1,8 @@
+fr:
+  serviceplaces:
+    show:
+      add_to_cart: Ajouter au panier
+      remove_from_cart: Enlever
+      buy_now: Acheter maintenant
+      review_title: Commentaires
+      add_review: Écrire un commentaire

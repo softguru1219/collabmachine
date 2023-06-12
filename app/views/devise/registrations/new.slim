@@ -1,0 +1,89 @@
+.registerscreen.ibox-content
+  .container
+    .row
+      .col-md-6
+        = image_tag 'sign_up_amico.svg', class: 'full-width'
+      .col-md-6
+        #flash-container
+          = render partial: 'shared/notices_banner'
+
+        - if ['coach', 'entrepreneur'].include?(params[:registration_type])
+          .row
+            .col-xs-12
+              = image_tag 'dashboard/blitz-collage.png', class: 'full-width m-b-lg'
+              h2 Blitz Coaching > Des rencontres d'affaires exceptionnelles
+          .row.text-center
+            .col-xs-6
+              = image_tag 'dashboard/Logo-Defi-Mtl.png', class: 'w80 m-b-lg'
+            .col-xs-6
+              = render 'layouts/collab_machine_logo', klasses: 'w60 m-t-md'
+          .panel.registration-info
+            h3.text-center Inscription pour le Blitz Coaching du #{I18n.localize(Figaro.env.next_blitz_datetime.to_date, format: :event_date)}.
+            p Confirmation du Profil pour planifier les rencontres express de 30 minutes du prochain blitz coaching.
+
+            p
+              | Si vous avez déjà participé:
+              br =<  link_to "S'inscrire en tant que coach", user_steps_coach_path(:infos), class: 'red_defi_montreal underline font-bold'
+              =<  link_to "S'inscrire en tant qu'entrepreneur", user_steps_entrepreneur_path(:infos), class: 'red_defi_montreal underline font-bold'
+            p
+              | Si le courriel n'est pas disponible,
+              =<  link_to 'connectez-vous', new_user_session_path, class: 'red_defi_montreal underline font-bold'
+
+        - else
+          = render 'layouts/collab_machine_logo', klasses: 'full-height registration-title-images'
+          .panel.registration-info
+            .panel-heading
+              - title = params[:registration_type] == "employee" ? t('users.registration.create_employee') : t('signup')
+              h3.text-center = title
+
+
+        = form_for resource,
+          as: resource_name,
+          url: registration_path(resource_name),
+          html: { class: 'new_user m-t row', role: 'form' }  do |f|
+          = devise_error_messages!
+
+          / h3.col-sm-12 = t('users.registration.basic_info')
+          - if ['coach', 'entrepreneur'].include?(params[:registration_type])
+            = render 'devise/registrations/new_talent', f: f
+
+          p.col-sm-12 = t('users.registration.what_email')
+          .form-group.col-sm-12
+            = f.label :email, t('users.email').upf + " *"
+            = f.email_field :email,
+              autofocus: true,
+              class: 'form-control',
+              placeholder: "ex: john.doe@example.com"
+
+          - if params[:registration_type] == 'talent' || params[:registration_type] == 'employee'
+            = render 'devise/registrations/new_talent', f: f
+          - elsif params[:registration_type] == 'client'
+            = render 'devise/registrations/new_client', f: f
+
+          - unless params[:registration_type] == 'employee'
+            p.col-sm-12 = t('users.registration.choose_password')
+            .form-group.col-sm-6
+              = f.password_field :password,
+                autocomplete: "off",
+                class: 'form-control',
+                placeholder: t('users.password').upf
+              - if @minimum_password_length
+                em.op40
+                  | (#{@minimum_password_length} characters minimum)
+
+            .form-group.col-sm-6
+              = f.password_field :password_confirmation,
+                autocomplete: "off",
+                class: 'form-control',
+                placeholder: t('users.password_confirm').upf
+
+          .form-group.col-sm-12.text-right
+            = recaptcha_tags
+
+          .form-group.col-sm-12.actions
+            = hidden_field_tag 'registration_type', params[:registration_type]
+            = f.submit t('users.submit').upf,
+                data: { disable_with: false },
+                class: 'btn btn-primary block full-width m-b'
+
+          .text-center= render "devise/shared/links"

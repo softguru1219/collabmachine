@@ -1,0 +1,41 @@
+.ibox
+  .ibox-content
+    span.icon-link data-target="#myModalSakeboard" data-toggle="modal" type="button"
+      = image_tag 'skateboard-for-hope-logo.jpg'
+
+    span.clearfix =< t('dashboard.index.invite_skateboard_for_hope').html_safe
+
+    br
+      span Contact:
+      =< avatar_link_to_user('betty', {class: 'ui image mini-avatar right spaced'})
+      =< link_to_user('betty')
+
+    a(
+      href= t('dashboard.index.website_url_skateboard_for_hope')
+      title= t('dashboard.index.website_url_skateboard_for_hope')
+      target="_blank"
+      )
+      i.fa.fa-globe
+    span &nbsp;
+    a(
+      href= t('dashboard.index.facebook_url_skateboard_for_hope')
+      title= t('dashboard.index.facebook_url_skateboard_for_hope')
+      target="_blank"
+      )
+      i.fa.fa-facebook-f
+    span &nbsp;
+    a(
+      href= t('dashboard.index.instagram_url_skateboard_for_hope')
+      title= t('dashboard.index.instagram_url_skateboard_for_hope')
+      target="_blank"
+      )
+      i.fa.fa-instagram
+    span &nbsp;
+    a(
+      href= t('dashboard.index.twitter_url_skateboard_for_hope')
+      title= t('dashboard.index.twitter_url_skateboard_for_hope')
+      target="_blank"
+      )
+      i.fa.fa-twitter
+
+

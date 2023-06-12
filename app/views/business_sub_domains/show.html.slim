@@ -1,0 +1,26 @@
+p#notice = notice
+
+p
+  strong Name fr:
+  = @business_sub_domain.name_fr
+
+p
+  strong Name en:
+  = @business_sub_domain.name_en
+
+p
+  strong Display en:
+  = @business_sub_domain.display_en
+
+p
+  strong Display fr:
+  = @business_sub_domain.display_fr
+
+p
+  strong Business domain:
+  = @business_sub_domain.business_domain.name
+
+/=> link_to "Edit", edit_business_sub_domain_path(@business_sub_domain)
+'|
+/=< link_to "Back", business_sub_domains_path
+=< link_to "new", business_domain_business_sub_domain_business_categories_path(@business_sub_domain.business_domain_id, @business_sub_domain)

@@ -1,0 +1,113 @@
+
+section
+  .container
+    .d-flex.justify-space-between.align-items-center
+      span.welcome-title = t("hello.index.welcome")
+      .relative-position
+        input.search-field type="text" placeholder=t("shared.search")
+        span.home-search-btn.fa.fa-search
+
+    .row
+      .col-sm-12
+        .section-title = t("specialty.specialties")
+        .row.mt-5
+          .col-sm-4
+            = image_tag 'icons/specialties_icon.png', srcset: { "icons/specialties_icon@2x.png": "2x" },  class: 'img-responsive', alt: ''
+          .col-sm-8
+            - @specialties.in_groups_of(3, false).each do |group|
+              .row.mb-3.font-14
+                - group.each do |specialty|
+                  .col-xs-4.column-truncate
+                    a.td-sector-name href="results/?section=specialties&id=#{specialty.id}" data-placement="bottom" data-toggle="tooltip" = specialty.title
+
+section
+  .container
+    .row
+      .col-sm-12
+        div.section-title = "20 #{t("sectors.industry_sectors")}"
+        .row.mt-5
+          .col-sm-4
+            = image_tag 'icons/industry_icon.png', srcset: { "icons/industry_icon@2x.png": "2x" },  class: 'img-responsive', alt: ''
+          .col-sm-8
+            - @sectors.each do |sector|
+              .col-xs-6.column-truncate.mb-3
+                a.td-sector-name href="results/?section=sectors&id=#{sector.id}" data-placement="bottom" data-toggle="tooltip" = sector.name
+
+section
+  .container
+    .row
+      .col-sm-5
+        div.section-title Mission & Vision
+        .row.mt-5
+          .col-sm-4
+            = image_tag 'icons/mission_icon.png', srcset: { "icons/mission_icon@2x.png": "2x" },  class: 'img-responsive', alt: ''
+          .col-sm-8
+            - @missions.in_groups_of(3, false).each do |group|
+              .row.mb-3.font-14
+                - group.each do |mission|
+                  .col-xs-4.column-truncate
+                    a.td-sector-name href=mission_path(mission) data-placement="bottom" data-toggle="tooltip" = mission.title
+      
+      .col-sm-2
+
+      .col-sm-5
+        div.section-title = t("specialist.specialists_now_available")
+        .row.mt-5
+          .col-sm-4
+            = image_tag 'icons/specialists_icon.png', srcset: { "icons/specialists_icon@2x.png": "2x" },  class: 'img-responsive', alt: ''
+          .col-sm-8
+            - @limit_specialties.in_groups_of(3, false).each do |group|
+              .row.mb-3.font-14
+                - group.each do |specialty|
+                  .col-xs-4.column-truncate
+                    a.td-sector-name href="results/?section=specialties&id=#{specialty.id}" data-placement="bottom" data-toggle="tooltip" = specialty.title
+            .row.mb-3
+              .col-xs-6.column-truncate
+                a.td-sector-name href="https://www.facebook.com" Voir sur Facebook
+              .col-xs-6.column-truncate
+                a.td-sector-name href="https://www.linkedin.com" Voir sur LinkedIn
+      
+
+      .col-sm-5.d-none
+        div.section-title = t("project.projects_list")
+        .row.mt-5
+          .col-sm-4
+            = image_tag 'icons/projects_icon.png', srcset: { "icons/projects_icon@2x.png": "2x" },  class: 'img-responsive', alt: ''
+          .col-sm-8
+            - @projects.in_groups_of(3, false).each do |group|
+              .row.mb-3.font-14
+                - group.each do |project|
+                  .col-xs-4.column-truncate
+                    a.td-sector-name href=project_path(project) data-placement="bottom" data-toggle="tooltip" = project.title
+
+section
+  .container
+    .row
+      .col-sm-5
+        div.section-title = t("shared.technologies").capitalize
+        .row.mt-5
+          .col-sm-4
+            = image_tag 'icons/technology_icon.png', srcset: { "icons/technology_icon@2x.png": "2x" },  class: 'img-responsive', alt: ''
+          .col-sm-8
+            - @technologies.in_groups_of(3, false).each do |group|
+              .row.mb-3.font-14
+                - group.each do |technology|
+                  .col-xs-4.column-truncate
+                    a.td-sector-name href="#" data-placement="bottom" data-toggle="tooltip" = technology
+      
+      .col-sm-2
+
+      .col-sm-5
+        div.section-title = t("shared.useful_links")
+        .row.mt-5
+          .col-sm-4
+            = image_tag 'icons/useful_links_icon.png', srcset: { "icons/useful_links_icon@2x.png": "2x" },  class: 'img-responsive', alt: ''
+          .col-sm-8
+      
+section.d-none
+  .container
+    .row
+      .col-sm-5
+        div.section-title = t("speciality.offer_a_speciality")
+        div.mt-5
+          a.propose-speciality-btn href="#" = t("speciality.propose_a_speciality")

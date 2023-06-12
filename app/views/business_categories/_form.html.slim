@@ -1,0 +1,51 @@
+= form_for [@business_sub_domain.business_domain,@business_sub_domain, @business_category] do |f|
+  - if @business_category.errors.any?
+    #error_explanation
+      h2 = "#{pluralize(@business_category.errors.count, "error")} prohibited this business_category from being saved:"
+      ul
+        - @business_category.errors.full_messages.each do |message|
+          li = message
+
+  .field
+    .row
+      - locale_field(@business_category, :name, :fr) do |attribute, label|
+        div class="#{attribute} form-group-test"
+          = f.label attribute, label
+          br
+          = f.text_field attribute, placeholder: label, class: "form-control-test"
+    .row
+      - locale_field(@business_category, :name, :en) do |attribute, label|
+        div class="#{attribute} form-group-test"
+          = f.label attribute, label
+          br
+          = f.text_field attribute, placeholder: label, class: "form-control-test"
+  .field
+    .row
+      - locale_field(@business_category, :abr, :fr) do |attribute, label|
+        div class="#{attribute} form-group-test"
+          = f.label attribute, label
+          br
+          = f.text_field attribute, placeholder: label, class: "form-control-test"
+    .row
+      - locale_field(@business_category, :abr, :en) do |attribute, label|
+        div class="#{attribute} form-group-test"
+          = f.label attribute, label
+          br
+          = f.text_field attribute, placeholder: label, class: "form-control-test"
+  .field
+    .row
+      - locale_field(@business_category, :display, :fr) do |attribute, label|
+        div class="#{attribute} form-group-test"
+          = f.label attribute, label
+          br
+          = f.text_field attribute, placeholder: label, class: "form-control-test"
+    .row
+      - locale_field(@business_category, :display, :en) do |attribute, label|
+        div class="#{attribute} form-group-test"
+          = f.label attribute, label
+          br
+          = f.text_field attribute, placeholder: label, class: "form-control-test"
+  .field
+    = f.label :business_sub_domain_id
+    = f.text_field :business_sub_domain_id
+  .actions = f.submit

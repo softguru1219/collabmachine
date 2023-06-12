@@ -1,0 +1,72 @@
+section#partners.partners
+  .container
+    .row.m-b-lg
+      .col-lg-12.text-center
+        h1 = t('hello.partners.main_title')
+        p = t('hello.partners.sub_p')
+        .navy-line
+
+    .row
+      .col-md-12
+
+        section
+          .row
+            .item.col-md-4
+              = link_to 'http://upsidefoundation.ca/', target: '_blank', class: 'partner-link' do
+                = image_tag 'landing/upside-logo.jpg', class: 'partner-icon'
+              p = t('home.partners.upside_desc')
+
+            .item.col-md-4
+              = link_to t('home.partners.bec_url'), target: '_blank', class: 'partner-link' do
+                = image_tag 'bec-logo.png', class: 'partner-icon w90'
+              p = t('home.partners.bec_desc')
+
+            .item.col-md-4
+              = link_to t('home.partners.le_wagon_url'), target: '_blank', class: 'partner-link' do
+                = image_tag 'landing/le-wagon.png', class: 'partner-icon'
+              p = t('home.partners.le_wagon')
+
+          .row
+            .item.col-md-4
+              = link_to "https://www.futurpreneur.ca/#{I18n.locale}/", target: '_blank', class: 'partner-link' do
+                = image_tag 'landing/futurpreneur-logo.png', class: 'partner-icon'
+              p = t('home.partners.futurpreneur_desc')
+
+            .item.col-md-4
+              = link_to "http://siliconisland.ai/", target: '_blank', class: 'partner-link' do
+                = image_tag 'landing/silicon-island-logo.jpg', class: 'partner-icon'
+              p = t('home.partners.siliconisland_desc')
+
+            .item.col-md-4
+              = link_to "https://www.thinklikeamachine.com/", target: "_blank", class: 'partner-link' do
+                = image_tag "Think-like-a-machine.webp", class: 'partner-icon'
+              p = t('home.partners.think_like_a_machine_desc').html_safe
+
+            / .item.col-md-4
+            /   - cur_url = "http://amelio.co/#{params[:locale] == 'en' ? '': params[:locale]}"
+            /   = link_to cur_url, target: '_blank', class: 'partner-link' do
+            /     = image_tag 'landing/Amelio300.png', class: 'partner-icon'
+            /   p = t('home.partners.amelio_desc')
+
+          .row
+            .item.col-md-4
+              = link_to 'https://montrealcowork.com', target: '_blank', class: 'partner-link' do
+                = image_tag 'landing/montreal-cowork.png', class: 'partner-icon'
+              p = t('home.partners.mtlcowork_desc')
+
+            .item.col-md-4
+                = link_to "https://montreal.plusecommerce.co/", target: "_blank", class: 'partner-link' do
+                  = image_tag "landing/HQ-Logo-mtl-ecommerce.png", class: 'partner-icon'
+                p = t('home.partners.mtl_ecommerce_desc').html_safe
+
+            .item.col-md-4
+                = link_to "https://innovx.org", target: "_blank", class: 'partner-link' do
+                  = image_tag "landing/InnovX_Logo_White_bkgr_large.png", class: 'partner-icon'
+                p = t('home.partners.innovx_desc').html_safe
+
+          .row.
+            .item.col-md-4
+                = link_to "https://defimtl.com/", target: "_blank", class: 'partner-link' do
+                  = image_tag "landing/defi-mtl-logo.png", class: 'partner-icon'
+                p = t('home.partners.defi_mtl').html_safe
+

@@ -1,0 +1,99 @@
+#finances.cm-tab-pane[v-if="tab === 'finances'"]
+  .panel
+    .row
+      h3.col-md-9.col-xs-12 =  t('users.show.taxes_title')
+
+      button.col-md-3.col-xs-12.btn.btn-primary.btn-sm data-target="#tax_form_collapse" data-toggle="collapse" type="button"
+        span = t('users.show.add_tax')
+
+      #tax_form_collapse.collapse
+        .card
+          = form_for(tax) do |f|
+              .form-group.col-md-12
+                = f.label :name, class: 'control-label'
+                = f.text_field :name, class: 'form-control', required: true
+                span.help-block
+              .form-group.col-md-6
+                = f.label :rate, 'Rate in percent', class: 'control-label'
+                = f.text_field :rate, class: 'form-control', type: 'number', min: "0", step: "0.001", required: true
+                span.help-block
+              .form-group.col-md-6
+                = f.label :number, 'Number (optional)', class: 'control-label'
+                = f.text_field :number, class: 'form-control', min: "0"
+                span.help-block
+              .col-md-12
+                = f.submit t('shared.confirm'), class: 'btn btn-primary'
+
+      - if taxes.any?
+        table#taxes_table.ui.very.basic.table.table-striped
+          thead
+            tr
+              th = t('invoice.taxes.name')
+              th = t('invoice.taxes.rate')
+              th = t('invoice.taxes.number')
+              th
+          tbody
+            - taxes.each do |tax|
+              tr
+                td
+                  h3 = tax.name
+                td = tax.rate
+                td = tax.number
+                td
+                  .btn-group.pull-right
+                    = link_to t('shared.delete_title'),
+                      tax,
+                      method: :delete,
+                      class: 'btn btn-xs btn-white'
+      - else
+        h4.col-md-12.text-warning = t('users.show.no_tax')
+
+
+
+    .row
+      h3.col-md-10.col-xs-12 =  t('users.show.financial_infos_title')
+      p.col-md-10.col-xs-12 = t('users.show.financial_infos_desc')
+
+      button.col-md-3.col-xs-12.pull-right.btn.btn-primary.btn-sm data-target="#info_form_collapse" data-toggle="collapse" type="button"
+        span = t('users.show.add_infos')
+
+      #info_form_collapse.collapse
+        .card
+          = form_for(info) do |f|
+              .form-group.col-md-4
+                = f.label :institution, class: 'control-label'
+                = f.text_field :institution, class: 'form-control', required: true
+                span.help-block
+              .form-group.col-md-4
+                = f.label :transit, class: 'control-label'
+                = f.text_field :transit, class: 'form-control', required: true
+                span.help-block
+              .form-group.col-md-4
+                = f.label :account, class: 'control-label'
+                = f.text_field :account, class: 'form-control', required: true
+                span.help-block
+              .col-md-12
+                = f.submit t('shared.confirm'), class: 'btn btn-primary'
+      - if infos.any?
+        table#taxes_table.ui.very.basic.table.table-striped
+          thead
+            tr
+              th = t('users.show.institution')
+              th = t('users.show.transit')
+              th = t('users.show.account')
+              th
+          tbody
+            - infos.each do |info|
+              tr
+                td
+                  h3 = info.institution
+                td = info.transit
+                td = info.account
+                td
+                  .btn-group.pull-right
+                    = link_to t('shared.delete_title'),
+                      info,
+                      method: :delete,
+                      class: 'btn btn-xs btn-white'
+      - else
+        h4.col-md-12.text-warning = t('users.show.no_financial_info')

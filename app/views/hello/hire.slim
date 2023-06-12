@@ -1,0 +1,59 @@
+.container.hire
+  .row
+    .col-md-12
+
+      section
+        .container
+          .row
+            .col-lg-6
+              h1.description
+                br
+                br
+                br
+                = t('hello.description.first').html_safe
+              h1.description
+                br
+                br
+                = t('hello.description.second').html_safe
+                br
+                br
+
+            .col-lg-6
+              .header-back style="background: url(#{image_path('landing/biz.jpg')}) 50% no-repeat; background-size: contain"
+
+      section
+        .container
+          .row
+            .col-lg-6
+              h1.m-t-none = t 'hello.hire.how.title'
+            .col-lg-6
+              ul.offer.list-unstyled
+                li =< link_to t('hello.hire.create_project_here'), new_estimate_path, class: 'font-bold', role: 'button'
+                li = t 'hello.hire.execute'
+                li = t 'hello.hire.loop'
+
+      section
+        .container
+          .row
+            .col-lg-6
+              h1.m-t-none = t 'hello.hire.benefits.title'
+            .col-lg-6
+              ul.offer.list-unstyled.talent.square
+                - t('hello.hire.benefits')[:rows].each do |row|
+                  li = row
+
+      section
+        .container
+          .row
+            .col-lg-12.text-center.well.final
+              h1 = t 'hello.hire.next.title'
+              p = t 'hello.hire.next.sub'
+              ul.offer.list-unstyled
+
+                p
+                  br
+                  = link_to t('hello.hire.create_project_here'),
+                    new_estimate_path,
+                    class: 'btn btn-primary',
+                    role: 'button'
+

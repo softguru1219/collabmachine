@@ -1,0 +1,112 @@
+fr:
+  notifications:
+    insurance_quote:
+      creation:
+        admin:
+          subject: "Nouvelle soumission demandé: %{name}"
+    invoices:
+      not_connected_to_stripe: "Vous devez vous connecter à un compte stripe afin de faire cette action"
+    projects:
+      creation:
+        admin:
+          subject: "Nouveau projet créé: %{title}"
+        user:
+          subject: "Nouveau projet créé: %{title}"
+      for_review:
+        admin:
+          subject: "Nouveau project pour révision: %{title}"
+        user:
+          subject: "Votre projet a été soumis pour révision: %{title}"
+      reviewed:
+        admin:
+          subject: "Nouveau projet, révisé: %{title}"
+        user:
+          subject: "Votre projet a été révisé: (projet: %{title})"
+      new_open_project:
+        admin:
+          subject: "Projet %{title} est maintenant ouvert aux candidatures."
+        user:
+          subject: "Projet %{title} est maintenant ouvert aux candidatures."
+      new_quick_estimate_demand:
+        admin:
+          subject: "Nouvelle idée/projet déposé: %{title}"
+        user:
+          subject: "Nouvelle idée/projet déposé: %{title}"
+      active:
+        admin:
+          subject: "Projet %{title} archivé."
+        user:
+          subject: "Projet %{title} archivé."
+    missions:
+      submit:
+        admin:
+          subject: "Nouvelle mission %{title} proposée! (projet: %{project_title})"
+        user:
+          subject: "Vous avez soumis la mission %{title} (projet: %{project_title})"
+      review:
+        admin:
+          subject: "Mission %{title} 'révisée'. (projet: %{project_title})"
+        user:
+          subject: "Mission %{title} 'révisée'. (projet: %{project_title})"
+      invite_candidates:
+        admin:
+          subject: "Mission %{title} 'ouverte aux candidatures'. (projet: %{project_title})"
+        user:
+          subject: "Mission %{title} 'ouverte aux candidatures'. (projet: %{project_title})"
+      start:
+        admin:
+          subject: "Mission %{title} 'démarrée'. (projet: %{project_title})"
+        user:
+          subject: "Mission %{title} 'démarrée'. (projet: %{project_title})"
+      finish:
+        admin:
+          subject: "Mission %{title} 'terminée'. (projet: %{project_title})"
+        user:
+          subject: "Mission %{title} 'terminée'. (projet: %{project_title})"
+      close:
+        admin:
+          subject: "Mission: %{title} 'fermée' par %{applicant_first_name} %{applicant_last_name}"
+        user:
+          subject: "Mission: %{title} 'fermée' par %{applicant_first_name} %{applicant_last_name}"
+      archive:
+        admin:
+          subject: "Mission: %{title} 'archivée' par %{applicant_first_name} %{applicant_last_name}"
+        user:
+          subject: "Mission: %{title} 'archivée' par %{applicant_first_name} %{applicant_last_name}"
+      assign:
+        admin:
+          subject: "Mission: %{title} 'assignée' à %{applicant_first_name} %{applicant_last_name}"
+        user:
+          subject: "Mission: %{title} 'assignée' à %{applicant_first_name} %{applicant_last_name}"
+    applicants:
+      creation:
+        admin:
+          subject: "%{first_name} %{last_name} a appliqué sur la mission: %{title}"
+        user:
+          subject: "%{first_name} %{last_name} a appliqué sur la mission: %{title}"
+      removed:
+        admin:
+          subject: "Candidat %{first_name} %{last_name} retiré de la mission: %{title}"
+        user:
+          subject: "Candidat %{first_name} %{last_name} retiré de la mission: %{title}"
+      assigned:
+        admin:
+          subject: "Vous avez assigné la mission %{title} à %{first_name} %{last_name}"
+        user:
+          subject: "Mission: %{title} 'assignée' à %{first_name} %{last_name}."
+      reopen:
+        admin:
+          subject: "Mission: %{title} 'réouvert' par %{first_name} %{last_name}"
+        user:
+          subject: "Mission: %{title} 'réouvert' par %{first_name} %{last_name}"
+    products:
+      create:
+        admin:
+          subject: "Produit '%{title}' creé par %{creator_first_name} %{creator_last_name}"
+      publish:
+        admin:
+          subject: "Produit '%{title}' publié"
+    orders:
+      created:
+        admin:
+          subject: "%{buyer_name} a fait une commende pour %{amount}"

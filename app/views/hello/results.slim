@@ -1,0 +1,39 @@
+.container.well
+  .row.d-flex.align-items-center
+    .col-md-10
+      h1= "#{t('shared.top_nav.results').capitalize} #{@title}"
+    .col-md-2
+      = image_tag 'icons/svgs/storyset.svg',  class: 'full-width', alt: ''
+  .row
+    .col-md-12
+      #filterrific_results.row.clear
+        .ibox
+          .ibox-content
+            table.table.table-striped.mt-5.results-table
+              thead
+                tr.specialties-th
+                  th = t('shared.domain').capitalize
+                  th = t('shared.business_category')
+                  th = t("shared.specialty_title").capitalize
+                  th = t("shared.spoken_languages").capitalize
+                  th = "#{t("shared.sector").capitalize} (#{t("shared.years_of_exp").capitalize})" 
+                  th
+              
+              tbody
+                - @results.each_with_index do | specialty, index |
+                  tr
+                    td = specialty.business_sub_domain.name
+                    td = specialty.business_category.name
+                    td = specialty.title
+                    td
+                      - specialty.user.spoken_languages.each do |sl|
+                        = t("locales.#{sl.language}")
+                        br
+                    td
+                      - specialty.specialty_lines.each do |l|
+                        = "#{Sector.find(l.sector_id).name} (#{l.experience} #{t("g.years")})"
+                        br
+                    td
+                      = link_to show_results_path(specialty), class: "btn btn-xs btn-primary btn-outline", title:t("shared.details") do
+                        => t("shared.details")
+                        i.fa.fa-arrow-right.d-inline

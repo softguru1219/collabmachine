@@ -1,0 +1,20 @@
+.row.wrapper.wrapper-content.ibox-content.middle-box
+  .col.ibox-content
+
+    = form_for @user, url: wizard_path, html: { multipart: true, role: 'form' } do |f|
+      .col-xs-12
+        = image_tag 'dashboard/banner_defi_montreal.png', class: 'full-width m-b-lg'
+        h2 Utilisez ce champs pour spécifier les moments qui conviennent.
+
+        .form-group
+          = f.label :blitz_availability, "Disponibilités *"
+          p Plages de disponibilité pour les rencontres express de 30 minutes *
+          p.red_defi_montreal Veuillez cocher TOUTES les plages horaires pour lesquelles vous êtes disponible pour des rencontres avec des entrepreneurs et dirigeants d'entreprises - IMPORTANT de vous présenter en vidéoconférence au moins DIX MINUTES avant le début de votre première rencontre
+          = f.select(:blitz_availability,
+            options_for_select(User::BLITZ_AVAILABILITY, @user.blitz_availability),
+            {},
+            { multiple: true, class: "filter-select" })
+
+        .row
+          .col-md-12
+            = f.submit t('users.step.next'), class: "btn btn-primary btn-lg pull-right"

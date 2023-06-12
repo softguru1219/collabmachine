@@ -1,0 +1,152 @@
+
+.row
+  .col-md-4
+
+    .ibox
+      .ibox-content
+
+        ul.list-group.no-padding
+          li.list-group-item.no-borders
+            =< link_to t('dashboard.index.actions.update_profile'),
+                edit_user_path(current_user)
+
+          - if policy(User).send_invitation?
+            li.list-group-item.no-borders
+              =< link_to t('dashboard.index.actions.send_invites'),
+                  new_user_invitation_path
+
+          - if policy(Project).create?
+            li.list-group-item.no-borders
+              =< link_to t('dashboard.index.actions.create_project'),
+                  new_project_path(user_id: current_user.id)
+
+          li.list-group-item.no-borders
+            =< link_to t('dashboard.index.actions.feedback'),
+                new_user_message_path
+
+          - if policy(Product).create?
+            li.list-group-item.no-borders
+              =< link_to t('dashboard.index.actions.create_product'),
+                  new_product_path
+
+          - if current_user.admin?
+            li.list-group-item.no-borders
+              =< link_to 'Metrics',
+                { controller: :dashboard, action: :metrics },
+                { class: '',title: "Metrics" }
+
+            / li.list-group-item.no-borders
+            /   =< link_to 'Slack user list',
+            /     { controller: :dashboard, action: :slack_users },
+            /     { class: '',title: "Slack Users" }
+
+    / .ibox
+    /   .ibox-content
+    /     h3 = t 'dashboard.index.about'
+    /     = render 'hello/youtubevideo'
+    /     => avatar_link_to_user('vimagefactory', {class: 'mini-avatar right spaced'})
+    /     =< link_to_user('vimagefactory')
+
+    / .ibox
+    /   .ibox-content
+    /       h3 = t('dashboard.index.information').upf
+    /       p = link_to t('dashboard.index.referral_system'),  participation_system_path
+    /       p = link_to t('dashboard.index.proposal_system'),  '#', class: 'disabled'
+
+    .ibox
+      .ibox-content
+        h3 = t('dashboard.index.partners_tools')
+
+        = render partial: 'dashboard/blitz_coaching_box' if !blitz_coaching_active?
+        = render partial: 'dashboard/partner_bidsettle'
+
+        .well
+          = image_tag 'logo-La-Turquoise.jpg', width: "100%", class: 'm-b-lg'
+          p  = t('insurance_quote.turquoise_description').html_safe
+          p = t('insurance_quote.turquoise_contact')
+          = link_to t('insurance_quote.form.invite'), new_insurance_quote_path, class: 'btn btn-group-justified btn-warning'
+
+        = render partial: 'dashboard/partner_cowork'
+        = render partial: 'dashboard/partner_bec'
+        = render partial: 'dashboard/partner_skateboard_for_hope'
+        = render partial: 'dashboard/partner_ecuador'
+        .clearfix
+
+  .col-md-8
+    = render partial: 'dashboard/blitz_coaching_box' if blitz_coaching_active?
+
+    = render 'hello/landingpage_slider'
+    .ibox
+      .ibox-content.text-center
+        h1 == t('hello.your_serviceplace.landing_page.at_collab_machine')
+        h2 == t('hello.your_serviceplace.landing_page.invite')
+
+        - t('hello.your_serviceplace.landing_page.bullets').each do |item|
+          p = item
+
+        .text-center.m-lg
+          p = t('hello.your_serviceplace.landing_page.talkabout')
+          p
+            =link_to t('hello.your_serviceplace.landing_page.discover_serviceplace'), your_serviceplace_path(locale: I18n.locale), target: '_blank', class: 'btn btn-primary btn-lg', role: 'button'
+
+
+    / = render partial: 'dashboard/mastermind_point_de_bascule_box'
+
+    = render 'users/referral_list_dashboard',
+        items: @referrals,
+        title: t('dashboard.index.my_guests'),
+        box_id: 'myReferrals',
+        fallback_message: t('dashboard.index.nothing_in_list'),
+        fallback_cta_caption: policy(Project).create? ? t('dashboard.index.actions.send_invites') : nil,
+        fallback_cta_url: policy(Project).create? ? new_user_invitation_path : nil,
+        more_link_caption: @referrals_has_more ? 'See more' : nil,
+        more_link_url: @referrals_has_more ? new_user_invitation_path : nil
+
+    - if @by_me
+      = render 'projects/project_list_dashboard',
+          projects: @by_me,
+          title: t('dashboard.index.my_projects'),
+          box_id: 'myProjects',
+          fallback_message: t('dashboard.index.nothing_in_list'),
+          fallback_cta_caption: policy(Project).create? ? t('dashboard.index.create_project') : nil,
+          fallback_cta_url: policy(Project).create? ? new_project_path(user_id: current_user.id) : nil,
+          more_link_caption: @by_me_has_more ? 'See more' : nil,
+          more_link_url: @by_me_has_more ? missions_path(user_id: current_user.id) : nil
+
+    - if @to_me
+      = render 'projects/project_list_dashboard',
+          projects: @to_me,
+          title: t('dashboard.index.assigned_to_me'),
+          box_id: 'projectsTome',
+          fallback_message: t('dashboard.index.nothing_in_list'),
+          fallback_cta_caption: t('dashboard.index.browse_open_for_candidates'),
+          fallback_cta_url: missions_path + "?filterrific[by_state]=open_for_candidates",
+          more_link_caption: nil,
+          more_link_url: nil
+          /# fallback_cta_url: missions_path('filterrific%5Bby_state%5D': 'open_for_candidates'),
+          / # todo set
+          / more_link_caption: @to_me_has_more ? 'See more' : nil,
+          / more_link_url: @to_me_has_more ? missions_path('filterrific%5Bby_state%5D': '', 'filterrific%5Bby_assignee%5D': current_user) : nil
+
+    - if @suggested_to_me.any?
+      = render 'missions/mission_list_dashboard',
+          missions: @suggested_to_me,
+          title: t('dashboard.index.suggested_to_me'),
+          box_id: 'missionsSuggestedToMe'
+
+    - if @opportunities
+      = render 'projects/project_list_dashboard',
+          projects: @opportunities,
+          visible_states: %w(open_for_candidates),
+          title: t('dashboard.index.opportunities'),
+          box_id: 'openProjects',
+          fallback_message: t('dashboard.index.nothing_in_list'),
+          fallback_cta_caption: nil,
+          fallback_cta_url: nil,
+          more_link_caption: nil,
+          more_link_url: nil
+
+          / # todo set
+          / more_link_caption: @opportunities_has_more ? 'See more' : nil,
+          / more_link_url: @opportunities_has_more ? 'url' : nil
+

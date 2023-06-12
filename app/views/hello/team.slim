@@ -1,0 +1,253 @@
+section#team.team
+  .container
+    .row.m-b-lg
+      .col-lg-12.text-center
+        h1 = t('hello.team.main_title')
+        p = t('hello.team.sub_p')
+        .navy-line
+        h1.m-t-lg.m-b-xl = t('hello.team.board')
+
+    .row.m-b-lg
+      .col-sm-4
+        .team-member
+          = image_tag 'landing/Marc-Alexandre_Poirier_bw.jpg', class: 'img-responsive img-circle img-small', alt: ''
+          h4
+            span Marc-Alexandre
+            |  Poirier
+          p = t('hello.team.mapoirier.title')
+          ul.list-inline.social-icon
+            li
+              = link_to 'https://www.linkedin.com/in/mapoirier/',
+                  title: 'LinkedIn',
+                  target: '_blank'
+                  i.fa.fa-linkedin
+      .col-sm-4
+        .team-member
+          = image_tag 'landing/daniel_sincu.jpg', class: 'img-responsive img-circle img-small', alt: ''
+          h4
+            span Daniel
+            |  Sincu
+          p = t('hello.team.member_1.title')
+          ul.list-inline.social-icon
+            li
+              = link_to 'https://twitter.com/danielsincu',
+                  title: 'Twitter',
+                  target: '_blank'
+                  i.fa.fa-twitter
+            li
+              = link_to 'https://ca.linkedin.com/in/daniel-sincu-98046a1/fr',
+                  title: 'LinkedIn',
+                  target: '_blank'
+                  i.fa.fa-linkedin
+
+      .col-sm-4
+        .team-member
+          = image_tag 'landing/Alain_Marchildon_bw.jpg', class: 'img-responsive img-circle img-small', alt: ''
+          h4
+            span Alain
+            |  Marchildon
+          p = t('hello.team.alain_marchildon.title')
+          ul.list-inline.social-icon
+            li
+              = link_to 'https://twitter.com/Marchildon',
+                  title: 'Twitter',
+                  target: '_blank'
+                  i.fa.fa-twitter
+            li
+              = link_to 'https://www.linkedin.com/in/marchildon/',
+                  title: 'LinkedIn',
+                  target: '_blank'
+                  i.fa.fa-linkedin
+    .row.m-b-lg
+      .col-sm-4
+        .team-member
+          = image_tag 'landing/david_frechette_bw.jpg', class: 'img-responsive img-circle img-small', alt: ''
+          h4
+            span David
+            |  Fréchette
+          p = t('hello.team.david_frechette.title')
+          ul.list-inline.social-icon
+            li
+              = link_to 'https://twitter.com/davidfrechette',
+                  title: 'Twitter',
+                  target: '_blank'
+                  i.fa.fa-twitter
+            li
+              = link_to 'https://www.linkedin.com/in/davidfrechette/',
+                  title: 'LinkedIn',
+                  target: '_blank'
+                  i.fa.fa-linkedin
+
+      .col-sm-4
+        .team-member
+          = image_tag 'landing/Daniel_Engelberg_bw.jpg', class: 'img-responsive img-circle img-small', alt: ''
+          h4
+            span Daniel
+            |  Engelberg
+          p = t('hello.team.daniel_engelberg.title')
+          ul.list-inline.social-icon
+            li
+              = link_to 'https://www.linkedin.com/in/daniel-engelberg/',
+                  title: 'LinkedIn',
+                  target: '_blank'
+                  i.fa.fa-linkedin
+
+      .col-sm-4
+        / double
+        = render 'hello/christian_beaubien'
+
+    .row.m-b-lg
+      .col-sm-4.col-sm-push-2
+        .team-member
+          = image_tag 'landing/Vikas_Narula_bw.jpg', class: 'img-responsive img-circle img-small', alt: ''
+          h4
+            span Vikas
+            |  Narula
+          p = t('hello.team.vikas_narula.title')
+          ul.list-inline.social-icon
+            li
+              = link_to 'https://www.linkedin.com/in/vnarula/',
+                  title: 'LinkedIn',
+                  target: '_blank'
+                  i.fa.fa-linkedin
+            li
+              = link_to 'http://www.keyhubs.com/',
+                  title: 'Keyhubs website',
+                  target: '_blank'
+                  i.fa.fa-globe
+      .col-sm-4.col-sm-push-2
+        .team-member
+          = image_tag 'landing/Pierre_Ravary_bw.jpg', class: 'img-responsive img-circle img-small', alt: ''
+          h4
+            span Pierre
+            |  Ravary
+          p = t('hello.team.pierre_ravary.title')
+          ul.list-inline.social-icon
+            li
+              = link_to 'https://www.linkedin.com/in/pierre-ravary-65131910/',
+                  title: 'LinkedIn',
+                  target: '_blank'
+                  i.fa.fa-linkedin
+
+    .row.m-b-lg
+      .col-lg-12.text-center
+        h1.m-t-lg.m-b-xl = t('hello.team.ambassadors')
+
+    .row.m-b-lg
+
+      .col-sm-4
+        .team-member
+          = image_tag 'landing/Alexandra_Nereuta_bw.jpg', class: 'img-responsive img-circle img-small', alt: ''
+          h4
+            span Alexandra
+            |  Nereuta
+          p = t('hello.team.alexandra_nereuta.title')
+          ul.list-inline.social-icon
+            li
+              = link_to 'https://www.behance.net/alexnereuta',
+                  title: 'LinkedIn',
+                  target: '_blank'
+                  i.fa.fa-behance
+            li
+              = link_to 'https://www.linkedin.com/in/alexandra-nereuta-8b18941a/',
+                  title: 'LinkedIn',
+                  target: '_blank'
+                  i.fa.fa-linkedin
+
+      .col-sm-4
+        .team-member
+          = image_tag 'landing/PL.jpg', class: 'img img-responsive img-circle img-small',  alt: "Crédit photo: Albert Zablit"
+          h4
+            span Pierre-Luc
+            |  Thivierge
+          p = t('hello.team.member_2.title')
+          ul.list-inline.social-icon
+            li
+              = link_to 'https://twitter.com/plthiv',
+                  title: 'Twitter',
+                  target: '_blank'
+                  i.fa.fa-twitter
+            li
+              = link_to 'https://www.linkedin.com/in/pierrelucthivierge/fr',
+                  title: 'LinkedIn',
+                  target: '_blank'
+                  i.fa.fa-linkedin
+
+      .col-sm-4
+        = render 'hello/christian_beaubien'
+
+    .row.m-b-lg
+      .col-sm-4
+        /.col-sm-push-2
+        .team-member
+          = image_tag 'landing/Leonardo_Mendes_bw.jpg', class: 'img-responsive img-circle img-small', alt: ''
+          h4
+            span Leonardo
+            |  Mendes
+          p = t('hello.team.leonardo_mendes.title')
+          ul.list-inline.social-icon
+            li
+              = link_to 'https://www.linkedin.com/in/leonardo-mendes-b6250516/',
+                  title: 'LinkedIn',
+                  target: '_blank'
+                  i.fa.fa-linkedin
+      .col-sm-4
+        /.col-sm-push-2
+        .team-member
+          = image_tag 'landing/sebastien_gauthier_bw.jpg', class: 'img-responsive img-circle img-small', alt: ''
+          h4
+            span Sébastien
+            |  Gauthier
+          p = t('hello.team.sebastien_gauthier.title')
+          ul.list-inline.social-icon
+            li
+              = link_to 'https://www.linkedin.com/in/sebastien-gauthier-22a51b144/',
+                  title: 'LinkedIn',
+                  target: '_blank'
+                  i.fa.fa-linkedin
+      .col-sm-4
+        /.col-sm-push-2
+        .team-member
+          = image_tag 'landing/Franko_Vidal_bw.jpg', class: 'img-responsive img-circle img-small', alt: ''
+          h4
+            span Franko
+            |  Vidal
+          p = t('hello.team.franko_vidal.title')
+          ul.list-inline.social-icon
+            li
+              = link_to 'https://go.oncehub.com/frankovidal',
+                  title: 'Booking',
+                  target: '_blank'
+                  i.fa.fa-calendar
+            li
+              = link_to 'https://www.linkedin.com/in/frankovidal/',
+                  title: 'LinkedIn',
+                  target: '_blank'
+                  i.fa.fa-linkedin
+
+    .row.m-b-lg
+      .col-sm-4
+      .col-sm-4
+        .team-member
+          = image_tag 'landing/Emmanuel_Cameron_bw.jpg', class: 'img-responsive img-circle img-small', alt: ''
+          h4
+            span Emmanuel
+            |  Cameron
+          p = t('hello.team.emmanuel_cameron.title')
+          ul.list-inline.social-icon
+            li
+              = link_to 'https://www.linkedin.com/in/emmanuelcameron/',
+                  title: 'LinkedIn',
+                  target: '_blank'
+                  i.fa.fa-linkedin
+            li
+              = link_to 'https://continuums.ca/',
+                  title: "Continuums - L'innovation entrepreneurial en continu",
+                  target: '_blank'
+                  i.fa.fa-globe
+      .col-sm-4
+    .row
+      .col-lg-8.col-lg-offset-2.text-center.m-t-lg.m-b-lg
+        p = t('hello.team.final_blurb')
+
+

@@ -1,0 +1,13 @@
+en:
+  serviceplace_checkouts:
+    show:
+      sign_up: Please sign up or sign in in order to check out.  Thanks!
+      province_non_existent: The selected province is not valid !
+    shared:
+      payment_information: Payment Information
+      confirm_and_pay: Confirm & Pay
+      review_and_confirm: Review & Confirm
+      view_receipt: View Receipt
+      purchase_successful: Thank you for your purchase!
+      cart_changed: The price or details of one of your cart items has changed.  Please review your cart to verify your purchase.
+      out_of_canada: You seems to be out of canada ? We currently only support service offert in Canada

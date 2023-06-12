@@ -1,0 +1,119 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.stripe.com/v1/accounts/acct_1HjCKSD4dGRv5T30
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Stripe/v1 RubyBindings/5.32.1
+      Authorization:
+      - Bearer <STRIPE_SECRET_KEY>
+      Content-Type:
+      - application/x-www-form-urlencoded
+      X-Stripe-Client-Telemetry:
+      - '{"last_request_metrics":{"request_id":"req_7YeXkbGqQfBtCo","request_duration_ms":1223}}'
+      X-Stripe-Client-User-Agent:
+      - '{"bindings_version":"5.32.1","lang":"ruby","lang_version":"2.5.1 p57 (2018-03-29)","platform":"x86_64-darwin19","engine":"ruby","publisher":"stripe","uname":"Darwin
+        MacBook-Pro-2.local 19.6.0 Darwin Kernel Version 19.6.0: Tue Jun 22 19:49:55
+        PDT 2021; root:xnu-6153.141.35~1/RELEASE_X86_64 x86_64","hostname":"MacBook-Pro-2.local"}'
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Tue, 14 Sep 2021 16:31:05 GMT
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '1014'
+      Connection:
+      - keep-alive
+      Access-Control-Allow-Credentials:
+      - 'true'
+      Access-Control-Allow-Methods:
+      - GET, POST, HEAD, OPTIONS, DELETE
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Expose-Headers:
+      - Request-Id, Stripe-Manage-Version, X-Stripe-External-Auth-Required, X-Stripe-Privileged-Session-Required
+      Access-Control-Max-Age:
+      - '300'
+      Cache-Control:
+      - no-cache, no-store
+      Request-Id:
+      - req_P2iPnjH6nhbN9y
+      Stripe-Account:
+      - acct_1HjCKSD4dGRv5T30
+      Stripe-Version:
+      - '2018-10-31'
+      X-Stripe-C-Cost:
+      - '5'
+      Strict-Transport-Security:
+      - max-age=31556926; includeSubDomains; preload
+    body:
+      encoding: UTF-8
+      string: |
+        {
+          "id": "acct_1HjCKSD4dGRv5T30",
+          "object": "account",
+          "business_logo": null,
+          "business_logo_large": null,
+          "business_primary_color": null,
+          "capabilities": {
+          },
+          "charges_enabled": false,
+          "country": "CA",
+          "default_currency": "cad",
+          "details_submitted": false,
+          "display_name": null,
+          "future_verification": {
+            "disabled_reason": null,
+            "due_by": null,
+            "errors": [
+
+            ],
+            "fields_needed": [
+
+            ],
+            "pending_verification": [
+
+            ]
+          },
+          "payouts_enabled": false,
+          "statement_descriptor": null,
+          "statement_descriptor_kana": null,
+          "statement_descriptor_kanji": null,
+          "timezone": "America/Montreal",
+          "type": "standard",
+          "verification": {
+            "disabled_reason": "fields_needed",
+            "due_by": null,
+            "errors": [
+
+            ],
+            "fields_needed": [
+              "business_url",
+              "email",
+              "external_account",
+              "product_description",
+              "support_phone",
+              "tos_acceptance.date",
+              "tos_acceptance.ip"
+            ],
+            "pending_verification": [
+
+            ]
+          }
+        }
+  recorded_at: Tue, 14 Sep 2021 16:31:05 GMT
+recorded_with: VCR 6.0.0

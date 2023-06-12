@@ -1,0 +1,50 @@
+#modalRules.modal.inmodal aria-hidden="true" role="dialog" tabindex="-1"
+  .modal-dialog
+    .modal-content
+      .modal-header
+        button.close data-dismiss="modal" type="button"
+          span aria-hidden="true"  &times;
+          span.sr-only = t('default.close')
+
+      .modal-body.white-bg.text-left
+        = Kramdown::Document.new(t('rules_and_regs')).to_html.html_safe
+
+      .modal-footer
+        button.btn.btn-primary.btn-outline(
+          data-dismiss="modal"
+          type="button") = t('default.close').upf
+
+#rules-regs.accept-terms.text-center
+  div.new_user
+    div
+      h1.font-bold = t('devise.invitations.edit.main_title')
+      h3.font-normal.text-success = t('devise.invitations.edit.enum')
+      h4.font-normal.text-success = t('devise.invitations.edit.smaller')
+
+    = form_for current_user, url: accept_terms_for_current_user_path(), method: :put do |f|
+      .form-group.m-t-xl.m-b-xl
+        .checkbox.checkbox-success
+          input#terms_accepted(
+            v-model="accepting"
+            value="true"
+            type="checkbox"
+            name="user[terms_accepted_at]"
+            ref="accept_checkbox"
+          )
+          span = t('devise.invitations.edit.accept_term_label').html_safe
+
+          = f.hidden_field :then, value: @then
+          p
+            = link_to alt_lang_path, title: t('alt_lang.invite').upf, class: 'underline'
+              = t('devise.invitations.edit.see_in', lang: t('alt_lang.label')).upf
+          p
+            br
+            input(
+              type="submit"
+              name="commit"
+              value= t("shared.confirm")
+              data-style="expand-left"
+              data-disable-with="Confirmer"
+              class="button btn btn-primary m-t-b ladda-button ladda-button-submit"
+              v-bind:disabled= "accepting == false"
+            )

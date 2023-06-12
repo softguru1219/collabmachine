@@ -1,0 +1,43 @@
+.row.wrapper.wrapper-content.ibox-content.middle-box
+  .col.ibox-content
+
+    = form_for @user, url: wizard_path, html: { multipart: true, role: 'form' } do |f|
+      .col-xs-12
+        = image_tag 'dashboard/banner_defi_montreal.png', class: 'full-width m-b-lg'
+
+        h2 Indiquez vos disponibilités.
+        .form-group
+          = f.label :area_of_expertise_1, "Secteur d'expertise principal *"
+          p.red_defi_montreal Sélectionnez un ou plusieurs éléments de la liste.
+          = f.select(:area_of_expertise_1,
+            options_for_select(User::AREAS_EXPERTISE.sort, @user.area_of_expertise_1),
+            { include_blank: "Sélectionnez un élément" },
+            { required: true, multiple: false, class: "mdb-select colorful-select dropdown-primary filter-select" })
+
+        .form-group
+          = f.label :slogan
+          p Description de votre expertise / Slogan
+          = f.text_field  :slogan,
+              class: 'form-control'
+
+        .form-group
+          = f.label :blitz_availability, "Disponibilités *"
+          p Disponibilité pour rencontres 30 minutes avec les entrepreneurs et dirigeants *
+          p.red_defi_montreal Sélectionnez un ou plusieurs éléments de la liste.
+          = f.select(:blitz_availability,
+            options_for_select(User::BLITZ_AVAILABILITY_PACK, @user.blitz_availability),
+            {},
+            { multiple: false, class: "filter-select" })
+
+        / .form-group
+        /   = f.label :blitz_availability, "Disponibilités *"
+        /   p Disponibilité pour rencontres 30 minutes avec les entrepreneurs et dirigeants *
+        /   p.red_defi_montreal Sélectionnez un ou plusieurs éléments de la liste.
+        /   = f.select(:blitz_availability,
+        /     options_for_select(User::BLITZ_AVAILABILITY, @user.blitz_availability),
+        /     {},
+        /     { multiple: true, class: "filter-select" })
+
+        .row
+          .col-md-12
+            = f.submit t('users.step.next'), class: "btn btn-primary btn-lg pull-right"

@@ -1,0 +1,33 @@
+.row
+  .col-sm-12
+    .ibox
+      .ibox-content
+        h1 Participants du blitz
+
+        - schedules_data = @schedules_data
+        - cols_participants = schedules_data[:participants][:col_names]
+
+        table.table.table-basic.table-striped.dataTable-blitz-participants.users width="100%"
+          thead
+            tr
+              th Avatar
+              th width="150" Nom
+              th Organisation
+              th Domaines
+              th width="150" Notes
+
+            tbody
+              - schedules_data[:participants][:rows].values.each do |participant|
+                - next if participant[cols_participants[:PROCESS]] == "FALSE"
+                - next if participant[cols_participants[:Email]] == ""
+                - participant_name = participant[cols_participants[:"Nom complet"]]
+                - if id = User.find_by_email(participant[cols_participants[:"Email"]])&.id
+                  tr
+                    td =< avatar_link_to_user(id, {class: 'image right spaced'}) || nil
+                    td
+                      h3 = participant_name
+                      p = link_to "Lien vers le profil", user_path(id), target: '_blank'
+                    td #{participant[cols_participants[:Organisation]]}
+                    td #{participant[cols_participants[:Domaines]]}
+                    td #{participant[cols_participants[:"Notes publiques"]]}
+

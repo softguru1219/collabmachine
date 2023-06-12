@@ -1,0 +1,84 @@
+.container
+  .row.h-75
+  .row
+    .col-md-7
+      .ibox
+        .ibox-content
+
+          .js-player.embed-responsive.embed-responsive-16by9.plyr__video-embed
+            iframe(
+              src="https://player.vimeo.com/video/546737472?loop=false&amp;byline=false&amp;portrait=false&amp;title=false&amp;speed=true&amp;transparent=0&amp;gesture=media"
+              allowfullscreen
+              allowtransparency
+              allow="autoplay"
+            )
+
+    .col-md-5
+      .ibox
+        .ibox-content.randomly
+          h1.ui.center.aligned.icon.header RANDOMLY
+          div
+            p.label.label-default.m-r-sm innovation collaborative
+            p.label.label-default.m-r-sm networking
+            p.label.label-default.m-r-sm energy
+          hr
+          span
+            i.fa.fa-star
+            i.fa.fa-star
+            i.fa.fa-star
+            i.fa.fa-star
+            i.fa.fa-star
+          / h3.price 999$
+          hr
+
+          p Avec la distanciation sociale et le télétravail, les opportunités de rencontres sont moins fréquentes.
+          p RANDOMLY a pour but de permettre aux gens de se retrouver et d’échanger entre eux.
+          p C’est également une occasion de rencontrer de nouveaux visages et de connecter en toute spontanéité.
+
+          h2 Ce qu'en disent les participants...
+          ul
+            li Bravo pour Randomly. Super concept! 🤩🤩🤩
+            li Déjà hâte à la prochaine!
+            li Merci! C’est vraiment a refaire!
+            li Oui, définitivement un rendez-vous récurrent!
+            li J’ai trouvé ça addictif parce que tu ne sais pas qui vient après!
+
+
+          p Voici la version RANDOMLY pour <strong>entreprise</strong>.
+          p Contactez-nous et notre équipe se fera un plaisir d'organiser un RANDOMLY dans votre organisation.
+
+
+          hr
+          p
+            i.fa.fa-envelope.m-r
+            span Écrivez-nous à: <strong>team@collabmachine.com</strong>
+
+          / = link_to "mailto:team@collabmachine.com", class: 'btn btn-warning btn-lg text-primary block' do
+          / i.fa.fa-envelope  team@collabmachine.com
+
+
+
+          / hr
+          / = link_to 'Acheter maintenant', checkout_create_path, method: :post, remote: true, class: 'btn btn-success block'
+
+  .row
+    .col-md-7
+      .ibox
+        .ibox-content
+
+          / h2 Éditions précédentes:
+          / .slick_caroussel
+          /   div = image_tag('shop/randomly/RANDOMLY1.jpg', style: 'width: 100%')
+          /   div = image_tag('shop/randomly/RANDOMLY2.jpg', style: 'width: 100%')
+          /   div = image_tag('shop/randomly/RANDOMLY3.jpg', style: 'width: 100%')
+    .col-md-5
+
+/ javascript:
+/   $(document).on('turbolinks:load', function() {
+/     $('.slick_caroussel').slick({
+/       dots: true,
+/       infinite: true,
+/       fade: true,
+/       arrows: false
+/     });
+/   })

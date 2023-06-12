@@ -1,0 +1,42 @@
+fr:
+  devise:
+    failure:
+      invited: "Vous avez une invitation en cours, acceptez-la pour finaliser la création de votre compte."
+    invitations:
+      send_instructions: "Un message d'invitation a été envoyé à %{email}."
+      invitation_token_invalid: "Le jeton d'invitation fourni n'est pas valide!"
+      updated: "Votre mot de passe a été configuré avec succès. Your password was set successfully. You are now signed in."
+      updated_not_active: "Votre mot de passe a été configuré avec succès."
+      no_invitations_remaining: "Aucune invitation en cours"
+      invitation_removed: "Votre invitation a été retirée."
+      edit:
+        welcome: "BIENVENUE!"
+        main_title: FONDATIONS SOLIDES!
+        enum: Respect, partage, empathie, vertu, confiance.
+        smaller: On veut s'assurer que tout le monde va dans la même direction.
+        header: "Choisissez un mot de passe pour votre compte"
+        submit_button: "Sauvegarder mon mot de passe"
+        see_in: "%{lang} version"
+        accept_term_label: "J'ai lu et j'accepte <a href=\"#\" data-target=\"#modalRules\" data-toggle=\"modal\" type=\"button\" class=\"underline\">les règlements de Collab Machine.</a>"
+        accept_terms_must_be_checked: 'Vous devez accepter les termes pour créer votre compte.'
+    mailer:
+      invitation_instructions:
+        subject: "Invitation à Collab Machine, vos instructions."
+        title: "Vous êtes invité!"
+        hello: "Allo %{handle}"
+        someone_invited_you: "%{handle} vous invite à rejoindre Collab machine à partir de notre système de référencement.\nCliquez sur le bouton pour accepter son invitation.\nVotre profil sera déjà créé et vous n’aurez qu’à le compléter. Vous serez maintenant un membre actif de Collab machine."
+        accept: "Accepter l'invitation"
+        who_are_we: "Qui sommes nous"
+        who_are_we_explication: "Collab Machine est une communauté organisée qui facilite les relations d’affaires entre les talents et les organisations. On y trouve le support nécessaire pour collaborer de A à Z de façon autonome dans un réseau favorable, basé sur la confiance."
+        our_site: "Visiter notre site"
+        our_site_url: "https://collabmachine.com/fr/hello"
+        presentation_video: "Regarder notre capsule de présentation"
+        presentation_video_url: "https://www.youtube.com/watch?v=T2HY3jcMyVI&feature=youtu.be&ab_channel=Pierre-LucThivierge"
+        accept_until: "Cette invitation arrivera à échéance le %{due_date}."
+        ignore: "Si vous ne désirez pas accepter cette invitation, ignorez ce courriel.<br />\nVotre compte ne sera pas créé tant que n'utlisez pas le lien ci-haut et que vous déterminez votre mot de passe."
+  time:
+    formats:
+      devise:
+        mailer:
+          invitation_instructions:
+            accept_until_format: "%Y-%m-%d à %I:%M %p"

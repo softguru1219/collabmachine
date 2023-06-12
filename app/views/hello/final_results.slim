@@ -1,0 +1,26 @@
+.well.container.wiphomepage
+  .row
+    .col-md-12
+      .mt-4.thanks-header-title = t("hello.wiphomepage.acknowledge_receipt")
+
+      table.mt-4
+        tbody.text-center
+          tr
+            td.solid-grid
+              = image_tag 'icons/customer-management.png', width: "70%", alt: ''
+            td.solid-grid.grid-80
+              b = t('hello.wiphomepage.received_inquiry')
+              .mt-2 = t('hello.wiphomepage.thanks_for_trusting')
+
+      .mt-5.thanks-desc
+        .mt-2 
+          = t("hello.wiphomepage.request_number_is")
+          span.pl-1 = "##{@wip_id}-#{@specialty}."
+          span.pl-1 = t("hello.wiphomepage.this_number_was_sent")
+
+        .mt-4
+          = t("hello.wiphomepage.one_of_our_adviors")
+
+        .mt-4
+          = t("hello.wiphomepage.for_more_information_on_resource")
+          a.pl-1.form-click href="javascript:void(0)" = "#{t("hello.wiphomepage.click_here")}."

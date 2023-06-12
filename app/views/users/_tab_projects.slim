@@ -1,0 +1,19 @@
+#projects.cm-tab-pane[v-if="tab === 'projects'"]
+  .panel
+    h3
+      | This is a list of projects initiated by #{user_handle(user)}
+      = render 'shared/create_project_missions', :@user_level => user_level, :@projects_number => projects_number, :@missions_number => missions_number, content: "btn btn-white btn-outline btn-xs post-project"
+
+  table.table.table-hover
+    - projects.each do |project|
+      tr
+        td
+          h3 = link_to_project(project.id)
+        td
+        td
+
+      - project.missions.each do |mission|
+        tr.mission
+          td = link_to_mission(mission.id)
+          td = render 'shared/progress', obj: mission
+          td = render 'shared/status_tag', status: mission.state, size: 'mini', on_hold: mission.on_hold

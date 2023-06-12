@@ -1,0 +1,247 @@
+#flash
+  - if flash[:notice]
+    .alert.alert-dismissable.home-notice
+      = flash[:notice]
+      button data-dismiss="alert" class="close" type="button" ×
+
+= render 'homepage_slider'
+
+/ eco system
+section.container.features
+  .row
+    .col-lg-12.text-center
+      .navy-line
+      h1 = t('home.features.main_title').html_safe
+      p = t('home.features.sub_p').html_safe
+  .row
+    .col-md-3.text-center.wow.fadeInLeft
+      div
+        i.features-icon.fa class=(t('home.features.box_1.icon'))
+        h2 = t('home.features.box_1.header').html_safe
+        = t('home.features.box_1.body').html_safe
+      .m-t-lg
+        i.features-icon.fa class=(t('home.features.box_2.icon'))
+        h2 = t('home.features.box_2.header').html_safe
+        = t('home.features.box_2.body').html_safe
+    .col-md-6.text-center.wow.zoomIn
+      = image_tag 'landing/screenshots/perspective.png', class: 'img-responsive', alt:"dashboard"
+    .col-md-3.text-center.wow.fadeInRight
+      div
+        i.features-icon.fa class=(t('home.features.box_3.icon'))
+        h2 = t('home.features.box_3.header').html_safe
+        = t('home.features.box_3.body').html_safe
+      .m-t-lg
+        i.features-icon.fa class=(t('home.features.box_4.icon'))
+        h2 = t('home.features.box_4.header').html_safe
+        = t('home.features.box_4.body').html_safe
+  .row
+    .col-md-4
+    .col-md-4.text-center.wow.fadeInUp
+      div
+        i.features-icon.fa class=(t('home.features.box_5.icon'))
+        h2 = t('home.features.box_5.header').html_safe
+        = t('home.features.box_5.body').html_safe
+    .col-md-4
+
+
+/ About ------------
+section#features.container.services
+  .row
+    .col-sm-3
+      h2 = t('home.features.col_1.header').html_safe
+      = t('home.features.col_1.body').html_safe
+      / p
+        a.navy-link href="#" role="button"  Details &raquo;
+    .col-sm-3
+      h2 = t('home.features.col_3.header').html_safe
+      = t('home.features.col_3.body').html_safe
+      / p
+        a.navy-link href="#" role="button"  Details &raquo;
+    .col-sm-3
+      h2 = t('home.features.col_4.header').html_safe
+      = t('home.features.col_4.body').html_safe
+      / p
+        a.navy-link href="#" role="button"  Details &raquo;
+    .col-sm-3
+      h2 = t('home.features.col_2.header').html_safe
+      = t('home.features.col_2.body').html_safe
+      / p
+        a.navy-link href="#" role="button"  Details &raquo;
+
+
+
+
+section#pricing.pricing.gray-section
+  .container
+    .row.m-b-lg
+      .col-lg-12.text-center
+        .navy-line
+        h1 = t('home.avantages.main_title')
+        p = t('home.avantages.sub_p')
+    .row
+      .col-lg-6.text-right.wow.fadeInLeft
+        ul.offer.list-unstyled.client
+          li.offer-title
+            h2
+              | #{t('home.avantages.lists')[0][:type]}&nbsp;
+              i.fa.fa-arrow-right
+          li.offer-desc #{t('home.avantages.lists')[0][:desc]}
+          - t('home.avantages.lists')[0][:rows].each do |row|
+            li = row
+            / todo: activate / show
+          li = link_to t('get_project_done'), new_estimate_path, class: 'btn btn-primary btn-xs', role: 'button'
+
+      .col-lg-6.wow.fadeInRight
+        ul.offer.list-unstyled.talent
+          li.offer-title
+            h2
+              i.fa.fa-arrow-left
+              |  #{t('home.avantages.lists')[1][:type]}
+
+          li.offer-desc #{t('home.avantages.lists')[1][:desc]}
+          - t('home.avantages.lists')[1][:rows].each do |row|
+            li = row
+
+            / todo: activate / show
+          li = link_to t('create_profile'), new_user_registration_path, class: 'btn btn-primary btn-xs', role: 'button'
+
+    .row
+      .m-b-lg
+
+
+section.a-hero
+  .container
+    .row
+      .col-lg-12.text-center
+        .navy-line
+        h1 = t('home.platform.main_title')
+        p = t('home.platform.sub_p')
+    .row.features-block
+      .col-sm-6.text-right.wow.fadeInRight
+        = image_tag 'landing/screenshots/dashboard.png', class: 'img-responsive pull-right', alt:"dashboard"
+      .col-sm-6.features-text.wow.fadeInLeft
+        small = t('home.platform.small')
+        h2 = t('home.platform.title')
+        = t('home.platform.body').html_safe
+
+        / todo: activate / show
+        / a.btn.btn-primary href=""  Learn more
+
+
+
+
+
+section.features
+  .container
+    .row
+      .col-lg-12.text-center
+        .navy-line
+        h1 = t('home.balance.main_title')
+        p = t('home.balance.sub_p')
+    .row.features-block
+      .col-lg-3.features-text.wow.fadeInLeft
+        small = t('home.balance.left.small')
+        h2 = t('home.balance.left.title')
+        = t('home.balance.left.body').html_safe
+
+        / todo: activer / show
+        / a.btn.btn-primary href=""  Learn more
+
+      .col-lg-6.text-right.m-t-n-lg.wow.zoomIn
+        = image_tag 'landing/screenshots/iphone.jpg', class: 'img-responsive', alt: 'dashboard'
+
+      .col-lg-3.features-text.text-right.wow.fadeInRight
+        small = t('home.balance.right.small')
+        h2 = t('home.balance.right.title')
+        = t('home.balance.right.body').html_safe
+
+
+
+section#call-to-action.gray-section
+  .container
+    .row
+      .col-sm-12.wow.fadeInLeft.copy
+        .wrap
+          / .navy-line
+          h1 = t('home.call_to_action.main_title').html_safe
+          = t('home.call_to_action.body').html_safe
+          br
+          br
+          p
+            = link_to t('get_project_done'), new_estimate_path, class: 'btn btn-lg btn-primary', role: 'button'
+            = link_to t('create_profile'), new_user_registration_path, class: 'caption-link', role: 'button'
+      / .col-sm-4.wow.fadeInLeft.copy
+        .wrap
+
+
+section.features.plus
+  .container
+    .row
+      .col-lg-12.text-center
+        .navy-line
+        h1 = t('home.f_plus.main_title')
+
+    - t('home.f_plus.rows').each do |row|
+      .row
+        - row.each do |item|
+          .col-lg-5.col-lg-offset-1.features-text
+            h2 = item[:title]
+            i.fa.big-icon.pull-right class=(item[:icon])
+            = sanitize(item[:body])
+
+= render 'hello/partners'
+
+
+
+  javascript:
+
+    $(function() {
+
+        $('body').addClass('landing-page');
+        $('body').attr('id', 'page-top');
+
+        $('body').scrollspy({
+            target: '.navbar-fixed-top',
+            offset: 80
+        });
+
+        //!/ Page scrolling feature
+        $('a.page-scroll').bind('click', function(event) {
+            var link = $(this);
+            $('html, body').stop().animate({
+                scrollTop: $(link.attr('href')).offset().top - 50
+            }, 500);
+            event.preventDefault();
+            $("#navbar").collapse('hide');
+        });
+
+        var cbpAnimatedHeader = (function() {
+            var docElem = document.documentElement,
+                    header = document.querySelector( '.navbar-default' ),
+                    didScroll = false,
+                    changeHeaderOn = 200;
+            function init() {
+                window.addEventListener( 'scroll', function( event ) {
+                    if( !didScroll ) {
+                        didScroll = true;
+                        setTimeout( scrollPage, 250 );
+                    }
+                }, false );
+            }
+            function scrollPage() {
+                var sy = scrollY();
+                if ( sy >= changeHeaderOn ) {
+                    $(header).addClass('navbar-scroll')
+                }
+                else {
+                    $(header).removeClass('navbar-scroll')
+                }
+                didScroll = false;
+            }
+            function scrollY() {
+                return window.pageYOffset || docElem.scrollTop;
+            }
+        init();
+
+      })();
+    });

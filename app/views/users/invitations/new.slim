@@ -1,0 +1,44 @@
+.row.wrapper.wrapper-content.animated.fadeInDown
+  .col-md-4
+    .ibox
+      .ibox-content
+        div.text-center
+          h1
+            =< t ".header"
+          .navy-line
+          p = t ".invite1"
+          p = t ".invite2"
+          p = t ".invite3"
+  .col-md-8
+    .ibox
+      .ibox-content
+        #new-invitation-form
+          = form_for 'users',
+              :as => resource_name,
+              :url => invitation_path(resource_name),
+              :html => {:method => :post, 'v-on:submit' => 'save', class: 'ibox-content'} do |f|
+            table.table
+              tbody
+                tr[v-for="invitation in invitations"]
+                  - [:first_name, :last_name, :email].each do |field|
+                    td.borderless
+                      .form-group[v-bind:class="{ 'has-feedback has-error': invitation.errors.#{field}.length }"]
+                        = f.text_field field, class: 'form-control', placeholder: t("users.#{field}").upf, 'v-model' => "invitation.#{field}"
+                        div[v-if="invitation.errors.#{field}.length"]
+                          span.help-block[v-for="error in invitation.errors.#{field}"] {{error}}
+                  td.borderless
+                    button.btn.btn-danger[v-if="hasManyInvitations" v-on:click="remove(invitation)"]
+                      i.fa.fa-times
+            .alert.alert-success[v-if="message"] {{message}}
+
+            p
+            .actions
+              .row
+                .col-sm-2
+                .col-sm-5
+                  button.btn.btn-default.full-width.m-b[v-on:click="addInvitation" type="button"] = t('.add_another_row')
+                .col-sm-5
+                  = button_tag t(".submit_button"),
+                    data: { style: "expand-left"},
+                    class: 'btn btn-primary btn-outline block full-width m-b ladda-button ladda-button-submit'
+

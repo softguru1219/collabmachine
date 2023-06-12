@@ -1,0 +1,25 @@
+#filterrific_results.row.clear
+  .ibox
+    .ibox-content
+      table.table.table-basic.table-striped.users
+        thead
+          tr
+            th = filterrific_sorting_link(@filterrific, :id, label: "ID")
+            th = filterrific_sorting_link(@filterrific, :title, label: t("g.title"))
+            th = t("g.user")
+            th = filterrific_sorting_link(@filterrific, :state, label: t("g.state"))
+            th = filterrific_sorting_link(@filterrific, :created_at, label: t("g.created_at"))
+            th = filterrific_sorting_link(@filterrific, :updated_at, label: t("g.updated_at"))
+
+        tbody
+          - @products.each do |product|
+            tr
+              td = product.id
+              / td = link_to(product.title, user_with_product_tab_path(product))
+              td = link_to(product.title, product_path(product))
+              td = link_to masked_name_or_handle(product.user), user_path(product.user)
+              td = product.translated_state
+              td = product.created_at
+              td = product.updated_at
+
+    = will_paginate @products, renderer: BootstrapPagination::Rails, previous_label: t("g.previous"), next_label: t("g.next"), class: "pull-right"

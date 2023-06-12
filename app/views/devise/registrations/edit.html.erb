@@ -1,0 +1,57 @@
+<div class="middle-box text-center loginscreen animated fadeInDown">
+  <div>
+    <%= render 'layouts/collab_machine_logo', klasses: 'full-width' %>
+
+    <h3>Change your password</h3>
+
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+      <%= devise_error_messages! %>
+
+      <div class="form-group text-left">
+        <%#= f.label :email %><br />
+        <%#= f.email_field :email, autofocus: true %>
+      </div>
+
+      <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+        <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+      <% end %>
+
+      <div class="form-group text-left">
+        <%= f.label :password %> <br><i>(<%= t('users.leave_blank') %> )</i><br />
+        <%= f.password_field :password, autocomplete: "off", class: 'full-width' %>
+        <% if @minimum_password_length %>
+          <br />
+          <em><%= @minimum_password_length %> <%= t('users.chars') %> </em>
+        <% end %>
+      </div>
+
+      <div class="form-group text-left">
+        <%= f.label :password_confirmation %><br />
+        <%= f.password_field :password_confirmation, autocomplete: "off", class: 'full-width' %>
+      </div>
+
+      <div class="form-group text-left">
+        <%= f.label :current_password %> <br> <i> (<%= t('users.need_pass') %>)</i><br />
+        <%= f.password_field :current_password, autocomplete: "off", class: 'full-width' %>
+      </div>
+
+      <div class="actions">
+        <%= f.submit "#{t('users.change_button').upf}", class: 'btn btn-primary block full-width m-b' %>
+      </div>
+    <% end %>
+
+
+    <hr>
+
+    <%#
+
+    <h3>Cancel my account</h3>
+
+    <p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete \%\></p>
+
+    <%#= link_to "Back", :back \%\>
+
+    %>
+
+  </div>
+</div>

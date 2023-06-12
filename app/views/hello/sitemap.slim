@@ -1,0 +1,12 @@
+div.container.sitemap
+  div.title = t("shared.sitemap")
+  div.row
+    - @dict.each do |key, elements|
+      div.col-md-3.section
+        - elements[:urls].each do |url|
+          - if url.include?(@locale)
+            =< link_to "#{key}".upcase, url, class: "title"
+        - elements[:values].each do |element|
+          div.sub-section
+            - if element[:url].include?(@locale)
+              =< link_to element[:title].capitalize, element[:url], class: "sub-title"

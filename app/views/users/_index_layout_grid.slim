@@ -1,0 +1,40 @@
+.row.wrapper.wrapper-content.grid
+  - users.each do | user |
+    - classlist = ['card']
+    - classlist.push('faded') if !user.available
+
+    .contact-box.center-version.grid-item
+      = link_to user_path(user), class: classlist.join(' ')
+        = image_tag user.medium_avatar_url, alt: 'image'
+
+        .details
+          h4 #{user.masked_name(current_user)}
+          p.member-card-label = user_handle(user)
+          - if policy(current_user).admin?
+            span = user.rating
+
+          - if user.headline
+            .font-bold = user.headline
+
+      .contact-box-footer.hidden
+        .m-t-xs.btn-group
+          - if policy(current_user).admin?
+            .small.font-bold
+              span
+                i.fa.fa-circle class=(user.active? ? 'text-navy' : 'text-warning')
+                - caption = user.active? ? 'active': 'inactive'
+                |  #{caption}
+
+          .small.font-bold
+            span
+              i.fa.fa-circle class=(user.active? ? 'text-navy' : 'text-warning')
+              - caption = user.active? ? 'available': 'off'
+              |  #{caption}
+
+      - if user.interest_list.length > 0
+        .contact-box-footer.clearfix.hidden
+          = render "tags/tag_list",
+            collection: user.interest_list,
+            locals: { counter: 0, max: 200, over: false }
+
+= render 'shared/pagination', collection: users

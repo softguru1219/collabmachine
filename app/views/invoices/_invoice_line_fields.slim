@@ -1,0 +1,30 @@
+tr.item-row
+  td
+    .form-group
+      = f.text_area :description, rows: 3, class: 'form-control'
+  td
+    .form-group
+      = f.text_field :quantity, class: 'form-control', type: "number", autocomplete: "off"
+  td
+    .form-group
+      = f.text_field :rate, class: 'form-control', type: "number", autocomplete: "off"
+  td
+    .form-group
+      = f.select :mission_id,
+          current_user.missions.collect { |m| [ m.title, m.id ] },
+          {},
+          { multiple: false, class: 'form-control search selection dropdown mdb-select colorful-select dropdown-primary mission-select' }
+  td
+    .invoice-form-taxes-field
+      = f.select :tax_ids,
+        Tax.where(user: current_user).collect {|tax| [ "#{tax.name} (#{tax.rate}%)", tax.id, {"data-rate": tax.rate}]},
+        {},
+        {multiple: true, class: "mdb-select colorful-select dropdown-primary taxes-multiselect"}
+      button.btn data-target="#tax_form_modal" data-toggle="modal" type="button"
+        i.fa.fa-plus
+
+  td.amount
+  td
+    .text-right
+      .btn-group
+        = link_to_remove_fields t('invoice.form.remove'), f

@@ -1,0 +1,7 @@
+if (window.stepProgress) {
+  window.stepProgress.setCurrentTo('<%= @mission[:state] %>');
+}
+$('#assign_to_dropdown_box').html('<%= j render partial: "applicants/assign_to_dropdown_box", mission: @mission %>');
+$("#applicants_listing").html('<%= j render partial: "applicants/applicants_table", mission: @mission %>');
+$("#summary").html('<%= j render partial: "missions/tab_summary", mission: @mission, assignments: @assignments, im_interested: @im_interested, referal_id: @referal_id, suggested: @suggested %>');
+$("#flash-container").html('<%= j render partial: "shared/notices_banner" %>');

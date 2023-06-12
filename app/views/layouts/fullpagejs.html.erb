@@ -1,0 +1,27 @@
+<% # this layout is used in 10 slides %>
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title><%= @title %></title>
+  <meta name="author" content="PL" />
+  <meta name="description" content="Listing ideas to spread" />
+  <meta name="keywords"  content="ideas" />
+  <meta name="Resource-type" content="Document" />
+
+  <!--[if IE]>
+    <script type="text/javascript">
+       var console = { log: function() {} };
+    </script>
+  <![endif]-->
+
+  <%= stylesheet_link_tag    'fullpage', media: 'all' %>
+  <%= render "shared/server_rendered_data" %>
+  <%= javascript_include_tag 'fullpage' %>
+  <%= csrf_meta_tags %>
+
+</head>
+<body>
+  <%= yield %>
+</body>
+</html>

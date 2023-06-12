@@ -1,0 +1,8 @@
+en:
+  subscription_checkouts:
+    new:
+      sign_up: Veuillez vous inscrire ou vous connecter pour payer. Merci!
+    success:
+      flash: Votre abonnement a réussi
+    cancel:
+      flash: Achat annulé

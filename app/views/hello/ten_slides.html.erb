@@ -1,0 +1,47 @@
+<%
+  sections = [
+    {
+      key: 'collab',
+      title: 'COLLAB',
+      sub: 'Sécuriser puis Démocratiser le travail autonome.',
+      # color: 'rgb(187, 251, 119)',
+      color: '#fff',
+      featured_image: 'collab_labo.jpg'
+    },
+    {
+      key: 'blank',
+      title: 'BLANK',
+      sub: '',
+      color: '#402B2B'
+    }
+  ]
+%>
+
+<script>
+  <%
+    list = []
+    sections.map do |hash|
+      list.push %Q{"#{hash[:key]}"}
+    end
+  %>
+  window.anchors = [<%= raw list.join(',') %>];
+
+  window.sections = <%= raw sections.to_json() %>
+</script>
+
+
+<ul id="menu">
+  <li><%= link_to 'Full text version', '/docs' %></li>
+  <% sections.each do |section|  %>
+    <li data-menuanchor="<%= section[:key] %>"><a href="#<%= section[:key] %>"><%= section[:title] %></a></li>
+  <% end %>
+</ul>
+
+<div id="fullpage">
+  <% sections.each do |section| %>
+    <div class="section" id="<%= "section_#{section[:key]}" %>">
+      <%= render section[:key], locals: section %>
+    </div>
+  <% end %>
+</div>
+

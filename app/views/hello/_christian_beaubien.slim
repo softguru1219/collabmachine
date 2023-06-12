@@ -1,0 +1,17 @@
+.team-member
+  = image_tag 'landing/Christian_Beaubien_bw.jpg', class: 'img-responsive img-circle img-small', alt: ''
+  h4
+    span Christian
+    |  Beaubien
+  p = t('hello.team.christian_beaubien.title')
+  ul.list-inline.social-icon
+    li
+      = link_to 'https://www.linkedin.com/in/christian-beaubien/',
+          title: 'LinkedIn',
+          target: '_blank'
+          i.fa.fa-linkedin
+    li
+      = link_to 'https://twitter.com/christianbeaubi',
+          title: 'Twitter',
+          target: '_blank'
+          i.fa.fa-twitter

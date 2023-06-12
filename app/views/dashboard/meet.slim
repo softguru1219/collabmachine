@@ -1,0 +1,99 @@
+.row
+  #meet
+
+.container.contain
+  .row
+    .col-lg-12
+
+  - schedules_data = @schedules_data
+  - hours = schedules_data[:coachs][:titles].values.first
+  .row
+    .col-sm-12
+      .ibox
+        .ibox-content
+
+          h1 Salle de rencontre virtuelle
+          - cols = schedules_data[:coachs][:col_names]
+
+
+          - schedules_data[:coachs][:rows].values.each do |coach|
+            - next if coach[cols[:PROCESS]] == "FALSE"
+            - next if coach[cols[:"Salle jitsi"]].nil?
+            - next unless request.url.include?(coach[cols[:"Salle jitsi"]])
+
+            - if current_user.email == coach[cols[:"Email"]] || current_user.admin? || policy(User).blitz_admin?
+              .row
+                .col-sm-6
+                  .row
+                    .col-sm-3
+                      - if id = User.find_by_email(coach[cols[:"Email"]])&.id
+                        = avatar_link_to_user(id, {class: 'image right spaced', blank: true}) || nil
+                    .col-sm-9
+                      h3
+                        span #{coach[cols[:"Nom complet"]]}
+                      p #{coach[cols[:"Organisation"]]}
+                      h4 #{coach[cols[:"Domaines"]]}
+
+                  .row
+                    .col-sm-12
+                      br
+                      br
+                      label Catégorie:
+                      p #{coach[cols[:"Secteur principal"]]}
+
+
+                      label Salle:
+                      p = link_to room_url(coach[cols[:"Salle jitsi"]]), room_url(coach[cols[:"Salle jitsi"]]), target: '_blank'
+
+                      label Notes:
+                      p #{coach[cols[:"Notes publiques"]]}
+
+                      table.table.table-striped.table-bordered
+                        tr
+                          th width="100px" Heure
+                          th Participant(e)
+
+                        / hours = 10 to +
+                        - min_index = hours.length - 13
+                        - hours.each_with_index do |hour, i|
+                          - if i > min_index - 1
+                            tr
+                              td #{hour}
+                              td
+                                - if ['x', 'X'].include?(coach[i])
+                                  p Non disponible
+
+                                - elsif ['', nil].include?(coach[i])
+                                / coach[i].nil?
+
+                                - else
+                                  - x = coach[i].split('::')
+                                  - p_name = x[0]
+                                  - email = x[1]
+                                  - if u = User.find_by_email(email)
+                                    =< avatar_link_to_user(u.id, {class: 'image mini-avatar right spaced'}) || nil
+                                  span #{p_name}
+                                  / = link_to coach[cols[:"Salle jitsi"]], target: '_blank', title: "Rejoindre la salle", class: 'btn btn-sm btn-primary btn-outline pull-right' do
+                                    span> Rejoindre la salle
+                                    i.fa.fa-external-link
+                .col-sm-6
+                  .row
+                    .col-sm-3
+                      = avatar_link_to_user(current_user, {class: 'image right spaced', blank: true}) || nil
+                    .col-sm-9
+                      h3
+                        span = current_user.full_name
+                      p #{current_user.company}
+                      = link_to "Visiter le profil", user_path(current_user), target: '_blank'
+
+
+
+javascript:
+  const domain = 'meet.jit.si';
+  const options = {
+    roomName: "#{@room}",
+    width: "100%",
+    height: 700,
+    parentNode: document.querySelector('#meet')
+  };
+  const api = new JitsiMeetExternalAPI(domain, options);

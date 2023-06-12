@@ -1,0 +1,21 @@
+fr:
+  products:
+    form:
+      translation_explanation: "Veuillez remplir les champs dans une ou les deux langues. Si vous ne remplissez qu'une seule langue, elle apparaîtra pour les utilisateurs des deux langues."
+      tax_agreement: "J'accepte de gérer tous les aspects de la collecte, de la comptabilité et de la remise des taxes"
+      terms_condition: "J'accepte les termes et conditions"
+      custom_product: "J'accepte la personnalisation pour ce produit"
+      custom_product_info: "En cochant cette case vous invitez les gens à vous contacter pour personnaliser cette offre"
+      custom_product_show: "Il est possible pour le marchand de personnaliser cette offre"
+      add_taxes: Ajouter une taxe
+    publish:
+      published: "Le produit a été publié"
+    archive:
+      archived: "Le produit a été archivé"
+    reject:
+      rejected: "Le produit a été rejeté"
+    index:
+      new_product: "Nouveau produit"
+    embed_link:
+      title: 'Incorporer "%{product}" sur votre site:'
+      explanation: "Ajoutez le code ci-dessous au code HTML de votre site pour afficher la fiche produit sur votre site:"

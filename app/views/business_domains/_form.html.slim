@@ -1,0 +1,26 @@
+.row.wrapper.wrapper-content.ibox-content
+  .col.ibox-content
+    = form_for @business_domain do |f|
+      - if @business_domain.errors.any?
+        #error_explanation
+          h2 = "#{pluralize(@business_domain.errors.count, "error")} prohibited this business_domain from being saved:"
+          ul
+            - @business_domain.errors.full_messages.each do |message|
+              li = message
+
+      .field
+        .row
+          - locale_field(@business_domain, :name, :fr) do |attribute, label|
+            div class="#{attribute} form-group-test"
+              = f.label attribute, label
+              br
+              = f.text_field attribute, placeholder: label, class: "form-control-test"
+        .row
+          - locale_field(@business_domain, :name, :en) do |attribute, label|
+            div class="#{attribute} form-group-test"
+              = f.label attribute, label
+              br
+              = f.text_field attribute, placeholder: label, class: "form-control-test"
+
+      .actions
+         = f.submit

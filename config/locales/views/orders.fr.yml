@@ -1,0 +1,5 @@
+fr:
+  orders:
+    show:
+      paid_out: Payé à Vendeur
+      recommendations_amount: Montant des recommandations

@@ -1,0 +1,78 @@
+fr:
+  users:
+    show:
+      your_products: "Vos Produits"
+      summary: Profil
+      projects: Projets et missions
+      finances: Finances
+      rules_and_regs: Règlements
+      taxes_title: Gestion des taxes
+      add_tax: Ajouter une taxe
+      no_tax: Aucune taxe ajouter en ce moment !
+      no_financial_info: Aucune information spécifiée en ce moment !
+      financial_infos_title: Informations fiancières
+      financial_infos_desc: Vous pouvez ajouter les informations afficher sur vos chèques, ainsi il sera facile de vous payer.
+      add_infos: Ajouter des informations fiancières
+      institution: Institution
+      transit: Transit
+      account: Compte
+      email: Courriel
+      phone: Téléphone
+      blitz_role: Roles au blitz coaching
+      change_password: Changer le mot de passe
+      create_new_project: Créer un nouveau projet
+      edit_profile: Modifier le profil
+      about: À propos
+      interested_in: Intéressé par
+      skills: Compétences
+      details: Détails
+      profile_text: Veuillez mettre à jour votre profil »
+      interest_text: Voici la liste des compétences que je veux promouvoir
+      skills_text: Les choses que je peux faire
+      since: Depuis
+      communities: Communautés
+      specific_expertise: Expertises Spécifiques
+      company_name: Nom de la Société
+      location: Adresse
+      trousse_participant: "Mastermind - Point de bascule: Trousse du participant"
+      set_as_member: Définir comme membre
+      meta_attrs_visible_to_all: Ajouter Meta attributs visibles pour tous
+      meta_attrs_visible_to_admins: Ajouter Meta attributs visible pour les administrateurs
+      languages: Langues
+      access_level: Niveau d'accès
+      updated_at: Dernière mise à jour
+      invitation_accepted_at: Invitation acceptée le
+      terms_accepted: Termes acceptés
+      user_id: Identifiant utilisateur
+      phone: Téléphone
+      since: Date d'inscription
+      blitz_roles: Roles dans les blitz
+      freemium: Aucun
+      github_url: Adresse Github
+      linkedin_url: Adresse Linkedin
+      web_site_url: Adresse du site web
+      interest_list: Liste des intérêts
+      editing_employee: Édition d'un employé
+      poster_image: Télécharger votre photo
+      enter_language: Langue a saisir
+      enter_specialties: Spécialités a saisir
+      table:
+        attribute: Attribut
+        value: Valeur
+        created: Créé
+        updated: Mis à jour
+    index:
+      filter:
+        name: Prenom / Nom / Nom d'utilisateur / Compagnie / Email
+        tags: Intérets ou Compétences
+        description: Description
+        type:
+          title: Type de membre
+          all: Tout
+          personal: Personnel
+          company: Compagnie
+        active:
+          title: État
+          all: Tout
+          active: Actif
+          inactive: Inactif

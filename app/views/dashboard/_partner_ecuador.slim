@@ -1,0 +1,57 @@
+.ibox
+  .ibox-content
+    a.icon-link data-target="#myModalSintaxis" data-toggle="modal" type="button"
+      = image_tag 'ecuador.jpg', width: "18%"
+
+    br
+    span.clearfix =< t('dashboard.index.invite_ecuador').html_safe
+
+    br
+    p
+      a(
+        data-target="#myModalSintaxis"
+        data-toggle="modal"
+        type="button"
+        )
+        i.fa.fa-globe
+        =< t('default.more_details')
+
+
+    #myModalSintaxis.modal.inmodal aria-hidden="true" role="dialog" tabindex="-1"
+      .modal-dialog
+        .modal-content.animated.slideInDown
+          .modal-header
+            button.close data-dismiss="modal" type="button"
+              span aria-hidden="true"  &times;
+              span.sr-only = t('default.close')
+            = image_tag 'ecuador.jpg', width: "25%"
+            h4.modal-title = t('dashboard.index.ecuador_title')
+            .font-bold
+
+            span.text-danger
+              i.fa.fa-phone
+              |1-593-995-472-790
+            span &nbsp;
+            a(
+              href= t('dashboard.index.website_url_ecuador')
+              target="_blank"
+              )
+              i.fa.fa-globe
+              =< t('dashboard.index.website_url_ecuador')
+
+          .modal-body.font-bold
+            p = t('dashboard.index.short_desc1_ecuador')
+            p = t('dashboard.index.short_desc2_ecuador')
+
+          .modal-body.white-bg
+            = render partial: "dashboard/partner_ecuador_#{I18n.locale}_body"
+
+          .modal-footer
+            a.btn.btn-success.btn-outline(
+              href="http://www.sintaxis.net"
+              target="_blank"
+              ) = t('dashboard.index.visit_website')
+            button.btn.btn-primary.btn-outline(
+              data-dismiss="modal"
+              type="button") = t('default.close').upf
+

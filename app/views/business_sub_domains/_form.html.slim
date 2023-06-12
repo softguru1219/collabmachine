@@ -1,0 +1,21 @@
+= form_for [@business_domain, @business_sub_domain] do |f|
+  - if @business_sub_domain.errors.any?
+    #error_explanation
+      h2 = "#{pluralize(@business_sub_domain.errors.count, "error")} prohibited this business_sub_domain from being saved:"
+      ul
+        - @business_sub_domain.errors.full_messages.each do |message|
+          li = message
+
+  .field
+    = f.label :name_fr
+    = f.text_field :name_fr
+  .field
+    = f.label :name_en
+    = f.text_field :name_en
+  .field
+    = f.label :display_en
+    = f.check_box :display_en
+  .field
+    = f.label :display_fr
+    = f.check_box :display_fr
+  .actions = f.submit

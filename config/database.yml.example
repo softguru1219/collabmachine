@@ -1,0 +1,17 @@
+default: &default
+  adapter: postgresql
+  pool: 5
+  timeout: 5000
+  encoding: utf8
+
+local: &local
+  <<: *default
+  username: your_username
+
+development:
+  <<: *local
+  database: "collab_development"
+
+test:
+  <<: *local
+  database: "collab_test"

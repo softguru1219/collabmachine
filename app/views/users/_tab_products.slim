@@ -1,0 +1,5 @@
+#products-tab-content.cm-tab-pane[v-if="tab === 'products'"]
+  - if (user_signed_in? and policy(user).admin_or_mine?) || products.any?
+    .contents[ref="productTabContents" v-html="productHtml"]
+  - else
+    = "There is no product"

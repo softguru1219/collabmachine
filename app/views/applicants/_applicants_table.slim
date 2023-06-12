@@ -1,0 +1,28 @@
+table.user-ids.ui.celled.table.table-striped width="100%"
+  thead
+    tr
+      th #
+      th = t('applicant.date')
+      th = t('applicant.user')
+      th = t('applicant.status')
+      th = t('applicant.pointer')
+  tbody.share-rows.sortable
+    - @mission.applicants.each_with_index do |applicant, index|
+      tr
+        td = index + 1
+        td = applicant.created_at
+        td
+          = avatar_link_to_user(applicant.user_id, {class: 'ui image mini-avatar right spaced'})
+          =< link_to_user applicant.user_id
+        td
+          - if policy(@mission).unassign?
+            = select_tag :state, options_for_select(Applicant.state_select_options, applicant.state || false),
+              onchange: "window.set_applicant_state({mission_id: #{@mission.id}, id: #{applicant.id}}, this)",
+              data: {lastvalue: applicant[:state]}
+          - else
+            p = applicant.state.capitalize
+        td
+          - if applicant.pointed_by
+            = avatar_link_to_user(applicant.pointed_by, {class: 'ui image mini-avatar right spaced'})
+            =< link_to_user applicant.pointed_by
+

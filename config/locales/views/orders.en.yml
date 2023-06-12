@@ -1,0 +1,5 @@
+en:
+  orders:
+    show:
+      paid_out: Paid Out
+      recommendations_amount: Recommendations Amount

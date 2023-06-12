@@ -1,0 +1,30 @@
+#pipeline.tab-pane
+  .panel-body
+
+    h3 Projects & missions i have to work on...
+
+    - if pipeline_missions
+    table.ui.table.striped.selectable
+      - pipeline_missions.each do |mission|
+        tr
+          td = render 'shared/status_tag', status: mission.state, size: 'mini', on_hold: mission.on_hold
+          td
+            p
+              strong
+                i.icon.linkify title="Mission"
+                = link_to_mission(mission.id)
+            p
+              i.icon.cubes title="Project"
+              = link_to_project(mission.project_id)
+          td
+            p Owner:
+            i.icon.user title="Client / Owner"
+            = link_to_user(mission.project_user_id)
+
+    / todo: reactivate the swimline graph
+    #swimpool
+
+    br
+    br
+    br
+

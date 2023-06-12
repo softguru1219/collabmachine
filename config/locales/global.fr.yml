@@ -1,0 +1,122 @@
+fr:
+  g:
+    remove: Supprimer
+    project_and_mission: Projets & missions
+    hire: engager
+    work: travailler
+    team: équipe
+    partners: partenaires
+    products: Produits
+    product: Produit
+    create_product: Créer un produit
+    all_products: Tous les Produits
+    post_project: Dépose ton projet
+    reset_filters: Réinitialiser les filtres
+    user: Utilisateur
+    title: Titre
+    previous: Précédent
+    next: Suivant
+    updated_at: Date de mise à jour
+    created_at: Date de création
+    price: Prix
+    price_per_month: "%{price} /mois"
+    description: Description
+    intended_audience: Public visé
+    value_proposition: Proposition de valeur
+    back: Précédent
+    save: Sauvegarder
+    categories: Catégories
+    serviceplace: Serviceplace
+    product_by_vendor: "par %{vendor}"
+    add_to_cart: Ajouter au panier
+    buy_now: Acheter maintenant
+    edit: Modifier
+    state: État
+    all: Tout
+    taxes: Taxes
+    shopping_cart: Panier
+    total: Total
+    checkout: Caisse
+    serviceplace_purchases: Serviceplace - Achats
+    serviceplace_purchase: Serviceplace - Achat
+    serviceplace_orders: Serviceplace - Commandes
+    serviceplace_order: Serviceplace - Commande
+    "yes": Oui
+    "no": Non
+    add_new: Ajouter une image
+    status: Statut
+    order: Commande
+    vendor: Vendeur
+    paid: Payé
+    client: Client
+    quanity: Quantité
+    amount: Montant
+    pretax_total: Total avant taxes
+    orders: Commandes
+    date: Date
+    name: Nom
+    email: Courriel
+    net_amount: Montant Net
+    collabmachine_fee: Frais de Collabmachine
+    back_to_dashboard: Retour au Tableau de Bord
+    created: Creé
+    quantity: Quantité
+    total_amount: Montant Total
+    stripe_fee: Frais de Stripe
+    embed: Incorporer
+    access_level: Niveau d'Accès
+    order_not_charged: (Order %{id} not charged due to system or vendor error.)
+    admin: Admin
+    missions: Missions
+    users: Utilisateurs
+    tags: Mots clés
+    failed: Échoué
+    subtotal: Subtotal
+    details: Détails
+    recommend: Recommander
+    recommend_product: Recommander '%{product}'
+    subscription_management: Gestion des abonnements
+    select_user: Sélectionner L'utilisateur
+    subscription_plans: Forfaits d'abonnement
+    do_join: Choisir
+    cancel: Canceler
+    rate_in_percent: Taux (en %)
+    number_optional: Numéro
+    submit: Soumettre
+    review_title: Évaluations
+    add_review: Écrire un commentaire
+    write_review: Rédigez un commentaire
+    review_input: Qu'avez-vous aimé ou n'avez pas aimé? Pourquoi avez-vous utilisé ce produit?
+    create_review: Créer un commentaire
+    overall_rating: Évaluation globale
+    ask_review_rating: S'il vous plaît écrivez un commentaire et évaluez-le.
+    rating: sur
+    select: Choisir...
+    modal_title: Attention
+    modal_platinum_content: Veuillez contacter le support pour créer plus de produits. support@collabmachine.com
+    modal_premium_content: Si vous souhaitez ajouter plus de produits à votre profil, vous devez passer au plan Platine.
+    modal_freemium_content: Si vous souhaitez ajouter plus de produits à votre profil, vous devez passer au plan Premium ou Platine.
+    modal_bigblue_content: If you want to create a product to your profil you have sign in or sign up by click below.
+    modal_project_platinum_content: Veuillez contacter le support pour créer plus de projets. support@collabmachine.com
+    modal_project_premium_content: Si vous souhaitez ajouter plus de projets à votre profil, vous devez passer au plan Platine.
+    modal_project_freemium_content: Si vous souhaitez ajouter plus de projets à votre profil, vous devez passer au plan Premium ou Platine.
+    no_access: Pas d'accès à ces informations
+    modal_project_bigblue_content: If you want to create project to your profile you have to sign in or sign up by click below.
+    bigblue: Cliquez ici
+    one_category: Tu dois choisir au moins une catégorie.
+    year: an
+    years: ans
+
+    message_merchant: Envoyer un message au marchand
+    message_admin: Envoyer un message
+    content_message_to_merchant: message
+    send_message_merchant: envoyer
+    message_placeholder: message ...
+    email_placeholder: ex:masoud.arabi@gmail.com
+    head_content: Veuillez ajouter votre message ici
+    head_content_admin: Veuillez ajouter votre demande pour devenir partenaire
+    head_email: Votre adresse email
+
+    privacy_policy: Politique de confidentialité
+    terms_conditions: Termes et Conditions
+    terms_use: Conditions d'utilisation

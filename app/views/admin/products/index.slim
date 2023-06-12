@@ -1,0 +1,23 @@
+#products.tab-pane role="tabpanel" aria-labelledby="products-tab"
+  h3 = t('g.products')
+  = form_for_filterrific @filterrific do |f|
+    .row
+      .col-md-6
+        .form-group
+          div= t('admin.products.index.filter_by_title')
+          = f.text_field(:by_title, class: 'filterrific-periodically-observed form-control')
+      .col-md-6
+        .form-group
+          div= t('admin.products.index.filter_by_state')
+          = f.select(:by_state,
+            options_for_select(Product.state_select_options),
+            { include_blank: t('g.all') },
+            { class: "mdb-select colorful-select dropdown-primary filter-select"})
+
+    .row
+      .col-md-6
+        .form-group
+          br
+          = link_to(t('g.reset_filters'), reset_filterrific_url, class: "btn btn-danger")
+
+  = render 'list', products: @products

@@ -1,0 +1,59 @@
+en:
+  dashboard:
+    admin:
+      missions: Missions
+      users: Users
+      all_users: All users
+    index:
+      about: About
+      pep_user: "Hey %{name}, let's rock!"
+      main_invite: "The dashboad shows what's happening inside Collab Machine. If you want to share cool information on the dashboard, send your email at:"
+      actions:
+        update_profile: Update your profile, keep it accurate.
+        send_invites: Send invites
+        create_project: Create new project
+        slack_group: Slack group is here
+        feedback: Questions / Comments
+        create_product: Create new product
+      # Bec Bureau d'entraide aux communicateurs
+      bec_title: The National Advertising Benevolent Society (NABS)
+      ecuador_title: Sintaxis Spanish school & Travel
+      partners_tools: Partners & external tools
+      invite: <strong>The National Advertising Benevolent Society:</strong> The 24/7 HELPLINE is your toll-free access to counseling and personal guidance.
+      short_desc1: "NABS empowers people and families in our industry to create a #bettertomorrow by offering free and confidential access to advice/counselling services and career management support."
+      short_desc2: ""
+      short_desc3: ""
+      short_desc1_ecuador: The aim of the foundation is to offer our help and support to communities with poor economic resources in Ecuador. We do this through donations, and by sharing knowledge and expertise about development and social aid through the Spanish teaching.
+      short_desc2_ecuador: Sintaxis Spanish Language School Sintaxis was founded in order to achieve this goal. Through the Language School, we offer Spanish teaching for students of all nationalities. Through our social aid work with several partner projects, we can offer additional services to our students, such as volunteer opportunities. This also offers additional training and practice in the Spanish language, and it is a great benefit for all of us.
+      visit_website: Visit the website
+      website_url: "https://www.nabs.org"
+      cowork:
+        modal_title: 20% discount is offered by Montreal Cowork on open space office rentals for Collab Machine members!
+        website_url: "https://montrealcowork.com/en/"
+      bidsettle:
+        modal_invite: Toolbox for all legal matters.
+      invite_skateboard_for_hope: <strong>Skateboards of Hope</strong> recycles boards for the benefit of young people. Come and drop off your old boards at TAZ Skatepark or even @PL
+      invite_ecuador: <strong>Ecuador, ama la vida!</strong><br>Visit Ecuador, it's easy!
+      website_url_skateboard_for_hope: "https://skateboardsforhope.com/"
+      facebook_url_skateboard_for_hope: "https://facebook.com/SkateboardsForHope/"
+      instagram_url_skateboard_for_hope: "https://instagram.com/skateboardsforhope/"
+      twitter_url_skateboard_for_hope: "https://twitter.com/skateboard4hope"
+      website_url_ecuador: "http://www.sintaxis.net"
+      new_members: New Collaborators!
+      reseaux_collabMachine: Support Collab Machine!
+      reseaux_collabMachine_invite: Share, suggest content, be part of it :)
+      linkedin_desc: Follow the company on Linkedin
+      facebook_desc: Like the Facebook page
+      instagram_desc: Like the Instagram page
+      my_projects: Projects from me
+      create_project: Create a your project
+      assigned_to_me: Assigned to me
+      suggested_to_me: Suggested to me
+      opportunities: Opportunities
+      nothing_in_list: Nothing in list, yet.
+      browse_open_for_candidates: Browse projects open for candidates
+      #referrals
+      my_guests: My guests
+      information: information
+      referral_system: Referral System
+      proposal_system: Proposal System (available soon)

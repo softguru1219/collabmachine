@@ -1,0 +1,68 @@
+#filterrific_results.row.clear
+  .ibox
+    .ibox-content
+      table.table.table-basic.table-striped.users
+        thead
+          tr
+            th = filterrific_sorting_link(@filterrific, :id, label: "ID")
+            th = filterrific_sorting_link(@filterrific, :access_level)
+            th width="32"
+            th.hidden
+            th = filterrific_sorting_link(@filterrific, :display_name, label: t('users.name_info'))
+            th = filterrific_sorting_link(@filterrific, :company)
+            th = filterrific_sorting_link(@filterrific, :email)
+            th = filterrific_sorting_link(@filterrific, :rating)
+            th = filterrific_sorting_link(@filterrific, :active, label: t('users.status'))
+            th = filterrific_sorting_link(@filterrific, :availability)
+            th = filterrific_sorting_link(@filterrific, :profile_type)
+            th width="500" Interests
+            th width="500" Skills
+            th = filterrific_sorting_link(@filterrific, :created_at)
+            th = filterrific_sorting_link(@filterrific, :invitation_accepted_at)
+            th Slack
+
+            / todo ajouter rules and regs accepted_at
+            th = filterrific_sorting_link(@filterrific, :updated_at)
+
+        tbody
+          - users.each_with_index do | user, index |
+            - classlist = ['client-link item']
+            - classlist.push('faded') if !user.available
+            tr
+              td = index
+              td = user.translated_access_level
+              td.hidden
+              td.client-avatar
+                .hidden = user.rating
+                = link_to user_path(user)
+                  = image_tag user.medium_avatar_url, class: 'img-circle'
+              td
+                h3 = link_to masked_name_or_handle(user), user_path(user), {class: classlist.join(' ')}
+
+                - if user.headline
+                  .headline = user.headline
+              td = user.company
+              td = user.email
+              td = user.rating
+              td
+                span.small.font-bold
+                  i.fa.fa-circle class=(user.active? ? 'text-navy' : 'text-warning')
+                  - caption = user.active? ? 'active': 'inactive'
+                  |  #{caption}
+              td
+                span.small.font-bold
+                  i.fa.fa-circle class=(user.available? ? 'text-navy' : 'text-warning')
+                  - caption = user.available? ? 'available' : 'off'
+                  |  #{caption}
+              td = user.profile_type
+              td = user.interests.map(&:name).join(", ")
+              td = user.skills.map(&:name).join(", ")
+              td = user.created_at
+              td = user.invitation_accepted_at
+              td = user.slack_username_attribute&.value
+
+              / todo ajouter rules and regs accepted_at
+
+
+              td = user.updated_at
+      = will_paginate users, renderer: BootstrapPagination::Rails, previous_label: "Previous", next_label: "Next", class: "pull-right"

@@ -1,0 +1,27 @@
+= form_for([user, attribute], html: { class: 'm-t attribute-form', role: 'form' }) do |f|
+  .row
+    .col-md-12
+      .ibox
+        .ibox-content
+          .m-b-md
+            = render 'shared/error_messages', record: attribute
+
+            = f.hidden_field :user_id, value: user.id
+            = f.hidden_field :source_user_id, value: current_user.id
+
+            .form-group
+              = f.label :name
+              = f.text_field :name, { class: 'form-control' }
+
+            .form-group
+              = f.label :value
+              = f.text_area :value, { class: 'form-control' }
+
+            - if @visibility == 'public'
+              = f.hidden_field :visibility, value: 'public'
+
+      .ibox
+        .ibox-content
+          .m-b-md
+            .actions
+              = f.submit class: 'btn btn-primary m-b pull-right'

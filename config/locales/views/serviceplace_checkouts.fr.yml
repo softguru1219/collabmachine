@@ -1,0 +1,13 @@
+fr:
+  serviceplace_checkouts:
+    show:
+      sign_up: Veuillez vous inscrire ou vous connecter pour payer. Merci!
+      province_non_existent: La province choisie n'est pas valide !
+    shared:
+      payment_information: Informations de paiement
+      confirm_and_pay: Confirmer & payer
+      review_and_confirm: Examiner & confirmer
+      view_receipt: Voir le reçu
+      purchase_successful: Merci pour votre achat!
+      cart_changed: Le prix ou les détails de l'un des articles de votre panier ont changé. Veuillez vérifier votre panier pour vérifier votre achat.
+      out_of_canada: Vous semblez être hors Canada ? Nous supportons seulement les ventes au Canada pour l'instant.

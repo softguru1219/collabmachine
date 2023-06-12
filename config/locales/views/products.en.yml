@@ -1,0 +1,21 @@
+en:
+  products:
+    form:
+      translation_explanation: "Please fill the fields in one or both languages.  If you only fill out one languages, it will appear for users of both languages."
+      tax_agreement: "I agree to manage all aspects of tax collection, accounting, and remittance"
+      terms_condition: "I accept terms and conditions"
+      custom_product: "I accept customization for this product"
+      custom_product_info: "By checking this box you let people know you can customize this offer"
+      custom_product_show: "Merchant can customize for this offer"
+      add_taxes: Add Taxes
+    publish:
+      published: "The product was published"
+    archive:
+      archived: "The product was archived"
+    reject:
+      rejected: "The product was rejected"
+    index:
+      new_product: "New Product"
+    embed_link:
+      title: 'Embed "%{product}" on your site:'
+      explanation: "Add the code below to your site HTML to show the product card on your website:"

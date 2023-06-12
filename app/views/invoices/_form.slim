@@ -1,0 +1,119 @@
+= form_for(invoice, html: { class: 'm-t invoice-form invoice-container', role: 'form' }) do |f|
+  .row
+    .col-md-12
+      .ibox
+        .ibox-content
+          .m-b-md
+            h1 = t('invoice.name')
+            br/
+            br/
+
+            = render 'shared/error_messages', record: invoice
+
+            .row.form-group
+              .col-md-4
+                = f.hidden_field :mission, value: params['mission']
+                => f.label :customer_id
+                span.tooltip-button
+                  button.btn.btn-xs.btn-warning.btn-outline.b-r-xl(
+                    type="button"
+                    data-toggle="tooltip"
+                    data-placement="top"
+                    title=""
+                    data-original-title=t('invoice.form.client_info')
+                  )
+                    i.fa.fa-question
+                br/
+                - if current_user.related_users.any?
+                  = f.select :customer_id,
+                    current_user.related_users.collect { |p| [ user_caption_for_dropdown(p), p.id ] },
+                    { prompt: t('invoice.show.customer')},
+                    { class: 'form-control search selection dropdown mdb-select colorful-select dropdown-primary client-select' }
+                - else
+                    = t('invoice.form.no_related_users')
+                #external-info
+                  .form-group
+                    = f.label :external_name
+                    = f.text_field :external_name, { class: 'form-control' }
+                  .form-group
+                    = f.label :external_email
+                    = f.text_field :external_email, { class: 'form-control' }
+              .col-md-4
+                = f.label :mission_ids
+                br/
+                = f.select :mission_ids,
+                    current_user.missions.collect { |m| [ m.title, m.id ] },
+                    {},
+                    { multiple: true, class: 'form-control search selection dropdown mdb-select colorful-select dropdown-primary invoice-form-select' }
+              .col-md-4
+                = f.label :project_ids
+                br/
+                = f.select :project_ids,
+                    current_user.missions.map { |m| [  m.project.title, m.project.id ] }.uniq,
+                    {},
+                    { multiple: true, class: 'form-control search selection dropdown mdb-select colorful-select dropdown-primary invoice-form-select' }
+
+            .form-group
+              = f.label :description
+              = f.text_area :description, { class: 'form-control' }
+
+      .ibox
+        .ibox-content
+          .m-b-md
+            .listing-invoices
+              h2.ui.dividing.header = t('invoice.form.invoice_lines')
+
+              table#invoice-lines.table width="100%"
+                thead
+                  tr
+                    th.col-md-4 = t('invoice.form.description')
+                    th.col-md-2.text-center = t('invoice.form.quantity')
+                    th.col-md-2.text-center = t('invoice.form.rate')
+                    th.col-md-2.text-center = t('invoice.form.mission')
+                    th.col-md-2
+                      span> = t('invoice.form.taxes')
+
+                      span.tooltip-button
+                        button.btn.btn-xs.btn-warning.btn-outline.b-r-xl(
+                          type="button"
+                          data-toggle="tooltip"
+                          data-placement="top"
+                          title=""
+                          data-original-title=t('invoice.form.taxes_info')
+                        )
+                          i.fa.fa-question
+
+                    th.col-md-1 = t('invoice.form.amount')
+                    th.col-md-1
+                tbody.item-rows
+                  = f.fields_for :invoice_lines do |fl|
+                    = render 'invoice_line_fields', f: fl
+
+              = link_to_add_fields_custom t('invoice.form.new_row'), f, :invoice_lines, 'btn btn-primary btn-add-row m-t-md'
+
+              .col-md-6.pull-right.m-t-xl
+                .ibox
+                  .ibox-content.well#total
+                    .row
+                      h4.col-md-6 = t('invoice.form.subtotal')
+                      h4.col-md-6#invoice_subtotal
+                      h4.col-md-6 = t('invoice.form.fees')
+                      h4.col-md-6#invoice_fees
+                      h4.col-md-6 = t('invoice.form.total_without_taxes')
+                      h4.col-md-6#invoice_subtotal_with_fees
+                      .col-md-12#taxes
+                    .row
+                      hr
+                      h4.col-md-6 = t('invoice.form.total_overall')
+                      h4.col-md-6#invoice_total
+      .ibox
+        .ibox-content
+          .m-b-md
+            .actions
+              = f.submit t('invoice.form.send_invoice'), class: 'btn btn-success m-b pull-right'
+
+/! Modal
+= render "shared/tax_form_modal"
+
+javascript:
+  $('.taxes-multiselect').multiselect({enableFiltering: false})

@@ -1,0 +1,39 @@
+#users.tab-pane role="tabpanel" aria-labelledby="user-tab"
+  h3 = t('dashboard.admin.all_users')
+  .row
+    = form_for_filterrific @filterrific do |f|
+      .col-md-6
+        .form-group
+          div = t('users.index.filter.name')
+          = f.text_field(:by_name,
+          class: 'filterrific-periodically-observed form-control')
+      .col-md-6
+        .form-group
+          div = t('users.index.filter.description')
+          = f.text_field(:by_description,
+          class: 'filterrific-periodically-observed form-control')
+      .col-md-4
+        .form-group
+          div = t('users.index.filter.type.title')
+          = f.select(:by_type,
+          User.type_values,
+          { include_blank: t('users.index.filter.type.all') },
+          { class: "mdb-select colorful-select dropdown-primary filter-select" })
+
+      .col-md-4
+        .form-group
+          div = t('users.index.filter.tags')
+          = f.select(:by_tags,
+          options_for_select(Tag.all.order('name').map { |tag| [ tag.name, tag.name ]}),
+          {},
+          { multiple: true, class: "mdb-select colorful-select dropdown-primary filter-select" })
+      .col-md-4
+        - if policy(current_user).admin?
+          .form-group
+            div = t('users.index.filter.active.title')
+            = f.select(:by_active_state,
+            User.state_values,
+            { include_blank: t('users.index.filter.type.all') },
+            { class: "mdb-select colorful-select dropdown-primary filter-select" })
+
+  == render "admin_user_list", users: @users

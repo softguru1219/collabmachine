@@ -1,0 +1,22 @@
+.row.wrapper.wrapper-content.ibox-content.middle-box
+  .col.ibox-content
+    = image_tag 'dashboard/banner_defi_montreal.png', class: 'full-width m-b-lg'
+
+    h2 = t('users.step.detail_title')
+    = form_for @user, url: wizard_path, html: { multipart: true, role: 'form' } do |f|
+      .row
+        .col-xs-12
+          h3 Ajoutez une photo
+          = image_tag @user.medium_avatar_url
+          = f.file_field :avatar
+          br
+          br
+        .col-xs-12
+          .form-group
+            = f.label :description
+            = f.text_area :description,
+                class: 'redactor item-desc'
+        .row
+          .col-md-12
+            = f.submit t('users.step.next'), class: "btn btn-primary btn-lg pull-right"
+            = link_to t('users.step.skip'), next_wizard_path, class: 'pull-right btn btn-lg btn-default', style: 'margin-right: 15px'

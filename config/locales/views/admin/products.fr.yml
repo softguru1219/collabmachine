@@ -1,0 +1,6 @@
+fr:
+  admin:
+    products:
+      index:
+        filter_by_title: "Filtrer par titre"
+        filter_by_state: "Filtrer par état"

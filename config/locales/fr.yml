@@ -1,0 +1,509 @@
+# Files in the config/locales directory are used for internationalization
+# and are automatically loaded by Rails. If you want to use locales other
+# than English, add the necessary files in this directory.
+#
+# To use the locales, use `I18n.t`:
+#
+#     I18n.t 'hello'
+#
+# In views, this is aliased to just `t`:
+#
+#     <%= t('hello') %>
+#
+# To use a different locale, set it with `I18n.locale`:
+#
+#     I18n.locale = :es
+#
+# This would use the information in config/locales/es.yml.
+#
+# To learn more, please read the Rails Internationalization guide
+# available at http://guides.rubyonrails.org/i18n.html.
+fr:
+  locales:
+    en: Anglais
+    fr: Français
+    sp: Espagnol
+    zh: Chinois
+    ar: Arabe
+    ru: Russe
+    hi: Hindi
+    pt: Portugais
+  levels:
+    basic: Débutant
+    intermediate: Intermédiaire
+    pro: Avancé
+  devise:
+    failure:
+      account_inactive: Votre compte est inactif, veuillez contacter le support pour plus de renseignement.
+    registrations:
+       signed_up_but_account_inactive: Merci! Nous avon reçu votre inscription. Vous receverez un courriel lorsque votre compte sera prêt à être utilisé.
+  date:
+    formats:
+      default: "%Y/%m/%d"
+      month_name: "%B"
+      event_date: "%-d %B"
+  time:
+    ago: "Il y a %{minutes} minutes"
+  number:
+    currency:
+      format:
+        unit: '$'
+  default:
+    close: fermer
+    more_details: Plus de détails...
+  about_us: 'À propos'
+  alt_lang:
+    code: en
+    label: english
+    invite: English version
+  missions: missions
+  company_name: 'Collab Machine'
+  info_email: 'info@collabmachine.com'
+  address_1: 4258 St-Hubert, Montréal
+  address_2: QC, Canada, H2J 2W7
+  phone: +1 514-237-1731
+  province: Votre province
+  provinces:
+    quebec: Québec
+    newfoundland: Terre-Neuve-et-Labrador
+    prince_edward_island: Île-du-Prince-Édouard
+    nova_scotia: Nouvelle-Écosse
+    new_brunswick: Nouveau-Brunswick
+    ontario: Ontario
+    manitoba: Manitoba
+    saskatchewan: Saskatchewan
+    alberta: Alberta
+    british_columbia: Colombie-Britannique
+    yukon: Yukon
+    northwest_territories: Territoires du Nord-Ouest
+    nunavut: Nunavut
+  taxes:
+    qst: TVQ
+    gst: TPS
+    hst: TVH
+    pst: TVP
+
+  connect: Connecter
+  contact: Contact
+  copyright: 'Collab Machine 2018 | Tous droits réservés.'
+  create_account: Créez votre compte ici
+  create_profile: Créez votre profil
+  documentation: documentation
+  email: courriel
+  first_name: Prénom
+  last_name: Nom de famille
+  get_project_done: Débutez votre projet
+  login: Se connecter
+  members: membres
+  or: ou
+  password: mot de passe
+  projects: projets
+  signup: S'inscrire
+  team: Équipe
+  admin_client: Client Admin
+  admin_client_summary: Résumé du Client Admin
+  admin_references_links: Liens de références d'administration
+  admin_project_type: Type de projet d'administration
+  admin_talents_resources: Admin Talents Ressources
+  admin_budget: Budget administratif
+  admin_delivery: Livraison par l'administrateur
+  admin_position_in_process: Poste d'administrateur en cours
+  admin_extra_info: Informations supplémentaires sur l'administrateur
+
+  company:
+    description: Collab Machine est une communauté organisée qui facilite les relations d’affaires entre les talents et les organisations.
+    description_more: On y trouve le support nécessaire pour collaborer de A à Z de façon autonome dans un réseau favorable, basé sur la confiance.
+  pundit:
+    default: "Vous n'êtes pas autorisé à faire ceci."
+    mission_policy:
+      destroy?: "Un projet a besoin d'avoir au moins une (1) mission."
+
+  home:
+    main_tagline: Améliorer le travail autonome.
+    taglines:
+      - Permettez la réalisation de vos ambitions.
+      - La force du nombre à votre service.
+      - Améliorer le travail autonome.
+
+
+    slides:
+      - bg_src: "landing/slider/escalade.jpg"
+        bg_disposition: "50% 50% no-repeat;"
+      - bg_src: "landing/slider/bus.jpg"
+        bg_disposition: "bottom center no-repeat;"
+      - bg_src: "landing/slider/downhill.jpg"
+        bg_disposition: "50% 50% no-repeat;"
+      - bg_src: "landing/slider/converse.jpg"
+        bg_disposition: "50% 50% no-repeat;"
+      - bg_src: "landing/slider/splash.jpg"
+        bg_disposition: "50% 50% no-repeat;"
+      - bg_src: "landing/slider/bike.jpg"
+        bg_disposition: "50% 50% no-repeat;"
+      - bg_src: "landing/slider/show.jpg"
+        bg_disposition: "50% 50% no-repeat;"
+
+
+    features:
+      col_1:
+        header: Approche collaborative
+        body: |
+          <p>La collaboration est l'acte de travailler ou de réfléchir ensemble pour atteindre un objectif.</p>
+          <p>C'est là l'essentiel.</p>
+      col_2:
+        header: Qualité de vie
+        body: <p>Bien que la définition de la qualité de vie soit propre à chacun, collab Machine offre des solutions pour concilier travail autonome et qualité de vie.</p>
+      col_3:
+        header: Sécurité
+        body: <p>C'est ce qui permet d'aller plus loin. Les efforts convergent pour procurer la tranquilité d'esprit et l'assurance d'un échange sans tracas.</p>
+      col_4:
+        header: Confiance
+        body: <p>La construction d'un eco-système basé sur la confiance offre aux clients comme aux talents, de meilleures chances pour atteindre leurs objectifs quels qu'ils soient.</p>
+
+
+      # section: features (part2)
+      main_title: |
+        Un éco-système <br>
+        <span class="navy">conçu pour la collaboration</span>
+      sub_p: ""
+
+      box_1:
+        icon: 'fa-flask'
+        header: Innovateur
+        body: <p>Propose une réflexion créative sur l'accès à une meilleure qualité de vie.</p>
+      box_2:
+        icon: 'fa-legal'
+        header: Équitable
+        body: <p>Cherche à capitaliser les acquis et distribuer l'effet de levier. Valorise le libre choix dans l'engagement, répartition granulaire et conséquente des résultats. </p>
+      box_3:
+        icon: 'fa-magnet'
+        header: Rassembleur
+        body: <p>Mécanismes qui permettent la réunion et l'engagement. Application de la théorie de « la force des liens faibles ».</p>
+      box_4:
+        icon: 'fa-random'
+        header: Agile et autonome
+        body: <p>Philosophie ultra-inclusive. Mode de pensée centré sur l'importance du parcours.</p>
+      box_5:
+        icon: 'fa-globe'
+        header: Flexible
+        body: <p>Mode de fonctionnement éclaté et décentralisé qui valorise l'adaptation au besoin. Permet un usage varié du système.</p>
+
+
+    # section
+    platform:
+      main_title: Une plateforme dont vous êtes le héros
+      sub_p: Un modèle actif basé sur votre propre ambition.
+      small: CLIENT ET/OU TALENT
+      title: Soyez au coeur de l'équation.
+      body:
+        <p>Que vous ayez le role de Client ou bien celui de Talent, collab Machine vous place au centre de l'équation. De la prise de contact jusqu'à la toute fin, autant de moyens que possible sont mis à disposition pour que l'expérience soit souriante pour toutes les parties.</p>
+        <p>Dans un sens comme dans l'autre, il s'agit d'un échange. Une réponse aux besoins des deux parties.</p>
+
+
+
+
+
+
+
+    # section: balance
+    balance:
+      main_title: Collab + Machine
+      sub_p: Une approche repensée, flexible, autonome et équitable.
+
+      left:
+        small: Collab
+        title: Approche innovante
+        body: <p>Collab Machine présente une version repensée du monde du travail. C'est un modèle au mode de gestion décentralisé, un modèle qui invite à une réflexion bien personnelle sur l'équilibre entre l'apport monétaire et l'accès au bonheur.</p>
+      right:
+        small: Machine
+        title: Mécanique conçue pour vous.
+        body:
+          <p>Le travail autonome comme l'entreprenariat présentent des défis importants qui en déroutent plusieurs. La machine rassemble, outille et rend service.</p>
+          <p>La machine cherche à créer le contrepoids efficace, puis en faire un levier.</p>
+
+
+    # section: call-to-action
+    call_to_action:
+      main_title: 4<sup>e</sup> révolution industrielle
+      body:
+        <p>La valeur ne se trouve plus au même endroit qu'auparavant.</p>
+        <p>Elle est maintenant là où nous allons.</p>
+
+
+    # section: features ... more
+    f_plus:
+      main_title: À la volée
+      rows:
+        -
+          -
+            title: Activités et contrôle
+            icon: fa-bar-chart
+            body: <p>Sachez en tout temps ce qui se passe.</p>
+          -
+            title: Centralisation et régularité
+            icon: fa-filter
+            body: <p>Un flow régularisé. Un processus permissif mais structurant.</p>
+        -
+          -
+            title: Gestion, travail et représentation
+            icon: fa-clock-o
+            body: <p>Le temps est précieux. Encore faut-il pouvoir en profiter. Concentrez-vous sur ce que vous préférez.</p>
+          -
+            title: Encadrer les échanges
+            icon: fa-money
+            body: <p>Mécanismes financiers en place pour faciliter les échanges et augmenter la confiance des participants. Soyez appuyé dans votre gestion.</p>
+        -
+          -
+            title: Rencontre possible et simplifiée
+            icon: fa-chain
+            body: <p>En tant que client, collab Machine deviendra la prolongation de votre équipe. Comme talent, collab Machine vous proposera des opportunités là ou vous êtes.</p>
+          -
+            title: "Et bien plus..."
+            icon: fa-thumbs-up
+            body: <p>Pour découvrir Collab Machine dans toute sa splendeur, il vous faudra en faire partie.</p>
+
+    partners:
+      our_partners: 'Nos partenaires'
+      proud_member_of: 'Fier membre de:'
+      upside_desc: 'La Fondation Upside du Canada offre une plate-forme intéressante pour aider les startups canadiennes et les entreprises à forte croissance à «Redonner au suivant» et avoir un impact positif sur notre communauté.'
+      amelio_desc: "Amélio analyse ce que vos employés aiment de votre entreprise et ce que vous devez améliorer pour créer un milieu de travail inspirant. L'outil crée des parcours de coaching automatisé grâce aux pratiques de gestion les plus innovantes."
+      mtlcowork_desc: "Espace de coworking qui offre tout ce dont vous avez besoin que vous soyez un travailleur autonome ou une équipe de plus d’une dizaine de personnes!"
+      futurpreneur_desc: "Futurpreneur Canada est une organisation nationale sans but lucratif qui a pour mission de contribuer à la croissance économique de notre pays, un jeune entrepreneur à la fois."
+      siliconisland_desc: "Outiller les organisations en les aider à maximiser le potentiel d'application de l'intelligence artificielle de la stratégie au déploiement tout en créant énormément de richesse à ses créateurs et ce principalement dans l'écosystème de Montréal."
+      bec_desc: "Le BEC, c’est une ligne d’écoute offerte 24 h/24, 7 j/7. Gratuite et confidentielle, elle est mise à disposition de tous les professionnels de la communication-marketing."
+      bec_url: https://le-bec.org/
+      think_like_a_machine_desc: "THINK LIKE A MACHINE est une boutique d’Innovation en train de bâtir un nouveau standard (EVI) en design d’affaires"
+      mtl_ecommerce_desc: "MTL + Ecommerce est une plateforme de rassemblement des esprits les plus brillants. Tous unis par leur passion pour les affaires, l'innovation et le marketing numérique."
+      innovx_desc: "Firme de consultation spécialisée en conformité réglementaire de plateformes centrales aux opérations. Supporte aussi les besoins en gestion de projets TI, stratégies TI, analyse d’affaires, réingénierie d’entreprise et en validation de systèmes informatiques."
+      defi_mtl: Défi Montréal aide les entrepreneurs à réussir dans l'économie numérique. C’est la plus grande communauté d'entraide et de partage d'expérience pour les entrepreneurs innovants à forte croissance au Québec.
+      le_wagon: Changez de vie, apprenez à coder - À travers des formations intensives en Développement Web et en Data Science, Le Wagon vous enseigne les compétences indispensables d'aujourd'hui et de demain.
+      le_wagon_url: https://www.lewagon.com/fr
+    footer:
+      section_services: Offre & Services
+      section_about: À propos de nous
+      main_title: Restons en contact!
+      find_specialist: Trouver un spécialiste
+      post_a_project: Déposer un projet
+      serviceplace: Accéder au Serviceplace
+      become_specialist: Comment devenir un de nos spécialistes ?
+      secondary_text: Inscrivez-vous à notre infolettre
+      blurb: Collab Machine fonctionne sur une base sélective et sur invitation seulement. N'hésitez pas à communiquer par courriel et il nous fera un grand plaisir d'y répondre dans un délai aussi bref que possible.
+      submit_email: s'inscrire
+      smaller: Inscrivez-vous à la liste d'envoir pour recevoir les nouvelles.
+      # blurb: Pour découvrir le collab dans toute sa splendeur, il vous faut en faire partie!
+      # smaller: Strength of weak ties, Slicing Pie et Master Mind.
+
+    send_us_mail: Écrivez-nous
+    follow_us: Et suivez-nous sur les médias sociaux
+
+    flights: Vols
+    unobstrusive: Processus<br>discret
+    launch: Lancement<br>d'idées
+    members: Membres
+
+
+
+  users:
+    subscribe_mailing: Inscrivez-vous à la liste d'envoi
+    blurb_mailing1: Les inscriptions ne sont pas encore ouvertes au grand public.
+    blurb_mailing2: Utilisez le formulaire pour être parmi les premiers informés des foudroyantes nouveautés et recevoir votre invitation.
+    required_fields: champs obligatoires
+    email: Courriel
+    first_name: Prénom
+    last_name: Nom de famille
+    profile: profil
+    subscribe: S'inscrire
+    company: compagnie
+    password: mot de passe
+    password_confirm: confirmez le mot de passe
+    username: nom d'utilisateur
+    submit: soumettre
+    invited_by: "Présenté par:"
+    github_url: Lien Github
+    linkedin_url: Lien Linkedin
+    web_site_url: Lien Website
+    phone_placeholder: Téléphone
+    phone_blitz_placeholder: Numéro de cellulaire (disponible pendant le Blitz)
+    location_placeholder: "Localisation: votre ville, région, quartier"
+    leave_blank: laissez vide si vous ne voulez pas le changer
+    chars: caractères minimum
+    need_pass: nous avons besoin de votre mot de passe actuel pour confirmer vos modifications
+    change_button: changer de mot de passe
+
+  sessions:
+    login: Se connecter
+    logout: Se déconnecter
+    remember_me: se souvenir de moi.
+    login_form_blurb: Vas-y fort.
+
+  devise_links:
+    login: Se connecter
+    signup: S'inscrire
+    forgot_password: Mot de passe oublié?
+    miss_confirmation_instruction: Vous n'avez pas reçu les instructions pour activer?
+    miss_unlock_instruction: Vous n'avez pas reçu les instructions pour déverrouiller?
+
+
+
+  estimate:
+    main_title: Votre idée!
+    instructions:
+      - icon: fa-pencil-square-o
+        title: Décrivez votre idée.
+        description: Allez-y simplement pour commencer.
+      - icon: fa-send
+        title: Envoyez votre formulaire.
+        description: Nous pourrons ensuite vous aider à préparer et présenter le projet.
+      - icon: fa-magic
+        title: Lancez!
+        description: Votre projet pourra démarrer!
+    form:
+      invite: Décrivez rapidement votre projet
+      title_placeholder: Titre
+      phone_placeholder: Votre numéro de téléphone
+      email_placeholder: Votre adresse de courriel
+      description_placeholder: Donnez quelques détails ...
+      send: Envoyer
+      error_msg: Veuillez vous assurer de donner un titre et un description.
+
+  estimate_created:
+    main_title: Padam!!!
+    blurb: Votre demande d'estimé a été créé... on y regarde de près.
+    finale: Vous recevrez des nouvelles bientôt.
+
+  insurance_quote:
+    turquoise_description: <strong>La Turquoise</strong> est heureuse d’offrir aux membres de Collab Machine un produit d'assurance spécialement développé pour l’industrie des TI avec une tarification de groupe très avantageuse pour vous.
+                          En plus de la responsabilité professionnelle (erreur et omission) et civile ainsi que les biens informatiques, nous sommes en mesure de vous protéger pour la perte de données, le cyberrisque et la propriété intellectuelle.
+                          <br><strong>Grâce au partenariat avec Collab Machine, vous bénéficiez d’une tarification privilégiée avec une prime réduite d’au moins 15%</strong>.
+    turquoise_contact: Composez le 888 355-2347 et contactez dès maintenant Jason Cabral au poste 26171 ou Claire-Hélène Michaud au poste 26120. Ils sont là pour vous.
+    form:
+      invite: Demandez votre soumission
+      name_placeholder: Votre nom complet
+      phone_placeholder: Votre numéro de téléphone
+      email_placeholder: Votre adresse de courriel
+      note_placeholder: Ajouter des détails ...
+      send: Envoyer
+      error_msg: Veuillez vous assurer de donner votre nom, adresse de courriel et numéro de téléphone.
+    created:
+      main_title: Padam!!!
+      blurb: Votre demande a été créé... on y regarde de près.
+      finale: Vous recevrez des nouvelles bientôt.
+
+  will_paginate:
+    previous_label: "&#8592; Précédent"
+    next_label: "Next &#8594;"
+    page_gap: "&hellip;"
+
+    page_entries_info:
+      single_page:
+        zero:  "Aucun %{model}"
+        one:   "Affiche 1 %{model}"
+        other: "Tout %{count} %{model}"
+      single_page_html:
+        zero:  "Aucune entrée trouvée"
+        one:   "Affiche <b>1</b> %{model}"
+        other: "Affiche <b>tout (%{count}</b> %{model})"
+
+      multi_page: "Affiche %{model} %{from} - %{to} de %{count} total"
+      multi_page_html: "Affiche %{model} <b>%{from}&nbsp;-&nbsp;%{to}</b> de <b>%{count}</b> au total"
+
+  status:
+    draft:
+      title: Brouillon
+      info: Ajoutez de l'information à cette mission. Soumettez-le quand tout y est.
+      next_action: Soumettre pour révision
+    for_review:
+      title: En révision
+      info: On vérifie que tout est beau et on vous revient
+      next_action: Marque comme révisé
+    reviewed:
+      title: Révisé
+      info: Votre mission a été validée. Vous pouvez inviter des candidats ou directement l'assigner à un membre.
+      next_action: Ouvrir aux candidats
+    open_for_candidates:
+      title: Ouvert aux candidatures
+      info: Votre mission est ouverte aux candidatures, les gens peuvent le voir et manifester leur intérêt. Assignez un talent à cette mission pour passer à l'étape suivante.
+      next_action: Assigné à quelqu'un
+    assigned:
+      title: Assigné
+      info: Votre mission est assignée. Elle est maintenant visible seulement pour personnes concernées.
+      next_action: Commencez votre mission
+    started:
+      title: Débuté
+      info: Le progrès a commencé!
+      next_action: Terminez votre mission
+    finished:
+      title: Terminé
+      info: Votre mission est maintenant terminée. Le talent peut maintenant émettre sa facture.
+      next_action: Envoyer facture
+    invoiced:
+      title: Facturé
+      info: Votre mission a été facturée, suivez les instructions pour la payer.
+    paid:
+      title: Payé
+      info: Votre mission est maintenant payée.
+    paid_confirmed:
+      title: Paiement confirmé
+      info: Votre paiment a été confirmé pour cette mission. Vous pouvez donc la fermer.
+    closed:
+      title: Fermé
+      info: Cette mission est fermée.
+    archived:
+      title: Archivé
+      info: Cette mission est archivée.
+    on_hold:
+      title: "- EN ATTENTE"
+      info: Cette mission est présentement en attente, vous devez la réactiver afin de continuer.
+
+  messages:
+    project:
+      draft: "Brouillon"
+      created: "Créé"
+      for_review: "En révision"
+      reviewed: "Révisé"
+      new_open_project: "Ouvert aux candidatures"
+      new_quick_estimate_demand: "Création d'un devis rapide"
+      active: "Actif"
+
+    mission:
+      draft: 'Brouillon'
+      for_review: 'En révision'
+      reviewed: 'Révisé'
+      open_for_candidates: 'Ouvert aux candidatures'
+      assigned: 'Assigné'
+      started: 'Débuté'
+      finished: 'Terminé'
+      invoiced: 'Invoiced'
+      paid: 'Payé'
+      paid_confirmed: 'Payé confirmé'
+      closed: 'Fermé'
+      archived: 'Archivé'
+
+    applicant:
+      unknown: 'Inconnu'
+      assigned: 'Assigné'
+      rejected: 'Rejeté'
+      update: 'Mise à jour'
+      point_info_non_access: "If you want to suggest somebody for this project you have to change your subscription plan to platinum"
+
+
+  helpers:
+    label:
+      invoice:
+        customer_id: Client
+        description: Description
+        mission_ids: Missions
+        project_ids: Projets
+        external_name: Nom de la personne ou de la compagnie externe
+        external_email: Courriel de la personne ou de la compagnie externe
+      project:
+        title: Titre
+        description: Description
+        owner: Propriétaire
+        admin_notes: Notes de l'admin
+        private_notes: Notes privées
+      mission:
+        project: Projet
+        title: Titre
+        terms: Termes
+        rate: Taux
+        admin_notes: Notes de l'admin

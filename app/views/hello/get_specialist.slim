@@ -1,0 +1,84 @@
+.container.m-t-xl.m-b-xl.well
+  .row
+    .col-sm-12.text-center
+      h1 Comment obtenir un spécialiste grâce à CollabMachine ?
+      p Trouver et engager un spécialiste s’effectue en quelques étapes simples avec CollabMachine
+      hr.hr
+
+  section.two-column
+    .cell
+      p Sur la page d’entrée de CollabMachine.com, cliquer sur la spécialité qui vous convient.
+    .cell
+      = image_tag 'landing-pages/Experts-amico.svg', class: 'w70 center-block'
+
+  section.two-column.reverse
+    .cell
+      span
+        p <strong>Remplir le bref questionnaire </strong> de demande du spécialiste.
+        p  Sur cette page, vous avez une liste des habilités du spécialiste et des secteurs d’industries où il a œuvré.
+    .cell
+        = image_tag 'landing-pages/Forms-amico.svg', class: 'w70 center-block'
+
+  section.two-column
+    .cell
+      p Après une vérification des disponibilités du spécialiste, un représentant de <strong>CollabMachine communiquera avec vous</strong>  pour répondre à vos questions et établir une entente.
+    .cell
+      = image_tag 'landing-pages/Call center-amico.svg', class: 'w70 center-block'
+
+  section.two-column.reverse
+    .cell
+      span
+        p Vous pouvez, à votre convenance, <strong>obtenir des informations plus détaillées</strong> sur le spécialiste ou même <strong>le rencontrer par visioconférence.</strong>
+    .cell
+      = image_tag 'landing-pages/Video call-amico.svg', class: 'w70 center-block'
+
+  section.two-column
+    .cell
+      p Après avoir signé l’entente, <strong>le spécialiste travaille désormais pour vous</strong> pour la période prescrite selon vos conditions.
+    .cell
+      = image_tag 'landing-pages/Agreement-amico.svg', class: 'w70 center-block'
+
+.container
+  .row
+    .col-sm-12
+
+      #accordion.panel-group
+        .panel.panel-default
+          .panel-heading
+            h2.panel-title
+              a.collapse-link[data-toggle="collapse" data-parent="#accordion" href="#collapseOne"]
+                i.fa.fa-chevron-up
+                span< Quelques informations utiles
+          #collapseOne.panel-collapse.collapse.in
+            .panel-body
+              ul
+                li Les compétences des spécialistes proposés ont été <strong>vérifiées par notre personnel</strong>.
+                li <strong>Nous ne gardons que les spécialistes ayant satisfait notre clientèle</strong>.
+                li Un spécialiste peut être requis <strong>à temps plein ou à temps partiel</strong>. Une <strong>banque d’heures</strong> sur une période maximale de 6 mois peut être également demandée.
+                li Pour le temps plein ou le temps partiel, l’équivalent de la rémunération de 1 semaine de travail tel que prévu à l’entente est requis avant le début du travail du spécialiste. Par la suite, une facturation mensuelle est émise.
+                li Pour la banque d’heures, l’équivalent de 10% de la valeur de l’entente est requis avant le début du travail du spécialiste. Ensuite, une facturation mensuelle est émise. Une facture finale est émise à la fin de la période prescrite d’un montant équivalent à l’entente moins les sommes déjà versées.
+                li <strong>Le travail peut s’effectuer à distance, dans vos bureaux ou une combinaison des deux</strong> selon vos besoins et l’emplacement physique du spécialiste.
+        .panel.panel-default
+          .panel-heading
+            h2.panel-title
+              a.collapse-link[data-toggle="collapse" data-parent="#accordion" href="#collapseTwo"]
+                i.fa.fa-chevron-up
+                span< Notre garantie
+          #collapseTwo.panel-collapse.collapse
+            .panel-body
+              p Si vous êtes insatisfaits d’un travail du spécialiste au cours de sa première semaine de travail, nous ferons le nécessaire afin de vous trouver un spécialiste équivalent dans les plus brefs délais. Si nous ne pouvons trouver un remplaçant adéquat, votre dépôt vous sera remboursé.
+
+
+.container
+  p.text-center.action-bar
+    span
+      =< link_to 'CONTACTEZ-NOUS', contact_path, target: '_blank', class: 'btn btn-info btn-lg m-t-lg'
+  br
+  br
+  br
+  br
+  br
+  br
+  br
+  br
+  br

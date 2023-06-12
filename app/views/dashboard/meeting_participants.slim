@@ -1,0 +1,47 @@
+.row
+  .col-sm-12
+    .ibox
+      .ibox-content
+        h1 list meeting participants
+
+        - schedules_data = @schedules_data
+        - hours = schedules_data[:coachs][:titles].values.first
+        - cols = schedules_data[:coachs][:col_names]
+        - cols_participants = schedules_data[:participants][:col_names]
+
+        table.table.table-basic.table-striped.dataTable-blitz-participants.users width="100%"
+          thead
+            tr
+              th Hour
+              th Name
+              th Email
+              th Phone No
+            tbody
+              - min_index = hours.length - 13
+              - hours.each_with_index do |hour, i|
+                - if i > min_index - 1
+                  - schedules_data[:coachs][:rows].values.each do |coach|
+                    - unless ['x', 'X'].include?(coach[i]) || ['', nil].include?(coach[i])
+                      - telephone_coach = coach[cols[:"Téléphone"]]
+
+                      - telephone_coach = "1#{telephone_coach}" if telephone_coach.to_s.start_with?('418', '514')
+
+                      - if telephone_coach.to_s.start_with?('1')
+                        tr
+                          td = hour
+                          td #{coach[cols[:"Nom complet"]]}
+                          td #{coach[cols[:"Email"]]}
+                          td = telephone_coach.delete('()-').gsub(/\s+/, "")
+
+                        - schedules_data[:participants][:rows].values.each do |participant|
+                          - if number = participant[cols_participants[:"Email"]] == coach[i].split('::')[1]
+                            - number = "1#{number}" if number.to_s.start_with?('418', '514')
+
+                            - if number.to_s.start_with?('1')
+                              tr
+                                td = hour
+                                td = coach[i].split('::')[0]
+                                td = coach[i].split('::')[1]
+                                td
+                                  - number = (participant[cols_participants[:"Téléphone"]])
+                                  = number.to_s.delete('()-').gsub(/\s+/, "")

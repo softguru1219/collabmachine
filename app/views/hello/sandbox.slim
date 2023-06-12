@@ -1,0 +1,209 @@
+.container.sandbox
+  .row
+    .col-md-8.col-md-offset-2
+
+        / .embed-box
+        br
+        br
+        br
+        br
+
+        .brand-box
+            .brand collab machine
+            div#aaa
+
+        .brand-box
+            .brand collab machine
+            div#bbb
+
+        .brand-box
+            .brand collab machine
+            div#ccc
+
+
+        .brand-box.med
+            .brand collab machine
+            div
+                span Connecting
+                span = " "
+                span#connecting
+
+
+        .brand-box.med
+            .brand collab machine
+            div
+                span Join the
+                span = " "
+                span#join
+
+
+
+
+javascript:
+
+    var Messenger = function(el, messages){
+      'use strict';
+      var m = this;
+        m.messages = messages;
+
+      m.init = function(messages){
+        m.codeletters = ".!?%!@#$%?&*¡@£€∞ {}[]*&oayxjtmvwmbpdq";
+        m.message = 0;
+        m.current_length = 0;
+        m.fadeBuffer = false;
+        // m.messages = messages;
+
+        setTimeout(m.animateIn, 100);
+      };
+
+      m.generateRandomString = function(length){
+        var random_text = '';
+        while(random_text.length < length){
+          random_text += m.codeletters.charAt(Math.floor(Math.random()*m.codeletters.length));
+        }
+
+        return random_text;
+      };
+
+      m.animateIn = function(){
+        if(m.current_length < m.messages[m.message].length){
+          m.current_length = m.current_length + 2;
+          if(m.current_length > m.messages[m.message].length) {
+            m.current_length = m.messages[m.message].length;
+          }
+
+          var message = m.generateRandomString(m.current_length);
+          $(el).html(message);
+
+          setTimeout(m.animateIn, 20);
+        } else {
+          setTimeout(m.animateFadeBuffer, 20);
+        }
+      };
+
+      m.animateFadeBuffer = function(){
+        if(m.fadeBuffer === false){
+          m.fadeBuffer = [];
+          for(var i = 0; i < m.messages[m.message].length; i++){
+            m.fadeBuffer.push({c: (Math.floor(Math.random()*12))+1, l: m.messages[m.message].charAt(i)});
+          }
+        }
+
+        var do_cycles = false;
+        var message = '';
+
+        for(var i = 0; i < m.fadeBuffer.length; i++){
+          var fader = m.fadeBuffer[i];
+          if(fader.c > 0){
+            do_cycles = true;
+            fader.c--;
+            message += m.codeletters.charAt(Math.floor(Math.random()*m.codeletters.length));
+          } else {
+            message += fader.l;
+          }
+        }
+
+        $(el).html(message);
+
+        if(do_cycles === true){
+          setTimeout(m.animateFadeBuffer, 50);
+        } else {
+          setTimeout(m.cycleText, 2000);
+        }
+      };
+
+      m.cycleText = function(){
+        m.message = m.message + 1;
+        if(m.message >= m.messages.length){
+          m.message = 0;
+        }
+
+        m.current_length = 0;
+        m.fadeBuffer = false;
+        $(el).html('');
+
+        setTimeout(m.animateIn, 200);
+      };
+
+      m.init();
+    }
+
+    // Best
+    var aaa = new Messenger($('#aaa'), [
+        'Dream your team.', //red
+        'Yours to work.', //red
+        'Find your people.', //red
+        'Your next big thing.', //red
+        'Live it.', // invention PL
+        "Happy living.", // invention PL : [Rosa]
+        'Live it bold.', // invention PL
+    ]);
+
+
+    // Medium
+    var bbb = new Messenger($('#bbb'), [
+        'Your next big thing.', //red
+        'Live it.', // invention PL
+        "Happy living.", // invention PL : [Rosa]
+        "Connecting strengths.", // +1
+        "Let’s co-play.",
+        'The people platform.', //red
+        'Fusing talent. Fueling things.', //red: [Rosa]
+        "A social getwork.",
+        'Start getworking.', //red
+        "Connecting superpowers.",
+        "Join the opportunity.",
+        "A hub of opportunity.",
+        "Where teams click.",
+        "Where like-minds mash.",
+        "Where superpowers mash.",
+        "Where minds mash.",
+        'Team-up happy.', //red
+        "Welcome to your next thing.",
+        "Your creative crew.",
+        "Where great gigs start.",
+        "A getwork network.",
+        "Use your talent.",
+    ]);
+
+    // less?
+    var ccc = new Messenger($('#ccc'), [
+        "Work happy.",
+        "Work what you’ve got.",
+        "Let’s make good stuff together.",
+        "Work it.",
+        "Get great gigs."
+    ]);
+
+
+    var connecting = new Messenger($('#connecting'), [
+        "top talent",
+        "fresh ideas",
+        "new clients",
+        "know-how",
+        "big brains",
+        "superpowers",
+        "new partners",
+        "etc..."
+    ]);
+
+
+    var join = new Messenger($('#join'), [
+        "team",
+        "campaign",
+        "opportunity",
+        "good clients",
+        "big thinking",
+        "wild ideas",
+        "partnership",
+        "portfolio piece",
+        "a-list",
+        "new gig",
+        "network",
+        "braindump",
+        "fresh approach",
+        "right people",
+        "new tech",
+        "social following",
+    ]);
+

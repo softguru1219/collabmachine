@@ -1,0 +1,49 @@
+- visible_states = visible_states || false
+
+.project-list
+  .ibox
+    .ibox-content
+
+      .project-header
+        h3.title.pull-left
+          = title
+          a.box-collapse (
+            aria-controls="##{box_id}"
+            aria-expanded="true"
+            href="##{box_id}"
+            data-toggle="collapse"
+            role="button"
+          )
+            i.fa.fa-chevron-up
+
+        =< link_to new_user_invitation_path, class: "btn btn-white btn-outline pull-right" do
+          i.fa.fa-paper-plane-o
+          span =< t 'dashboard.index.actions.send_invites'
+        .clearfix
+
+      - if items.count > 0
+        div.collapse.in id="#{box_id}" aria-expanded="true"
+          #nestable.dd
+            ol.dd-list
+              - i = 0
+              - items.each do |referral|
+                li.dd-item.dd3-item.project-item id="referral#{referral.id}" data-id="#{i}"
+                  .dd-handle.dd3-handle
+                  .row.dd3-content
+
+                    .col-xs-8.no-padding
+                      h2
+                        => avatar_link_to_user(referral.id, {class: 'mini-avatar right spaced'})
+                        =< link_to_user(referral.id)
+
+                        span.small.font-bold.m-l-xs
+                          i.fa.fa-circle class=(referral.active? ? 'text-navy' : 'text-warning')
+                          - caption = referral.active? ? 'active member': 'inactive'
+                          |  #{caption}
+
+                    .col-xs-4.no-padding.text-right
+                      - if referral.invitation_created_at
+                        p.small Invite: #{referral.invitation_created_at}
+
+                      - if referral.invitation_accepted_at
+                        p.small Confirmation: #{referral.invitation_accepted_at}

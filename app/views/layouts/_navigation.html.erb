@@ -1,0 +1,105 @@
+<nav class="navbar-default navbar-static-side" role="navigation">
+  <%- if current_user %>
+  <div class="sidebar-collapse">
+    <div class="main-avatar-box">
+      <%= link_to user_path(current_user), class: 'main-avatar', title: "Visit your profile" do %>
+        <%= image_tag current_user.thumb_avatar_url, class: 'img-circle' %>
+        <span class="block m-t-xs">
+          <strong class="font-bold"><%= "#{current_user.full_name}" %></strong>
+        </span>
+      <% end %>
+    </div>
+    <ul class="nav metismenu" id="side-menu">
+      <li class="nav-header">
+        <div class="dropdown profile-element">
+          <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+            <span class="clear">
+              <span class="text-muted text-xs block">
+                <%= current_user.headline || current_user.access_level %> <b class="caret"></b>
+              </span>
+            </span>
+          </a>
+          <ul class="dropdown-menu animated fadeInRight m-t-xs">
+            <li>
+              <%= link_to user_path(current_user), title: "Visit your profile" do %>
+                <i class="fa fa-user"></i> <span class="nav-label"> <%= t('users.profile').upf %></span>
+              <% end %>
+            </li>
+            <li class="divider"></li>
+            <li class="<%= 'active' if controller_is?('devise/invitations') and action_is?('new') %>">
+              <%= link_to new_user_invitation_path, title: "Invite people to Collab Machine" do %>
+                <i class="fa fa-paper-plane-o"></i> <span class="nav-label"> Invite people</span>
+              <% end %>
+            </li>
+            <li>
+              <%= link_to destroy_user_session_path, title: "Close this session" do %>
+                <i class="fa fa-power-off"></i> <span class="nav-label"> Logout</span>
+              <% end %>
+            </li>
+          </ul>
+        </div>
+        <div class="logo-element">
+          <%= link_to user_path(current_user), class: 'main-avatar', title: "Visit your profile" do %>
+            <%= image_tag current_user.thumb_avatar_url, class: 'img-circle' %>
+          <% end %>
+        </div>
+      </li>
+
+
+      <li class="<%= 'active' if controller_is?('dashboard') and action_is?('index') %>">
+        <%= link_to dashboard_path, title: "Dashboard" do %>
+          <i class="fa fa-dashboard"></i> <span class="nav-label">Dashboard</span>
+        <% end %>
+      </li>
+      <li class="<%= 'active' if controller_is?('projects') %>">
+        <%= link_to projects_path, title: "Projects" do %>
+          <i class="fa fa-cubes"></i> <span class="nav-label">Projects</span>
+        <% end %>
+      </li>
+      <li class="<%= 'active' if controller_is?('missions') %>">
+        <%= link_to missions_path, title: "Missions" do %>
+          <i class="fa fa-cube"></i> <span class="nav-label">Missions</span>
+        <% end %>
+      </li>
+      <li class="<%= 'active' if controller_is?('users') and action_is?('index') %>">
+        <%= link_to users_path, title: "Members" do %>
+          <i class="fa fa-users"></i> <span class="nav-label">Members</span>
+        <% end %>
+      </li>
+      <li class="<%= 'active' if controller_is?('tags') and action_is?('index') %>">
+        <%= link_to tags_path, title: "Tags/skills" do %>
+          <i class="fa fa-tags"></i> <span class="nav-label">Tags</span>
+        <% end %>
+      </li>
+
+
+      <li class="divider">
+        <hr>
+      </li>
+
+
+      <% if policy(Exchange).index? %>
+        <li class="<%= 'active' if controller_is?('exchanges') and action_is?('index') %>">
+          <%= link_to exchanges_path, title: "System exchanges" do %>
+            <i class="fa fa-area-chart"></i> <span class="nav-label">Transactions</span>
+          <% end %>
+        </li>
+      <% end %>
+
+      <li class="<%= 'active' if controller_is?('devise/invitations') and action_is?('new') %>">
+        <%= link_to new_user_invitation_path, title: "Invite people to Collab Machine" do %>
+          <i class="fa fa-paper-plane-o"></i> <span class="nav-label"> Invite people</span>
+        <% end %>
+      </li>
+
+      <li class="<%= 'active' if controller_is?('hello') and action_is?('index') %>">
+        <%= link_to landing_path, title: "Visite Collab Machine website." do %>
+        <i class="fa fa-desktop"></i> <span class="nav-label"><small>collabmachine.com</small></span>
+        <% end %>
+      </li>
+
+
+    </ul>
+  </div>
+  <%- end %>
+</nav>

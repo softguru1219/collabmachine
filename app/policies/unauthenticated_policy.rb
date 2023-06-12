@@ -1,0 +1,1 @@
+class UnauthenticatedPolicy < ApplicationPolicy; end

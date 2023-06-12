@@ -1,0 +1,122 @@
+.container.m-t-xl.m-b-xl.well
+  .row
+    .col-sm-12.text-center
+      h1 Comment obtenir des mandats?
+      p La plupart du temps, les entreprises deviennent membres du réseau CollabMachine sur invitation.
+      p Cependant, <strong>vous pouvez nous proposer votre expertise</strong>. Notre personnel fera alors les vérifications diligentes afin de nous assurer de la compétence des ressources proposées.
+      p Pour nous proposer vos ressources et profiter ainsi de tous les <em>avantages de devenir membre</em> du réseau CollabMachine, vous n’avez qu’à suivre les étapes suivantes :
+
+      hr.hr
+
+  section.two-column
+    .cell
+      span
+        p Sur la page d’entrée de CollabMachine.com, cliquer le bouton
+        p
+          = link_to 'Proposer des spécialistes', get_contracts_path, class: 'btn btn-warning'
+    .cell
+      = image_tag 'landing-pages/Add User-amico.svg', class: 'w70 center-block'
+
+  section.two-column.reverse
+    .cell
+      p <strong>Ajouter les employés</strong> qui sont des spécialistes dans leur domaine puis <strong>saisir leurs spécialités.</strong> Cela ne prend que quelques minutes.
+
+    .cell
+      = image_tag 'landing-pages/Forms-amico.svg', class: 'w70 center-block'
+
+  section.two-column
+    .cell
+      span
+        p
+          span Vous deviendrez <strong>Membre du réseau CollabMachine</strong> si au moins une des spécialités proposées est acceptée. Vous profiterez ainsi de
+          span =<> link_to 'tous les avantages d’être membre.', '#avantages-membres'
+
+    .cell
+        = image_tag 'landing-pages/New team members-amico.svg', class: 'w70 center-block'
+
+  section.two-column.reverse
+    .cell
+      span
+        p <strong>CollabMachine vous propose des mandats</strong> en fonction de vos spécialités et vous propose de <strong>participer à des appels d’offres</strong> sur des projets d’envergure.
+    .cell
+      = image_tag 'landing-pages/To the stars-amico.svg', class: 'w70 center-block'
+
+  section.two-column
+    .cell
+      span
+        p Si vous manquez temporairement de personnel ou si vous souhaitez élargir votre offre de services, <strong>CollabMachine vous trouve le personnel</strong> dont vous avez besoin.
+    .cell
+      = image_tag 'landing-pages/Holding the arrow-amico.svg', class: 'w70 center-block'
+
+.container
+  .one-column
+    #accordion.panel-group
+      .panel.panel-default
+        .panel-heading
+          h2.panel-title#avantages-membres
+            a.collapse-link[data-toggle="collapse" data-parent="#accordion" href="#collapseOne"]
+              i.fa.fa-chevron-up
+              span< Avantages des membres du réseau CollabMachine
+        #collapseOne.panel-collapse.collapse.in
+          .panel-body
+            section.one-column
+              p Voici les avantages offerts pour les <strong>membres du réseau CollabMachine</strong> :
+
+              ol
+                li CollabMachine recherche activement des mandats pour ses membres auprès de milliers d’entreprises.
+                li Les employés dont les spécialités ont été acceptées par CollabMachine participent, selon les besoins, aux divers <strong>projets de CollabMachine</strong>. Sauf exception, seuls les employés des membres du réseau CollabMachine participent aux divers projets de CollabMachine.
+                li Le membre participe aux <strong>appels d'offres de projets d’envergure</strong> initiés par CollabMachine avec d’autres membres.
+                li CollabMachine fournit, le cas échéant, du <strong>personnel</strong> aux membres pour réaliser des mandats plus rapidement ou élargir la gamme de services.,
+                li Le membre peut <strong>conserver son personnel</strong> au cours de périodes creuses en partageant le temps de certaines de ses ressources avec d’autres entreprises,
+                li Le membre peut proposer autant de <strong>spécialités</strong> qu’il le souhaite **,
+                li Les spécialités des membres sont offertes sur les propriétés web de CollabMachine (site et réseaux sociaux). En cas de demande d’une ressource, CollabMachine s’entend avec le membre sur les conditions et la rémunération de la ressource pour le mandat.
+                li
+                  span Le membre peut <strong>utiliser gratuitement le </strong>
+                  span
+                    strong =<> link_to 'ServicePlace', serviceplace_path, target: '_blank'
+                  span de CollabMachine pour annoncer ses services (maximum 5 annonces **),
+                li <strong>CollabMachine publie sur ses médias sociaux les offres</strong> des membres présentes sur le ServicePlace,
+                li Le membre peut profiter du <strong>programme d’affiliation</strong> (à venir) pour ses annonces sur le ServicePlace,
+                li Le membre peut afficher qu’il est <strong>membre du Réseau CollabMachine</strong> indiquant que l’entreprise a un accès aux meilleurs spécialistes (de plus, le site de CollabMachine publie les logos, noms et descriptions de ses membres)
+                li Le membre peut participer au <strong>BlogChain</strong> ($) pour augmenter le <strong>DA (Domain Authority)</strong> de son site et le nombre de backlinks vers son site.
+
+
+              p <em>**</em> CollabMachine se réserve le droit de refuser des spécialités ou des annonces.
+
+
+      .panel.panel-default
+        .panel-heading
+          h2.panel-title
+            a.collapse-link[data-toggle="collapse" data-parent="#accordion" href="#collapseTwo"]
+              i.fa.fa-chevron-up
+              span< Quelques informations utiles sur nos mandats
+        #collapseTwo.panel-collapse.collapse
+          .panel-body
+            p CollabMachine réalise des projets dans les domaines suivants :
+            ul
+              li Site web e-commerce
+              li Site web corporatif
+              li Application mobile
+              li Application PC
+              li Marketing numérique
+              li Marketing e-commerce
+              li Modèle d’affaires numérique
+
+            p Afin de garantir la qualité des livrables, <strong>nous n’utilisons que des spécialistes, membre du réseau CollabMachine</strong>, pour la réalisation des projets.
+            p Nous avons réalisé des centaines de projets jusqu’ici avec un taux de satisfaction de 99%.
+            p <strong>Le travail s’effectue généralement à distance.</strong> Cependant, dans le but de faciliter les analyses, une ou deux personnes de l’équipe iront probablement aux bureaux du client.
+            p Nos contrats stipulent clairement que <strong>les ressources des membres ne pourront être sollicitées par les clients</strong> pour travailler directement pour le client ou une entreprise tierce.
+
+p.text-center.action-bar
+  span
+    =< link_to 'PROPOSER DES SPÉCIALISTES (url)', '#', target: '_blank', class: 'btn btn-info btn-lg m-t-lg'
+
+br
+br
+br
+br
+br
+br
+br
+br
+br

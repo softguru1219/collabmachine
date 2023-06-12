@@ -1,0 +1,86 @@
+.row.wrapper.page-heading
+  .col-xs-12.col-sm-6
+    h2 = t('shared.top_nav.metrics').upf
+
+  .col-xs-12.col-sm-6
+    .header-controls.btn-group.pull-right
+    .clear
+
+.row.wrapper.wrapper-content
+  .col-md-12
+    .row
+      .col-lg-4
+        h2 Users
+
+        ul.list-group.no-padding
+          li.list-group-item
+            strong Inactive users(off):
+            span =< User.where(active: false).count
+          li.list-group-item
+            strong Pending (invited not activated):
+            span =< User.where(invitation_accepted_at: nil).where.not(invitation_created_at: nil ).count
+          li.list-group-item
+            strong Users with Accepted invites:
+            span =< User.where.not(invitation_accepted_at: nil).count
+          li.list-group-item
+            strong Active users:
+            span =< User.where(active: true).count
+          li.list-group-item
+            strong Total users:
+            span =< User.count
+
+        ul.list-group.no-padding
+          li.list-group-item
+            strong Average profile score:
+            span =< User.average(:rating).round(2)
+
+      .col-lg-4
+
+
+        h2 Talents:
+        - talents = User.joins(:meta_attributes).where(meta_attributes: { name: 'is:talent' })
+
+        ul.list-group.no-padding
+          li.list-group-item
+            strong  All:
+            =< talents.count
+          li.list-group-item
+            strong  Available:
+            =< talents.where(available: true).count
+          li.list-group-item
+            strong  Unavailable:
+            =< talents.where(available: false).count
+
+      .col-lg-4
+        h2 Clients:
+        - clients = User.joins(:meta_attributes).where(meta_attributes: { name: 'is:client' })
+
+        ul.list-group.no-padding
+          li.list-group-item
+            strong  All:
+            =< clients.count
+          / li.list-group-item
+          /   strong  Available:
+          /   =< clients.where(available: true).count
+          / li.list-group-item
+          /   strong  Unavailable:
+          /   =< clients.where(available: false).count
+
+  .col-md-12
+    .row
+      .col-lg-4
+        h2 Projects
+
+        ul.list-group.no-padding
+          li.list-group-item
+            strong Projects:
+            span =< @projects.count
+
+          li.list-group-item
+            p - list all counts/state
+
+
+      .col-lg-4
+      .col-lg-4
+
+

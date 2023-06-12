@@ -1,0 +1,61 @@
+fr:
+  dashboard:
+    admin:
+      missions: Missions
+      users: Utilisateurs
+      all_users: Tous les usagers
+    index:
+      about: À propos
+      pep_user: "Hey %{name}, vas-y fort!"
+      main_invite: |
+        Le tableau de bord veut présenter ce qui se passe dans Collab Machine.
+        Si vous voulez partager des trucs utiles ou formidables, envoyez votre courriel à:
+      # Bec Bureau d'entraide aux communicateurs
+      actions:
+        update_profile: Maintenez votre profil à jour
+        send_invites: Lancez des invitations
+        create_project: Créer un projet
+        create_product: Créer un produit
+        slack_group: Communiquez sur slack
+        feedback: Questions / commentaires
+      bec_title: Le Bénévolat d'entraide aux communicateurs
+      ecuador_title: Sintaxis École Espagnol & Voyages
+      partners_tools: Partenaires et outils externes
+      invite: <strong>Le Bénévolat d'entraide aux communicateurs:</strong> Nous mettons à votre disposition une ligne d’entraide gratuite.
+      short_desc1: Le Bénévolat d'entraide aux communicateurs (BEC) est un organisme à but non lucratif ayant pour mission d’aider les professionnels de notre industrie à mieux faire face à leurs problèmes personnels, professionnels ou financier.
+      short_desc2: Entièrement financé par le secteur privé et les particuliers, le BEC est là pour aider les professionnels de l’industrie des communications et leur famille à surmonter les épreuves de la vie.
+      short_desc3: Nous mettons à votre disposition une ligne d’entraide (1 800 561-1128) gratuite, disponible 24 heures par jour, 7 jours par semaine, où des rencontres sont ensuite organisées avec des professionnels adaptés à vos besoins.
+      short_desc1_ecuador: L'objectif de la fondation est d'offrir notre aide et notre soutien aux communautés aux ressources économiques faibles en Équateur. Nous le faisons grâce à des dons et en partageant des connaissances et une expertise en matière de développement et d’aide sociale grâce à l’enseignement de l’espagnol.
+      short_desc2_ecuador: L'école d'espagnol Sintaxis Sintaxis a été fondée dans le but d'atteindre cet objectif. Grâce à l'école de langues, nous proposons un enseignement de l'espagnol aux étudiants de toutes nationalités. Grâce à notre travail d’aide sociale avec plusieurs projets partenaires, nous pouvons offrir des services supplémentaires à nos étudiants, tels que des possibilités de bénévolat. Cela offre également une formation supplémentaire et une pratique de la langue espagnole, ce qui est un grand avantage pour nous tous.
+      visit_website: Visiter le site web
+      website_url: "https://le-bec.org/"
+      cowork:
+        modal_title: Réduction de 20% est offerte par Montréal Cowork sur les locations de bureaux en aires ouvertes pour les membres de Collab Machine !
+        website_url: "https://montrealcowork.com/"
+      bidsettle:
+        modal_invite: Votre boite à outils pour toutes questions légales.
+      invite_skateboard_for_hope: <strong>Skateboards of Hope</strong> recycle les planches au profits des jeunes. <br> Venez déposer vos vieilles planches au TAZ Skatepark ou même chez @PL
+      invite_ecuador: <strong>Ecuador, ama la vida!</strong> <br>Visiter l'Équateur, c'est facile.
+      website_url_skateboard_for_hope: "https://skateboardsforhope.com/"
+      facebook_url_skateboard_for_hope: "https://facebook.com/SkateboardsForHope/"
+      instagram_url_skateboard_for_hope: "https://instagram.com/skateboardsforhope/"
+      twitter_url_skateboard_for_hope: "https://twitter.com/skateboard4hope"
+      website_url_ecuador: "https://www.sintaxis.net"
+      new_members: Nouveaux collaborateurs!
+      reseaux_collabMachine: Appuyez Collab Machine!
+      reseaux_collabMachine_invite: Partagez, proposez du contenu, participez!
+      linkedin_desc: Suivez l’entreprise sur Linkedin
+      facebook_desc: Likez la page Facebook
+      instagram_desc: Likez la page Instagram
+      my_projects: Mes annonces
+      create_project: Créer mon projet
+      assigned_to_me: Assigné à moi
+      suggested_to_me: Suggéré à moi
+      opportunities: Opportunités
+      nothing_in_list: Liste vide, pour le moment.
+      browse_open_for_candidates: Parcourir les projets ouverts aux candidatures
+      # referals
+      my_guests: Mes invités
+      information: information
+      referral_system: Système de référencement
+      proposal_system: Système de proposition (disponible bientôt)

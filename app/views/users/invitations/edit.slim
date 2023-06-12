@@ -1,0 +1,39 @@
+.accept-terms.text-center
+  = form_for resource,
+    :as => resource_name,
+    :url => invitation_path(resource_name),
+    :html => { :method => :put, 'v-on:submit' => 'save', class: 'new_user m-t' } do |f|
+
+    .inner
+
+      fieldset
+        h1.font-bold = t('devise.invitations.edit.welcome')
+        .text-center
+          p
+            = link_to alt_lang_path, title: t('alt_lang.invite').upf, class: 'underline'
+               = t('devise.invitations.edit.see_in', lang: t('alt_lang.label'))
+        .text-left
+          = devise_error_messages!
+          = f.hidden_field :invitation_token, :ref => "invitation_token"
+
+      -if f.object.class.require_password_on_accepting
+        h2 = t('devise.invitations.edit.header')
+        .text-left
+          .form-group
+            = f.password_field :password, class: 'form-control', placeholder: t('users.password').upf, 'v-model' => "user.password"
+
+            div.has-error[v-if="user.errors.password"]
+              span.help-block[v-for="error in user.errors.password"] {{error}}
+
+          .form-group
+            = f.password_field :password_confirmation, class: 'form-control', placeholder: t('users.password_confirm').upf, 'v-model' => "user.password_confirmation"
+
+            div.has-error[v-if="user.errors.password_confirmation"]
+              span.help-block[v-for="error in user.errors.password_confirmation"] {{error}}
+
+          p.text-center
+            = button_tag t("devise.invitations.edit.submit_button"),
+              data: { style: "expand-left"},
+              class: 'button btn btn-primary m-b ladda-button ladda-button-submit'
+
+  = render 'layouts/collab_machine_logo', klasses: 'bottom-logo'

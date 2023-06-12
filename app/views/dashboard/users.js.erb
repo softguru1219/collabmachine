@@ -1,0 +1,4 @@
+<% js = escape_javascript(
+  render('admin_user_list', users: @users)
+) %>
+$("#filterrific_results").html("<%= js %>");

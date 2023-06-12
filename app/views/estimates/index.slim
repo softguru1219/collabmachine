@@ -1,0 +1,30 @@
+.row.wrapper.wrapper-content
+  .col-md-8.col-md-offset-2
+    table.table.table-striped.table-bordered.table-hover.dataTable
+      thead
+        tr
+          th Title
+          th Created at
+          - if policy(@estimates).destroy?
+            th
+      tbody
+        - @estimates.each do |estimate|
+          tr[id="estimate-#{estimate.id}"]
+            td
+              h3= link_to estimate.title, estimate_path(estimate)
+            td= estimate.created_at.strftime("%Y-%m-%d, at %I:%M %p")
+            - if policy(estimate).destroy?
+              td= link_to 'Destroy',
+                estimate,
+                method: :delete,
+                data: { confirm: 'Are you sure?' },
+                class: 'btn btn-xs btn-white'
+
+javascript:
+  $(function() {
+      $('.dataTable').DataTable({
+          pageLength: 50,
+          responsive: true,
+          order: [[ 2, "desc" ]]
+      });
+  });

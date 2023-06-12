@@ -1,0 +1,2 @@
+module BusinessSubDomainsHelper
+end

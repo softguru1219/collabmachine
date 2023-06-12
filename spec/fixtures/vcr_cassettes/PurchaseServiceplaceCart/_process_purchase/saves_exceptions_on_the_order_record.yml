@@ -1,0 +1,69 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.stripe.com/v1/accounts/acct_1HjCKSD4dGRv5T30
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Stripe/v1 RubyBindings/6.2.0
+      Authorization:
+      - Bearer <STRIPE_SECRET_KEY>
+      Content-Type:
+      - application/x-www-form-urlencoded
+      X-Stripe-Client-Telemetry:
+      - '{"last_request_metrics":{"request_id":"req_VZvZOnY7VCSDxR","request_duration_ms":1}}'
+      X-Stripe-Client-User-Agent:
+      - '{"bindings_version":"6.2.0","lang":"ruby","lang_version":"2.5.1 p57 (2018-03-29)","platform":"x86_64-darwin17","engine":"ruby","publisher":"stripe","uname":"Darwin
+        MacBook-Pro-de-PL.local 21.6.0 Darwin Kernel Version 21.6.0: Mon Aug 22 20:17:10
+        PDT 2022; root:xnu-8020.140.49~2/RELEASE_X86_64 x86_64","hostname":"MacBook-Pro-de-PL.local"}'
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 403
+      message: Forbidden
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Sun, 06 Nov 2022 22:09:28 GMT
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '360'
+      Connection:
+      - keep-alive
+      Access-Control-Allow-Credentials:
+      - 'true'
+      Access-Control-Allow-Methods:
+      - GET, POST, HEAD, OPTIONS, DELETE
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Expose-Headers:
+      - Request-Id, Stripe-Manage-Version, X-Stripe-External-Auth-Required, X-Stripe-Privileged-Session-Required
+      Access-Control-Max-Age:
+      - '300'
+      Cache-Control:
+      - no-cache, no-store
+      Stripe-Version:
+      - '2022-08-01'
+      Strict-Transport-Security:
+      - max-age=63072000; includeSubDomains; preload
+    body:
+      encoding: UTF-8
+      string: |
+        {
+          "error": {
+            "code": "account_invalid",
+            "doc_url": "https://stripe.com/docs/error-codes/account-invalid",
+            "message": "The provided key 'sk_test_qU******************N0sn' does not have access to account 'acct_1HjCKSD4dGRv5T30' (or that account does not exist). Application access may have been revoked.",
+            "type": "invalid_request_error"
+          }
+        }
+  recorded_at: Sun, 06 Nov 2022 22:09:28 GMT
+recorded_with: VCR 6.0.0

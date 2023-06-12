@@ -1,0 +1,56 @@
+.container
+  .row
+    .col-md-6.col-md-offset-3.text-center
+
+      .embed-box
+        h1.center.aligned.icon.header Système de référencement!
+
+        h2 Qu’est-ce que c’est?
+
+        p L’intention de ce système est d’améliorer le volume et le potentiel de notre belle communauté avec des gens de confiance: partageant nos valeurs fondamentales de co-création. Ceci créera également du roulement dans la machine et des liens d’amitiés parmi nos membres.
+
+        p Il vous sera possible d'amasser un revenu supplémentaire en référant vos connaissances à se joindre à nous.
+
+        / = link_to "https://share.vidyard.com/watch/V6WLFqu9i9bd9E9q7YBvkp?", target: "_blank" do
+          = image_tag "doc/video-participation-system-referral.png", class: 'full-width'
+
+        h2 Comment en bénéficier?
+
+        ol
+          li Invitez un nouveau client/talent à collaborer sur la plateforme et vous deviendrez un <strong>référenceur</strong> si celui-ci accepte l’invitation. En acceptant votre invitation, l’invité sera dirigé vers son profil et pourra commencer à collaborer.
+
+          li
+            p En étant <strong>référenceur</strong>, vous bénéficierez de la commission de référencement:
+
+            p Pour une période de 24 mois après l’activation* de l’invité, vous recevrez 5% sur toutes factures émises.
+
+            p
+              i
+                sup*
+                span l’activation est reconnue lorsque le client paye la première facture
+
+            p Ce lien d’amitié vous permettra de suivre le cheminement de leurs projets et garder un contact collaboratif entre vous deux. Ce lien se fait automatiquement sur la plateforme au moment de l’invitation.
+
+            p Ce système est linéaire, ce qui veut dire que vous bénéficiez des revenus seulement sur les gens dont vous avez référé et qui se sont engagés dans un projet rémunéré.
+          li
+            | Prenez quelques minutes pour lier votre compte stripe pour recevoir la commission
+            span =<> link_to t('invoice.index.connect_a_stripe_account').upf, stripe_url, class: 'btn btn-sm btn-outline btn-primary'
+            br
+            br
+          li
+            span =< link_to "Configurer votre compte Stripe.", payment_gateway_path, class: 'btn btn-sm btn-outline btn-primary'
+
+
+
+        h2.m-t-xl Différentes façon d'inviter:
+        h5 Lien direct
+        span =<> link_to "Utilisez ce lien. #{new_user_invitation_path}", new_user_invitation_path
+
+        h5 Via le dashboard
+        p Utilisez le bouton sur le dashboard.
+        = link_to image_tag('doc/dashboard-invite.png', style: 'width: 100%'), image_url('doc/dashboard-invite.png')
+        p
+
+        h5 Via le menu membre
+        p Utilisez le lien "#{t('shared.top_nav.invite')}" qui se trouve dans le menu membre (en haut à droite).
+

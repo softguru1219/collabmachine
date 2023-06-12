@@ -1,0 +1,855 @@
+fr:
+  shared:
+    home: Accueil
+    edit_title: Modifier
+    delete_title: Supprimer
+    delete_confirm: Êtes-vous certain?
+    confirm: Confirmer
+    company: Entreprise
+    personal: personnel
+    add_new_employee: Ajouter un nouvel employé
+    technologies: technologies
+    technologies_section_title: Technologies, techniques ou méthodologies connues
+    experience: expérience
+    sector: secteur d'industrie
+    business_domain: Domaine d'affaires
+    domain: domaine
+    sub_domain: Sous-domaine
+    business_category: Champ de compétences
+    specialty_title: précision sur la spécialité
+    edit: Éditer
+    delete: Supprimer
+    sitemap: Carte du site
+    languages: Langues
+    language: Langage
+    spoken_languages: Langues de communication
+    years_of_exp: années d'expérience
+    english: Anglais
+    french: Français
+    useful_links: Liens utiles & Informations
+    year: an
+    years: ans
+    details: Détails
+    and: et
+    search: Rechercher
+    at: à
+    applicant_counter:
+      applicant: appliquant(s)
+      not_assigned: Pas assignée.
+    reset_filters: Rétablir les filtres
+    open_chat: Ouvrir le chat
+    online:
+      user_online: En ligne
+      user_offline: Hors ligne
+      available: Disponible pour de nouveaux défis
+      unavailable: Non disponible
+    header:
+      login: Se connecter
+      members: membres
+      password: mot de passe
+      projects: projets
+      dashboard: Tableau de bord
+      company_name: Collab Machine
+      about_us: À propos
+      blitz-coaching: Blitz Coaching
+
+      contact: Contact
+      signup: S'inscrire
+      missions: missions
+    product_swiper:
+      browse_serviceplace: Visiter le serviceplace
+    top_nav:
+      dashboard: Tableau de bord
+      metrics: Stats
+      activity_feed: Flux des activités
+      activities: Activités
+      public: Public
+      private: Privé
+      projects: Projets
+      invoices: Factures
+      estimates: Estimés
+      feedbacks: Commentaires
+      members: Membres
+      missions_admin: Missions (admin)
+      users_admin: Utilisateurs (admin)
+      listing_members: Liste des membres
+      tags: Mots clés
+      occurences: Les occurrences
+      members_with_tag: Membres avec les mots clés
+      invite: Inviter des gens
+      logout: Se déconnecter
+      admin: Admin
+      visit_collabmachine: Visiter collabmachine.com
+      employees: employés
+      employee: employé
+      my_employees: Mes employés
+      results: Résultats
+    send: Envoyer
+    send_confirm: Êtes-vous sûr de vouloir envoyer le message?
+    veeza: "Assistance humaine en visio"
+
+    form:
+      error:
+        one:  "Une erreur empêche un(e) %{resource} d'être sauvegardé(e) :"
+        other: "%{count} erreurs empêche un(e) %{resource} d'être sauvegardé(e) :"
+  hello:
+    index:
+      about_us:  Un peu sur nous
+      manifesto_main: |
+        Bienvenue, talent remarquable, créatif reconnu et client d'influence.
+        <br>
+        Bienvenue aux solides développeurs,
+        <br>
+        aux visionnaires de la techno et aux rebelles du numérique.
+        <br>
+        Bienvenue aux innovateurs, aux rehausseurs de textes, aux rêveurs de logos et aux stratèges.
+        <br>
+        Découvre ta prochaine grande opportunité.
+        <br>
+        Ton prochain projet productif.
+        <br>
+        Ton prochain élan magnifique.
+      manifesto_finale: |
+        Bienvenue chez Collab Machine -
+        <br>
+        où les grands esprits se rencontrent pour faire de grandes choses avec des gens formidables.
+      dream_your_team: Rêve ton équipe.
+      best_place_for_best_talents: Le meilleur endroit <br>pour les meilleurs talents.
+      next:
+        sub: Tu veux travailler sur des projets?
+        register_here: Inscris-toi ici
+
+      skills_title: "On s'occupe de projets tels que:"
+      skills:
+        - Développement web
+        - Développement mobile
+        - Bannières
+        - Formation
+        - Design / Graphisme / Illustration
+        - Image de marque
+        - Photo / Vidéo / Animation
+        - Devops / Infrastructure
+        - UX - Expérience utilisateur
+        - Communication
+        - Création de contenu
+        - Gestion de projet
+        - Traduction / Rédaction
+        - SEO
+        - BI - Intelligence d'affaires
+        - AI - Intelligence artificielle
+        - Prototypage matériel
+        - Chef AI en tant que service
+        - Chef UX en tant que service
+        - Architecte logiciel
+        - Bizdev en tant que service
+        - Financement gouvernemental
+        - Chef SRED
+        - Conseil
+      join_slack: Rejoins-nous sur slack!
+      invite_create_project: Un projet formidable à développer?
+
+      serviceplace: serviceplace
+      create_your_shop: Crée ton commerce, expose ton potentiel
+      explore_serviceplace: Explorer la Place de Services
+      serviceplace_blurb: La place pour vendre tes services <br> et acheter des services de qualité,<br> pour toi ou pour ton entreprise!
+      custom_projects: Projets sur mesures
+      find_talent: Trouve le talent idéal, crée ton projet
+      create_project: Dépose ton projet
+      best_place_best_talents_hero: Le meilleur endroit <br>pour les meilleurs talents.<br>&nbsp;
+      join_us: Deviens un talent, inscris-toi ici
+      ecommerce_marking_title: Informatique / Marketing web / E-commerce
+      subtitle_1: Personnel temporaire temps plein
+      subtitle_2: Personnel temporaire temps partiel
+      subtitle_3: Banque d'heures
+      specialized_personal: Personnel spécialisé
+      temps_plein: Temps plein
+      temps_partiel: Temps partiel
+      realization_of_projects: Réalisation de projets
+      hundreds_specialties: Des centaines de spécialités offertes
+      looking_for_specialists: Besoin de spécialistes ?
+      website_launch: LANCEMENT DU NOUVEAU SITE
+      how_to_find_specialist: Comment obtenir un spécialiste ?
+      how_to_propose_project: Comment faire réaliser un projet
+      propose_specialists: Spécialistes à proposer ?
+      how_to_get_contracts: Comment obtenir des mandats ?
+      cm_members_list: Liste des membres du réseau CollabMachine
+      member_advantages: Avantages des membres du réseau CollabMachine
+      we_use_and_offer_speicalists: Nous proposons que des spécialistes dont nous avons vérifié la compétence.
+      only_have_specialties: Nous n'avons que des spécialistes
+      offer_specialties: spécialités offertes
+      specialties_information: spécialités en informatique
+      specialties_marketing: spécialités en marketing
+      question_for_you: 'On veut savoir:'
+      question: Comment est-ce qu'on peut t'aider aujourd'hui?
+      question_invite: Lance ton message à team@collabmachine.com ou utilise la bulle <a href="%{veezav_url}" target="_blank">Veeza-v (Assistance humaine en vidéo)</a> qui s'affiche au bas de la page pour nous raconter ça.
+      welcome: Bienvenue
+      specialties_search_text: "PS: Le valeur entre parenthèses indique le nombre de spécialités dans les résultants de recherche"
+      news_members: Nouvelles
+      adi_new:
+        title: Partenariat créatif!
+        content: <a href="https://www.adiaccelerator.com/services/#strategy" target="_blank">Le service d'accompagnement stratégique et technologique</a> de <a href="https://www.adiaccelerator.com/" target="_blank">ADI - Acceleration, Design and Innovation</a> pour les StartUps est maintenant disponible sur Collab Machine.
+        finale: Découvrez ce que fait l'<a href="https://www.adiaccelerator.com/" target="_blank">ADI</a> pour accélérer votre aventure!
+
+      shop:
+        shop_title: La shop
+
+        randomly:
+          title: RANDOMLY
+          description: On dit que le hasard fait bien les choses! Vivez l'expérience RANDOMLY. Vous y ferez des rencontres qui ne vous laisseront pas indifférent.
+          # avec sous titres
+          video_src: https://player.vimeo.com/video/546737472?loop=false&amp;byline=false&amp;portrait=false&amp;title=false&amp;speed=true&amp;transparent=0&amp;gesture=media
+          information: Plus d'information »
+          click_here: Cliquez ici
+    
+    wiphomepage:
+      mission_vision: Mission & Vision
+      mission_description_1: Comme notre nom l'indique, la collaboration a toujours été au cœur de notre mission. Nous croyons fermement qu’en travaillant ensemble, nous sommes tous plus forts.
+      mission_description_2: Notre objectif est de réunir autour de CollabMachine à la fois le plus grand nombre de spécialistes et les compétences les plus variées en informatique, e-commerce et marketing web afin de devenir le site par excellence pour obtenir des ressources au Québec et ailleurs.
+      mission_description_3: "En cette période de pénurie de main d'œuvre, nous allons chercher les spécialistes où ils se trouvent : dans les entreprises. Celles-ci obtiennent de nouveaux mandats et nous pouvons, ainsi, offrir les meilleurs talents."
+      info_description_1: Une petite révolution !
+      info_description_2: <strong>Vous voulez obtenir une ressource spécialisée en marketing web, e-commerce ou informatique </strong>? Vous n’avez qu’à choisir la spécialité voulue. Il n’y a pas de frais initial. Si vous travaillez avec le spécialiste choisi, vous aurez à payer ses services + 350 $ par semaine pour nos services. C’est tout. Lorsque le travail du spécialiste se termine, il n’y a plus de frais. Simple, facile et sans engagement initial ou à long terme.
+      info_description_3: <strong>Vous voulez réaliser un projet en marketing web, e-commerce ou informatique</strong> ? Vous n’avez qu’à déposer un projet. Comme beaucoup de projets informatiques ont un volet marketing (et vice versa), nous vous offrons de réaliser vos projets par des spécialistes sélectionnés en mode 360 afin que vos projets se déploient dans un <strong>tunnel de ventes</strong> parfaitement intégré à vos opérations. Pour un <strong>projet clé en main</strong>, à coût fixe et sans surprise, CollabMachine est le seul endroit à connaître.
+      useful_links_description: Liste des membres du réseau CollabMachine
+      now_available_description: Tous les spécialités immédiatement disponbibles sont publiées chaque jour sur 
+
+      news_description_1: Nous sommes heureux de vous annoncer que CollabMachine a maintenant une entente à long terme avec <a href="https://bilinks.ca">Bilinks.ca</a> pour effectuer son marketing digital. Ce partenariat nous assurera une présence forte sur les médias sociaux.
+      news_description_2: Chaque jour, nous publierons sur <a href="https://www.facebook.com/collabmachinecom">Facebook</a> et <a href="https://www.linkedin.com/company/collab-machine/?originalSubdomain=ca">LinkedIn</a> une liste de <strong>ressources immédiatement disponibles</strong>. Suivez-nous sur les réseaux sociaux pour accéder à un bassin de ressources immédiatement disponibles.
+      news_description_3: CollabMachine est également heureux de vous informer que nous utilisons désormais la méthodologie en marketing web appelée « <strong>Tunnel de ventes</strong> » pour la réalisation de nos projets. Cette approche permet de coordonner toutes les actions et outils marketing (site web et e-commerce, marketplaces, médias sociaux, landing pages, questionnaires, blogues, infolettres, affiliations…) afin de réaliser vos objectifs web d’une manière optimale. De plus, elle permet de faciliter grandement la coordination et la cohérence des actions sur des projets d’envergure.
+      news_description_4: Grâce à cette méthodologie, nous sommes en mesure de bâtir d’efficaces modèles d’affaires web parfaitement adaptés à votre réalité.
+      specialty_referenct_number: Numéro de référence de la spécialité
+      languages_of_communication: Langue(s) de communication
+      experience_business_category: "Expériences en [champDeCompetence]"
+      other_experiences: Autres expériences
+      technologies_acquired: Technologies acquises
+      application_form: Formulaire de demande
+      form_description: Les tarifs varient en fonction du type et de la longueur du mandat. Pour plus de renseignements et connaître nos garanties,
+      click_here: cliquer ici
+      company_name: Nom de votre entreprise
+      your_name: Votre nom
+      your_email: Votre courriel
+      your_phone: Votre numéro de téléphone
+      type_of_mandate: Type de mandat
+      term_start_date: Date de début du mandat
+      date_duration: Durée du mandat
+      term_in_week: Durée du mandat en semaines
+      clarification_mandate: Précision sur le mandat
+      acknowledge_receipt: Accusé de réception sur le site web suite à l'utilisation du formulaire de demande d'un spécialiste
+      received_inquiry: Nous avons bien reçu votre demande
+      thanks_for_trusting: Merci de nous faire confiance
+      request_number_is: Pour référence ultérieure, votre numéro de demande est le
+      this_number_was_sent: Ce numéro vous a été transmis dans le titre du courriel que nous venons de vous envoyez.
+      one_of_our_adviors: Un de nos conseillers communiquera avec vous dans les plus brefs délais afin de préciser votre demande et vos besoins.
+      for_more_information_on_resource: Pour plus de renseignements sur les demandes de ressources et connaître nos garanties,
+      received_your_request: "Nous avons bien reçu votre demande pour le spécialiste suivant:"
+      form_get_specialist: Formulaire de demande d’un spécialiste
+      desc_speclialist: Description du spécialiste et de ses spécialités
+      specialist_attributes: Demande sur ce spécialiste (informations, disponibilité, requête)
+    your_serviceplace:
+      landing_page:
+        slides:
+          - tagline: 'hey-fr'
+            bg_src: "landing/serviceplace_slider/anupam-mahapatra.jpg"
+            bg_disposition: "50% 50% no-repeat; background-size: cover;"
+          - tagline: 'hey-fr2'
+            bg_src: "landing/serviceplace_slider/headway.jpg"
+            bg_disposition: "50% 50% no-repeat; background-size: cover;"
+          - tagline: 'hey-fr2'
+            bg_src: "landing/serviceplace_slider/scott-graham.jpg"
+            bg_disposition: "50% 50% no-repeat; background-size: cover;"
+          - tagline: 'xx'
+            bg_src: "landing/serviceplace_slider/absolutvision.jpg"
+            bg_disposition: "50% 50% no-repeat; background-size: cover;"
+          - tagline: 'xx'
+            bg_src: "landing/serviceplace_slider/joanna-kosinska.jpg"
+            bg_disposition: "50% 50% no-repeat; background-size: cover;"
+          - tagline: 'xx'
+            bg_src: "landing/serviceplace_slider/kelly-sikkema.jpg"
+            bg_disposition: "50% 50% no-repeat; background-size: cover;"
+          - tagline: 'xx'
+            bg_src: "landing/serviceplace_slider/convertkit.jpg"
+            bg_disposition: "50% 50% no-repeat; background-size: cover;"
+          - tagline: 'xx'
+            bg_src: "landing/serviceplace_slider/ian-schneider.jpg"
+            bg_disposition: "50% 50% no-repeat; background-size: cover;"
+          - tagline: 'xx'
+            bg_src: "landing/serviceplace_slider/kaffeebart.jpg"
+            bg_disposition: "50% 50% no-repeat; background-size: cover;"
+          - tagline: 'xx'
+            bg_src: "landing/serviceplace_slider/philip.jpg"
+            bg_disposition: "50% 50% no-repeat; background-size: cover;"
+
+        main_title: "Tes compétences <br> Ton Serviceplace<br> Ton ambition 🚀"
+        at_collab_machine: "Chez CollabMachine, on productise tes compétences."
+        invite: Propose ton savoir faire.
+
+        bullets:
+          - ta place, ta boutique
+          - ta carte d’affaires.
+        talkabout: Gagne en visibilité et participe à l'effort collectif.
+        discover_serviceplace: Découvre le serviceplace
+
+        productizing_services_title: Productiser tes services
+        productizing_services:
+          - Productiser, c'est formaliser l'offre. C’est de mettre les clients en confiance et sécuriser ses attentes.
+          - C’est pour cette raison qu’avec la Place de Services, tu vends tes services en ‘’package’’ ou si tu préfères dans un ensemble. Ça permet au client de comprendre ce qu’il achète, d’avoir un prix fixe et d’être en confiance. Et la confiance, c’est vendeur.
+          - Pour y arriver, nous avons créé la place de services. Tu y trouveras un espace bien à toi où tu peux créer des produits en quelques clics.
+          - Tu gagnes en temps, tu augmentes la confiance et tu peux te concentrer sur ton marché.
+          - Essaie-le, tu verras!
+        your_space_title: Utiliser ton espace
+        your_space:
+          - Les clients veulent savoir qui tu es, quelles sont tes expériences, tes compétences et qu’est-ce que tu vends.
+          - Dans ton espace, tu peux leur présenter tout cela en un clin d'œil.
+          - Ton espace devient ta carte de visite, ta boutique et peut remplacer ton site web.
+          - Pour seulement 20$ par mois, tu évites les tracas des mises à jour, l'entretien, les frais d’hébergement, etc! Tu sauves du temps et tu peux te concentrer sur ton marché.
+        sell_your_services_title: Vendre tes services
+        sell_your_services:
+          - Avec la Place de Services, tu as tout ce dont tu as besoin pour te mettre de l’avant. Ton URL avec ton nom ou le nom de ton entreprise, ton espace, tes produits.
+          - Partage ce que tu sais faire en un clic sur les réseaux sociaux, dans les blogs, newsletter, etc. Nous avons créé les produits pour qu’ils puissent s’intégrer facilement dans tous les médias, sites internet, etc.
+          - C’est un moyen peu coûteux d’avoir ton espace professionnel et de présenter rapidement ce que tu sais faire. Tu sauves du temps, des tracas et de l’argent.
+          - Avec ton espace, tu peux passer directement au marché et vendre tes produits.
+          - Inscris-toi et commence à vendre ce que tu sais faire maintenant!
+
+    contact:
+      contact_us: Contactez-nous
+
+    partners:
+      main_title: Partenaires
+      sub_p: Seul on va plus vite, ensemble on va plus loin...
+
+    description:
+      first: <strong>Collab Machine</strong> est une communauté organisée qui facilite les relations d’affaires entre les talents et les organisations.
+      second: On y trouve le support nécessaire pour collaborer de A à Z de façon autonome dans un réseau favorable, basé sur la confiance.
+
+    team:
+      main_title: L'équipe
+      sub_p: Héros des temps modernes.
+      board: Le conseil aviseur
+      ambassadors: Ambassadeurs
+
+      member_1:
+        title: Mentor et stratège
+      member_2:
+        title: Fondateur et développeur
+      christian_beaubien:
+        title: Conseiller innovation ouverte
+      daniel_engelberg:
+        title: Innovateur et agent de changement centré-humain
+      member_4:
+        title: Partenaire, développeur et conseiller technique
+      david_frechette:
+        title: Technologue intelligent, coach, développeur chevronné
+      mark_adam:
+        title: Entrepreneur, business intelligence specialist, smart sales expert
+      mapoirier:
+        title: Directeur juridique
+      pierre_ravary:
+        title: Directeur financier (CFO)
+      alain_marchildon:
+        title: Mentor - Futurpreneur
+      stephane_castonguay:
+        title: Producteur
+      vikas_narula:
+        title: Conseiller - Keyhubs®
+      emmanuel_cameron:
+        title: Partenaire / Collaborateur
+      franko_vidal:
+        title: MatchMaker / Entremetteur
+      alexandra_nereuta:
+        title: Branding, direction artistique
+      amina_yagoubi:
+        title: Experte Sociologue Ph.D
+      leonardo_mendes:
+        title: Développeur d'affaires
+      sebastien_gauthier:
+        title: Partenaire / Collaborateur
+
+
+      final_blurb: Découvrez l'éco-système!
+
+    work:
+      here: ici
+      how:
+        title: Comment ça fonctionne?
+        sub: "On décolle avec la prémisse fondamentale que tu aimes beaucoup ce que tu fais."
+      register: Inscris-toi ici
+      get_invite: Tu recevras ton invitation
+      fill_profile: Remplis ton profil sur la plateforme
+      execute: Fais le boulot, la facture, sois payé
+      loop: Recommence et profite de la vie à ta façon
+      benefits:
+        title: Les bénéfices
+        rows:
+          - Profite de l'infrastructure et du momentum.
+          - Fais partie d'un groupe même en solo.
+          - Meilleure visibilité.
+          - Fais ce qui te passionne.
+          - Augmente ton autonomie.
+          - Gagne en liberté.
+      next:
+        title: Ta prochaine étape?
+        sub: Rejoindre la plateforme
+        invite: |
+          On a le choix d'aller vers ce qu'on aime. <br>
+          Installons le progrès avec le bouton vert ci-bas.
+        register_here: Inscris-toi ici
+      quotes:
+        - content: |
+            Collab Machine m'a beaucoup aidé à me connecter
+             avec d'autres freelances et des personnes ayant
+             les mêmes visions des choses avec qui je
+             peux collaborer. J'ai travaillé sur des projets
+             très cool par l'intermédiaire de Collab. C'est l'avenir!
+          author: Julien
+        - content: |
+            Collab Machine fut pour moi l’opportunité de m’épanouir
+            en tant que travailleur autonome/entrepreneur
+            mais aussi de faire le plein de nouvelles rencontres.
+            Que vous ayez l’étincelle entrepreneurial ou non je vous le
+            recommande grandement!
+          author: Kristopher
+        - content: |
+            Grâce à Collab Machine, entreprendre une nouvelle carrière de
+            développeur est plus facile. En plus d'y découvrir une
+            communauté aidante, j'y ai rapidement trouvé des projets
+            correspondant à mes compétences de consultant en
+            développement Web.
+          author: Daniel
+        - content: |
+            En quelques mots, mon expérience chez Collab Machine
+            a été une grande expérience. J'ai énormément appris.
+            Collab Machine m'a permis de comprendre les défis,
+            les challenges. Cela m'a ouvert sur d'autres horizons
+            comme se spécialiser dans un langage par exemple :)
+          author: Grace
+        - content: |
+            Collab Machine m'a permis de faire un mandat mettant
+            à profit ma spécialisation pour un client d'envergure.
+            En tant que consultant indépendant, Collab Machine est
+            un atout de plus pour m'assurer un flot continu de mandats.
+          author: Tommy
+        - content: |
+            Une machine de collaboration digne de collaboration entre machines!
+          author: Ramsey
+      referral:
+        title: 'Débordé?'
+        body: "Tu ne peux plus prendre de projets? Proposes-les dans Collab Machine. <h2>Recevez 5%<sup>*</sup> comme Ambassadeur.</h2>"
+        conditions: "* certaines conditions s'appliquent"
+
+    hire:
+      create_project_here: Crée ton projet ici
+      here: ici
+      contact_us: Contactez-nous
+      how:
+        title: Comment ça fonctionne
+        # sub: "Comment ça fonctionne?"
+      register: 'Inscris-toi'
+      # get_invite: Tu recevras ton invitation.
+      # fill_profile: Remplis ton profil sur la plateforme.
+      execute: Choisis les talents / monte ton équipe
+      get_paid: Observe le progrès
+      loop: Recommence à souhait
+      benefits:
+        title: Les avantages
+        rows:
+          - Choisissez parmi des ressources pré-sélectionnées.
+          - Trouvez les ressources dont vous avez besoin, ponctuellement.
+          - Dotez-vous d'un cadre de confiance, adéquat pour vos interractions.
+          - Devenez mieux outillé pour prendre vos décisions.
+          - Optez pour la continuité.
+      next:
+        title: Pourquoi attendre?
+        sub: Propose ton projet maintenant
+        register_here: Inscris-toi ici
+      referral:
+        title: Programme de référencement
+        body: "Vous connaissez quelqu'un qui a un projet à réaliser? Proposez-leur Collab Machine et <h2>Recevez 5%<sup>*</sup> comme Ambassadeur.</h2>"
+        conditions: "* certaines conditions s'appliquent"
+  users:
+    name: Nom
+    name_info: Noms / info
+    status: Statut
+    registration:
+      basic_info: Informations de base
+      more_info: Informations suplémentaires
+      create_employee: Ajouter un employé
+      choose_password: Veuillez choisir un mot de passe pour votre compte
+      what_email: Avec quel courriel voulez-vous créer votre profil?
+      no_registration_info: Il semble que vous voulez vous joindre à notre communauté. Ce sera un plaisir de vous avoir avec nous, mais les inscriptions ne sont pas publiques pour l'instant.
+      no_registration_enter_info: Utilisez le formulaire pour être parmi les premiers informés des foudroyantes nouveautés et recevoir votre invitation.
+      description_placeholder: Utilisez ce champ afin de nous en dire plus sur vous, soit, où vous avez travailler, ce que vous rechercher ou même nous dire une blague. C'est votre description de profil, utilisez la sagement.
+    invitations:
+      new:
+        add_another_row: Ajouter une ligne
+        header: "Envoyer une invitation"
+        invite1: Invitez des travailleurs autonomes avec qui vous adorez travailler, ceux qui adore ce qu'ils font. Invitez les gens sur qui on peut compter, nous auront du fun ensemble, nul doute.
+        invite2: Référez, invitez des clients pour que la communauté grandisse d'une belle manière.
+        invite3: Nous sommes ouverts aux questions au sujet de Collab Machine évidemment.
+        submit_button: "Envoyer l'invitation"
+    step:
+      interest_list: Intérêt ou focus
+      skill_list: Compétences
+      detail_title: Enrichissez votre profil.
+      exp_title: Parlez nous de vos compétences... de ce que vous savez faire.
+      bubble_message_title: Bienvenue chez Collabmachine!
+      bubble_message_body: Inscrivez le plus de détails possible et on vous laissera savoir lorsque vous serez en mesure d'utiliser toutes les fonctionnalités de votre nouveau compte.
+      headline_title: "Titre ou role qui te va bien"
+      headline_info: "Le headline est généralement votre rôle, quelque chose de typiquement descriptif."
+      avatar_info: "C'est toujours plus sympathique avec une photo de profil."
+      skill_message: "Dites-nous dans quoi vous avez des aptitudes et ce qui vous intéresse, nous pourrons par la suite vous suggérer des opportunités et les autres membres de la plateforme pourront en apprendre davantage sur vous."
+
+      interest_info: Entrez une liste de compétences qui vous intéressent, que vous aimeriez mettre de l'avant. Ils sont affichés dans la liste des membres. Utilisez une virgule pour les séparer.
+      skill_info: Entrez vos compétences ici. Séparez chacune d'elle par une virgule.
+      waiting_verification: "Nous vérifions vos informations dans les plus brefs délais!"
+      next: Suivant
+      skip: Passer
+    show:
+      toggle_blitz_button_caption_not_participant: Ajouter au prochain Blitz Coaching
+      toggle_blitz_button_caption_is_participant: Retirer du prochain Blitz Coaching
+      toggle_blitz_confirm_message: Merci de confirmer
+      this_is_employee_of_user: C'est un employé de user
+    form:
+      referred_by: "Présenté par:"
+      available_for_missions: Disponible pour une mission
+      first_name: prénom
+      last_name: nom de famille
+      active: actif
+      profile_type: type de profil
+      languages: Langues
+      language: Langue
+      level: niveau
+      profile_title: Titre du profil
+      company: Nom de l'entreprise
+      username: pseudo
+  product:
+    form:
+      detail: Détails de votre produit
+  project:
+    name: Projets
+    projects_list: Liste de projets
+    index:
+      title: Liste des projets
+      new_title: Créer un Projet
+      all: Tout
+      public: Publique
+      private: Privé
+      expand: Développer tout
+      collapse: Simplifier tout
+      invoices: Factures
+    show:
+      name: Projet
+      delete_title: Supprimer le projet
+      edit_title: Modifier le projet
+      created_by: "Créé par (client):"
+      last_updated: "Dernière modification:"
+      created: "Création:"
+      participants: "Participants:"
+      summary: Résumé
+      last_activity: Dernières activités
+      description: "Description:"
+      admin_notes: "Notes de l'admin:"
+      private_notes: "Notes privées:"
+      on_hold: Mettre ce projet et ses missions en attente
+      not_on_hold: Remettre ce projet et ses missions active
+      invited_by: Invité par
+      tags: Tags
+    edit:
+      title: Modifier un projet
+      editing_project: "Modifier le projet: %{name}"
+    new:
+      title: Nouveau projet
+    form:
+      detail: Détail du projet
+      admin_fields: Champs pour admin
+      description_invite: "L'information contenue dans ce champs sera affichée pour toutes les missions de ce projet afin de mettre en contexte."
+      private_notes_invite: "L'information contenue dans ce champs est limitée au projet courant (privée) et ne sera pas affichée à l'affichage des missions."
+      save: Sauvegarder
+      submit: Soumettre
+      save_or_submit: Sauvegarder / Soumettre
+      text: Voulez-vous <em>Sauvegarder</em> votre projet? <br/> S'il est prêt à être soumis pour révision, veuillez le <em>Soumettre</em>?
+      new_mission: Ajouter une mission
+      prohibited_to_save: "empêche le project d'être sauvegardé"
+      info_text_1: |
+        Ajoutez de l'information à votre projet.
+        Vous pouvez utiliser le champs description pour
+        transmettre de l'information générale qui s'applique à
+        toutes les missions.
+      info_text_2: |
+        Votre projet peut avoir 1 ou plusieurs missions. Vous
+        pouvez voir une mission comme une portion de travail à
+        donner à une personne ou un aspect du projet. Chaque mission
+        a sa propre page dans laquelle vous pourrez placer des détails
+        spécifiques.
+      info_text_3: |
+        Exemple: La première mission pourrait être "Backend pour le projet"
+        et la deuxième mission pourrait-être "Frontend pour le projet".
+      info_text_4: |
+        Vous pouvez sauvegarder vos changements et revenir plus tard pour compléter.
+        Il restera invisible pour les autres. Soumettez votre projet lorsqu'il est complet.
+        Nous le passerons en revue.
+  mission:
+    name: Missions
+    index:
+      all: Tout
+      public: Publique
+      private: Privé
+      all_states: Tous les états
+      project: Projet
+      date: Date
+      state: État
+      name: Nom
+      mission_name: Nom de le mission
+      created_at: Date de création
+      search: Rechercher
+      suggested: suggéré
+      assignee: Assigné
+      owner: Propriétaire
+      visibility: Visibilité
+      opportunities: Opportunités
+      my_missions: Mes annonces
+      assigned: Appliqués et assignés
+      mines: En lien avec moi
+    edit:
+      title: Modifier une mission
+      editing_mission: "Modifier la mission: %{name}"
+    new:
+      title: Nouvelle mission
+      back: Retour
+    form:
+      title: Titre
+      description: Description
+      status: États
+      user: Utilisateur
+      parent_project: Projet parent
+      save: Sauvegarder
+      start_date: Date de début
+      end_date: Date de fin
+    show:
+      description_from_project: Description en provenance du projet parent (info partagée)
+      name: mission
+      edit: Modifier
+      delete: Supprimer
+      submit: Envoyer (pour revision)
+      reviewed: Marquer revisée
+      open: Ouvrir au candidatures
+      start: Démarrer
+      completed: Marquer comme complétée
+      reopen: Réouvir
+      pay: Payer (au complet)
+      paid: Confirmer le payment
+      close: Fermer la mission
+      on_hold: Mettre cette mission en attente
+      not_on_hold: Remettre cette mission active
+      archive: Archiver
+      summary: Résumé
+      activity_feed: Flux des activités
+      applicants: Appliquant(s)
+      finance: Finance
+      related_invoices: Factures liées à cette mission
+      parent_project: Projet parent
+      title: Titre
+      assigned: Assignée à
+      terms: Termes
+      rate: Taux
+      project_owner: Propriétaire du Projet
+      created: Création
+      updated: Dernière modification
+      description: Description
+      admin_notes: Notes de l'admin
+      applicants_list_info: La liste des utilisateurs ci-dessous souhaite travailler sur cette mission.
+      assigne_directly: "Assigner à un membre"
+      assigne_directly_info: "En assignant directement la mission à un membre, celle-ci lui sera confiée et ne sera pas disponible aux autres membres."
+      slack_notify: Notifier sur slack
+      slack_notify_new_mission: "Utilisez ce bouton pour envoyer une notification dans Slack, sur le channel #jobs. Tous les gens inscrits au channel seront invités à jeter un oeil à cette mission."
+      invited_by: Invité par
+      start_date: Date de début
+      end_date: Date de fin
+      pointed_by: Pointé par
+  applicant:
+    assign_to: Assigner à
+    date: Date
+    user: Utilisateur
+    status: État
+    pointer: Pointeur
+    assigne_prompt: "Choisir un membre"
+    sugestion_recieved: "Suggestion reçu, merci beaucoup !"
+    sugestion_recieved_max: "Nombre maximum de suggestion atteint"
+    suggested_text: "Quelqu'un vous a suggérer pour ce travail"
+    refuse: Supprimer la suggestion
+    or_point_someone_for_that_job: "Ou suggérer quelqu'un pour le travail"
+    point_info_with_access: "Vous connaissez la personne parfaite pour ce travail? Vous pouvez le suggérer immédiatement. Lisez à propos des commissions de pointeur."
+    point_info_non_access: "Si vous souhaitez suggérer quelqu'un pour ce projet, vous devez changer votre plan d'abonnement en platine"
+  attribute:
+    name: "Attribut"
+    new_title: "Nouvel attribut"
+  invoice:
+    name: "Facture"
+    edit_title: "Modifier Facture"
+    new_title: "Nouvelle Facture"
+    send_invoice: Envoyer la facture
+    paid: Payé
+    pending: En attente
+    index:
+      to_receive: À recevoir
+      invoices_i_created: Factures que j'ai créé
+      to_pay: À payer
+      invoices_where_i_am_the_customer: Factures dont je suis le client
+      invoice: Facture
+      customer_name: Nom du client
+      amount: Montant
+      paid: Payé?
+      you_have_to: Vous devez vous
+      connect_a_stripe_account: connecter à un compte stripe
+      to_be_able_to_receive_payments: afin de recevoir des paiements.
+      sender_name: Nom de l'expéditeur
+      amount: Montant
+      paid: Payé?
+      no_results: Aucun résultat
+      no_invoice: Aucune facture à afficher
+      filter_all: Tout
+      filter_search: Rechercher avec la description
+      state_filter:
+        title: État de paiement
+        all: Tout
+        paid: Payé
+        not_paid: Pas payé
+    show:
+      show: "Afficher"
+      edit: "Modifier"
+      destroy: "Supprimer"
+      amount_due_can: "Montant due (CAD)"
+      created_by: "Créé par:"
+      customer: "Client:"
+      last_update: "Dernière mise-à-jour:"
+      created: "Création:"
+      pay: "Payer"
+      paying: "En traitement ..."
+      new_card: "Autre carte"
+      missions: Missions
+      projects: Projets
+      public_url: Aucune client choisi, voici vortre adresse publique afin de la partager
+      copy: Copier le lien
+      external_welcome_title: Bienvenue chez collabmachine!
+      external_welcome_text: Il semble que vous avez reçu une facture d'un de nos talents, afin de faciliter la communication et vous permettre de mieux gérer vos intéractions, nous vons invitions à nous rejoindre.
+      for: à l'intention de %{client}
+      id: '#%{id}'
+      powered_by: Service fournis par
+    new:
+      title: Nouvelle facture
+    edit:
+      title: Modifier facture %{name}
+    form:
+      customer: 'Client'
+      missions: "Missions"
+      invoice_lines: "Lignes de la facture"
+      description: "Description"
+      rate: "Taux"
+      quantity: "Quantité"
+      taxes: "Taxes"
+      taxes_info: "Afin de gérer les taxes vous devez vous rendre sur la section finance de votre profil"
+      taxes_info_name: "Veuillez indiquer le nom de la taxes à ajouter (ex. TPS, TVH, TVQ, etc.)"
+      taxes_info_rate: "Veuillez indiquer le taux pour cette taxes avec les décimales (ex. 9.999%)"
+      taxes_info_number: "Veuillez inscrire votre propre numéro de taxe. Celui-ci doit figurer sur la facture."
+      taxes_info_name_and_num: "Pour que votre numéro de taxe apparait sur la facture, le ou les termes 'TVQ / QST', 'TPS / GST', 'TVH / HST' et 'TVP / PST' doivent être présent"
+      client_info: "Si aucun client est seléctioné, nous créerons une adresse publique que vous pourrez partager par vous même"
+      amount: "Montant"
+      remove: "Supprimer"
+      new_row: "Ajouter une ligne"
+      subtotal: "Total hors taxes et frais :"
+      total_without_taxes: "Total hors taxes:"
+      fees: "Frais :"
+      total_overall: "Total Global :"
+      total_collected: "Montant que vous allez recevoir (avec taxes)"
+      add_tax: "Ajouter une taxe"
+      no_related_users: "* Il semble qu'il n'est aucun utilisateur lier à vous, afin de facturer un autre utilisateur il doit être membre d'un de vos projets (comme propriétaire ou comme candidat)"
+      send_invoice: Envoyer la facture
+      mission: Mission
+    taxes:
+      name: Nom
+      rate: Taux
+      number: Numéro
+
+  subscription_plans:
+    index:
+      features:
+        package_details: Détails sur le package
+        freemium:
+          - Création d'un profil
+          - Naviguer les produits et les projets
+        premium:
+          - Publier un produit
+          - Publier des projets
+          - Collaboration
+        platinum:
+          - Publier jusqu'à 5 produits
+          - Publier des projets
+          - Collaboration ++
+          - Mode autonome
+        partner:
+          - Plan platine offert aux partenaires
+        profile: Profil
+        public_profile: Profil public
+        send_invitations: Envoyer des invitations
+        private_profile: Profil privé
+
+        projects_and_missions: Projets et missions
+        browse_projects: Naviguer les projets
+        show_interested: Manifester son intérêt pour un projet
+        create_project_and_missions: Créer des projets
+        create_project_and_missions_private: Créer des projets privés
+        suggest_someone: Proposer quelqu'un pour une mission
+
+        serviceplace: Place de Services
+        browse_products: Naviguer les produits
+        public_product_page: Page produit publique
+        pay_cart_items: Payer/Acheter les items du panier (?)
+        purchase_history: Consulter l'historique d'achat
+        manage_products: Gestion de produits (création, édition...)
+        show_user_products: Consulter les produits liés à un profil
+        private_products: Création de produits privés
+
+      faq_title: Questions fréquemment posées
+      FAQ_question_1: Quelle est la différence entre l’abonnement de base et platine?
+      FAQ_answer_1: Avec l’abonnement de base, tu peux afficher un produit à vendre. Avec le platine, tu peux afficher 5 produits, lors du démarchage tes produits sont présentés en premier aux clients, tu as accès aux projets 72h avant les autres et tu peux mettre ton profil privé.
+      FAQ_question_2: Pourquoi un abonnement?
+      FAQ_answer_2: Chez CollabMachine, on s'éloigne des commissions! Voilà pourquoi nous avons mis en place un système d’abonnement. Ici, tu es libre de créer tes produits et offrir tes services au prix que tu veux. Pas de % sur les valeurs échangées. Nous désirons que vous puissiez avoir accès aux talents et offrir vos services pour le prix que vous désirez recevoir. Nous ne prenons pas de commission sur les valeurs échangés, ce qui vous permet de payer un meilleur prix ou être payé au montant que vous désirez.
+      FAQ_question_3: Quelle est la différence entre un abonnement de base et un abonnement platinum?
+      FAQ_answer_3: L’abonnement platinum te permet de créer 5 produits dans le Serviceplace, elle te permet aussi de choisir si ton profil est public ou privé.
+      FAQ_question_4: Je suis étudiant, est-ce que je peux avoir un rabais?
+      FAQ_answer_4: Certainement, nous encourageons les étudiants à venir offrir leurs services sur le serviceplace. Tu as le droit à 50% de rabais sur l’offre de base. Pour avoir droit à ce rabais, tu dois communiquer avec nous à team@collabmachine.com et nous envoyer une preuve de fréquentation scolaire avec l’année inscrite.
+      FAQ_question_5: Comment je fais pour entrer en contact avec un membre?
+      FAQ_answer_5: Seuls les membres platines peuvent entrer directement en contact avec les membres ou choisir de mettre leurs informations visibles à tous. Si tu as des questions pour le vendeur, tu peux utiliser le bouton ‘’contacter le vendeur’’ et notre équipe fera le lien. Un délai de 5 jours ouvrables est nécessaire pour la réponse.
+      FAQ_question_6: J’ai trouvé un produit qui m’intéresse, mais ce n’est pas exactement ce dont j’ai besoin. Est-ce que c’est possible d’en parler avec le vendeur?
+      FAQ_answer_6: Il est possible d’avoir des services sur mesures, mais seuls Seuls les membres platines peuvent entrer directement en contact avec les membres ou choisir de mettre leurs informations visibles à tous. Par contre, il est possible d’ utiliser le bouton ‘’contacter le vendeur’’ et notre équipe fera le lien. Un délai de 5 jours ouvrables est nécessaire pour la réponse. Pour une situation urgente, communiquer avec nous à team@collabmachine.com
+      FAQ_question_7: Pourquoi je ne peux pas voir les informations du vendeur?
+      FAQ_answer_7: Seuls les membres platines peuvent voir les informations complètes des membres ou décider d’afficher leurs profil à tous. Par contre, Si tu as des questions pour le vendeur, tu peux utiliser le bouton ‘’contacter le vendeur’’ et notre équipe fera le lien. Un délai de 5 jours ouvrables est nécessaire pour la réponse.
+      FAQ_question_8: J’ai acheté un service et depuis, je n’ai pas eu de nouvelles du vendeur, qu’est-ce que je peux faire?
+      FAQ_answer_8: Remplissez ce formulaire et un membre de notre équipe s’occupera rapidement de votre situation. Formulaire de service à la clientèle
+      FAQ_question_9: J’ai fait un achat par erreur, comment je fais pour annuler?
+      FAQ_answer_9: Vous devez contacter le vendeur pour un remboursement. Vous trouverez ses informations sur la facture. Si vous avez besoin d’aide, vous pouvez contacter notre équipe de service à la clientèle.
+      FAQ_question_10: Est-ce que je peux payer avec Paypal?
+      FAQ_answer_10: Non, nous utilisons Stripe qui est une passerelle de paiements aussi sécuritaire que Paypal.
+
+  specialty:
+    technos: 'Les logiciels, les technologies utilisés, les outils. Séparez les avec une virgule ","'
+    add_new_speciality: Ajouter une nouvelle spécialité
+    my_specialties: Mes spécialités
+    our_specialties: Nos spécialités
+    specialties: Spécialités
+    index:
+      title: 'Liste des spécialités'
+    form:
+      title_for_create: Ajouter une spécialité
+      title_for_edit: Modifier une spécialité
+      back_to_specialties: Retour aux spécialités
+      new_row: Ajouter une ligne
+      resource: ressource
+
+  specialist:
+    now_available: Disponible maintenant
+
+  sectors:
+    industry_sectors: Secteurs d'industrie
+
+  speciality:
+    offer_a_speciality: Proposer spécialité
+    propose_a_speciality: Proposer une spécialité

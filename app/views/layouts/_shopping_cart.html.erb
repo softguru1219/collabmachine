@@ -1,0 +1,33 @@
+<li id="shopping-cart" class="dropdown" :class="{open: isOpen}" v-click-outside="closeMenu" data-vue-component="shoppingCart">
+  <a href="javascript:void(0)" class="cart-dropdown-toggle" :class="{open: isOpen}" v-on:click="toggleIsOpen">
+    <div class="dropdown-label">
+      <i class="<%= class_names('fa', 'fa-lg', 'fa-shopping-cart') %>"></i>
+      <span><%= title %></span>
+      <span>({{productCount}})</span>
+    </div>
+    <div v-if="isOpen" class="dropdown-toggle-overlay">
+      <i class="<%= class_names('fa', 'fa-lg', 'fa-times', {front: front}) %>"></i>
+    </div>
+  </a>
+  <ul role="menu" class="dropdown-menu shopping-cart-menu">
+    <li v-for="product in cart.products" :key="product.id" class="product-line">
+      <div class="product-title-and-delete">
+        <div class="product-title"><a :href="productUrl(product)">{{ product.title }}</a></div>
+        <div class="delete-product" v-on:click="removeProduct(product.id)"><i class="fa fa-lg fa-minus-circle"></i></div>
+      </div>
+      <a :href="productUrl(product)" class="cart-item-thumb-link">
+        <img :src=product.image>
+        <span class="cart-product-price">{{ product.price }}</span>
+      </a>
+    </li>
+    <li class="totals" key="totals">
+      <div class="total" key="total">
+        <div class="total-label"><%= t("g.total") %></div>
+        <div class="total-amount">{{ cart.totals.subtotal }}</div>
+      </div>
+      <div v-if="productCount !== 0">
+        <%= link_to t("g.checkout"), serviceplace_checkout_path, class: "checkout-btn btn btn-blue-solid" %>
+      </div>
+    </li>
+  </ul>
+</li>

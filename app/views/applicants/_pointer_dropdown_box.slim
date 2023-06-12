@@ -1,0 +1,35 @@
+/ the pointer is the referrer
+/ referred_by means the id of the pointer for this applicant
+
+h4
+  span #{t('applicant.or_point_someone_for_that_job')}:
+  span>
+  span.tooltip-button
+    - if policy(User).see_personal_info_gte_platinum? || policy(@mission).admin_or_mine?
+      button.btn.btn-xs.btn-warning.btn-outline.b-r-xl(
+          type="button"
+          data-toggle="tooltip"
+          data-placement="right"
+          title=""
+          data-original-title = t("applicant.point_info_with_access")
+        )
+          i.fa.fa-question
+    - else
+      button.btn.btn-xs.btn-warning.btn-outline.b-r-xl(
+          type="button"
+          data-toggle="tooltip"
+          data-placement="right"
+          title=""
+          data-original-title = t("applicant.point_info_non_access")
+        )
+          i.fa.fa-question
+
+- if policy(User).see_personal_info_gte_platinum? || policy(mission).admin_or_mine?
+  - users = User.all.reject { |u| u.id == current_user.id }
+  p =< select_tag :pointed_by,
+    options_for_select(User.active.collect {|p| [ user_caption_for_dropdown(p), p.id ]}, @mission.assignee_id || false),
+    onchange: "window.admin_set_applicant({mission_id: #{mission.id}, user_id: this.value, pointed_by: #{current_user.id}})",
+    prompt: t('applicant.assigne_prompt'),
+    class: "mdb-select colorful-select dropdown-primary filter-select applicant-select gray-bg"
+- else
+  =< t('g.no_access')

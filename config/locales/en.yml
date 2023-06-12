@@ -1,0 +1,563 @@
+# Files in the config/locales directory are used for internationalization
+# and are automatically loaded by Rails. If you want to use locales other
+# than English, add the necessary files in this directory.
+#
+# To use the locales, use `I18n.t`:
+#
+#     I18n.t 'hello'
+#
+# In views, this is aliased to just `t`:
+#
+#     <%= t('hello') %>
+#
+# To use a different locale, set it with `I18n.locale`:
+#
+#     I18n.locale = :es
+#
+# This would use the information in config/locales/es.yml.
+#
+# To learn more, please read the Rails Internationalization guide
+# available at http://guides.rubyonrails.org/i18n.html.
+en:
+  locales:
+    en: English
+    fr: French
+    sp: Spanish
+    zh: Chinese
+    ar: Arabic
+    ru: Russian
+    hi: Hindi
+    pt: Portuguese
+  levels:
+    basic: Basic
+    intermediate: Intermediate
+    pro: Advanced
+  devise:
+    failure:
+      account_inactive: Your account is inactive, please contact the support for more informations.
+    registrations:
+       signed_up_but_account_inactive: Thank You! We received your registration request. You'll receive an email when your account is ready to use.
+  date:
+    formats:
+      default: "%Y/%m/%d"
+      month_name: "%^B"
+      event_date: "%B, %-d"
+  time:
+    ago: "%{minutes} minutes ago"
+  number:
+    currency:
+      format:
+        unit: '$'
+  default:
+    close: close
+    more_details: More details...
+  about_us: 'About us'
+  payment_gateway: "Payment gateway"
+  alt_lang:
+    code: fr
+    label: français
+    invite: Version française
+  missions: missions
+  company_name: 'Collab Machine'
+  info_email: 'info@collabmachine.com'
+  address_1: 4258 St-Hubert St
+  address_2: Montreal, QC, Canada, H2J 2W7
+  phone: +1 514-237-1731
+  province: Your province
+  provinces:
+    quebec: Quebec
+    newfoundland: Newfoundland and Labrador
+    prince_edward_island: Prince Edward Island
+    nova_scotia: Nova Scotia
+    new_brunswick: New Brunswick
+    ontario: Ontario
+    manitoba: Manitoba
+    saskatchewan: Saskatchewan
+    alberta: Alberta
+    british_columbia: British Columbia
+    yukon: Yukon
+    northwest_territories: Northwest Territories
+    nunavut: Nunavut
+  taxes:
+    qst: QST
+    gst: GST
+    hst: HST
+    pst: PST
+  connect: Connect
+  contact: Contact
+  copyright: 'Collab Machine 2018 | All rights reserved.'
+  create_account: Create your account here
+  create_profile: Create your profile
+  documentation: documentation
+  email: email
+  first_name: Firstname
+  last_name: Lastname
+  get_project_done: Get your project done
+  login: Log in
+  members: members
+  or: or
+  password: password
+  projects: projects
+  signup: Sign up
+  team: Team
+  admin_client: Admin Client
+  client_admin_summary: Client Admin Summary
+  admin_references_links: Admin References Links
+  admin_project_type: Admin Project Type
+  admin_talents_resources: Admin Talents Resources
+  admin_budget: Admin Budget
+  admin_delivery: Admin Delivery
+  admin_position_in_process: Admin Position In Progress
+  admin_extra_info: Admin Extra Info
+
+
+  company:
+    description: Collab Machine makes it easier for talents and hiring organizations to do business.
+    description_more: Organizing elements in a trust-based local network that generates new collaboration opportunities, and offering services to support collaborations from start to finish is the key.
+  pundit:
+    default: 'You cannot perform this action.'
+    mission_policy:
+      destroy?: "You cannot delete the last mission of a project"
+
+  home:
+    main_tagline: Better freelancing.
+    taglines:
+      - Let’s make it happen.
+      - Collaboration made easy.
+      - Consulting, <br>your way.
+      - Together we stand out more.
+      - Distributed workforce for the win.
+
+    slides:
+      - bg_src: "landing/slider/escalade.jpg"
+        bg_disposition: "50% 50% no-repeat;"
+      - bg_src: "landing/slider/bus.jpg"
+        bg_disposition: "bottom center no-repeat;"
+      - bg_src: "landing/slider/downhill.jpg"
+        bg_disposition: "50% 50% no-repeat;"
+      - bg_src: "landing/slider/converse.jpg"
+        bg_disposition: "50% 50% no-repeat;"
+      - bg_src: "landing/slider/splash.jpg"
+        bg_disposition: "50% 50% no-repeat;"
+      - bg_src: "landing/slider/bike.jpg"
+        bg_disposition: "50% 50% no-repeat;"
+      - bg_src: "landing/slider/show.jpg"
+        bg_disposition: "50% 50% no-repeat;"
+
+
+    # section features
+    features:
+      col_1:
+        header: Collaborative approach
+        body: |
+          <p>Changing the relationship and approach between the client, the work and the talent is of fundamental importance.</p>
+          <p>Whether it is a turnkey service or the client’s active participation in implementing a project, flexibility is an essential component of collaboration.</p>
+      col_2:
+        header: QUALITY OF LIFE
+        body: <p>Although the definition of quality of life is unique to everyone, Collab Machine offers solutions to balance self-employment with quality of life.</p>
+      col_3:
+        header: Security
+        body: <p>This is what makes it possible to go further. Efforts converge to provide peace of mind and the assurance of a hassle-free exchange.</p>
+      col_4:
+        header: Trust
+        body: <p>Building a trusted ecosystem provides both clients and talent with a better chance of achieving their goals.</p>
+
+
+      # section: features (part2)
+      main_title: |
+        An eco-system <br>
+        <span class="navy">designed for collaboration</span>
+      sub_p: ""
+        # Principles applied.
+
+      box_1:
+        icon: 'fa-flask'
+        header: Innovative
+        body: <p>Provides creative thinking about access to better quality of life.</p>
+      box_2:
+        icon: 'fa-legal'
+        header: Fair
+        body: <p>Provides free choice in engagement with granular, consistent distribution of results. Seeks to capitalize gains and distribute leverage.</p>
+      box_3:
+        icon: 'fa-magnet'
+        header: Gatherer
+        body: <p>Mechanisms that enable meetings and commitment. An implementation of “The Strength of Weak Ties” theory.</p>
+      box_4:
+        icon: 'fa-random'
+        header: Agile and autonomous
+        body: <p>Ultra-inclusive philosophy. Way of thinking centred on the importance of the journey.</p>
+      box_5:
+        icon: 'fa-globe'
+        header: Flexible
+        body: <p>Distributed and decentralized mode of operation that enhances adaptation as required. Many ways to use the machine.</p>
+
+
+    # section
+    platform:
+      main_title: A platform where you are the hero
+      sub_p: An active model based on your own ambitions.
+      small: CLIENT AND/OR TALENT
+      title: Be at the heart of the equation
+      body:
+        <p>Whether you are the client or the talent, Collab Machine places you at the centre of the equation. From the first contact to the very end of your project, we do everything possible to ensure the process is positive for all parties.</p>
+        <p>It’s all about the exchange—meeting the needs of both parties.</p>
+
+
+
+
+
+
+    # section: balance
+    balance:
+      main_title: Collab + Machine
+      sub_p: An innovative, flexible, autonomous and equitable approach.
+
+      left:
+        small: Collab
+        title: Innovative approach
+        body: <p>Collab Machine presents a redesigned version of the working world. It is a model that invites personal reflection on the balance between monetary contribution and access to happiness.</p>
+      right:
+        small: Machine
+        title: A system designed for you
+        body:
+          <p>Self-employment and entrepreneurship present important challenges that disrupt many. The machine gathers and provides tools and services to overcome these challenges.</p>
+          <p>The machine seeks to create an effective counterweight, then make it a lever.</p>
+
+
+    # section: call-to-action
+    call_to_action:
+      main_title: FOURTH industrial revolution
+      body:
+        <p>Value is no longer where it was before.</p>
+        <p>It’s now on the move, as we are.</p>
+
+
+    # section: features ... more
+    f_plus:
+      main_title: At a glance.
+      rows:
+        -
+          -
+            title: Activity, visibility
+            icon: fa-bar-chart
+            body: <p>See what's going on.</p>
+          -
+            title: Centralization, regularity
+            icon: fa-filter
+            body: <p>Regularized flow. A permissive but structuring process.</p>
+        -
+          -
+            title: Management | Work | Representation
+            icon: fa-clock-o
+            body: <p>Time is precious. It’s important to enjoy it.</p>
+          -
+            title: Framing exchanges
+            icon: fa-money
+            body: <p>Financial mechanisms in place to facilitate trade and increase the confidence of participants. Management support.</p>
+        -
+          -
+            title: Engagement made possible, simplified
+            icon: fa-chain
+            body: <p>As a client, Collab Machine will become an extension of your team. Like talent, Collab Machine offers you opportunities wherever you are.</p>
+          -
+            title: "And so much more..."
+            icon: fa-thumbs-up
+            body: <p>To know Collab Machine in all its splendor, you will have to be part of it.</p>
+
+    partners:
+      our_partners: 'Our partners'
+      proud_member_of: 'Proud member of:'
+      upside_desc: 'The Upside Foundation of Canada offers an exciting platform to help Canadian startups and high-growth companies “Share The Upside” and positively impact our community.'
+      amelio_desc: 'Amélio analyzes what your employees like about your company and what you need to improve to create an inspiring workplace. The tool provides automated recommendations thanks to the most innovative management practices.'
+      mtlcowork_desc: "Montréal Cowork: A coworking space located that offers everything you need, whether you are a self-employed worker or a team of up to ten people!"
+      futurpreneur_desc: "Futurpreneur Canada has been fueling Canada’s young enterprise for two decades. We are the only national, non-proﬁt organization that provides ﬁnancing, mentoring and support tools to aspiring business owners aged 18-39."
+      siliconisland_desc: "Empower organization by helping them leverage AI from Strategy to Deployment and create massive wealth in Montreal to its contributors."
+      bec_desc: "nabs offers a suite of services that starts with the nabs supportline which is a service accessible 24/7/365 which is professionally run, confidential and completely free and available to all professionals in the media, marketing and communications industry."
+      bec_url: https://nabs.org/
+      think_like_a_machine_desc: "THINK LIKE A MACHINE is an innovation boutique building a new standard (EVI) for business design"
+      mtl_ecommerce_desc: "MTL + Ecommerce is a platform for bringing together the minds of the brightest. All united by their passion for business, innovation and digital marketing."
+      innovx_desc: "Consulting group focusing on regulatory compliance of core operational platforms. Also supports IT project management, IT strategy, business analysis, process reengineering and computer system validation (CSV) needs."
+      defi_mtl: Défi Montréal helps entrepreneurs succeed in the digital economy. It is the largest community of mutual support and experience sharing for innovative high-growth entrepreneurs in Quebec.
+      le_wagon: Change your life, learn to code. - Through immersive coding bootcamps, Le Wagon teaches you the skills and entrepreneurial mindset you need to thrive - now and in the future.
+      le_wagon_url: https://www.lewagon.com/
+    footer:
+      section_services: Offers & Services
+      section_about: About Us
+      main_title: Subscribe for more!
+      secondary_text: Subscribe to the newsletter.
+      find_specialist: Find a specialist
+      post_a_project: Post a project
+      serviceplace: Access the serviceplace
+      become_specialist: How to become one of our specialists?
+      submit_email: Subscribe
+      blurb: Collab Machine operates on a selective basis, by invitation only. Feel free to contact us by email. We’ll be happy to reply as soon as possible.
+      smaller: Subscribe to the newsletter to be in the loop.
+      # blurb: To discover the collab and it's beauty, you need to be part of it.
+      # smaller: Strength of weak ties, Slicing Pie et Master Mind.
+
+
+    send_us_mail: Send us an email
+    follow_us: Follow us on social media
+
+    flights: Flights
+    unobstrusive: Unobtrusive<br>workflow
+    launch: Launch<br>pad
+    members: Members
+
+  users:
+    blurb_mailing1: Public registrations are not there yet.
+    blurb_mailing2: Please subscribe to our mailing to keep yourself in the loop and get invited.
+    company: company
+    email: email
+    first_name: first Name
+    last_name: last Name
+    password: password
+    password_confirm: confirm password
+    profile: profile
+    required_fields: indicates required
+    submit: submit
+    subscribe: Subscribe
+    subscribe_mailing: Subscribe to our mailing list
+    username: username
+    invited_by: "Brought to you by:"
+    github_url: Github url
+    linkedin_url: Linkedin url
+    phone_placeholder: Phone
+
+    phone_blitz_placeholder: Cell phone number (available during the Blitz)
+    location_placeholder: "Location: city or region or country"
+    web_site_url: Website url
+    leave_blank: leave blank if you don't want to change it
+    chars: characters minimum
+    need_pass: we need your current password to confirm your changes
+    change_button: change my password
+
+  sessions:
+    login: Log in
+    logout: log out
+    remember_me: Remember me
+    login_form_blurb: Let's begin.
+
+  devise_links:
+    login: Log in
+    signup: Sign up
+    forgot_password: Forgot your password?
+    miss_confirmation_instruction: Didn't receive confirmation instructions?
+    miss_unlock_instruction: Didn't receive unlock instructions?
+
+  estimate:
+    main_title: Your idea!
+    instructions:
+      - icon: fa-pencil-square-o
+        title: Describe your idea.
+        description: Make it simple and sweet.
+      - icon: fa-send
+        title: Send your project.
+        description: We will guide you to define it properly
+      - icon: fa-magic
+        title: Machine ready.
+        description: get it done!
+    form:
+      invite: Describe your project quickly
+      title_placeholder: Title
+      email_placeholder: Email address
+      phone_placeholder: Phone number
+      description_placeholder: Write about it here ...
+      send: Send
+      error_msg: Please make sure you fill both title and description fields.
+
+  estimate_created:
+    main_title: Oh yeah!
+    blurb: Your estimate has been created and ... we're looking at it.
+    finale: We get back to you soon!
+
+  covid_created:
+    main_title: Splendid!
+    blurb: We've got it all ... we're looking at it.
+    finale: We get back to you soon!
+
+  insurance_quote:
+    turquoise_description: <strong>La Turquoise</strong> is pleased to offer Collab Machine members an insurance product specially developed for the IT industry with a group rate that is very advantageous for you.
+                            In addition to professional (error and omission) and civil liability as well as computer property, we are able to protect you against data loss, cyber risk and intellectual property.
+                            <br><strong>Thanks to the partnership with Collab Machine, you benefit from a privileged pricing with a reduced premium of at least 15%.</strong>
+    turquoise_contact: Call 888 355-2347 and contact Jason Cabral at extension 26171 or Claire-Hélène Michaud at extension 26120. They are there for you.
+    form:
+      invite: Get your quote
+      name_placeholder: Name
+      email_placeholder: Email address
+      phone_placeholder: Phone number
+      note_placeholder: Add some details ...
+      send: Send
+      error_msg: Please make sure you fill both name, email and phone fields.
+
+  will_paginate:
+    previous_label: "&#8592; Previous"
+    next_label: "Next &#8594;"
+    page_gap: "&hellip;"
+
+    page_entries_info:
+      single_page:
+        zero:  "No %{model} found"
+        one:   "Displaying 1 %{model}"
+        other: "Displaying all %{count} %{model}"
+      single_page_html:
+        zero:  "No %{model} found"
+        one:   "Displaying <b>1</b> %{model}"
+        other: "Displaying <b>all&nbsp;%{count}</b> %{model}"
+
+      multi_page: "Displaying %{model} %{from} - %{to} of %{count} in total"
+      multi_page_html: "Displaying %{model} <b>%{from}&nbsp;-&nbsp;%{to}</b> of <b>%{count}</b> in total"
+
+  status:
+    draft:
+      title: Draft
+      info: Prepare your mission and submit it when ready.
+      next_action: Submit for review
+    for_review:
+      title: For Review
+      info: We review it all and come back to you shortly.
+      next_action: Mark as reviewed
+    reviewed:
+      title: Reviewed
+      info: Your mission has been approved, you can open for candidates or assign it directly.
+      next_action: Open for candidates
+    active:
+      title: Active
+      info: Your mission is visible, people can show their interest. Assign a talent to the mission and move to the next step.
+    open_for_candidates:
+      title: Open for candidates
+      info: Your mission is visible, people can show their interest. Assign a talent to the mission and move to the next step.
+      next_action: Assign to someone
+    assigned:
+      title: Assigned
+      info: Your mission has been assigned. It's visible only for you and the talent taking care of it.
+      next_action: Start your mission
+    started:
+      title: Started
+      info: Progress begins!
+      next_action: Finish your mission
+    finished:
+      title: Finished
+      info: Your mission is over. The talent can send the invoice.
+      next_action: Send invoice
+    invoiced:
+      title: Invoiced
+      info: To pay the bill, follow instructions.
+    paid:
+      title: Paid
+      info: It has been paid.
+    paid_confirmed:
+      title: Payment confirmed
+      info: The payment has been confirmed. You can close the mission.
+    closed:
+      title: Closed
+      info: This mission is closed.
+    archived:
+      title: Archived
+      info: The mission has been archived.
+    on_hold:
+      title: "- ON HOLD"
+      info: This mission is currently on hold, you can remove it from this state and continue working on it.
+
+  messages:
+    project:
+      draft: "Draft"
+      created: "Created"
+      for_review: "For Review"
+      reviewed: "Reviewed"
+      new_open_project: "Open for candidates"
+      new_quick_estimate_demand: "Quick estimate created"
+      active: "Active"
+
+    mission:
+      draft: 'Draft'
+      for_review: 'For Review'
+      reviewed: 'Reviewed'
+      open_for_candidates: 'Open For Candidates'
+      assigned: 'Assigned'
+      started: 'Started'
+      finished: 'Finished'
+      invoiced: 'Invoiced'
+      paid: 'Paid'
+      paid_confirmed: 'Paid Confirmed'
+      closed: 'Closed'
+      archived: 'Archived'
+
+    applicant:
+      unknown: 'Unknown'
+      assigned: 'Assigned'
+      rejected: 'Rejected'
+      update: 'Updated'
+      point_info_non_access: "If you want to suggest somebody for this project you have to change your subscription plan to platinum"
+
+    applicants:
+      creation:
+        admin:
+          subject: "%{first_name} %{last_name} applied on mission: %{title}"
+        user:
+          subject: "%{first_name} %{last_name} applied on mission: %{title}"
+      removed:
+        admin:
+          subject: "Applicant removed from mission: %{title} (%{first_name} %{last_name})"
+        user:
+          subject: "Applicant removed from mission: %{title} (%{first_name} %{last_name})"
+      assigned:
+        admin:
+          subject: "You assigned mission %{title} to %{first_name} %{last_name}"
+        user:
+          subject: "Mission %{title} assigned to %{first_name} %{last_name}."
+      reopen:
+        admin:
+          subject: "Mission: %{title} 'reopened' by %{first_name} %{last_name}"
+        user:
+          subject: "Mission: %{title} 'reopened' by %{first_name} %{last_name}"
+  invoice:
+    name: "Invoice"
+    edit_title: "Edit Invoice"
+    new_title: "New Invoice"
+    show:
+      edit: "Edit"
+      delete: "Destroy"
+      amount_due_can: "Amount Due (CAD)"
+      created_by: "Created by:"
+      customer: "Customer:"
+      last_update: "Last update:"
+      created: "Created:"
+      pay: "Pay"
+      paying: "Processing ..."
+    form:
+      invoice_lines: "Invoice Lines"
+      description: "Description"
+      rate: "Rate"
+      quantity: "Quantity"
+      taxes: "Taxes"
+      amount: "Amount"
+      remove: "Remove"
+      new_row: "New Invoice Row"
+      subtotal: "Total without taxes :"
+      total: "Total :"
+      fees: "Fees :"
+      add_tax: "Add a tax"
+      total_overall: "Total Overall :"
+
+  helpers:
+    label:
+      invoice:
+        customer_id: Customer
+        description: Description
+        mission_ids: Missions
+        project_ids: Projects
+        external_name: Name of the external person or companie
+        external_email: Email of the external person or companie
+      project:
+        title: Title
+        description: Description
+        owner: Owner
+        admin_notes: Admin notes
+        private_notes: Private notes
+      mission:
+        project: Project
+        title: Title
+        terms: Terms
+        rate: Rate
+        admin_notes: Admin notes

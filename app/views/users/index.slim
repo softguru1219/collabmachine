@@ -1,0 +1,53 @@
+.row.wrapper.page-heading
+
+  .col-xs-12
+    .header-controls.btn-group.pull-right
+
+      - if access_level_is_admin?
+        = link_to 'List admin', admin_index_users_path, class: 'btn btn-warning btn-outline'
+        = link_to 'Create new user', new_user_registration_path, class: 'btn btn-success btn-outline'
+    .clear
+
+.row
+  .col-md-4
+    = form_for_filterrific @filterrific do |f|
+      .form-group
+        div = t('users.index.filter.name')
+        = f.text_field(:by_name,
+          class: 'filterrific-periodically-observed form-control')
+
+      .form-group
+        div = t('users.index.filter.description')
+        = f.text_field(:by_description,
+          class: 'filterrific-periodically-observed form-control')
+
+      - if policy(current_user).can_filter_tags?
+        .form-group
+          div = t('users.index.filter.tags')
+          = f.select(:by_tags,
+            options_for_select(Tag.all.order('name').map { |tag| [ tag.name, tag.name ]}),
+            {},
+            { multiple: true, class: "mdb-select colorful-select dropdown-primary filter-select" })
+
+      - if policy(current_user).can_filter_profile_type?
+        .form-group
+          div = t('users.index.filter.type.title')
+          = f.select(:by_type,
+            User.type_values,
+            { include_blank: t('users.index.filter.type.all') },
+            { class: "mdb-select colorful-select dropdown-primary filter-select" })
+
+      - if policy(current_user).admin?
+        .form-group
+          div = t('users.index.filter.active.title')
+          = f.select(:by_active_state,
+            User.state_values,
+            { include_blank: t('users.index.filter.type.all') },
+            { class: "mdb-select colorful-select dropdown-primary filter-select" })
+
+      .form-group
+        br
+        = link_to('Reset filters', reset_filterrific_url, class: "btn btn-danger")
+
+  .col-md-8
+    = render 'list', users: @users

@@ -1,0 +1,114 @@
+.well.container.wiphomepage
+  .row
+    .col-md-12
+      #filterrific_results.row.clear
+        .ibox
+          .ibox-content
+            = form_for WipResult.new, :url => {:action => "send_results"}, :html => { :class => 'ui form'} do |f|
+              = f.text_field :specialty_id, value: @specialty.id, class: 'd-none'
+
+              h1 = t('hello.wiphomepage.form_get_specialist')
+              hr.hr
+              br
+              h2.section-title.m-t-lg = t('hello.wiphomepage.desc_speclialist')
+
+              section
+                table.mt-4
+                  tbody
+                    tr
+                      td.solid-grid
+                        = image_tag 'icons/customer-management.svg', width: "70%", alt: ''
+                      td.solid-grid.grid-40
+                        = t('hello.wiphomepage.specialty_referenct_number')
+                        .mt-2 = t('shared.domain').capitalize
+                        .mt-2 = t('shared.business_category').capitalize
+                        .mt-2 = t('shared.specialty_title').capitalize
+                        .mt-2 = t('hello.wiphomepage.languages_of_communication')
+                      td.solid-grid.grid-40
+                        = @specialty.id
+                        .mt-2 = @specialty.business_sub_domain.name
+                        .mt-2 = @specialty.business_category.name
+                        .mt-2 = @specialty.title
+                        .mt-2
+                          - @specialty.user.spoken_languages.each do |sl|
+                            = "#{t("locales.#{sl.language}")}, "
+                    tr
+                      td.solid-grid
+                        = t('hello.wiphomepage.experience_business_category')
+                      td.solid-grid colspan="2"
+                        - @specialty.specialty_lines.each do |l|
+                          = "#{@specialty.title} - #{Sector.find(l.sector_id).name} - #{l.experience} #{t("g.years")}"
+                          br
+                    tr
+                      td.solid-grid
+                        = t('hello.wiphomepage.other_experiences')
+                      td.solid-grid colspan="2"
+                        - @specialty.specialty_lines.each do |l|
+                          = "#{@specialty.business_sub_domain.name} - #{@specialty.business_category.name} - #{@specialty.title} - #{l.experience} #{t("g.years")}"
+                          br
+                    tr
+                      td.solid-grid
+                        = t('hello.wiphomepage.technologies_acquired')
+                      td.solid-grid colspan="2"
+                        - @specialty.user.skill_list.each do |l|
+                          ="#{l}, "
+
+              section
+
+                h2.section-title.m-t-lg = t('hello.wiphomepage.specialist_attributes')
+                .mt-5 
+                  span = t("hello.wiphomepage.form_description")
+                  a.pl-1.form-click href="javascript:void(0)" = "#{t("hello.wiphomepage.click_here")}."
+                
+                table.mt-5.full-width
+                  tbody
+                    tr
+                      td.solid-grid.grid-30 = t('hello.wiphomepage.specialty_referenct_number')
+                      td.solid-grid = @specialty.id
+                    tr
+                      td.solid-grid = t('shared.domain').capitalize
+                      td.solid-grid = @specialty.business_sub_domain.name
+                    tr
+                      td.solid-grid = t('shared.business_category')
+                      td.solid-grid = @specialty.business_category.name
+                    tr
+                      td.solid-grid = t('shared.specialty_title')
+                      td.solid-grid = @specialty.title
+
+                  table.mt-5.full-width
+                    tbody
+                      tr
+                        td.solid-grid.grid-30 = t('hello.wiphomepage.company_name')
+                        td.solid-grid = @specialty.user.company
+                      tr
+                        td.solid-grid = t('hello.wiphomepage.your_name')
+                        td.solid-grid = @specialty.user.full_name
+                      tr
+                        td.solid-grid = t('hello.wiphomepage.your_email')
+                        td.solid-grid = @specialty.user.email
+                      tr
+                        td.solid-grid = t('hello.wiphomepage.your_phone')
+                        td.solid-grid = @specialty.user.phone
+
+                  table.mt-5.full-width
+                    tbody
+                      tr
+                        td.solid-grid.grid-30 = t('hello.wiphomepage.type_of_mandat')
+                        td.solid-grid 
+                          = f.select :work_type, ["Temps plein", "Temps partiel", "Banque d'heures"]
+                      tr
+                        td.solid-grid = t('hello.wiphomepage.term_start_date')
+                        td.solid-grid
+                          = f.date_field :start_date, :value => Time.now.strftime('%Y-%m-%d')
+                      tr
+                        td.solid-grid = t('hello.wiphomepage.date_duration')
+                        td.solid-grid
+                          = f.date_field :end_date, :value => Time.now.strftime('%Y-%m-%d')
+                      tr
+                        td.solid-grid = t('hello.wiphomepage.clarification_mandate')
+                        td.solid-grid
+                          = f.text_area(:classification, class: "full-width")
+
+              .mt-5.form-group.text-center
+                = f.submit t('estimate.form.send'), class: 'btn btn-info btn-lg m-t-lg'
+      

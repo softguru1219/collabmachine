@@ -1,0 +1,9 @@
+en:
+  message_mailer:
+    purchase_receipt:
+      title: "Reçu pour votre achat CollabMachine"
+      heading: "Merci pour votre achat CollabMachine! Veuillez consulter votre reçu ci-dessous: "
+    product_recommended:
+      title: "%{user} vous a recommandé un produit"
+      dear_user: "Cher %{user}"
+      recommendation_html: "Le produit %{product_link} vous a été recommandé par %{user}."

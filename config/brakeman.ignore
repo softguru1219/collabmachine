@@ -1,0 +1,99 @@
+{
+  "ignored_warnings": [
+    {
+      "warning_type": "Cross-Site Scripting",
+      "warning_code": 2,
+      "fingerprint": "97e56411e9160bf80ee11aba57d60846a38c75a7740df147f3183b32bd4c281b",
+      "check_name": "CrossSiteScripting",
+      "message": "Unescaped model attribute",
+      "file": "app/views/serviceplace_checkouts/view_invoice.slim",
+      "line": 14,
+      "link": "https://brakemanscanner.org/docs/warning_types/cross_site_scripting",
+      "code": "(Unresolved Model).new.invoice_html",
+      "render_path": [
+        {
+          "type": "controller",
+          "class": "ServiceplaceCheckoutsController",
+          "method": "view_invoice",
+          "line": 49,
+          "file": "app/controllers/serviceplace_checkouts_controller.rb",
+          "rendered": {
+            "name": "serviceplace_checkouts/view_invoice",
+            "file": "app/views/serviceplace_checkouts/view_invoice.slim"
+          }
+        }
+      ],
+      "location": {
+        "type": "template",
+        "template": "serviceplace_checkouts/view_invoice"
+      },
+      "user_input": null,
+      "confidence": "High",
+      "note": ""
+    },
+    {
+      "warning_type": "Cross-Site Scripting",
+      "warning_code": 2,
+      "fingerprint": "e0eeed6c7daa12f0f5787a1389e119c230c1b71dee2301a1a541661317df8c73",
+      "check_name": "CrossSiteScripting",
+      "message": "Unescaped model attribute",
+      "file": "app/views/serviceplace_checkouts/view_invoice.slim",
+      "line": 15,
+      "link": "https://brakemanscanner.org/docs/warning_types/cross_site_scripting",
+      "code": "(Unresolved Model).new.invoice_html",
+      "render_path": [
+        {
+          "type": "controller",
+          "class": "ServiceplaceCheckoutsController",
+          "method": "view_invoice",
+          "line": 69,
+          "file": "app/controllers/serviceplace_checkouts_controller.rb",
+          "rendered": {
+            "name": "serviceplace_checkouts/view_invoice",
+            "file": "app/views/serviceplace_checkouts/view_invoice.slim"
+          }
+        }
+      ],
+      "location": {
+        "type": "template",
+        "template": "serviceplace_checkouts/view_invoice"
+      },
+      "user_input": null,
+      "confidence": "High",
+      "note": ""
+    },
+    {
+      "warning_type": "Cross-Site Scripting",
+      "warning_code": 2,
+      "fingerprint": "e407d421ccb851d66ffea29c22fadccf686bf82451dcade66559973709a6443b",
+      "check_name": "CrossSiteScripting",
+      "message": "Unescaped model attribute",
+      "file": "app/views/orders/show.slim",
+      "line": 21,
+      "link": "https://brakemanscanner.org/docs/warning_types/cross_site_scripting",
+      "code": "Order.find(params[:id]).invoice_html",
+      "render_path": [
+        {
+          "type": "controller",
+          "class": "OrdersController",
+          "method": "show",
+          "line": 14,
+          "file": "app/controllers/orders_controller.rb",
+          "rendered": {
+            "name": "orders/show",
+            "file": "app/views/orders/show.slim"
+          }
+        }
+      ],
+      "location": {
+        "type": "template",
+        "template": "orders/show"
+      },
+      "user_input": null,
+      "confidence": "High",
+      "note": ""
+    }
+  ],
+  "updated": "2022-02-19 22:19:56 -0500",
+  "brakeman_version": "5.2.1"
+}

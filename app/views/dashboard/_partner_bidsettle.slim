@@ -1,0 +1,41 @@
+.well
+
+  a data-target="#myModalBidSettle" data-toggle="modal" type="button"
+    = image_tag "dashboard/bidsettle-logo-#{I18n.locale}.jpg", class: 'full-width m-b'
+    br
+    p.text-center = t('dashboard.index.bidsettle.modal_invite')
+
+
+
+  #myModalBidSettle.modal.inmodal aria-hidden="true" role="dialog" tabindex="-1"
+    .modal-dialog
+      .modal-content.animated.slideInDown
+        .modal-header
+          .row.text-center
+            .col-sm-5
+              = image_tag "dashboard/bidsettle-logo-#{I18n.locale}.jpg", class: 'full-width'
+            .col-sm-2
+              i.fa.fa-plus.m-t-xl
+            .col-sm-4
+              = render 'layouts/collab_machine_logo', klasses: 'half-width'
+            .col-sm-1
+              button.close data-dismiss="modal" type="button"
+                span aria-hidden="true"  &times;
+                span.sr-only = t('default.close')
+
+
+          / h2.modal-title.text-white = t('dashboard.index.cowork.modal_title')
+
+        .modal-body.white-bg.simple-pad
+          //to be translated instead of a split partials
+          = render partial: "dashboard/partner_bidsettle_#{I18n.locale}_body"
+
+        .modal-footer
+          / a.btn.btn-success.btn-outline(
+            href= t('dashboard.index.cowork.website_url')
+            target="_blank"
+            ) = t('dashboard.index.visit_website')
+          button.btn.btn-primary.btn-outline(
+            data-dismiss="modal"
+            type="button") = t('default.close').upf
+

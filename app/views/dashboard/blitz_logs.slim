@@ -1,0 +1,56 @@
+.row
+  .col-sm-12
+    h1 Logs des salles
+.row
+  .col-sm-3
+    h2.m-b-lg = 'all Room Owners'
+
+    / !!!hardcode
+    - fixed_date = Time.new(2022,10,6)
+
+    - last_group = ""
+    - @log_entries.each do |entry|
+      - next unless entry.target_user_id
+      - if last_group != entry.target
+        - last_group = entry.target
+        ul
+          - if entry.created_at > fixed_date
+            -  user = User.find(entry.target_user_id)
+            li
+              |
+              = avatar_link_to_user(user.id, {class: 'image mini-avatar right spaced'}) || nil
+              =< user.full_name
+  .col-sm-9
+
+    p.panel = link_to raw("Exemple d'URL avec from et to. <br> >>> Cliquer ici et voir dans la barre d'adresse. Remplacer les valeurs de from et to. Faire 'enter'. Ça affiche les résultats pour le jour du blitz actuel."), '/blitz-coaching/logs?from=9:15&to=9:00', class: 'toast-warning'
+
+    table.table.table-basic.table-striped.dataTable-blitz-logs.users width="100%"
+      thead
+        tr
+          th Visitor
+          th Date
+          th Room Owner
+          th Room Target
+
+      tbody
+        - last_group = ""
+        - @log_entries.each do |entry|
+          - next unless entry.target_user_id
+          - if last_group != entry.target
+            - last_group = entry.target
+
+          - if entry.created_at > fixed_date
+            - next if entry.target_user_id == 1162 || entry.user_id == 1162
+            - user = User.find(entry.target_user_id)
+            - visitor = User.find(entry.user_id)
+            tr
+              td
+                |
+                = avatar_link_to_user(visitor.id, {class: 'image mini-avatar right spaced'}) || nil
+                =< visitor.full_name
+              td = entry.created_at.strftime("%F -- %T")
+              td
+                |
+                = avatar_link_to_user(user.id, {class: 'image mini-avatar right spaced'}) || nil
+                =< user.full_name
+              td = link_to entry.target, target: '_blank'

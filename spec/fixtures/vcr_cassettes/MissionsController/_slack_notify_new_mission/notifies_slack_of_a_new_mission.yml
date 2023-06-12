@@ -1,0 +1,158 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://slack.com/api/auth.test
+    body:
+      encoding: UTF-8
+      string: token=xoxp-15156829334-15156829350-249520324900-25f1372f7a3e3508c09b9dd5c516fa11
+    headers:
+      Accept:
+      - application/json; charset=utf-8
+      User-Agent:
+      - Slack Ruby Client/0.17.0
+      Content-Type:
+      - application/x-www-form-urlencoded
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Thu, 22 Jul 2021 16:48:57 GMT
+      Server:
+      - Apache
+      X-Xss-Protection:
+      - '0'
+      Pragma:
+      - no-cache
+      X-Oauth-Scopes:
+      - read,client,admin,identify,post,apps
+      Cache-Control:
+      - private, no-cache, no-store, must-revalidate
+      Access-Control-Allow-Origin:
+      - "*"
+      X-Slack-Backend:
+      - r
+      Access-Control-Expose-Headers:
+      - x-slack-req-id, retry-after
+      X-Slack-Req-Id:
+      - b4f2977b98d1f9bc562733e7d19e1732
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
+      Referrer-Policy:
+      - no-referrer
+      X-Content-Type-Options:
+      - nosniff
+      Expires:
+      - Mon, 26 Jul 1997 05:00:00 GMT
+      Vary:
+      - Accept-Encoding
+      Access-Control-Allow-Headers:
+      - slack-route, x-slack-version-ts, x-b3-traceid, x-b3-spanid, x-b3-parentspanid,
+        x-b3-sampled, x-b3-flags
+      Content-Length:
+      - '144'
+      Content-Type:
+      - application/json; charset=utf-8
+      X-Envoy-Upstream-Service-Time:
+      - '22'
+      X-Backend:
+      - main_normal main_bedrock_normal_with_overflow main_canary_with_overflow main_bedrock_canary_with_overflow
+        main_control_with_overflow main_bedrock_control_with_overflow
+      X-Server:
+      - slack-www-hhvm-main-iad-omfn
+      X-Via:
+      - envoy-www-iad-zo26, haproxy-edge-iad-uwt0
+      X-Slack-Shared-Secret-Outcome:
+      - shared-secret
+      Via:
+      - envoy-www-iad-zo26
+    body:
+      encoding: ASCII-8BIT
+      string: '{"ok":true,"url":"https:\/\/collabmachine.slack.com\/","team":"collabmachine","user":"pl","team_id":"T0F4LQD9U","user_id":"U0F4LQDAA","is_enterprise_install":false}'
+  recorded_at: Thu, 22 Jul 2021 16:48:57 GMT
+- request:
+    method: post
+    uri: https://slack.com/api/chat.postMessage
+    body:
+      encoding: UTF-8
+      string: attachments=%5B%7B%22color%22%3A%22%23333333%22%2C%22fields%22%3A%5B%7B%22title%22%3A%22Mission%3A%22%2C%22value%22%3A%22A+Secret+Mission%22%2C%22short%22%3Afalse%7D%2C%7B%22title%22%3A%22Description%22%2C%22value%22%3A%22%22%2C%22short%22%3Afalse%7D%5D%2C%22actions%22%3A%5B%7B%22type%22%3A%22button%22%2C%22text%22%3A%22En+savoir+plus%22%2C%22style%22%3A%22primary%22%2C%22url%22%3A%22http%3A%2F%2Ftest.host%2Ffr%2Fmissions%2F2%22%7D%5D%7D%5D&channel=%23jobs&icon_emoji=%3Acollision%3A&text=Nouvelle+opportunit%C3%A9+%3C%21channel%3E+%3C%21here%3E&token=xoxp-15156829334-15156829350-249520324900-25f1372f7a3e3508c09b9dd5c516fa11&username=CollabMachine+-+Nouvelle+mission%21
+    headers:
+      Accept:
+      - application/json; charset=utf-8
+      User-Agent:
+      - Slack Ruby Client/0.17.0
+      Content-Type:
+      - application/x-www-form-urlencoded
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Thu, 22 Jul 2021 16:48:58 GMT
+      Server:
+      - Apache
+      X-Xss-Protection:
+      - '0'
+      Pragma:
+      - no-cache
+      Cache-Control:
+      - private, no-cache, no-store, must-revalidate
+      Access-Control-Allow-Origin:
+      - "*"
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
+      X-Slack-Req-Id:
+      - afeb7f38f82e46c5f408ca0c44c94e10
+      X-Content-Type-Options:
+      - nosniff
+      Referrer-Policy:
+      - no-referrer
+      Access-Control-Expose-Headers:
+      - x-slack-req-id, retry-after
+      X-Slack-Backend:
+      - r
+      X-Oauth-Scopes:
+      - read,client,admin,identify,post,apps
+      X-Accepted-Oauth-Scopes:
+      - chat:write:bot,post
+      Expires:
+      - Mon, 26 Jul 1997 05:00:00 GMT
+      Vary:
+      - Accept-Encoding
+      Access-Control-Allow-Headers:
+      - slack-route, x-slack-version-ts, x-b3-traceid, x-b3-spanid, x-b3-parentspanid,
+        x-b3-sampled, x-b3-flags
+      Content-Length:
+      - '454'
+      Content-Type:
+      - application/json; charset=utf-8
+      X-Envoy-Upstream-Service-Time:
+      - '59'
+      X-Backend:
+      - main_normal main_bedrock_normal_with_overflow main_canary_with_overflow main_bedrock_canary_with_overflow
+        main_control_with_overflow main_bedrock_control_with_overflow
+      X-Server:
+      - slack-www-hhvm-main-iad-r6sv
+      X-Via:
+      - envoy-www-iad-f9ok, haproxy-edge-iad-zo2q
+      X-Slack-Shared-Secret-Outcome:
+      - shared-secret
+      Via:
+      - envoy-www-iad-f9ok
+    body:
+      encoding: ASCII-8BIT
+      string: '{"ok":true,"channel":"C48EQTLHW","ts":"1626972538.014400","message":{"type":"message","subtype":"bot_message","text":"Nouvelle
+        opportunit\u00e9 <!channel> <!here>","ts":"1626972538.014400","username":"CollabMachine
+        - Nouvelle mission!","icons":{"emoji":":collision:","image_64":"https:\/\/a.slack-edge.com\/production-standard-emoji-assets\/13.0\/apple-large\/1f4a5.png"},"bot_id":"B7APZ8LP2","attachments":[{"id":1,"color":"333333","fields":[{"title":"Mission:","value":"A
+        Secret Mission","short":false},{"title":"Description","value":"","short":false}],"actions":[{"id":"1","text":"En
+        savoir plus","type":"button","style":"primary","url":"http:\/\/test.host\/fr\/missions\/2"}],"fallback":"[no
+        preview available]"}]}}'
+  recorded_at: Thu, 22 Jul 2021 16:48:58 GMT
+recorded_with: VCR 6.0.0

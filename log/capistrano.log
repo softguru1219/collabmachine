@@ -1,0 +1,519 @@
+# Logfile created on 2022-09-26 17:26:14 -0400 by logger.rb/61378
+  INFO ---------------------------------------------------------------------------
+  INFO START 2022-09-26 17:26:14 -0400 cap production deploy
+  INFO ---------------------------------------------------------------------------
+ DEBUG [aa134846] Running [ -d ~/.rvm ] as collab@158.69.82.71
+ DEBUG [aa134846] Command: [ -d ~/.rvm ]
+  INFO ---------------------------------------------------------------------------
+  INFO START 2022-09-26 17:26:37 -0400 cap production deploy
+  INFO ---------------------------------------------------------------------------
+ DEBUG [74de9165] Running [ -d ~/.rvm ] as collab@158.69.82.71
+ DEBUG [74de9165] Command: [ -d ~/.rvm ]
+  INFO ---------------------------------------------------------------------------
+  INFO START 2022-09-26 17:28:14 -0400 cap production deploy
+  INFO ---------------------------------------------------------------------------
+ DEBUG [1982f843] Running [ -d ~/.rvm ] as collab@158.69.82.71
+ DEBUG [1982f843] Command: [ -d ~/.rvm ]
+  INFO ---------------------------------------------------------------------------
+  INFO START 2022-09-26 17:28:58 -0400 cap production deploy
+  INFO ---------------------------------------------------------------------------
+ DEBUG [7da45342] Running [ -d ~/.rvm ] as collab@158.69.82.71
+ DEBUG [7da45342] Command: [ -d ~/.rvm ]
+  INFO ---------------------------------------------------------------------------
+  INFO START 2022-09-26 17:29:24 -0400 cap production deploy
+  INFO ---------------------------------------------------------------------------
+ DEBUG [0995d41f] Running [ -d ~/.rvm ] as collab@158.69.82.71
+ DEBUG [0995d41f] Command: [ -d ~/.rvm ]
+ DEBUG [0995d41f] Finished in 0.991 seconds with exit status 0 (successful).
+ DEBUG [bfbb63fd] Running ~/.rvm/bin/rvm version as collab@158.69.82.71
+ DEBUG [bfbb63fd] Command: ~/.rvm/bin/rvm version
+ DEBUG [bfbb63fd] 	rvm 1.27.0 (latest) by Wayne E. Seguin <wayneeseguin@gmail.com>, Michal Papis <mpapis@gmail.com> [https://rvm.io/]
+ DEBUG [bfbb63fd] Finished in 0.318 seconds with exit status 0 (successful).
+ DEBUG [2381cdbe] Running ~/.rvm/bin/rvm current as collab@158.69.82.71
+ DEBUG [2381cdbe] Command: ~/.rvm/bin/rvm current
+ DEBUG [2381cdbe] 	ruby-2.5.1
+ DEBUG [2381cdbe] Finished in 0.311 seconds with exit status 0 (successful).
+ DEBUG [7078122a] Running ~/.rvm/bin/rvm default do ruby --version as collab@158.69.82.71
+ DEBUG [7078122a] Command: ~/.rvm/bin/rvm default do ruby --version
+ DEBUG [7078122a] 	Regenerating ruby-2.5.1 wrappers
+ DEBUG [7078122a] 	........
+ DEBUG [7078122a] 	/usr/bin/testrb
+ DEBUG [7078122a] 	ruby 2.5.1p57 (2018-03-29 revision 63029) [x86_64-linux]
+ DEBUG [7078122a] Finished in 2.880 seconds with exit status 0 (successful).
+  INFO [1eda0821] Running /usr/bin/env mkdir -p /tmp as collab@158.69.82.71
+ DEBUG [1eda0821] Command: /usr/bin/env mkdir -p /tmp
+  INFO [1eda0821] Finished in 0.137 seconds with exit status 0 (successful).
+ DEBUG Uploading /tmp/git-ssh-collab-production-jeedee.sh 0.0%
+  INFO Uploading /tmp/git-ssh-collab-production-jeedee.sh 100.0%
+  INFO [f51fdc74] Running /usr/bin/env chmod 700 /tmp/git-ssh-collab-production-jeedee.sh as collab@158.69.82.71
+ DEBUG [f51fdc74] Command: /usr/bin/env chmod 700 /tmp/git-ssh-collab-production-jeedee.sh
+  INFO [f51fdc74] Finished in 0.130 seconds with exit status 0 (successful).
+  INFO [0183d95e] Running /usr/bin/env git ls-remote git@gitlab.com:collabmachine/collabmachine.git HEAD as collab@158.69.82.71
+ DEBUG [0183d95e] Command: ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-collab-production-jeedee.sh" ; /usr/bin/env git ls-remote git@gitlab.com:collabmachine/collabmachine.git HEAD )
+ DEBUG [0183d95e] 	remote: 
+remote: ========================================================================
+remote: 
+remote: ERROR: The project you were looking for could not be found or you don't have permission to view it.
+
+remote: 
+remote: ========================================================================
+remote: 
+ DEBUG [0183d95e] 	fatal: Could not read from remote repository.
+
+Please make sure you have the correct access rights
+and the repository exists.
+ DEBUG [47f4dd79] Running [ -d /home/collab/html/production/current ] as collab@158.69.82.71
+ DEBUG [47f4dd79] Command: [ -d /home/collab/html/production/current ]
+ DEBUG [47f4dd79] Finished in 0.130 seconds with exit status 0 (successful).
+ DEBUG [8e02bd73] Running if test ! -d /home/collab/html/production/current; then echo "Directory does not exist '/home/collab/html/production/current'" 1>&2; false; fi as collab@158.69.82.71
+ DEBUG [8e02bd73] Command: if test ! -d /home/collab/html/production/current; then echo "Directory does not exist '/home/collab/html/production/current'" 1>&2; false; fi
+ DEBUG [8e02bd73] Finished in 0.161 seconds with exit status 0 (successful).
+ DEBUG [8d5f8bed] Running /usr/bin/env [ -f /home/collab/html/production/shared/tmp/pids/sidekiq-0.pid ] as collab@158.69.82.71
+ DEBUG [8d5f8bed] Command: cd /home/collab/html/production/current && /usr/bin/env [ -f /home/collab/html/production/shared/tmp/pids/sidekiq-0.pid ]
+ DEBUG [8d5f8bed] Finished in 0.120 seconds with exit status 0 (successful).
+ DEBUG [17c99958] Running /usr/bin/env kill -0 $( cat /home/collab/html/production/shared/tmp/pids/sidekiq-0.pid ) as collab@158.69.82.71
+ DEBUG [17c99958] Command: cd /home/collab/html/production/current && /usr/bin/env kill -0 $( cat /home/collab/html/production/shared/tmp/pids/sidekiq-0.pid )
+ DEBUG [17c99958] Finished in 0.127 seconds with exit status 0 (successful).
+  INFO [ef93d000] Running ~/.rvm/bin/rvm default do bundle exec sidekiqctl stop /home/collab/html/production/shared/tmp/pids/sidekiq-0.pid 10 as collab@158.69.82.71
+ DEBUG [ef93d000] Command: cd /home/collab/html/production/current && ~/.rvm/bin/rvm default do bundle exec sidekiqctl stop /home/collab/html/production/shared/tmp/pids/sidekiq-0.pid 10
+ DEBUG [ef93d000] 	Regenerating ruby-2.5.1 wrappers
+ DEBUG [ef93d000] 	........
+ DEBUG [ef93d000] 	/usr/bin/testrb
+ DEBUG [ef93d000] 	Regenerating ruby-2.5.1 wrappers
+ DEBUG [ef93d000] 	........
+ DEBUG [ef93d000] 	/usr/bin/testrb
+ DEBUG [ef93d000] 	Sidekiq shut down gracefully.
+  INFO [ef93d000] Finished in 8.302 seconds with exit status 0 (successful).
+ DEBUG [8a878f4a] Running if test ! -d /home/collab/html/production/current; then echo "Directory does not exist '/home/collab/html/production/current'" 1>&2; false; fi as collab@158.69.82.71
+ DEBUG [8a878f4a] Command: if test ! -d /home/collab/html/production/current; then echo "Directory does not exist '/home/collab/html/production/current'" 1>&2; false; fi
+ DEBUG [8a878f4a] Finished in 0.154 seconds with exit status 0 (successful).
+ DEBUG [b3848cad] Running /usr/bin/env [ -f /home/collab/html/production/shared/tmp/pids/sidekiq-0.pid ] as collab@158.69.82.71
+ DEBUG [b3848cad] Command: cd /home/collab/html/production/current && /usr/bin/env [ -f /home/collab/html/production/shared/tmp/pids/sidekiq-0.pid ]
+ DEBUG [b3848cad] Finished in 0.158 seconds with exit status 1 (failed).
+  INFO [82ca05b7] Running ~/.rvm/bin/rvm default do bundle exec sidekiq --index 0 --pidfile /home/collab/html/production/shared/tmp/pids/sidekiq-0.pid --environment production --logfile /home/collab/html/production/shared/log/sidekiq.log --daemon as collab@158.69.82.71
+ DEBUG [82ca05b7] Command: cd /home/collab/html/production/current && ~/.rvm/bin/rvm default do bundle exec sidekiq --index 0 --pidfile /home/collab/html/production/shared/tmp/pids/sidekiq-0.pid --environment production --logfile /home/collab/html/production/shared/log/sidekiq.log --daemon
+ DEBUG [82ca05b7] 	Regenerating ruby-2.5.1 wrappers
+ DEBUG [82ca05b7] 	........
+ DEBUG [82ca05b7] 	/usr/bin/testrb
+ DEBUG [82ca05b7] 	Regenerating ruby-2.5.1 wrappers
+ DEBUG [82ca05b7] 	........
+ DEBUG [82ca05b7] 	/usr/bin/testrb
+ DEBUG [82ca05b7] 	WARNING: PID file creation will be removed in Sidekiq 6.0, see #4045. Please use a proper process supervisor to start and manage your services
+ DEBUG [82ca05b7] 	WARNING: Logfile redirection will be removed in Sidekiq 6.0, see #4045. Sidekiq will only log to STDOUT
+ DEBUG [82ca05b7] 	WARNING: Daemonization mode will be removed in Sidekiq 6.0, see #4045. Please use a proper process supervisor to start and manage your services
+  INFO [82ca05b7] Finished in 4.440 seconds with exit status 0 (successful).
+  INFO ---------------------------------------------------------------------------
+  INFO START 2022-09-26 17:31:09 -0400 cap production deploy
+  INFO ---------------------------------------------------------------------------
+ DEBUG [657533a7] Running [ -d ~/.rvm ] as collab@158.69.82.71
+ DEBUG [657533a7] Command: [ -d ~/.rvm ]
+ DEBUG [657533a7] Finished in 1.043 seconds with exit status 0 (successful).
+ DEBUG [73c4e69f] Running ~/.rvm/bin/rvm version as collab@158.69.82.71
+ DEBUG [73c4e69f] Command: ~/.rvm/bin/rvm version
+ DEBUG [73c4e69f] 	rvm 1.27.0 (latest) by Wayne E. Seguin <wayneeseguin@gmail.com>, Michal Papis <mpapis@gmail.com> [https://rvm.io/]
+ DEBUG [73c4e69f] Finished in 0.302 seconds with exit status 0 (successful).
+ DEBUG [6e8a2c41] Running ~/.rvm/bin/rvm current as collab@158.69.82.71
+ DEBUG [6e8a2c41] Command: ~/.rvm/bin/rvm current
+ DEBUG [6e8a2c41] 	ruby-2.5.1
+ DEBUG [6e8a2c41] Finished in 0.309 seconds with exit status 0 (successful).
+ DEBUG [d2dcee53] Running ~/.rvm/bin/rvm default do ruby --version as collab@158.69.82.71
+ DEBUG [d2dcee53] Command: ~/.rvm/bin/rvm default do ruby --version
+ DEBUG [d2dcee53] 	Regenerating ruby-2.5.1 wrappers
+ DEBUG [d2dcee53] 	........
+ DEBUG [d2dcee53] 	/usr/bin/testrb
+ DEBUG [d2dcee53] 	ruby 2.5.1p57 (2018-03-29 revision 63029) [x86_64-linux]
+ DEBUG [d2dcee53] Finished in 2.336 seconds with exit status 0 (successful).
+  INFO [e241918b] Running /usr/bin/env mkdir -p /tmp as collab@158.69.82.71
+ DEBUG [e241918b] Command: /usr/bin/env mkdir -p /tmp
+  INFO [e241918b] Finished in 0.157 seconds with exit status 0 (successful).
+ DEBUG Uploading /tmp/git-ssh-collab-production-jeedee.sh 0.0%
+  INFO Uploading /tmp/git-ssh-collab-production-jeedee.sh 100.0%
+  INFO [d0659e67] Running /usr/bin/env chmod 700 /tmp/git-ssh-collab-production-jeedee.sh as collab@158.69.82.71
+ DEBUG [d0659e67] Command: /usr/bin/env chmod 700 /tmp/git-ssh-collab-production-jeedee.sh
+  INFO [d0659e67] Finished in 0.131 seconds with exit status 0 (successful).
+  INFO [48c2f77a] Running /usr/bin/env git ls-remote git@gitlab.com:collabmachine/collabmachine.git HEAD as collab@158.69.82.71
+ DEBUG [48c2f77a] Command: ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-collab-production-jeedee.sh" ; /usr/bin/env git ls-remote git@gitlab.com:collabmachine/collabmachine.git HEAD )
+ DEBUG [48c2f77a] 	remote: 
+remote: ========================================================================
+remote: 
+remote: ERROR: The project you were looking for could not be found or you don't have permission to view it.
+
+remote: 
+remote: ========================================================================
+remote: 
+ DEBUG [48c2f77a] 	fatal: Could not read from remote repository.
+
+Please make sure you have the correct access rights
+and the repository exists.
+ DEBUG [e647575e] Running [ -d /home/collab/html/production/current ] as collab@158.69.82.71
+ DEBUG [e647575e] Command: [ -d /home/collab/html/production/current ]
+ DEBUG [e647575e] Finished in 0.125 seconds with exit status 0 (successful).
+ DEBUG [fe225914] Running if test ! -d /home/collab/html/production/current; then echo "Directory does not exist '/home/collab/html/production/current'" 1>&2; false; fi as collab@158.69.82.71
+ DEBUG [fe225914] Command: if test ! -d /home/collab/html/production/current; then echo "Directory does not exist '/home/collab/html/production/current'" 1>&2; false; fi
+ DEBUG [fe225914] Finished in 0.199 seconds with exit status 0 (successful).
+ DEBUG [63b0cd3d] Running /usr/bin/env [ -f /home/collab/html/production/shared/tmp/pids/sidekiq-0.pid ] as collab@158.69.82.71
+ DEBUG [63b0cd3d] Command: cd /home/collab/html/production/current && /usr/bin/env [ -f /home/collab/html/production/shared/tmp/pids/sidekiq-0.pid ]
+ DEBUG [63b0cd3d] Finished in 0.114 seconds with exit status 0 (successful).
+ DEBUG [34bc7c72] Running /usr/bin/env kill -0 $( cat /home/collab/html/production/shared/tmp/pids/sidekiq-0.pid ) as collab@158.69.82.71
+ DEBUG [34bc7c72] Command: cd /home/collab/html/production/current && /usr/bin/env kill -0 $( cat /home/collab/html/production/shared/tmp/pids/sidekiq-0.pid )
+ DEBUG [34bc7c72] Finished in 0.150 seconds with exit status 0 (successful).
+  INFO [dd7b0339] Running ~/.rvm/bin/rvm default do bundle exec sidekiqctl stop /home/collab/html/production/shared/tmp/pids/sidekiq-0.pid 10 as collab@158.69.82.71
+ DEBUG [dd7b0339] Command: cd /home/collab/html/production/current && ~/.rvm/bin/rvm default do bundle exec sidekiqctl stop /home/collab/html/production/shared/tmp/pids/sidekiq-0.pid 10
+ DEBUG [dd7b0339] 	Regenerating ruby-2.5.1 wrappers
+ DEBUG [dd7b0339] 	........
+ DEBUG [dd7b0339] 	/usr/bin/testrb
+ DEBUG [dd7b0339] 	Regenerating ruby-2.5.1 wrappers
+ DEBUG [dd7b0339] 	........
+ DEBUG [dd7b0339] 	/usr/bin/testrb
+ DEBUG [dd7b0339] 	Sidekiq shut down gracefully.
+  INFO [dd7b0339] Finished in 7.277 seconds with exit status 0 (successful).
+ DEBUG [05363b37] Running if test ! -d /home/collab/html/production/current; then echo "Directory does not exist '/home/collab/html/production/current'" 1>&2; false; fi as collab@158.69.82.71
+ DEBUG [05363b37] Command: if test ! -d /home/collab/html/production/current; then echo "Directory does not exist '/home/collab/html/production/current'" 1>&2; false; fi
+ DEBUG [05363b37] Finished in 0.110 seconds with exit status 0 (successful).
+ DEBUG [d8944013] Running /usr/bin/env [ -f /home/collab/html/production/shared/tmp/pids/sidekiq-0.pid ] as collab@158.69.82.71
+ DEBUG [d8944013] Command: cd /home/collab/html/production/current && /usr/bin/env [ -f /home/collab/html/production/shared/tmp/pids/sidekiq-0.pid ]
+ DEBUG [d8944013] Finished in 0.127 seconds with exit status 1 (failed).
+  INFO [1d74edc7] Running ~/.rvm/bin/rvm default do bundle exec sidekiq --index 0 --pidfile /home/collab/html/production/shared/tmp/pids/sidekiq-0.pid --environment production --logfile /home/collab/html/production/shared/log/sidekiq.log --daemon as collab@158.69.82.71
+ DEBUG [1d74edc7] Command: cd /home/collab/html/production/current && ~/.rvm/bin/rvm default do bundle exec sidekiq --index 0 --pidfile /home/collab/html/production/shared/tmp/pids/sidekiq-0.pid --environment production --logfile /home/collab/html/production/shared/log/sidekiq.log --daemon
+ DEBUG [1d74edc7] 	Regenerating ruby-2.5.1 wrappers
+ DEBUG [1d74edc7] 	........
+ DEBUG [1d74edc7] 	/usr/bin/testrb
+ DEBUG [1d74edc7] 	Regenerating ruby-2.5.1 wrappers
+ DEBUG [1d74edc7] 	........
+ DEBUG [1d74edc7] 	/usr/bin/testrb
+ DEBUG [1d74edc7] 	WARNING: PID file creation will be removed in Sidekiq 6.0, see #4045. Please use a proper process supervisor to start and manage your services
+ DEBUG [1d74edc7] 	WARNING: Logfile redirection will be removed in Sidekiq 6.0, see #4045. Sidekiq will only log to STDOUT
+ DEBUG [1d74edc7] 	WARNING: Daemonization mode will be removed in Sidekiq 6.0, see #4045. Please use a proper process supervisor to start and manage your services
+  INFO [1d74edc7] Finished in 4.349 seconds with exit status 0 (successful).
+  INFO ---------------------------------------------------------------------------
+  INFO START 2022-09-26 17:37:03 -0400 cap production deploy
+  INFO ---------------------------------------------------------------------------
+ DEBUG [6a46653a] Running [ -d ~/.rvm ] as collab@158.69.82.71
+ DEBUG [6a46653a] Command: [ -d ~/.rvm ]
+ DEBUG [6a46653a] Finished in 1.115 seconds with exit status 0 (successful).
+ DEBUG [83ff2f58] Running ~/.rvm/bin/rvm version as collab@158.69.82.71
+ DEBUG [83ff2f58] Command: ~/.rvm/bin/rvm version
+ DEBUG [83ff2f58] 	rvm 1.27.0 (latest) by Wayne E. Seguin <wayneeseguin@gmail.com>, Michal Papis <mpapis@gmail.com> [https://rvm.io/]
+ DEBUG [83ff2f58] Finished in 0.393 seconds with exit status 0 (successful).
+ DEBUG [d10a9c4c] Running ~/.rvm/bin/rvm current as collab@158.69.82.71
+ DEBUG [d10a9c4c] Command: ~/.rvm/bin/rvm current
+ DEBUG [d10a9c4c] 	ruby-2.5.1
+ DEBUG [d10a9c4c] Finished in 0.307 seconds with exit status 0 (successful).
+ DEBUG [d08ea8c5] Running ~/.rvm/bin/rvm default do ruby --version as collab@158.69.82.71
+ DEBUG [d08ea8c5] Command: ~/.rvm/bin/rvm default do ruby --version
+ DEBUG [d08ea8c5] 	Regenerating ruby-2.5.1 wrappers
+ DEBUG [d08ea8c5] 	........
+ DEBUG [d08ea8c5] 	/usr/bin/testrb
+ DEBUG [d08ea8c5] 	ruby 2.5.1p57 (2018-03-29 revision 63029) [x86_64-linux]
+ DEBUG [d08ea8c5] Finished in 2.423 seconds with exit status 0 (successful).
+  INFO [f6e6173f] Running /usr/bin/env mkdir -p /tmp as collab@158.69.82.71
+ DEBUG [f6e6173f] Command: /usr/bin/env mkdir -p /tmp
+  INFO [f6e6173f] Finished in 0.135 seconds with exit status 0 (successful).
+ DEBUG Uploading /tmp/git-ssh-collab-production-jeedee.sh 0.0%
+  INFO Uploading /tmp/git-ssh-collab-production-jeedee.sh 100.0%
+  INFO [e859f715] Running /usr/bin/env chmod 700 /tmp/git-ssh-collab-production-jeedee.sh as collab@158.69.82.71
+ DEBUG [e859f715] Command: /usr/bin/env chmod 700 /tmp/git-ssh-collab-production-jeedee.sh
+  INFO [e859f715] Finished in 0.152 seconds with exit status 0 (successful).
+  INFO [87e57208] Running /usr/bin/env git ls-remote git@gitlab.com:collabmachine/collabmachine.git HEAD as collab@158.69.82.71
+ DEBUG [87e57208] Command: ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-collab-production-jeedee.sh" ; /usr/bin/env git ls-remote git@gitlab.com:collabmachine/collabmachine.git HEAD )
+ DEBUG [87e57208] 	remote: 
+remote: ========================================================================
+remote: 
+remote: ERROR: The project you were looking for could not be found or you don't have permission to view it.
+
+remote: 
+remote: ========================================================================
+remote: 
+ DEBUG [87e57208] 	fatal: Could not read from remote repository.
+
+Please make sure you have the correct access rights
+and the repository exists.
+ DEBUG [61cfd02e] Running [ -d /home/collab/html/production/current ] as collab@158.69.82.71
+ DEBUG [61cfd02e] Command: [ -d /home/collab/html/production/current ]
+ DEBUG [61cfd02e] Finished in 0.170 seconds with exit status 0 (successful).
+ DEBUG [b4ec7a01] Running if test ! -d /home/collab/html/production/current; then echo "Directory does not exist '/home/collab/html/production/current'" 1>&2; false; fi as collab@158.69.82.71
+ DEBUG [b4ec7a01] Command: if test ! -d /home/collab/html/production/current; then echo "Directory does not exist '/home/collab/html/production/current'" 1>&2; false; fi
+ DEBUG [b4ec7a01] Finished in 0.122 seconds with exit status 0 (successful).
+ DEBUG [b8f4c4ed] Running /usr/bin/env [ -f /home/collab/html/production/shared/tmp/pids/sidekiq-0.pid ] as collab@158.69.82.71
+ DEBUG [b8f4c4ed] Command: cd /home/collab/html/production/current && /usr/bin/env [ -f /home/collab/html/production/shared/tmp/pids/sidekiq-0.pid ]
+ DEBUG [b8f4c4ed] Finished in 0.181 seconds with exit status 0 (successful).
+ DEBUG [0c1544ef] Running /usr/bin/env kill -0 $( cat /home/collab/html/production/shared/tmp/pids/sidekiq-0.pid ) as collab@158.69.82.71
+ DEBUG [0c1544ef] Command: cd /home/collab/html/production/current && /usr/bin/env kill -0 $( cat /home/collab/html/production/shared/tmp/pids/sidekiq-0.pid )
+ DEBUG [0c1544ef] Finished in 0.124 seconds with exit status 0 (successful).
+  INFO [561d2ae5] Running ~/.rvm/bin/rvm default do bundle exec sidekiqctl stop /home/collab/html/production/shared/tmp/pids/sidekiq-0.pid 10 as collab@158.69.82.71
+ DEBUG [561d2ae5] Command: cd /home/collab/html/production/current && ~/.rvm/bin/rvm default do bundle exec sidekiqctl stop /home/collab/html/production/shared/tmp/pids/sidekiq-0.pid 10
+ DEBUG [561d2ae5] 	Regenerating ruby-2.5.1 wrappers
+ DEBUG [561d2ae5] 	........
+ DEBUG [561d2ae5] 	/usr/bin/testrb
+ DEBUG [561d2ae5] 	Regenerating ruby-2.5.1 wrappers
+ DEBUG [561d2ae5] 	........
+ DEBUG [561d2ae5] 	/usr/bin/testrb
+ DEBUG [561d2ae5] 	Sidekiq shut down gracefully.
+  INFO [561d2ae5] Finished in 8.254 seconds with exit status 0 (successful).
+ DEBUG [b4a0f88c] Running if test ! -d /home/collab/html/production/current; then echo "Directory does not exist '/home/collab/html/production/current'" 1>&2; false; fi as collab@158.69.82.71
+ DEBUG [b4a0f88c] Command: if test ! -d /home/collab/html/production/current; then echo "Directory does not exist '/home/collab/html/production/current'" 1>&2; false; fi
+ DEBUG [b4a0f88c] Finished in 0.180 seconds with exit status 0 (successful).
+ DEBUG [30eba483] Running /usr/bin/env [ -f /home/collab/html/production/shared/tmp/pids/sidekiq-0.pid ] as collab@158.69.82.71
+ DEBUG [30eba483] Command: cd /home/collab/html/production/current && /usr/bin/env [ -f /home/collab/html/production/shared/tmp/pids/sidekiq-0.pid ]
+ DEBUG [30eba483] Finished in 0.124 seconds with exit status 1 (failed).
+  INFO [819d5e16] Running ~/.rvm/bin/rvm default do bundle exec sidekiq --index 0 --pidfile /home/collab/html/production/shared/tmp/pids/sidekiq-0.pid --environment production --logfile /home/collab/html/production/shared/log/sidekiq.log --daemon as collab@158.69.82.71
+ DEBUG [819d5e16] Command: cd /home/collab/html/production/current && ~/.rvm/bin/rvm default do bundle exec sidekiq --index 0 --pidfile /home/collab/html/production/shared/tmp/pids/sidekiq-0.pid --environment production --logfile /home/collab/html/production/shared/log/sidekiq.log --daemon
+ DEBUG [819d5e16] 	Regenerating ruby-2.5.1 wrappers
+ DEBUG [819d5e16] 	........
+ DEBUG [819d5e16] 	/usr/bin/testrb
+ DEBUG [819d5e16] 	Regenerating ruby-2.5.1 wrappers
+ DEBUG [819d5e16] 	........
+ DEBUG [819d5e16] 	/usr/bin/testrb
+ DEBUG [819d5e16] 	WARNING: PID file creation will be removed in Sidekiq 6.0, see #4045. Please use a proper process supervisor to start and manage your services
+ DEBUG [819d5e16] 	WARNING: Logfile redirection will be removed in Sidekiq 6.0, see #4045. Sidekiq will only log to STDOUT
+ DEBUG [819d5e16] 	WARNING: Daemonization mode will be removed in Sidekiq 6.0, see #4045. Please use a proper process supervisor to start and manage your services
+  INFO [819d5e16] Finished in 4.205 seconds with exit status 0 (successful).
+  INFO ---------------------------------------------------------------------------
+  INFO START 2022-09-26 17:39:45 -0400 cap production deploy
+  INFO ---------------------------------------------------------------------------
+ DEBUG [4015fb70] Running [ -d ~/.rvm ] as collab@158.69.82.71
+ DEBUG [4015fb70] Command: [ -d ~/.rvm ]
+ DEBUG [4015fb70] Finished in 1.415 seconds with exit status 0 (successful).
+ DEBUG [a5c61962] Running ~/.rvm/bin/rvm version as collab@158.69.82.71
+ DEBUG [a5c61962] Command: ~/.rvm/bin/rvm version
+ DEBUG [a5c61962] 	rvm 1.27.0 (latest) by Wayne E. Seguin <wayneeseguin@gmail.com>, Michal Papis <mpapis@gmail.com> [https://rvm.io/]
+ DEBUG [a5c61962] Finished in 0.340 seconds with exit status 0 (successful).
+ DEBUG [309d97eb] Running ~/.rvm/bin/rvm current as collab@158.69.82.71
+ DEBUG [309d97eb] Command: ~/.rvm/bin/rvm current
+ DEBUG [309d97eb] 	ruby-2.5.1
+ DEBUG [309d97eb] Finished in 0.343 seconds with exit status 0 (successful).
+ DEBUG [336bf68c] Running ~/.rvm/bin/rvm default do ruby --version as collab@158.69.82.71
+ DEBUG [336bf68c] Command: ~/.rvm/bin/rvm default do ruby --version
+ DEBUG [336bf68c] 	Regenerating ruby-2.5.1 wrappers
+ DEBUG [336bf68c] 	........
+ DEBUG [336bf68c] 	/usr/bin/testrb
+ DEBUG [336bf68c] 	ruby 2.5.1p57 (2018-03-29 revision 63029) [x86_64-linux]
+ DEBUG [336bf68c] Finished in 2.411 seconds with exit status 0 (successful).
+  INFO [9dcc682d] Running /usr/bin/env mkdir -p /tmp as collab@158.69.82.71
+ DEBUG [9dcc682d] Command: /usr/bin/env mkdir -p /tmp
+  INFO [9dcc682d] Finished in 0.153 seconds with exit status 0 (successful).
+ DEBUG Uploading /tmp/git-ssh-collab-production-jeedee.sh 0.0%
+  INFO Uploading /tmp/git-ssh-collab-production-jeedee.sh 100.0%
+  INFO [d1f21dd2] Running /usr/bin/env chmod 700 /tmp/git-ssh-collab-production-jeedee.sh as collab@158.69.82.71
+ DEBUG [d1f21dd2] Command: /usr/bin/env chmod 700 /tmp/git-ssh-collab-production-jeedee.sh
+  INFO [d1f21dd2] Finished in 0.133 seconds with exit status 0 (successful).
+  INFO [e2efb5b2] Running /usr/bin/env git ls-remote git@gitlab.com:collabmachine/collabmachine.git HEAD as collab@158.69.82.71
+ DEBUG [e2efb5b2] Command: ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-collab-production-jeedee.sh" ; /usr/bin/env git ls-remote git@gitlab.com:collabmachine/collabmachine.git HEAD )
+ DEBUG [e2efb5b2] 	remote: 
+remote: ========================================================================
+remote: 
+remote: ERROR: The project you were looking for could not be found or you don't have permission to view it.
+
+remote: 
+remote: ========================================================================
+remote: 
+fatal: Could not read from remote repository.
+
+Please make sure you have the correct access rights
+and the repository exists.
+ DEBUG [08cdd727] Running [ -d /home/collab/html/production/current ] as collab@158.69.82.71
+ DEBUG [08cdd727] Command: [ -d /home/collab/html/production/current ]
+ DEBUG [08cdd727] Finished in 0.107 seconds with exit status 0 (successful).
+ DEBUG [943b19da] Running if test ! -d /home/collab/html/production/current; then echo "Directory does not exist '/home/collab/html/production/current'" 1>&2; false; fi as collab@158.69.82.71
+ DEBUG [943b19da] Command: if test ! -d /home/collab/html/production/current; then echo "Directory does not exist '/home/collab/html/production/current'" 1>&2; false; fi
+ DEBUG [943b19da] Finished in 0.154 seconds with exit status 0 (successful).
+ DEBUG [a8b94248] Running /usr/bin/env [ -f /home/collab/html/production/shared/tmp/pids/sidekiq-0.pid ] as collab@158.69.82.71
+ DEBUG [a8b94248] Command: cd /home/collab/html/production/current && /usr/bin/env [ -f /home/collab/html/production/shared/tmp/pids/sidekiq-0.pid ]
+ DEBUG [a8b94248] Finished in 0.130 seconds with exit status 0 (successful).
+ DEBUG [a0a76724] Running /usr/bin/env kill -0 $( cat /home/collab/html/production/shared/tmp/pids/sidekiq-0.pid ) as collab@158.69.82.71
+ DEBUG [a0a76724] Command: cd /home/collab/html/production/current && /usr/bin/env kill -0 $( cat /home/collab/html/production/shared/tmp/pids/sidekiq-0.pid )
+ DEBUG [a0a76724] Finished in 0.152 seconds with exit status 0 (successful).
+  INFO [f4b34464] Running ~/.rvm/bin/rvm default do bundle exec sidekiqctl stop /home/collab/html/production/shared/tmp/pids/sidekiq-0.pid 10 as collab@158.69.82.71
+ DEBUG [f4b34464] Command: cd /home/collab/html/production/current && ~/.rvm/bin/rvm default do bundle exec sidekiqctl stop /home/collab/html/production/shared/tmp/pids/sidekiq-0.pid 10
+ DEBUG [f4b34464] 	Regenerating ruby-2.5.1 wrappers
+ DEBUG [f4b34464] 	........
+ DEBUG [f4b34464] 	/usr/bin/testrb
+ DEBUG [f4b34464] 	Regenerating ruby-2.5.1 wrappers
+ DEBUG [f4b34464] 	........
+ DEBUG [f4b34464] 	/usr/bin/testrb
+ DEBUG [f4b34464] 	Sidekiq shut down gracefully.
+  INFO [f4b34464] Finished in 6.350 seconds with exit status 0 (successful).
+ DEBUG [e4cf10ed] Running if test ! -d /home/collab/html/production/current; then echo "Directory does not exist '/home/collab/html/production/current'" 1>&2; false; fi as collab@158.69.82.71
+ DEBUG [e4cf10ed] Command: if test ! -d /home/collab/html/production/current; then echo "Directory does not exist '/home/collab/html/production/current'" 1>&2; false; fi
+ DEBUG [e4cf10ed] Finished in 0.179 seconds with exit status 0 (successful).
+ DEBUG [498c67a3] Running /usr/bin/env [ -f /home/collab/html/production/shared/tmp/pids/sidekiq-0.pid ] as collab@158.69.82.71
+ DEBUG [498c67a3] Command: cd /home/collab/html/production/current && /usr/bin/env [ -f /home/collab/html/production/shared/tmp/pids/sidekiq-0.pid ]
+ DEBUG [498c67a3] Finished in 0.119 seconds with exit status 1 (failed).
+  INFO [8e0ea348] Running ~/.rvm/bin/rvm default do bundle exec sidekiq --index 0 --pidfile /home/collab/html/production/shared/tmp/pids/sidekiq-0.pid --environment production --logfile /home/collab/html/production/shared/log/sidekiq.log --daemon as collab@158.69.82.71
+ DEBUG [8e0ea348] Command: cd /home/collab/html/production/current && ~/.rvm/bin/rvm default do bundle exec sidekiq --index 0 --pidfile /home/collab/html/production/shared/tmp/pids/sidekiq-0.pid --environment production --logfile /home/collab/html/production/shared/log/sidekiq.log --daemon
+ DEBUG [8e0ea348] 	Regenerating ruby-2.5.1 wrappers
+ DEBUG [8e0ea348] 	........
+ DEBUG [8e0ea348] 	/usr/bin/testrb
+ DEBUG [8e0ea348] 	Regenerating ruby-2.5.1 wrappers
+ DEBUG [8e0ea348] 	........
+ DEBUG [8e0ea348] 	/usr/bin/testrb
+ DEBUG [8e0ea348] 	WARNING: PID file creation will be removed in Sidekiq 6.0, see #4045. Please use a proper process supervisor to start and manage your services
+ DEBUG [8e0ea348] 	WARNING: Logfile redirection will be removed in Sidekiq 6.0, see #4045. Sidekiq will only log to STDOUT
+ DEBUG [8e0ea348] 	WARNING: Daemonization mode will be removed in Sidekiq 6.0, see #4045. Please use a proper process supervisor to start and manage your services
+  INFO [8e0ea348] Finished in 4.530 seconds with exit status 0 (successful).
+  INFO ---------------------------------------------------------------------------
+  INFO START 2022-09-26 17:40:07 -0400 cap production deploy
+  INFO ---------------------------------------------------------------------------
+ DEBUG [9f825702] Running [ -d ~/.rvm ] as collab@158.69.82.71
+ DEBUG [9f825702] Command: [ -d ~/.rvm ]
+ DEBUG [9f825702] Finished in 1.608 seconds with exit status 0 (successful).
+ DEBUG [f041f768] Running ~/.rvm/bin/rvm version as collab@158.69.82.71
+ DEBUG [f041f768] Command: ~/.rvm/bin/rvm version
+ DEBUG [f041f768] 	rvm 1.27.0 (latest) by Wayne E. Seguin <wayneeseguin@gmail.com>, Michal Papis <mpapis@gmail.com> [https://rvm.io/]
+ DEBUG [f041f768] Finished in 0.281 seconds with exit status 0 (successful).
+ DEBUG [115ff926] Running ~/.rvm/bin/rvm current as collab@158.69.82.71
+ DEBUG [115ff926] Command: ~/.rvm/bin/rvm current
+ DEBUG [115ff926] 	ruby-2.5.1
+ DEBUG [115ff926] Finished in 0.322 seconds with exit status 0 (successful).
+ DEBUG [57a94830] Running ~/.rvm/bin/rvm default do ruby --version as collab@158.69.82.71
+ DEBUG [57a94830] Command: ~/.rvm/bin/rvm default do ruby --version
+ DEBUG [57a94830] 	Regenerating ruby-2.5.1 wrappers
+ DEBUG [57a94830] 	........
+ DEBUG [57a94830] 	/usr/bin/testrb
+ DEBUG [57a94830] 	ruby 2.5.1p57 (2018-03-29 revision 63029) [x86_64-linux]
+ DEBUG [57a94830] Finished in 2.282 seconds with exit status 0 (successful).
+  INFO [0734885b] Running /usr/bin/env mkdir -p /tmp as collab@158.69.82.71
+ DEBUG [0734885b] Command: /usr/bin/env mkdir -p /tmp
+  INFO [0734885b] Finished in 0.192 seconds with exit status 0 (successful).
+ DEBUG Uploading /tmp/git-ssh-collab-production-jeedee.sh 0.0%
+  INFO Uploading /tmp/git-ssh-collab-production-jeedee.sh 100.0%
+  INFO [3d229518] Running /usr/bin/env chmod 700 /tmp/git-ssh-collab-production-jeedee.sh as collab@158.69.82.71
+ DEBUG [3d229518] Command: /usr/bin/env chmod 700 /tmp/git-ssh-collab-production-jeedee.sh
+  INFO [3d229518] Finished in 0.204 seconds with exit status 0 (successful).
+  INFO [e14e4c75] Running /usr/bin/env git ls-remote git@gitlab.com:collabmachine/collabmachine.git HEAD as collab@158.69.82.71
+ DEBUG [e14e4c75] Command: ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-collab-production-jeedee.sh" ; /usr/bin/env git ls-remote git@gitlab.com:collabmachine/collabmachine.git HEAD )
+ DEBUG [e14e4c75] 	remote: 
+remote: ========================================================================
+remote: 
+remote: ERROR: The project you were looking for could not be found or you don't have permission to view it.
+
+remote: 
+remote: ========================================================================
+remote: 
+ DEBUG [e14e4c75] 	fatal: Could not read from remote repository.
+
+Please make sure you have the correct access rights
+and the repository exists.
+ DEBUG [1a367811] Running [ -d /home/collab/html/production/current ] as collab@158.69.82.71
+ DEBUG [1a367811] Command: [ -d /home/collab/html/production/current ]
+ DEBUG [1a367811] Finished in 0.219 seconds with exit status 0 (successful).
+ DEBUG [4f6ac1f5] Running if test ! -d /home/collab/html/production/current; then echo "Directory does not exist '/home/collab/html/production/current'" 1>&2; false; fi as collab@158.69.82.71
+ DEBUG [4f6ac1f5] Command: if test ! -d /home/collab/html/production/current; then echo "Directory does not exist '/home/collab/html/production/current'" 1>&2; false; fi
+ DEBUG [4f6ac1f5] Finished in 0.114 seconds with exit status 0 (successful).
+ DEBUG [80513238] Running /usr/bin/env [ -f /home/collab/html/production/shared/tmp/pids/sidekiq-0.pid ] as collab@158.69.82.71
+ DEBUG [80513238] Command: cd /home/collab/html/production/current && /usr/bin/env [ -f /home/collab/html/production/shared/tmp/pids/sidekiq-0.pid ]
+ DEBUG [80513238] Finished in 0.145 seconds with exit status 0 (successful).
+ DEBUG [594901f7] Running /usr/bin/env kill -0 $( cat /home/collab/html/production/shared/tmp/pids/sidekiq-0.pid ) as collab@158.69.82.71
+ DEBUG [594901f7] Command: cd /home/collab/html/production/current && /usr/bin/env kill -0 $( cat /home/collab/html/production/shared/tmp/pids/sidekiq-0.pid )
+ DEBUG [594901f7] Finished in 0.170 seconds with exit status 0 (successful).
+  INFO [fb670c53] Running ~/.rvm/bin/rvm default do bundle exec sidekiqctl stop /home/collab/html/production/shared/tmp/pids/sidekiq-0.pid 10 as collab@158.69.82.71
+ DEBUG [fb670c53] Command: cd /home/collab/html/production/current && ~/.rvm/bin/rvm default do bundle exec sidekiqctl stop /home/collab/html/production/shared/tmp/pids/sidekiq-0.pid 10
+ DEBUG [fb670c53] 	Regenerating ruby-2.5.1 wrappers
+ DEBUG [fb670c53] 	........
+ DEBUG [fb670c53] 	/usr/bin/testrb
+ DEBUG [fb670c53] 	Regenerating ruby-2.5.1 wrappers
+ DEBUG [fb670c53] 	........
+ DEBUG [fb670c53] 	/usr/bin/testrb
+ DEBUG [fb670c53] 	Sidekiq shut down gracefully.
+  INFO [fb670c53] Finished in 7.376 seconds with exit status 0 (successful).
+ DEBUG [51b3e4d5] Running if test ! -d /home/collab/html/production/current; then echo "Directory does not exist '/home/collab/html/production/current'" 1>&2; false; fi as collab@158.69.82.71
+ DEBUG [51b3e4d5] Command: if test ! -d /home/collab/html/production/current; then echo "Directory does not exist '/home/collab/html/production/current'" 1>&2; false; fi
+ DEBUG [51b3e4d5] Finished in 0.120 seconds with exit status 0 (successful).
+ DEBUG [89da6fff] Running /usr/bin/env [ -f /home/collab/html/production/shared/tmp/pids/sidekiq-0.pid ] as collab@158.69.82.71
+ DEBUG [89da6fff] Command: cd /home/collab/html/production/current && /usr/bin/env [ -f /home/collab/html/production/shared/tmp/pids/sidekiq-0.pid ]
+ DEBUG [89da6fff] Finished in 0.126 seconds with exit status 1 (failed).
+  INFO [3760a6ad] Running ~/.rvm/bin/rvm default do bundle exec sidekiq --index 0 --pidfile /home/collab/html/production/shared/tmp/pids/sidekiq-0.pid --environment production --logfile /home/collab/html/production/shared/log/sidekiq.log --daemon as collab@158.69.82.71
+ DEBUG [3760a6ad] Command: cd /home/collab/html/production/current && ~/.rvm/bin/rvm default do bundle exec sidekiq --index 0 --pidfile /home/collab/html/production/shared/tmp/pids/sidekiq-0.pid --environment production --logfile /home/collab/html/production/shared/log/sidekiq.log --daemon
+ DEBUG [3760a6ad] 	Regenerating ruby-2.5.1 wrappers
+ DEBUG [3760a6ad] 	........
+ DEBUG [3760a6ad] 	/usr/bin/testrb
+ DEBUG [3760a6ad] 	Regenerating ruby-2.5.1 wrappers
+ DEBUG [3760a6ad] 	........
+ DEBUG [3760a6ad] 	/usr/bin/testrb
+ DEBUG [3760a6ad] 	WARNING: PID file creation will be removed in Sidekiq 6.0, see #4045. Please use a proper process supervisor to start and manage your services
+ DEBUG [3760a6ad] 	WARNING: Logfile redirection will be removed in Sidekiq 6.0, see #4045. Sidekiq will only log to STDOUT
+ DEBUG [3760a6ad] 	WARNING: Daemonization mode will be removed in Sidekiq 6.0, see #4045. Please use a proper process supervisor to start and manage your services
+  INFO [3760a6ad] Finished in 4.073 seconds with exit status 0 (successful).
+  INFO ---------------------------------------------------------------------------
+  INFO START 2022-09-27 08:24:14 -0400 cap production deploy
+  INFO ---------------------------------------------------------------------------
+ DEBUG [f53f1ef0] Running [ -d ~/.rvm ] as collab@158.69.82.71
+ DEBUG [f53f1ef0] Command: [ -d ~/.rvm ]
+ DEBUG [f53f1ef0] Finished in 1.244 seconds with exit status 0 (successful).
+ DEBUG [7d6bd0ac] Running ~/.rvm/bin/rvm version as collab@158.69.82.71
+ DEBUG [7d6bd0ac] Command: ~/.rvm/bin/rvm version
+ DEBUG [7d6bd0ac] 	rvm 1.27.0 (latest) by Wayne E. Seguin <wayneeseguin@gmail.com>, Michal Papis <mpapis@gmail.com> [https://rvm.io/]
+ DEBUG [7d6bd0ac] Finished in 0.312 seconds with exit status 0 (successful).
+ DEBUG [2d3432bf] Running ~/.rvm/bin/rvm current as collab@158.69.82.71
+ DEBUG [2d3432bf] Command: ~/.rvm/bin/rvm current
+ DEBUG [2d3432bf] 	ruby-2.5.1
+ DEBUG [2d3432bf] Finished in 0.345 seconds with exit status 0 (successful).
+ DEBUG [c82adba6] Running ~/.rvm/bin/rvm default do ruby --version as collab@158.69.82.71
+ DEBUG [c82adba6] Command: ~/.rvm/bin/rvm default do ruby --version
+ DEBUG [c82adba6] 	Regenerating ruby-2.5.1 wrappers
+ DEBUG [c82adba6] 	........
+ DEBUG [c82adba6] 	/usr/bin/testrb
+ DEBUG [c82adba6] 	ruby 2.5.1p57 (2018-03-29 revision 63029) [x86_64-linux]
+ DEBUG [c82adba6] Finished in 2.312 seconds with exit status 0 (successful).
+  INFO [4a3b9586] Running /usr/bin/env mkdir -p /tmp as collab@158.69.82.71
+ DEBUG [4a3b9586] Command: /usr/bin/env mkdir -p /tmp
+  INFO [4a3b9586] Finished in 0.119 seconds with exit status 0 (successful).
+ DEBUG Uploading /tmp/git-ssh-collab-production-jeedee.sh 0.0%
+  INFO Uploading /tmp/git-ssh-collab-production-jeedee.sh 100.0%
+  INFO [14e9b541] Running /usr/bin/env chmod 700 /tmp/git-ssh-collab-production-jeedee.sh as collab@158.69.82.71
+ DEBUG [14e9b541] Command: /usr/bin/env chmod 700 /tmp/git-ssh-collab-production-jeedee.sh
+  INFO [14e9b541] Finished in 0.120 seconds with exit status 0 (successful).
+  INFO [fe240f5a] Running /usr/bin/env git ls-remote git@gitlab.com:collabmachine/collabmachine.git HEAD as collab@158.69.82.71
+ DEBUG [fe240f5a] Command: ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-collab-production-jeedee.sh" ; /usr/bin/env git ls-remote git@gitlab.com:collabmachine/collabmachine.git HEAD )
+ DEBUG [fe240f5a] 	remote: 
+remote: ========================================================================
+remote: 
+remote: ERROR: The project you were looking for could not be found or you don't have permission to view it.
+
+remote: 
+remote: ========================================================================
+remote: 
+ DEBUG [fe240f5a] 	fatal: Could not read from remote repository.
+
+Please make sure you have the correct access rights
+and the repository exists.
+ DEBUG [01ee63ed] Running [ -d /home/collab/html/production/current ] as collab@158.69.82.71
+ DEBUG [01ee63ed] Command: [ -d /home/collab/html/production/current ]
+ DEBUG [01ee63ed] Finished in 0.128 seconds with exit status 0 (successful).
+ DEBUG [7b4946be] Running if test ! -d /home/collab/html/production/current; then echo "Directory does not exist '/home/collab/html/production/current'" 1>&2; false; fi as collab@158.69.82.71
+ DEBUG [7b4946be] Command: if test ! -d /home/collab/html/production/current; then echo "Directory does not exist '/home/collab/html/production/current'" 1>&2; false; fi
+ DEBUG [7b4946be] Finished in 0.136 seconds with exit status 0 (successful).
+ DEBUG [29e91022] Running /usr/bin/env [ -f /home/collab/html/production/shared/tmp/pids/sidekiq-0.pid ] as collab@158.69.82.71
+ DEBUG [29e91022] Command: cd /home/collab/html/production/current && /usr/bin/env [ -f /home/collab/html/production/shared/tmp/pids/sidekiq-0.pid ]
+ DEBUG [29e91022] Finished in 0.120 seconds with exit status 0 (successful).
+ DEBUG [31b7886d] Running /usr/bin/env kill -0 $( cat /home/collab/html/production/shared/tmp/pids/sidekiq-0.pid ) as collab@158.69.82.71
+ DEBUG [31b7886d] Command: cd /home/collab/html/production/current && /usr/bin/env kill -0 $( cat /home/collab/html/production/shared/tmp/pids/sidekiq-0.pid )
+ DEBUG [31b7886d] Finished in 0.124 seconds with exit status 0 (successful).
+  INFO [29581356] Running ~/.rvm/bin/rvm default do bundle exec sidekiqctl stop /home/collab/html/production/shared/tmp/pids/sidekiq-0.pid 10 as collab@158.69.82.71
+ DEBUG [29581356] Command: cd /home/collab/html/production/current && ~/.rvm/bin/rvm default do bundle exec sidekiqctl stop /home/collab/html/production/shared/tmp/pids/sidekiq-0.pid 10
+ DEBUG [29581356] 	Regenerating ruby-2.5.1 wrappers
+ DEBUG [29581356] 	........
+ DEBUG [29581356] 	/usr/bin/testrb
+ DEBUG [29581356] 	Regenerating ruby-2.5.1 wrappers
+ DEBUG [29581356] 	........
+ DEBUG [29581356] 	/usr/bin/testrb
+ DEBUG [29581356] 	Sidekiq shut down gracefully.
+  INFO [29581356] Finished in 7.599 seconds with exit status 0 (successful).
+ DEBUG [e2c7c9c3] Running if test ! -d /home/collab/html/production/current; then echo "Directory does not exist '/home/collab/html/production/current'" 1>&2; false; fi as collab@158.69.82.71
+ DEBUG [e2c7c9c3] Command: if test ! -d /home/collab/html/production/current; then echo "Directory does not exist '/home/collab/html/production/current'" 1>&2; false; fi
+ DEBUG [e2c7c9c3] Finished in 0.112 seconds with exit status 0 (successful).
+ DEBUG [69eab120] Running /usr/bin/env [ -f /home/collab/html/production/shared/tmp/pids/sidekiq-0.pid ] as collab@158.69.82.71
+ DEBUG [69eab120] Command: cd /home/collab/html/production/current && /usr/bin/env [ -f /home/collab/html/production/shared/tmp/pids/sidekiq-0.pid ]
+ DEBUG [69eab120] Finished in 0.143 seconds with exit status 1 (failed).
+  INFO [2a4509ec] Running ~/.rvm/bin/rvm default do bundle exec sidekiq --index 0 --pidfile /home/collab/html/production/shared/tmp/pids/sidekiq-0.pid --environment production --logfile /home/collab/html/production/shared/log/sidekiq.log --daemon as collab@158.69.82.71
+ DEBUG [2a4509ec] Command: cd /home/collab/html/production/current && ~/.rvm/bin/rvm default do bundle exec sidekiq --index 0 --pidfile /home/collab/html/production/shared/tmp/pids/sidekiq-0.pid --environment production --logfile /home/collab/html/production/shared/log/sidekiq.log --daemon
+ DEBUG [2a4509ec] 	Regenerating ruby-2.5.1 wrappers
+ DEBUG [2a4509ec] 	........
+ DEBUG [2a4509ec] 	/usr/bin/testrb
+ DEBUG [2a4509ec] 	Regenerating ruby-2.5.1 wrappers
+ DEBUG [2a4509ec] 	........
+ DEBUG [2a4509ec] 	/usr/bin/testrb
+ DEBUG [2a4509ec] 	WARNING: PID file creation will be removed in Sidekiq 6.0, see #4045. Please use a proper process supervisor to start and manage your services
+ DEBUG [2a4509ec] 	WARNING: Logfile redirection will be removed in Sidekiq 6.0, see #4045. Sidekiq will only log to STDOUT
+ DEBUG [2a4509ec] 	WARNING: Daemonization mode will be removed in Sidekiq 6.0, see #4045. Please use a proper process supervisor to start and manage your services
+  INFO [2a4509ec] Finished in 4.552 seconds with exit status 0 (successful).

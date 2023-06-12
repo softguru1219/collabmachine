@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+  <%= stylesheet_link_tag "mailer" %>
+</head>
+<center>
+  <table align="center" border="0" cellpadding="0" cellspacing="0" height="100%" width="100%" id="bodyTable">
+    <tr>
+      <td align="center" valign="top" id="bodyCell">
+        <!-- BEGIN TEMPLATE // -->
+        <table border="0" cellpadding="0" cellspacing="0" id="templateContainer">
+          <tr>
+            <td align="center" valign="top">
+              <!-- BEGIN HEADER // -->
+              <table border="0" cellpadding="0" cellspacing="0" width="100%" id="templateHeader">
+                <tr>
+                  <td valign="top" class="headerContent">
+                    <h1>
+                      <span><%= t("devise.mailer.invitation_instructions.title") %></span>
+                      <% domain = "https://collabmachine.com" %>
+                      <a href="http://collabmachine.com"><%= image_tag "#{domain}/images/CollabMACHINE-logo.jpg", class: 'logo'%></a>
+                    </h1>
+                  </td>
+                </tr>
+              </table>
+              <!-- // END HEADER -->
+            </td>
+          </tr>
+          <tr>
+            <td align="center" valign="top">
+              <!-- BEGIN BODY // -->
+              <table border="0" cellpadding="0" cellspacing="0" width="100%" id="templateBody">
+                <tr>
+                  <td valign="top" class="bodyContent" mc:edit="body_content">
+                    <h3><%= t("devise.mailer.invitation_instructions.hello", handle: @resource.invited_handle.capitalize) %>!</h3>
+                    <div>
+                      <p><%= t("devise.mailer.invitation_instructions.someone_invited_you", handle: @resource.invited_by.first_name) %></p>
+                      <div style="text-align: center;">
+                        <%= link_to t("devise.mailer.invitation_instructions.accept"),
+                              accept_invitation_url(
+                                  @resource,
+                                  :invitation_token => @token,
+                                  :locale => I18n.locale,
+                                  :port => Figaro.env.default_url_options_port != "80" ? Figaro.env.default_url_options_port : nil
+                                ),
+                              class: 'button'
+                        %>
+                      </div>
+                      <hr>
+                      <p style="font-weight: bold;" ><%= t("devise.mailer.invitation_instructions.who_are_we") %></p>
+                      <p><%= t("devise.mailer.invitation_instructions.who_are_we_explication") %></p>
+                      <%= link_to t("devise.mailer.invitation_instructions.our_site"),
+                        t("devise.mailer.invitation_instructions.our_site_url"),
+                        class: 'emailButton'
+                      %>
+                      <br>
+                      <%= link_to t("devise.mailer.invitation_instructions.presentation_video"),
+                        t("devise.mailer.invitation_instructions.presentation_video_url"),
+                        class: 'emailButton'
+                      %>
+                    </div>
+                  </td>
+                </tr>
+              </table>
+              <!-- // END BODY -->
+            </td>
+          </tr>
+          <tr>
+            <td align="center" valign="top">
+              <!-- BEGIN FOOTER // -->
+              <table border="0" cellpadding="0" cellspacing="0" width="100%" id="templateFooter">
+                <tr>
+                  <td valign="top" class="footerContent" mc:edit="footer_content00">
+                    <p>
+                      <p><%= t("devise.mailer.invitation_instructions.ignore").html_safe %></p>
+                      <% if @resource.invitation_due_at %>
+                        <p><%= t("devise.mailer.invitation_instructions.accept_until", due_date: l(@resource.invitation_due_at, format: :"devise.mailer.invitation_instructions.accept_until_format")) %></p>
+                      <% end %>
+                    </div>
+                    </p>
+                  </td>
+                </tr>
+              </table>
+              <!-- // END FOOTER -->
+            </td>
+          </tr>
+        </table>
+        <!-- // END TEMPLATE -->
+      </td>
+    </tr>
+  </table>
+</center>
+</body>
+</html>

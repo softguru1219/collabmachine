@@ -1,0 +1,16 @@
+.slack
+  - pres = slack_users.select { |m| !m[:is_bot]}
+  h3 Slack (#{pres.count} active)
+  ul.list-group.no-padding
+    - pres.each do |u|
+      li.list-group-item
+        =< link_to "slack://user?team=#{u.team_id}&id=#{u.id}",
+          class: 'btn btn-xs btn-primary btn-outline pull-right',
+          title: 'Open slack' do
+            i.fa.fa-slack
+        - collab_user = User.find_by_email(u.profile.email)
+        - if collab_user
+          = avatar_link_to_user(collab_user.id, {class: 'ui image mini-avatar right spaced'})
+          =< link_to_user(collab_user.id)
+        - else
+          span =< "@#{u.profile.real_name_normalized}"

@@ -1,0 +1,11 @@
+$('.ui.statistic').html('<%= @count %>');
+
+$('#tab_mission_applicants').html('<%= j render partial: "missions/tab_applicants" %>');
+$("#summary").html('<%= j render partial: "missions/tab_summary", mission: @mission, assignments: @assignments, im_interested: @im_interested, referal_id: @referal_id, suggested: @suggested %>');
+$('.user-ids.ui.celled.table').html('<%= j render partial: "applicants/applicants_table", mission: @mission %>');
+$('.i-checks').iCheck({
+  checkboxClass: 'icheckbox_square-green',
+  radioClass: 'iradio_square-green',
+}).on('ifChanged', function(){
+  window.toggle_im_interested_to_mission(this);
+});

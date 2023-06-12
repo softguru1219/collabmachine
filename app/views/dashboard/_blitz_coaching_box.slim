@@ -1,0 +1,42 @@
+.project-list
+  .ibox
+    .ibox-content
+
+      - if blitz_coaching_active?
+
+        = image_tag 'dashboard/banner_defi_montreal.png', class: 'full-width m-b-lg'
+
+        .project-header
+          h3.title.pull-left Bienvenue au Blitz Coaching de Défi Montréal !
+        .clearfix
+
+        p Nous vous attendons en ligne jeudi #{I18n.localize(Figaro.env.next_blitz_datetime.to_date, format: :event_date)} dès 8h30 pour rencontrer les meilleurs coachs et les entrepreneurs les plus prometteurs.
+
+        h3.text-center.red_defi_montreal.font-bold.font-italic Nous aidons les entrepreneurs à réussir
+
+        p > Cliquez en tout temps sur l'item "Blitz Coaching", en haut dans le menu principal pour revenir à la page du blitz et pour consulter votre horaire de rencontres.
+
+        br
+        br
+
+        = link_to "Rejoindre l'événement", blitz_coaching_path, class: 'btn btn-sm btn-outline btn-primary pull-right'
+        / = link_to "S'inscrire en tant que coach", user_steps_coach_path(:infos), class: 'btn btn-sm btn-outline btn-primary pull-right m-r-sm'
+        / = link_to "S'inscrire en tant qu'entrepreneur", user_steps_entrepreneur_path(:infos), class: 'btn btn-sm btn-outline btn-primary pull-right m-r-sm '
+
+      - else
+
+        / After-----------------------
+        = image_tag 'dashboard/banner_defi_montreal.png', class: 'full-width m-b-lg'
+
+        // Usually written by Martin right after the event.
+        .project-header
+          h3.title.pull-left Blitz Coaching de Défi Montréal du #{I18n.localize(Figaro.env.next_blitz_datetime.to_date, format: :event_date)}!
+        .clearfix
+
+        p C'est une superbe expérience d'enrichissement mutuel avec les entrepreneurs de Défi Montréal et les enthousiastes qui se sont joins à nous.
+
+        / p Ne manquez pas le prochain! <br>Date prévue: <strong>2 décembre</strong>
+
+        = link_to 'Lire sur Linkedin', 'https://www.linkedin.com/posts/mduchaine_defimtl-coaching-entrepreneurs-activity-6854037368903675905-XfLB', target: '_blank', class: 'btn btn-outline btn-primary pull-right'
+
+      .clearfix

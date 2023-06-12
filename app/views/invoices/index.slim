@@ -1,0 +1,65 @@
+.row.wrapper.page-heading
+  .col-xs-12.col-sm-6
+  - if policy(Invoice).create?
+    .col-xs-12.col-sm-6
+      .header-controls.btn-group.pull-right
+        - if current_user.stripe_profile
+          = link_to new_invoice_path,
+            class: 'btn btn-success', title: "Create invoice" do
+              i.fa.fa-plus
+              span =< t('invoice.new_title')
+        - else current_user.stripe_profile
+          = link_to stripe_url,
+            class: 'btn btn-success' do
+              i.fa.fa-plus
+              span =< t('invoice.new_title')
+
+    / .header-controls.btn-group.pull-right
+    /   = link_to '/docs#modle-de-facturation', data: { turbolinks: false },
+    /     class: 'btn btn-default text-warning', title: "Information" do
+    /       i.fa.fa-question
+    /       span  Billing info
+
+    .clear
+
+.row
+  .col-md-4
+    = form_for_filterrific @filterrific do |f|
+      .form-group
+        div = t('invoice.index.state_filter.title')
+        = f.select(:by_state,
+        Invoice.state_values,
+        { include_blank: t('invoice.index.filter_all') },
+        {class: "mdb-select colorful-select dropdown-primary filter-select"})
+
+      .form-group
+        div = t('invoice.index.customer_name')
+        = f.select(:by_customer,
+        options_for_select(@invoices.map{|invoice| [user_caption_for_dropdown(invoice.customer), invoice.customer.id]}.uniq),
+        { include_blank: t('invoice.index.filter_all') },
+        {class: "mdb-select colorful-select dropdown-primary filter-select"})
+
+      .form-group
+        div = t('invoice.index.sender_name')
+        = f.select(:by_client,
+        options_for_select(@invoices.map{|invoice| [user_caption_for_dropdown(invoice.user), invoice.user.id]}.uniq),
+        { include_blank: t('invoice.index.filter_all') },
+        {class: "mdb-select colorful-select dropdown-primary filter-select"})
+
+      .form-group
+        div = t('invoice.index.filter_search')
+        = f.text_field(:by_description,
+        class: 'filterrific-periodically-observed form-control')
+
+      .pull-right
+        br
+        = link_to('Reset filters', reset_filterrific_url, class: "btn btn-danger")
+
+        br
+        h2 Payment gateway
+        p = link_to "Configurer votre compte Stripe", payment_gateway_path
+
+        p
+          small.text-danger Les frais de transaction Stripe (2.9% + 0.30$) sont assumés par la plateforme Collab Machine.
+  .col-md-8
+    = render 'table', created_invoices: @created_invoices, customer_invoices: @customer_invoices

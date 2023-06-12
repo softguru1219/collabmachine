@@ -1,0 +1,14 @@
+#missions.tab-pane
+  .panel-body
+
+    / h2 Missions
+    .panel
+      p This is a list of missions initiated by #{user_handle(user)}
+
+    table.ui.table.table-striped.table-hover
+      - missions.each do |mission|
+        tr
+          td = link_to_mission(mission.id)
+          td = render 'shared/status_tag', status: mission.state, size: 'mini', on_hold: mission.on_hold
+
+    / = link_to 'Create new project »', new_project_path(user_id: current_user.id), class: 'ui button small orange inverted'

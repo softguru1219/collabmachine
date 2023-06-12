@@ -1,0 +1,3 @@
+#rules-and-regs.cm-tab-pane[v-if="tab === 'rules_and_regs'"]
+  .panel[v-pre]
+    = Kramdown::Document.new(t('rules_and_regs')).to_html.html_safe

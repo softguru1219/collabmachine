@@ -1,0 +1,107 @@
+.row.wrapper.wrapper-content.ibox-content.middle-box
+  .col.ibox-content
+
+    = image_tag 'dashboard/banner_defi_montreal.png', class: 'full-width m-b-lg'
+    h2 = t('users.step.exp_title')
+
+    .form-group
+
+      p > Vous serez ajouté à la liste des Coachs-Experts du Blitz Coaching qui sera partagée avec tous les participants et les partenaires de la journée.
+
+      p > Vous recevrez par courriel (ou par texto le jour du Blitz) une confirmation des rencontres planifiées en fonction des entrepreneurs qui recherchent votre expertise et vos services.
+
+      p Vous recevrez la liste des participants présents ainsi que votre accès à CollabMachine.com pour vos rencontres en ligne.
+
+      p > Une salle de rencontre virtuelle vous sera attribuée avec un lien de vidéoconférence personnel (veuillez nous contacter si vous désirez utiliser votre propre salle Zoom).
+
+      p > Vous êtes invités jeudi le <strong>#{I18n.localize(Figaro.env.next_blitz_datetime.to_date, format: :event_date)} dès 8h30</strong> dans la salle Zoom du Blitz Coaching pour réseauter et accueillir les entrepreneurs participants
+
+      p - Ensemble, nous aidons les entrepreneurs à réussir !
+
+
+
+      / = form_for @user, url: wizard_path, html: { multipart: true, role: 'form' } do |f|
+
+      /     .col-md-1.user-step-skill-icon
+      /       i.fa.fa-cogs
+      /     .alert.col-md-5
+      /       = t('users.step.skill_message')
+
+      /     .form-group
+      /       => f.label t('users.step.skill_list')
+      /       span.tooltip-button
+      /         button.btn.btn-xs.btn-warning.btn-outline.b-r-xl(
+      /             type="button"
+      /             data-toggle="tooltip"
+      /             data-placement="right"
+      /             title=""
+      /             data-original-title= t('users.step.skill_info')
+      /           )
+      /           i.fa.fa-question
+      /       br
+      /       = f.select :skill_list,
+      /         Tag.all.map(&:name),
+      /         {},
+      /         {multiple: true, class: " form-control mdb-select colorful-select dropdown-primary tags-mutliselect"}
+
+      /     .form-group
+      /       => f.label t('users.step.interest_list')
+      /       span.tooltip-button
+      /         button.btn.btn-xs.btn-warning.btn-outline.b-r-xl(
+      /             type="button"
+      /             data-toggle="tooltip"
+      /             data-placement="right"
+      /             title=""
+      /             data-original-title= t('users.step.interest_info')
+      /           )
+      /           i.fa.fa-question
+      /       br
+      /       = f.select :interest_list,
+      /         Tag.all.map(&:name),
+      /         {},
+      /         {multiple: true, class: " form-control mdb-select colorful-select dropdown-primary tags-mutliselect"}
+      .row
+        .col-md-12
+          / = f.submit t('users.step.next'), class: "btn btn-primary btn-lg pull-right"
+          / = link_to t('users.step.skip'), next_wizard_path, class: 'pull-right btn btn-lg btn-default', style: 'margin-right: 15px'
+          = link_to t('users.step.next'), next_wizard_path, class: 'pull-right btn btn-lg btn-primary', style: 'margin-right: 15px'
+
+
+
+javascript:
+
+  $(function() {
+    $('form').bind("keypress", function(e) {
+      if (e.keyCode == 13) {
+        e.preventDefault();
+        return false;
+      }
+    });
+
+    $.getJSON("/all_tags", function(all_tags){
+      $('.exp-skills, .exp-interests').tagsinput({
+        focusClass: 'my-focus-class',
+        typeahead: {
+          source: all_tags,
+          freeInput: false,
+          updater: function(item) {
+            return this.$element.val().replace(/[^,]*$/,'')+item+',';
+          },
+          matcher: function (item) {
+            var tquery = extractor(this.query);
+            if(!tquery) return false;
+            return ~item.toLowerCase().indexOf(tquery.toLowerCase())
+          },
+          highlighter: function (item) {
+            var query = extractor(this.query).replace(/[\-\[\]{}()*+?.,\\\^$|#\s]/g, '\\$&')
+            return item.replace(new RegExp('(' + query + ')', 'ig'), function ($1, match) {
+              return '<strong>' + match + '</strong>'
+            })
+          }
+        }
+      });
+
+      $(".bootstrap-tagsinput").addClass('form-control')
+    });
+
+  });

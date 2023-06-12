@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="<%= I18n.locale %>">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="turbolinks-cache-control" content="no-cache">
+    <%= display_meta_tags %>
+
+    <% icon = "favicon-#{Rails.env}.ico" %>
+    <%= favicon_link_tag icon, type: "image/x-icon" %>
+
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
+
+    <%= render "shared/server_rendered_data" %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+
+    <% unless controller_name == "hello" %>
+        <%= javascript_include_tag 'https://js.stripe.com/v2/' %>
+        <%= javascript_include_tag 'https://js.stripe.com/v3/' %>
+        <script type='text/javascript'>
+            window.Config = {
+                stripe_publishable_key: "<%= Figaro.env.stripe_publishable_key %>"
+            }
+        </script>
+    <% end %>
+    <%= csrf_meta_tags %>
+
+    <%= render 'layouts/vendor/google_analytics' %>
+    <%#= render 'shared/tawkto' %>
+</head>
+
+<body class="bg-muted front landing-page <%= controller_name %> <%= "action-#{controller_name}-#{action_name}" %> <%= @body_classes if @body_classes %>">
+
+    <%= render 'shared/header' %>
+
+    <% if breadcrumb_path.present? %>
+        <%= render partial: 'shared/breadcrumb_navigation', :locals => {:nav => navigation_add(breadcrumb_path)} %>
+    <% end %>
+
+    <% if @wrapper %>
+      <div id="page-wrapper" class="container">
+    <% end %>
+
+        <%= yield %>
+        <%= render 'shared/footer' unless @skip_footer %>
+
+    <% if @wrapper %>
+      </div>
+    <% end %>
+
+    <%= render 'shared/veezav_bubble' if show_veeza? %>
+    <%= render 'shared/create_product_modals' %>
+    <%= render 'shared/create_project_modals' %>
+
+    <%= yield :javascript %>
+</body>
+</html>

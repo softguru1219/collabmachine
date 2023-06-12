@@ -1,0 +1,29 @@
+h1 Listing business_sub_domains
+
+table
+  thead
+    tr
+      th Name fr
+      th Name en
+      th Display en
+      th Display fr
+      th Business domain
+      th
+      th
+      th
+
+  tbody
+    - @business_domain.business_sub_domains.each do |business_sub_domain|
+      tr
+        td = business_sub_domain.name_fr
+        td = business_sub_domain.name_en
+        td = business_sub_domain.display_en
+        td = business_sub_domain.display_fr
+        td = business_sub_domain.business_domain
+        td = link_to "Show", business_domain_business_sub_domain_path(@business_domain.id, business_sub_domain)
+        /td = link_to "Edit", edit_business_domain_business_sub_domain_path(business_sub_domain)
+        /td = link_to "Destroy", business_domain_business_sub_domain_path, data: {confirm: "Are you sure?"}, method: :delete
+
+br
+
+= link_to "New Business sub domain", new_business_domain_business_sub_domain_path

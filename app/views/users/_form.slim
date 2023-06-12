@@ -1,0 +1,302 @@
+.row.wrapper.page-heading
+  .col-xs-12.col-sm-6
+    span.employees-title = t("users.show.editing_employee")
+
+.row.wrapper.wrapper-content.ibox-content
+  .col.ibox-content
+    = form_for user, html: { multipart: true, role: 'form' } do |f|
+      .row
+        .col-xs-12
+          .profile-head class=(user.poster.attached? ? '' : 'empty')
+            -if user.poster.attached?
+              = image_tag user.regular_poster_url
+            p
+              => f.label :poster, "#{t("users.show.poster_image")} (jpg,gif,png)"
+              span.tooltip-button
+                button.btn.btn-xs.btn-warning.btn-outline.b-r-xl(
+                    type="button"
+                    data-toggle="tooltip"
+                    data-placement="right"
+                    title=""
+                    data-original-title="The poster image is the big image we usually see on top of a profile, something to represent you."
+                  )
+                    i.fa.fa-question
+            div = f.file_field :poster
+          br
+          br
+      .row
+        .col
+          - if user.errors.any?
+            .error_messages
+              h2 Form is invalid
+              ul
+                - for message in user.errors.full_messages
+                  li = message
+      .row
+        .col-sm-12.col-md-5
+          = image_tag user.medium_avatar_url
+          = f.file_field :avatar
+
+          br
+          br
+
+          .form-group
+            = f.check_box :available, class: 'i-checks'
+            =< f.label :available, t('.available_for_missions')
+
+
+          - if policy(user).admin?
+            .form-group
+              = f.check_box :active, class: 'i-checks'
+              =< f.label t('.active').capitalize
+
+
+            .form-group
+              = f.label t('.referred_by')
+
+              small  (should be mandatory)
+              br/
+              = f.select :invited_by_id,
+                  User.active.order(first_name: :asc, last_name: :asc).collect { |p| next if p == user;  [ user_caption_for_dropdown(p), p.id ] },
+                  { selected: user.invited_by_id, include_blank: true },
+                  { class: 'form-control search selection dropdown mdb-select colorful-select dropdown-primary client-select' }
+
+            .form-group
+              = f.label t('.profile_type').capitalize
+              = f.select :profile_type, ['personal', 'company'], {include_blank: false }, {class: "form-control"}
+            
+            
+            / .form-group
+              = link_to user_linkedin_omniauth_authorize_path,
+                class: 'btn btn-success btn-connect-linkedin', title: "Connect LinkedIn / fetch" do
+                i.fa.fa-linkedin
+                span  Import profile from LinkedIn
+            hr
+
+
+        .col-sm-12.col-md-7
+          .row
+            .col-xs-12
+              .form-group
+                = f.label t('.first_name').capitalize
+                = f.text_field  :first_name,
+                    class: 'form-control'
+
+
+              .form-group
+                = f.label t('.last_name').capitalize
+                = f.text_field  :last_name,
+                    class: 'form-control'
+              .form-group
+                h2.ui.dividing.header.m-t-md = t('.language').pluralize
+                table#invoice-lines.table.table-striped width="100%"
+                  thead
+                    tr
+                      th.col-sm-6 = t('.language')
+                      th.col-sm-6.text-center = t('.level').capitalize
+                  tbody.item-rows
+                    = f.fields_for :spoken_languages do |fl|
+                      = render 'spoken_language_fields', f: fl
+
+                = link_to_add_fields_custom "add language", f, :spoken_languages, 'btn btn-primary btn-add-row btn-outline m-t-md'
+
+              .form-group
+                => f.label :skill_list
+                span.tooltip-button
+                  button.btn.btn-xs.btn-warning.btn-outline.b-r-xl(
+                      type="button"
+                      data-toggle="tooltip"
+                      data-placement="right"
+                      title=""
+                      data-original-title="List all your skills here. Use a comma between tags to separate them."
+                    )
+                    i.fa.fa-question
+                = f.text_field :skill_list, value: user.skill_list.join(', '), class: 'form-control skills'
+
+              .form-group
+                => f.label t('.profile_title').capitalize
+                = f.text_field  :headline,
+                    class: 'form-control'
+                  span.tooltip-button
+                    button.btn.btn-xs.btn-warning.btn-outline.b-r-xl(
+                      type="button"
+                      data-toggle="tooltip"
+                      data-placement="right"
+                      title=""
+                      data-original-title="The headline is generally your role, something descriptive."
+                    )
+                    i.fa.fa-question
+              .form-group
+                = f.label t('.company').capitalize
+                = f.text_field  :company,
+                    class: 'form-control'
+              .form-group
+                = f.label t('.username').capitalize
+                = f.text_field :username,
+                    class: 'form-control'
+              - if user.has_company.nil?
+                .form-group
+                  = f.label :email
+                  = f.email_field :email,
+                      class: 'form-control'
+              .form-group
+                = f.label :phone, t("users.show.phone")
+                = f.phone_field :phone,
+                    class: 'form-control'
+              .form-group
+                = f.label :location, t('users.show.location')
+                = f.text_field :location,
+                    class: 'form-control'
+
+              .form-group
+                hr
+
+              .form-group
+                = f.label :github_url, t("users.show.github_url")
+                = f.url_field :github_url,
+                    class: 'form-control'
+              .form-group
+                = f.label :linkedin_url, t("users.show.linkedin_url")
+                = f.url_field :linkedin_url,
+                    class: 'form-control'
+              .form-group
+                = f.label :web_site_url, t("users.show.web_site_url")
+                = f.url_field :web_site_url,
+                    class: 'form-control'
+
+            .col-xs-12
+              .form-group
+                => f.label :interest_list, t("users.show.interest_list")
+                span.tooltip-button
+                  button.btn.btn-xs.btn-warning.btn-outline.b-r-xl(
+                      type="button"
+                      data-toggle="tooltip"
+                      data-placement="right"
+                      title=""
+                      data-original-title="List a couple skills you would like to promote, be hired for. They are shown in the member listing. Use a comma between tags to separate them."
+                    )
+                    i.fa.fa-question
+
+                = f.text_field :interest_list, value: user.interest_list.join(', '), class: 'form-control interests'
+
+              - if policy(User).blitz_admin?
+                .form-group
+                  => f.label :admin_tag_list
+                  span.tooltip-button
+                    button.btn.btn-xs.btn-warning.btn-outline.b-r-xl(
+                        type="button"
+                        data-toggle="tooltip"
+                        data-placement="right"
+                        title=""
+                        data-original-title="List all your admin tags here. Use a comma between tags to separate them."
+                      )
+                      i.fa.fa-question
+                  = f.text_field :admin_tag_list, value: user.admin_tag_list.join(', '), class: 'form-control skills'
+
+              .form-group
+                = f.label :description
+                = f.text_area :description,
+                    class: 'redactor item-desc'
+
+              - if policy(User).admin?
+                hr
+                .form-group
+                  = f.label :admin_notes
+                  = f.text_area :admin_notes, class: 'redactor form-control'
+          .row
+            .col-md-12
+              .alert.alert-info
+
+                h3 Champs utilisés pour le Blitz coaching DéfiMontréal
+
+                / / Not editable for now
+                / .form-group
+                /   = f.label :blitz_availability, "Disponibilités"
+                /   p Disponibilité pour rencontres 30 minutes avec les entrepreneurs et dirigeants * Sélectionnez un ou plusieurs éléments de la liste.
+                /   = f.select(:blitz_availability,
+                /     options_for_select(User::BLITZ_AVAILABILITY, @user.blitz_availability),
+                /     {},
+                /     { multiple: true, class: "filter-select" })
+                .form-group
+                  = f.label :communities, "Communauté"
+                  = f.select(:communities,
+                    options_for_select(User::COMMUNITIES.sort, user.communities),
+                    {},
+                    { multiple: true, class: "mdb-select colorful-select dropdown-primary filter-select" })
+                .form-group
+                  = f.label :blitz_roles
+                  span.tooltip-button.warning
+                    button.btn.btn-xs.btn-warning.btn-outline.b-r-xl(
+                        type="button"
+                        data-toggle="tooltip"
+                        data-placement="right"
+                        title=""
+                        data-original-title="Choisissez Coach confirmé ou entrepreneur confirmé si vous serez présent au prochain blitz"
+                      )
+                        i.fa.fa-question
+                  - all_roles = User::BLITZ_ROLES.sort
+                  - if policy(user).admin?
+                    - all_roles += User::BLITZ_ROLES_CONFIRMED
+                  = f.select(:blitz_roles,
+                    options_for_select(all_roles.sort!, user.blitz_roles),
+                    {},
+                    { multiple: true, class: "mdb-select colorful-select dropdown-primary filter-select" })
+                .form-group
+                  = f.label :area_of_expertise_1, "Secteur d'expertise principal *"
+                  p Sélectionnez un ou plusieurs éléments de la liste.
+                  = f.select(:area_of_expertise_1,
+                    options_for_select(User::AREAS_EXPERTISE.sort, user.area_of_expertise_1),
+                    {},
+                    { multiple: false, class: "mdb-select colorful-select dropdown-primary filter-select" })
+                .form-group
+                  = f.label :area_of_expertise_2, "Deuxième secteur d'expertise"
+                  p Sélectionnez un ou plusieurs éléments de la liste.
+                  = f.select(:area_of_expertise_2,
+                    options_for_select(User::AREAS_EXPERTISE.sort, user.area_of_expertise_2),
+                    {},
+                    { multiple: false, class: "mdb-select colorful-select dropdown-primary filter-select" })
+                .form-group
+                  = f.label :area_of_expertise_3, "Troisième secteur d'expertise"
+                  p Sélectionnez un ou plusieurs éléments de la liste.
+                  = f.select(:area_of_expertise_3,
+                    options_for_select(User::AREAS_EXPERTISE.sort, user.area_of_expertise_3),
+                    {},
+                    { multiple: false, class: "mdb-select colorful-select dropdown-primary filter-select" })
+                .form-group
+                  = f.label :blitz_expertises, "Blitz Compétences (max 5)"
+                  span.tooltip-button
+                    button.btn.btn-xs.btn-warning.btn-outline.b-r-xl(
+                        type="button"
+                        data-toggle="tooltip"
+                        data-placement="right"
+                        title=""
+                        data-original-title="Les compétences recherchées ou ce que vous offrez."
+                      )
+                        i.fa.fa-question
+                  = f.select(:blitz_expertises,
+                    options_for_select(User::BLITZ_EXPERTISE_LIST.sort, user.blitz_expertises),
+                    {},
+                    { multiple: true, class: "mdb-select colorful-select dropdown-primary filter-select" })
+
+                .form-group
+                  = f.label :slogan
+                  p Description de votre expertise / Slogan
+                  = f.text_field  :slogan,
+                      class: 'form-control'
+                .form-group
+                  = f.label :special_need
+                  p Besoins particuliers / Questions à aborder
+                  = f.text_field  :special_need,
+                      class: 'form-control'
+                .form-group
+                  = f.label :ask_meeting_with
+                  p Noms de coachs-experts particulier à rencontrer
+                  = f.text_field  :ask_meeting_with,
+                      class: 'form-control'
+          .row
+            .col-md-12
+              = f.submit "Save",
+                  class: "btn btn-success btn-lg btn-block pull-right"
+
+              br/
+              br/

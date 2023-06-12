@@ -1,0 +1,387 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://api.stripe.com/v1/customers
+    body:
+      encoding: UTF-8
+      string: description=johndoe&email=john3%40example.com
+    headers:
+      User-Agent:
+      - Stripe/v1 RubyBindings/3.19.0
+      Authorization:
+      - Bearer sk_test_qUOfWwQUAGiM3d8KcxQkN0sn
+      Content-Type:
+      - application/x-www-form-urlencoded
+      X-Stripe-Client-User-Agent:
+      - '{"bindings_version":"3.19.0","lang":"ruby","lang_version":"2.5.1 p57 (2018-03-29)","platform":"x86_64-linux","engine":"ruby","publisher":"stripe","uname":"Linux
+        version 4.18.0-10-generic (buildd@lgw01-amd64-060) (gcc version 8.2.0 (Ubuntu
+        8.2.0-7ubuntu1)) #11-Ubuntu SMP Thu Oct 11 15:13:55 UTC 2018","hostname":"275e25b8aec3"}'
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Thu, 06 Dec 2018 19:18:47 GMT
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '739'
+      Connection:
+      - keep-alive
+      Access-Control-Allow-Credentials:
+      - 'true'
+      Access-Control-Allow-Methods:
+      - GET, POST, HEAD, OPTIONS, DELETE
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Expose-Headers:
+      - Request-Id, Stripe-Manage-Version, X-Stripe-External-Auth-Required, X-Stripe-Privileged-Session-Required
+      Access-Control-Max-Age:
+      - '300'
+      Cache-Control:
+      - no-cache, no-store
+      Request-Id:
+      - req_giqIe4fnNFPJkr
+      Stripe-Version:
+      - '2018-10-31'
+      Strict-Transport-Security:
+      - max-age=31556926; includeSubDomains; preload
+    body:
+      encoding: UTF-8
+      string: |
+        {
+          "id": "cus_E6fiVgalSRao0W",
+          "object": "customer",
+          "account_balance": 0,
+          "created": 1544123926,
+          "currency": null,
+          "default_source": null,
+          "delinquent": false,
+          "description": "johndoe",
+          "discount": null,
+          "email": "john3@example.com",
+          "invoice_prefix": "A86FC44",
+          "livemode": false,
+          "metadata": {
+          },
+          "shipping": null,
+          "sources": {
+            "object": "list",
+            "data": [
+
+            ],
+            "has_more": false,
+            "total_count": 0,
+            "url": "/v1/customers/cus_E6fiVgalSRao0W/sources"
+          },
+          "subscriptions": {
+            "object": "list",
+            "data": [
+
+            ],
+            "has_more": false,
+            "total_count": 0,
+            "url": "/v1/customers/cus_E6fiVgalSRao0W/subscriptions"
+          },
+          "tax_info": null,
+          "tax_info_verification": null
+        }
+    http_version: 
+  recorded_at: Thu, 06 Dec 2018 19:18:47 GMT
+- request:
+    method: post
+    uri: https://api.stripe.com/v1/customers
+    body:
+      encoding: UTF-8
+      string: description=admin&email=admin5%40example.com
+    headers:
+      User-Agent:
+      - Stripe/v1 RubyBindings/3.19.0
+      Authorization:
+      - Bearer sk_test_qUOfWwQUAGiM3d8KcxQkN0sn
+      Content-Type:
+      - application/x-www-form-urlencoded
+      X-Stripe-Client-User-Agent:
+      - '{"bindings_version":"3.19.0","lang":"ruby","lang_version":"2.5.1 p57 (2018-03-29)","platform":"x86_64-linux","engine":"ruby","publisher":"stripe","uname":"Linux
+        version 4.18.0-10-generic (buildd@lgw01-amd64-060) (gcc version 8.2.0 (Ubuntu
+        8.2.0-7ubuntu1)) #11-Ubuntu SMP Thu Oct 11 15:13:55 UTC 2018","hostname":"2f3cceaf289f"}'
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Thu, 06 Dec 2018 19:38:40 GMT
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '738'
+      Connection:
+      - keep-alive
+      Access-Control-Allow-Credentials:
+      - 'true'
+      Access-Control-Allow-Methods:
+      - GET, POST, HEAD, OPTIONS, DELETE
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Expose-Headers:
+      - Request-Id, Stripe-Manage-Version, X-Stripe-External-Auth-Required, X-Stripe-Privileged-Session-Required
+      Access-Control-Max-Age:
+      - '300'
+      Cache-Control:
+      - no-cache, no-store
+      Request-Id:
+      - req_tKzLEnYJyREHAd
+      Stripe-Version:
+      - '2018-10-31'
+      Strict-Transport-Security:
+      - max-age=31556926; includeSubDomains; preload
+    body:
+      encoding: UTF-8
+      string: |
+        {
+          "id": "cus_E6g2dYsBIavYVQ",
+          "object": "customer",
+          "account_balance": 0,
+          "created": 1544125120,
+          "currency": null,
+          "default_source": null,
+          "delinquent": false,
+          "description": "admin",
+          "discount": null,
+          "email": "admin5@example.com",
+          "invoice_prefix": "DA1E734",
+          "livemode": false,
+          "metadata": {
+          },
+          "shipping": null,
+          "sources": {
+            "object": "list",
+            "data": [
+
+            ],
+            "has_more": false,
+            "total_count": 0,
+            "url": "/v1/customers/cus_E6g2dYsBIavYVQ/sources"
+          },
+          "subscriptions": {
+            "object": "list",
+            "data": [
+
+            ],
+            "has_more": false,
+            "total_count": 0,
+            "url": "/v1/customers/cus_E6g2dYsBIavYVQ/subscriptions"
+          },
+          "tax_info": null,
+          "tax_info_verification": null
+        }
+    http_version: 
+  recorded_at: Thu, 06 Dec 2018 19:38:40 GMT
+- request:
+    method: post
+    uri: https://api.stripe.com/v1/customers
+    body:
+      encoding: UTF-8
+      string: description=company&email=company5%40example.com
+    headers:
+      User-Agent:
+      - Stripe/v1 RubyBindings/3.19.0
+      Authorization:
+      - Bearer sk_test_qUOfWwQUAGiM3d8KcxQkN0sn
+      Content-Type:
+      - application/x-www-form-urlencoded
+      X-Stripe-Client-User-Agent:
+      - '{"bindings_version":"3.19.0","lang":"ruby","lang_version":"2.5.1 p57 (2018-03-29)","platform":"x86_64-linux","engine":"ruby","publisher":"stripe","uname":"Linux
+        version 4.18.0-10-generic (buildd@lgw01-amd64-060) (gcc version 8.2.0 (Ubuntu
+        8.2.0-7ubuntu1)) #11-Ubuntu SMP Thu Oct 11 15:13:55 UTC 2018","hostname":"2f3cceaf289f"}'
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Thu, 06 Dec 2018 19:38:41 GMT
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '742'
+      Connection:
+      - keep-alive
+      Access-Control-Allow-Credentials:
+      - 'true'
+      Access-Control-Allow-Methods:
+      - GET, POST, HEAD, OPTIONS, DELETE
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Expose-Headers:
+      - Request-Id, Stripe-Manage-Version, X-Stripe-External-Auth-Required, X-Stripe-Privileged-Session-Required
+      Access-Control-Max-Age:
+      - '300'
+      Cache-Control:
+      - no-cache, no-store
+      Request-Id:
+      - req_qHQRm7iHTpbjco
+      Stripe-Version:
+      - '2018-10-31'
+      Strict-Transport-Security:
+      - max-age=31556926; includeSubDomains; preload
+    body:
+      encoding: UTF-8
+      string: |
+        {
+          "id": "cus_E6g21GCfULNIDB",
+          "object": "customer",
+          "account_balance": 0,
+          "created": 1544125120,
+          "currency": null,
+          "default_source": null,
+          "delinquent": false,
+          "description": "company",
+          "discount": null,
+          "email": "company5@example.com",
+          "invoice_prefix": "A2F6A62",
+          "livemode": false,
+          "metadata": {
+          },
+          "shipping": null,
+          "sources": {
+            "object": "list",
+            "data": [
+
+            ],
+            "has_more": false,
+            "total_count": 0,
+            "url": "/v1/customers/cus_E6g21GCfULNIDB/sources"
+          },
+          "subscriptions": {
+            "object": "list",
+            "data": [
+
+            ],
+            "has_more": false,
+            "total_count": 0,
+            "url": "/v1/customers/cus_E6g21GCfULNIDB/subscriptions"
+          },
+          "tax_info": null,
+          "tax_info_verification": null
+        }
+    http_version: 
+  recorded_at: Thu, 06 Dec 2018 19:38:41 GMT
+- request:
+    method: post
+    uri: https://api.stripe.com/v1/customers
+    body:
+      encoding: UTF-8
+      string: description=johndoe&email=john7%40example.com
+    headers:
+      User-Agent:
+      - Stripe/v1 RubyBindings/3.19.0
+      Authorization:
+      - Bearer sk_test_qUOfWwQUAGiM3d8KcxQkN0sn
+      Content-Type:
+      - application/x-www-form-urlencoded
+      X-Stripe-Client-User-Agent:
+      - '{"bindings_version":"3.19.0","lang":"ruby","lang_version":"2.5.1 p57 (2018-03-29)","platform":"x86_64-linux","engine":"ruby","publisher":"stripe","uname":"Linux
+        version 4.18.0-10-generic (buildd@lgw01-amd64-060) (gcc version 8.2.0 (Ubuntu
+        8.2.0-7ubuntu1)) #11-Ubuntu SMP Thu Oct 11 15:13:55 UTC 2018","hostname":"2f3cceaf289f"}'
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Thu, 06 Dec 2018 19:38:41 GMT
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '739'
+      Connection:
+      - keep-alive
+      Access-Control-Allow-Credentials:
+      - 'true'
+      Access-Control-Allow-Methods:
+      - GET, POST, HEAD, OPTIONS, DELETE
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Expose-Headers:
+      - Request-Id, Stripe-Manage-Version, X-Stripe-External-Auth-Required, X-Stripe-Privileged-Session-Required
+      Access-Control-Max-Age:
+      - '300'
+      Cache-Control:
+      - no-cache, no-store
+      Request-Id:
+      - req_jepsOCsGjGE8R2
+      Stripe-Version:
+      - '2018-10-31'
+      Strict-Transport-Security:
+      - max-age=31556926; includeSubDomains; preload
+    body:
+      encoding: UTF-8
+      string: |
+        {
+          "id": "cus_E6g2wkBWPQy62G",
+          "object": "customer",
+          "account_balance": 0,
+          "created": 1544125121,
+          "currency": null,
+          "default_source": null,
+          "delinquent": false,
+          "description": "johndoe",
+          "discount": null,
+          "email": "john7@example.com",
+          "invoice_prefix": "8E422F9",
+          "livemode": false,
+          "metadata": {
+          },
+          "shipping": null,
+          "sources": {
+            "object": "list",
+            "data": [
+
+            ],
+            "has_more": false,
+            "total_count": 0,
+            "url": "/v1/customers/cus_E6g2wkBWPQy62G/sources"
+          },
+          "subscriptions": {
+            "object": "list",
+            "data": [
+
+            ],
+            "has_more": false,
+            "total_count": 0,
+            "url": "/v1/customers/cus_E6g2wkBWPQy62G/subscriptions"
+          },
+          "tax_info": null,
+          "tax_info_verification": null
+        }
+    http_version: 
+  recorded_at: Thu, 06 Dec 2018 19:38:41 GMT
+recorded_with: VCR 4.0.0

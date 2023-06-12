@@ -1,0 +1,34 @@
+h1 Listing business_categories
+
+table.table.table-striped
+  thead
+    tr
+      th Abr en
+      th Abr fr
+      th Name fr
+      th Name en
+      th Display en
+      th Display fr
+      th Business sub domain
+      th
+      th
+      th
+
+  tbody
+    - @business_categories.each do |business_category|
+      tr
+        td = business_category.abr_en
+        td = business_category.abr_fr
+        td = business_category.name_fr
+        td = business_category.name_en
+        td = business_category.display_en
+        td = business_category.display_fr
+        td = business_category.business_sub_domain
+        /td = link_to "Show", business_category
+        /td = link_to "Edit", edit_business_category_path(business_category)
+        /td = link_to "Destroy", business_category, data: {confirm: "Are you sure?"}, method: :delete
+
+br
+
+.actions.text-right
+  = link_to "New Business category", new_business_domain_business_sub_domain_business_category_path(@business_sub_domain.business_domain_id,@business_sub_domain), class: 'btn btn-warning'

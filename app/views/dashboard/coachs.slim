@@ -1,0 +1,34 @@
+.row
+  .col-sm-12
+    .ibox
+      .ibox-content
+        h1 Les Coachs du blitz
+
+        - schedules_data = @schedules_data
+        - hours = schedules_data[:coachs][:titles].values.first
+        - cols = schedules_data[:coachs][:col_names]
+
+        table.table.table-basic.table-striped.dataTable-blitz-coachs.users width="100%"
+          thead
+            tr
+              th width="120" Catégorie
+              th Avatar
+              th width="150" Nom
+              th Organisation
+              th Secteur principal
+              th Notes
+
+          tbody
+            - schedules_data[:coachs][:rows].values.each do |coach|
+              - next if coach[cols[:PROCESS]] == "FALSE"
+              - if id = User.find_by_email(coach[cols[:"Email"]])&.id
+                tr
+                  td #{coach[cols[:"Secteur principal"]]}
+                  td = avatar_link_to_user(id, {class: 'image right spaced'}) || nil
+                  td
+                    h3 #{coach[cols[:"Nom complet"]]}
+                    p = link_to "Lien vers le profil", user_path(id), target: '_blank'
+                  td #{coach[cols[:"Organisation"]]}
+                  td #{coach[cols[:"Domaines"]]}
+                  td #{coach[cols[:"Notes publiques"]]}
+

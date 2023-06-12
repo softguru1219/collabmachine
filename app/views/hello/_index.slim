@@ -1,0 +1,164 @@
+#flash
+  - if flash[:notice]
+    .alert.alert-dismissable.home-notice
+      = flash[:notice]
+      button data-dismiss="alert" class="close" type="button" ×
+
+.main style='background: url(#{image_path('landing/slider/nasa.png')}) no-repeat; background-size: cover;'
+  .fill
+    .container
+      .row.ctas
+        .col-sm-12
+          h2.text-white = t('hello.index.dream_your_team')
+          
+section
+  .container
+    .welcome-title = t("hello.index.welcome")
+    .row
+      .col-sm-6
+        .section-title = t("specialty.specialties")
+        .row.mt-3
+          .col-sm-4
+            = image_tag 'icons/specialties_icon.png', srcset: { "icons/specialties_icon@2x.png": "2x" },  class: 'img-responsive', alt: ''
+          .col-sm-8
+            - if @specialties.present?
+              .table-responsive
+                table.table
+                  thead
+                    tr
+                      th = t("shared.top_nav.employee").capitalize
+                      th = t("shared.languages")
+                      th = t("shared.sub_domain").capitalize
+                  
+                  tbody
+                    - @specialties.each do |specialty|
+                      tr
+                        td = specialty.user.full_name
+                        td
+                          - if specialty.user.spoken_languages
+                            - specialty.user.spoken_languages.each do |sl|
+                              = language_name sl.language
+                              br
+                        td = specialty.business_sub_domain.name
+                        
+
+      .col-sm-6
+        div.section-title Mission & Vision
+        .row.mt-3
+          .col-sm-4
+            = image_tag 'icons/mission_icon.png', srcset: { "icons/mission_icon@2x.png": "2x" },  class: 'img-responsive', alt: ''
+          .col-sm-8
+            - @missions.each do |mission|
+              div.mt-3
+                = mission.title
+            
+
+section
+  .container
+    .row
+      .col-sm-6
+        div.section-title = "20 #{t("sectors.industry_sectors")}"
+        .row.mt-3
+          .col-sm-4
+            = image_tag 'icons/industry_icon.png', srcset: { "icons/industry_icon@2x.png": "2x" },  class: 'img-responsive', alt: ''
+          .col-sm-8
+            - if @sectors.present?
+              div.mt-3.table-responsive
+                table.table.mt-3
+                  thead
+                    tr
+                      th Name
+                      th Abr
+                  
+                  tbody
+                    - @sectors.each do |sector|
+                      tr
+                        td = sector.name
+                        td = sector.abr
+
+      .col-sm-6
+        div.section-title = t("specialist.specialists_now_available")
+        .row.mt-3
+          .col-sm-4
+            = image_tag 'icons/specialists_icon.png', srcset: { "icons/specialists_icon@2x.png": "2x" },  class: 'img-responsive', alt: ''
+          .col-sm-8
+            - if @specialists.present?
+              div.mt-3.table-responsive
+              table.table.mt-3
+                thead
+                  tr
+                    th User
+                    th Active
+                tbody
+                  - @specialists.each do |specialist|
+                    tr
+                      td = specialist.user.full_name
+                      td
+                        - if specialist.active
+                          input type="checkbox" checked="checked" class="active-checkbox" id=specialist.id onclick="this.checked=!this.checked;"
+                        - else
+                          input type="checkbox" class="active-checkbox" id=specialist.id onclick="this.checked=!this.checked;"
+
+section
+  .container
+    .row
+      .col-sm-6
+        div.section-title = t("shared.technologies").capitalize
+        .row.mt-3
+          .col-sm-4
+            = image_tag 'icons/technology_icon.png', srcset: { "icons/technology_icon@2x.png": "2x" },  class: 'img-responsive', alt: ''
+          .col-sm-8
+            - @specialties.each do |specialty|
+              - specialty.user.skill_list.each do |software|
+                ul.mt-3
+                  li = software
+
+      .col-sm-6
+        div.section-title = t("project.projects_list")
+        .row.mt-3
+          .col-sm-4
+            = image_tag 'icons/projects_icon.png', srcset: { "icons/projects_icon@2x.png": "2x" },  class: 'img-responsive', alt: ''
+          .col-sm-8
+            - if @projects.present?
+              div.row.mt-3
+                - @projects.each do |project|
+                  div.col-md-3
+                    li = project.title
+
+section
+  .container
+    .row
+      .col-sm-6
+        div.section-title = t("shared.useful_links")
+        .row.mt-3
+          .col-sm-4
+            = image_tag 'icons/useful_links_icon.png', srcset: { "icons/useful_links_icon@2x.png": "2x" },  class: 'img-responsive', alt: ''
+          .col-sm-8
+        
+      .col-sm-6
+        div.section-title = t("speciality.offer_a_speciality")
+        div.mt-5
+          a.propose-speciality-btn href="#" = t("speciality.propose_a_speciality")
+
+/ .row
+  .col-sm-12
+    p.tagline = t('hello.index.best_place_for_best_talents').html_safe
+
+
+.section.container
+  .row
+    .col-sm-12
+      h2.m-t-lg.m-b-xl = t('hello.index.skills_title')
+      - t('hello.index.skills').each do |skill|
+        span.badge.badge-outline.m-xxs.p-xs = skill
+    .col-sm-4
+    .col-sm-2
+
+section.container.question
+  .row
+    .col-sm-3
+    .col-sm-6
+      h2 = t('.question_for_you')
+      p.question= t('.question')
+      p.invite == t('.question_invite', veezav_url: Figaro.env.veezav_url)
+    .col-sm-3

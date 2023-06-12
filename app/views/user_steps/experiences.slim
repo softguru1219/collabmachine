@@ -1,0 +1,87 @@
+.row.wrapper.wrapper-content.ibox-content
+  .col.ibox-content
+    h1 = t('users.step.exp_title')
+
+    .col-md-1.user-step-skill-icon
+      i.fa.fa-cogs
+    .alert.col-md-5
+      = t('users.step.skill_message')
+
+    = form_for @user, url: wizard_path, html: { multipart: true, role: 'form' } do |f|
+      .col-xs-12.col-md-6
+
+        .form-group
+          => f.label t('users.step.skill_list')
+          span.tooltip-button
+            button.btn.btn-xs.btn-warning.btn-outline.b-r-xl(
+                type="button"
+                data-toggle="tooltip"
+                data-placement="right"
+                title=""
+                data-original-title= t('users.step.skill_info')
+              )
+              i.fa.fa-question
+          br
+          = f.select :skill_list,
+            Tag.all.map(&:name),
+            {},
+            {multiple: true, class: " form-control mdb-select colorful-select dropdown-primary tags-mutliselect"}
+
+        .form-group
+          => f.label t('users.step.interest_list')
+          span.tooltip-button
+            button.btn.btn-xs.btn-warning.btn-outline.b-r-xl(
+                type="button"
+                data-toggle="tooltip"
+                data-placement="right"
+                title=""
+                data-original-title= t('users.step.interest_info')
+              )
+              i.fa.fa-question
+          br
+          = f.select :interest_list,
+            Tag.all.map(&:name),
+            {},
+            {multiple: true, class: " form-control mdb-select colorful-select dropdown-primary tags-mutliselect"}
+        .row
+          .col-md-12
+            = f.submit t('users.step.next'), class: "btn btn-primary btn-lg pull-right"
+            = link_to t('users.step.skip'), next_wizard_path, class: 'pull-right btn btn-lg btn-default', style: 'margin-right: 15px'
+
+javascript:
+
+  $(function() {
+    $('form').bind("keypress", function(e) {
+      if (e.keyCode == 13) {
+        e.preventDefault();
+        return false;
+      }
+    });
+
+    $.getJSON("/all_tags", function(all_tags){
+      $('.exp-skills, .exp-interests').tagsinput({
+        focusClass: 'my-focus-class',
+        typeahead: {
+          source: all_tags,
+          freeInput: false,
+          updater: function(item) {
+            return this.$element.val().replace(/[^,]*$/,'')+item+',';
+          },
+          matcher: function (item) {
+            var tquery = extractor(this.query);
+            if(!tquery) return false;
+            return ~item.toLowerCase().indexOf(tquery.toLowerCase())
+          },
+          highlighter: function (item) {
+            var query = extractor(this.query).replace(/[\-\[\]{}()*+?.,\\\^$|#\s]/g, '\\$&')
+            return item.replace(new RegExp('(' + query + ')', 'ig'), function ($1, match) {
+              return '<strong>' + match + '</strong>'
+            })
+          }
+        }
+      });
+
+      $(".bootstrap-tagsinput").addClass('form-control')
+    });
+
+  });

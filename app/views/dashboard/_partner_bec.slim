@@ -1,0 +1,61 @@
+.ibox
+  .ibox-content
+
+    a.icon-link data-target="#myModal" data-toggle="modal" type="button"
+      = image_tag 'bec-logo.png', width: "18%"
+
+    span.clearfix =< t('dashboard.index.invite').html_safe
+
+    br
+    a(
+      href= t('dashboard.index.website_url')
+      title= t('dashboard.index.website_url')
+      target="_blank"
+      )
+      i.fa.fa-globe
+    a(
+      data-target="#myModal"
+      data-toggle="modal"
+      type="button"
+      )  =< t('default.more_details')
+
+
+    #myModal.modal.inmodal aria-hidden="true" role="dialog" tabindex="-1"
+      .modal-dialog
+        .modal-content.animated.slideInDown
+          .modal-header
+            button.close data-dismiss="modal" type="button"
+              span aria-hidden="true"  &times;
+              span.sr-only = t('default.close')
+            = image_tag 'bec-logo.png', width: "25%"
+            h4.modal-title = t('dashboard.index.bec_title')
+            .font-bold
+
+              span.text-danger
+                i.fa.fa-phone
+                | 1-888-355-5548
+              span &nbsp;
+              a(
+                href= t('dashboard.index.website_url')
+                target="_blank"
+                )
+                i.fa.fa-globe
+                =< t('dashboard.index.website_url')
+
+          .modal-body.font-bold
+            p = t('dashboard.index.short_desc1')
+            p = t('dashboard.index.short_desc2')
+            p = t('dashboard.index.short_desc3')
+
+          .modal-body.white-bg
+            //to be translated instead of a split partials
+            = render partial: "dashboard/partner_bec_#{I18n.locale}_body"
+
+          .modal-footer
+            a.btn.btn-success.btn-outline(
+              href="https://le-bec.org/"
+              target="_blank"
+              ) = t('dashboard.index.visit_website')
+            button.btn.btn-primary.btn-outline(
+              data-dismiss="modal"
+              type="button") = t('default.close').upf

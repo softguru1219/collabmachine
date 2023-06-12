@@ -1,0 +1,78 @@
+en:
+  users:
+    show:
+      your_products: "Your Products"
+      summary: Summary
+      projects: Projects & Missions
+      finances: Finances
+      rules_and_regs: Rules & Regs
+      taxes_title: Taxes Management
+      add_tax: Add a tax
+      no_tax: No taxes added yet !
+      no_financial_info: No information added yet !
+      financial_infos_title: Financial Info
+      financial_infos_desc: You can add the information that you can find on your cheques, this will make it easy to pay you.
+      add_infos: Add financial info
+      institution: Institution
+      transit: Transit
+      account: Account
+      email: Email
+      phone: Phone
+      blitz_role: Blitz coaching roles
+      change_password: Change your password
+      create_new_project: Create new project
+      edit_profile: Edit profile
+      about: About
+      interested_in: Interested in
+      skills: Skills
+      since: Since
+      details: Details
+      profile_text: Please update your profile »
+      interest_text: This is the list of skills I want to promote
+      skills_text: Stuff I can do
+      communities: Communities
+      specific_expertise: Specific Expertise
+      company_name: Company Name
+      location: Location
+      trousse_participant: "Mastermind - Point de bascule©: Participant Kit"
+      set_as_member: Set As Member
+      meta_attrs_visible_to_all: Add Meta Attributes visible to all
+      meta_attrs_visible_to_admins: Add Meta Attributes visible to administrators
+      languages: Languages
+      invitation_accepted_at: Invitation accepted at
+      terms_accepted: Terms accepted
+      user_id: User id
+      phone: Phone
+      since: Since
+      blitz_roles: Blitz Roles
+      access_level: Access_level
+      updated_at: Updated_at
+      freemium: freemium
+      github_url: Github url
+      linkedin_url: Linkedin url
+      web_site_url: Web site url
+      interest_list: Interest list
+      editing_employee: Editing an employee
+      poster_image: Poster image
+      enter_language: Enter a language
+      enter_specialties: Enter a specialties
+      table:
+        attribute: Attribute
+        value: Value
+        created: Created
+        updated: Updated
+    index:
+      filter:
+        name: First Name / Last Name / Username / Company / Email
+        tags: Interests or Skills
+        description: Description
+        type:
+          title: User Type
+          all: All
+          personal: Personal
+          company: Company
+        active:
+          title: User Active State
+          all: All
+          active: Active
+          inactive: Inactive

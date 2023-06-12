@@ -1,0 +1,39 @@
+.wrapper.wrapper-content
+  .row
+    .col-md-6
+      .ibox
+        .ibox-content
+          h1 = @product.title
+
+          dl.attribute_list
+            dt = t('g.price')
+            dd = @product.price
+
+            dt = t('g.user')
+            dd = link_to(name_or_handle(@product.user), user_path(@product.user))
+
+          - I18n.available_locales.each do |locale|
+
+            h1 = locale
+
+            dl.attribute_list
+
+              dt = t('g.description')
+              dd = @product.description(locale: locale)
+
+              dt = t('g.intended_audience')
+              dd = @product.intended_audience(locale: locale)
+
+              dt = t('g.value_proposition')
+              dd = @product.value_proposition(locale: locale)
+
+      .pull-right
+        = link_to t('g.all_products'),
+          admin_products_path,
+          class: 'btn btn-blue-outline margin-right-10',
+          role: 'button'
+
+        = link_to t('g.edit'),
+          edit_product_path(@product),
+          class: 'btn btn-blue-solid',
+          role: 'button'

@@ -1,0 +1,154 @@
+.row
+  .col-md-6
+
+    h3 Variables:
+
+    h5 Fournisseur de services (Partie A):
+    .form-group
+      p =< select_tag :service_provider,
+        options_for_select(User.all.collect {|p| [ user_caption_for_dropdown(p), p.id ]}, @service_provider || nil),
+        class: "mdb-select colorful-select dropdown-primary filter-select applicant-select gray-bg"
+
+    h5 Client (Partie B):
+    .form-group
+      p =< select_tag :customer,
+        options_for_select(User.all.collect {|p| [ user_caption_for_dropdown(p), p.id ]}, @customer || nil),
+        class: "mdb-select colorful-select dropdown-primary filter-select applicant-select gray-bg"
+
+    h3 Overrides
+    textarea#sow_variables.full-width(rows=10) = @base_vars.to_json
+
+    a#refresh_sow.btn.btn-primary Refresh output
+
+
+    h3 Template markup
+    .field-group
+      textarea#template.full-width style="min-height: 500px;"
+        / markdown:
+        |
+          # ENTENTE DE SERVICES
+          ## SERVICES DE CONSEIL ET DÉVELOPPEMENT DE LOGICIELS
+
+
+          ## DATE:
+          {{contract_date}}
+
+          ## PARTIES:
+
+          |  |  |
+          | --- | --- |
+          | **{{service_provider_identity}}** |  |
+          | Lieu d'affaires: | {{service_provider_address}} |
+          | Adresse pour les avis:            | {{service_provider_address_for_notice}} |
+          | Attention:                        | {{service_provider_attention_to}} |
+          | Courriel:                         | {{service_provider_email}} |
+
+          (Ci-après, le "**Fournisseur de services**")
+
+          |  |  |
+          | --- | --- |
+          | **{{customer_identity}}** | |
+          | Lieu d'affaires: | {{customer_address}} |
+          | Adresse pour les avis:            | {{customer_address_for_notice}} |
+          | Attention:                        | {{customer_attention_to}} |
+          | Courrel:                          | {{customer_email}} |
+
+          (Ci-après, le "**Client**")
+
+
+          ## Considérations:
+          1. Le **Fournisseur de services** est une entreprise qui fournit des services de conseil et de développement de logiciels ainsi que des services connexes.
+          2. Le **Client** souhaite engager le **Fournisseur de services** pour fournir les services de conseil et de développement de logiciels et les services connexes décrits dans le présent document et, de temps en temps, dans des déclarations de travail exécutées séparément.
+          3.Le **Fournisseur de services** est disposé à fournir de tels services au **Client**, selon les modalités et conditions énoncées dans le présent accord.
+          4. Le présent accord comprend la présente page de couverture, l'annexe A - Conditions générales, la déclaration de travail initiale figurant à l'annexe B et toutes les autres déclarations de travail émises en vertu du présent accord, qui constituent l'intégralité de l'accord entre les parties concernant leur objet.
+
+
+          Chacun, **Client** et **Fournisseur de services** a lu, compris et accepté le présent accord et déclare et garantit que cet accord a été dûment signé et livré par cette partie et qu'il crée des obligations contraignantes et exécutoires pour cette partie.
+
+          **EN FOI DE QUOI** les parties ont signé le présent accord à la date indiquée en premier lieu ci-dessus.
+
+
+          ## Signatures:
+
+
+          | | |
+          | ------------------------------ | -------------------------------------- |
+          | | |
+          | | |
+          | Par: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | Par: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |
+          | _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _     | _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _  |
+          | {{service_provider_identity}} | {{customer_identity}} |
+          | Nom:  {{service_provider_responsible_name}}     | Nom:        {{customer_responsible_name}}  |
+          | Titre: {{service_provider_responsible_title}}    | Titre:     {{customer_responsible_title}}     |
+
+
+          ## ÉNONCÉ DE TRAVAIL INITIAL
+
+          Le présent document est l'énoncé de travail émis en vertu de l'accord-cadre de services pour les services de consultation et de développement de logiciels entre {{customer_identity}} ("**Client**") et {{service_provider_identity}} (le "**Fournisseur de services**"). Les termes en majuscules utilisés ici ont la signification qui leur est donnée dans l'Entente de services.
+
+
+          ## Étendue du travail (les services)
+
+          Projet de 4 mois - 5 étudiants disponibles - 18h de travail par semaine (8h en groupe + 10h seul)
+
+          Déjà disponible:
+          - maquette adobe XD, code python type PoC sous format jupyter notebook, document technique sur vision logiciel / fonctions voulus et souhaité, etc
+
+          Objectif projet :
+
+
+          | Phase | Détails |
+          | -- | -- |
+          | V0 | plateforme type Drive ++ permettant la réception et l'envoi des fichier entre Drone Des Champs et ses client, la création de projet, l'affichage de géotiff de très grande taille (jusqu’à 6go) en superposition sur Google Maps |
+          | V1 | V0 + intégration du code existant en python pour détection (avec modèle pré-entraîné) sur image géotiff |
+          | V2 | V1 + module de création de données d'annotations image, module d’entraînement de modèle de détection |
+          | V3 | V2 + intégration de plusieurs architecture IA pour détection d'objet |
+
+
+
+          ## Étendue du travail: durée, étapes, calendrier
+
+          Chaque partie peut mettre fin à cet Énoncé de travail à tout moment en donnant un préavis de 30 jours à l'autre partie et l'énoncé de travail prendra fin 30 jours après avoir donné ce préavis.
+
+          Frais:
+
+          Pour info, sur projet / nous avions envisagé 50h sur 4 mois.
+
+
+
+          | Paiement | Type de paiement | Montant |
+          |-----|-----|-----|
+          | Dépôt initial   | Dans les 5 jours suivant le début du projet   | CAD 1562,50 + tx   |
+          | Montant restant   |  Dans les 30 jours suivant l’émission de la facture Facture émise mensuellement   |  CAD 4 687,50 + tx   |
+          |     |     |     |
+
+
+          Les frais payables au fournisseur de services pour les services seront sur une base "temps et matériel", et payables sur une base horaire au taux de 125 $/h + tx.
+
+
+
+
+          ## Gestionnaires de contrats
+
+
+          |Pour le Fournisseur de services: | Pour le Client: |
+          | -- | -- |
+          | Nom:      {{service_provider_manager_name}}        | Nom:     {{customer_manager_name}} |
+          | Courriel:      {{service_provider_manager_email}}  | Courriel:     {{customer_manager_email}} |
+          | Téléphone:     {{service_provider_manager_phone}}  | Téléphone: {{customer_manager_phone}} |
+
+
+
+
+  .col-md-6
+    h3 Contract
+
+    header.text-center
+      = render 'layouts/collab_machine_logo', use_num: 6, klasses: 'img-lg block center-block'
+      small
+        span 4258 St-Hubert, Montréal, Qc, H2J 2W7 - 514-237-1731
+        br
+        span info@collabmachine.com
+    hr
+
+    #sow_output

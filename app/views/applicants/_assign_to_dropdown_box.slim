@@ -1,0 +1,6 @@
+h4 #{t('applicant.assign_to')}:
+p =< select_tag :user_id,
+  options_for_select(User.all.collect {|p| [ user_caption_for_dropdown(p), p.id ]}, @mission.assignee_id || false),
+  onchange: "window.admin_set_applicant({mission_id: #{@mission.id}, user_id: this.value})",
+  prompt: t('applicant.assigne_prompt'),
+  class: "mdb-select colorful-select dropdown-primary filter-select applicant-select gray-bg"

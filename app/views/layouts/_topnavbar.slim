@@ -1,0 +1,85 @@
+/ Admin top menu
+
+.row.navbar-wrapper.white-bg.userspace
+  nav.navbar.navbar-fixed-top role="navigation"
+    .container
+
+      - if current_user
+        .navbar-header
+          button.navbar-toggle.collapsed aria-controls="navbar" aria-expanded="false" data-target="#navbar" data-toggle="collapse" type="button"
+            i.fa.fa-reorder
+          - target = current_user ? dashboard_path : root_path
+          = link_to target, class: 'item navbar-brand' do
+            = render 'layouts/collab_machine_logo', klasses: 'full-height'
+
+        #navbar.navbar-collapse.collapse.pull-right
+          ul.nav.navbar-nav
+            - if blitz_coaching_active?
+              li class=("#{'active' if current_page?(blitz_coaching_path)}")
+                = link_to blitz_coaching_path(locale: I18n.locale), title: "Blitz Coaching" do
+                  i.fa.fa-dashboard
+                  span.nav-label Blitz Coaching
+            li class=("#{'active' if controller_is?('users') and action_is?('index')}")
+              = link_to users_path(locale: I18n.locale), title: "Members" do
+                i.fa.fa-users
+                span.nav-label= t('shared.top_nav.members')
+            - if enabled_section_missions?
+              li class=("#{'active' if controller_is?('missions')}")
+                = link_to missions_path(locale: I18n.locale), title: "Missions" do
+                  i.fa.fa-cubes
+                  span.nav-label= t('g.project_and_mission')
+
+            - if user_signed_in?
+              li class=("#{'active' if controller_is?('serviceplaces') and action_is?('show')}")
+                = link_to serviceplace_path(locale: I18n.locale), title: t('g.serviceplace') do
+                  i.fa.fa-dashboard
+                  span.nav-label= t('g.serviceplace')
+
+              = render "layouts/shopping_cart", title: t('g.shopping_cart'), front: false
+
+            - if policy(current_user).admin?
+              - if enabled_section_activity_feed?
+                li class=("#{'active' if controller_is?('messages') and action_is?('index')}")
+                  = link_to messages_path(locale: I18n.locale), title: "Memo/Messages" do
+                    i.fa.fa-heartbeat
+                    span.nav-label= t('shared.top_nav.activity_feed')
+            - if current_user.admin?
+              li
+                = link_to '#', class: 'dropdown-toggle', data: {toggle: 'dropdown'} do
+                  span= t('g.admin')
+                  span.caret
+                ul.dropdown-menu role="menu"
+                  li class=("#{'active' if controller_is?('tags') and action_is?('index')}")
+                    = link_to tags_path(locale: I18n.locale), title: t('g.tags') do
+                      i.fa.fa-tags
+                      span.nav-label=< t('g.tags')
+                  li
+                    = link_to dashboard_admin_missions_path(locale: I18n.locale), title: t('g.missions') do
+                      i.fa.fa-bullseye
+                      span.nav-label=< t('g.missions')
+                  li
+                    = link_to dashboard_admin_users_path(locale: I18n.locale), title: t('g.users') do
+                      i.fa.fa-users
+                      span.nav-label=< t('g.users')
+                  li
+                    = link_to admin_products_path(locale: I18n.locale), title: t('g.products') do
+                      i.fa.fa-th
+                      span.nav-label=< t('g.products')
+                  li
+                    = link_to admin_orders_path(locale: I18n.locale), title: t('g.orders') do
+                      i.fa.fa-dollar
+                      span.nav-label=< t('g.orders')
+
+            
+
+            = render "shared/user_dropdown_menu"
+
+
+          ul.nav.navbar-top-links.navbar-right
+            li
+              .logo-element
+                = link_to user_path(current_user), class: 'main-avatar', title: "Visit your profile" do
+                  = image_tag current_user.thumb_avatar_url, class: 'img-circle'
+
+      - else
+        = render 'shared/header'

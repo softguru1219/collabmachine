@@ -1,0 +1,55 @@
+#filterrific_results.row.clear
+  .ibox
+    .ibox-content
+      table.table.table-basic.table-striped.dataTable-user-list.users
+        thead
+          tr
+            th.hidden
+            th width="32"
+            th = t('users.name_info')
+            th width="80"
+            th.hidden Profile Type
+            th.hidden Tags
+
+        tbody
+          - users.each_with_index do | user, index |
+            - classlist = ['client-link item']
+            - classlist.push('faded') if !user.available
+            tr
+              td.hidden = index
+              td.client-avatar
+                .hidden = user.rating
+                = link_to user_path(user)
+                  = image_tag user.medium_avatar_url, class: 'img-circle'
+              td
+                h3 = link_to masked_name_or_handle(user), user_path(user), {class: classlist.join(' ')}
+
+                - if user.headline
+                  .headline = user.headline
+
+                h5 = user.company
+                = render "tags/tag_list",
+                  collection: user.interest_list,
+                  locals: { counter: 0, max: 200, over: false }
+                .hidden = user.email
+              td
+                - if policy(current_user).admin?
+                  p = user.rating
+                  .small.font-bold
+                    span
+                      i.fa.fa-circle class=(user.active? ? 'text-navy' : 'text-warning')
+                      - caption = user.active? ? 'active': 'inactive'
+                      |  #{caption}
+
+                .small.font-bold
+                  span
+                    i.fa.fa-circle class=(user.available? ? 'text-navy' : 'text-warning')
+                    - caption = user.available? ? 'available' : 'off'
+                    |  #{caption}
+
+              td.hidden = user.profile_type
+              td.hidden.client-status
+                .tags
+                  = render "tags/tag_list",
+                    collection: user.skill_list,
+                    locals: { counter: 0, max: 200, over: false }

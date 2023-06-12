@@ -1,0 +1,33 @@
+p#notice = notice
+
+p
+  strong Abr en:
+  = @business_category.abr_en
+
+p
+  strong Abr fr:
+  = @business_category.abr_fr
+
+p
+  strong Name fr:
+  = @business_category.name_fr
+
+p
+  strong Name en:
+  = @business_category.name_en
+
+p
+  strong Display en:
+  = @business_category.display_en
+
+p
+  strong Display fr:
+  = @business_category.display_fr
+
+p
+  strong Business sub domain:
+  = @business_category.business_sub_domain.name
+
+/=> link_to "Edit", edit_business_category_path(@business_category)
+'|
+/=< link_to "Back", business_categories_path

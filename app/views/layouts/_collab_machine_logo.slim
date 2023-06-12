@@ -1,0 +1,9 @@
+- klasses = klasses || ''
+
+/ by default color is black on white
+/ #5 wont show up, #6 will show up most of the time
+- num = use_num ||= [2,3,4,6,6,6,7,8,9].shuffle[0]
+
+= image_tag "logo/black/Collab-Machine-logo-#{num}.png",
+    class: klasses,
+    title: t('company_name')

@@ -1,0 +1,40 @@
+.container.wiphomepage
+  .row
+    .col-md-12
+      = form_for WipResult.new, :url => {:action => "send_results"}, :html => { :class => 'ui form'} do |f|
+        = f.text_field :specialty_id, value: @specialty.id, class: 'd-none'
+        table.mt-4
+          tbody
+            tr.text-center
+              td.solid-grid
+                = image_tag 'icons/customer-management.png', width: "60%", alt: ''
+              td.solid-grid.grid-60.thanks-header-title
+                = image_tag "logo/black/Collab-Machine-logo-2.png", width: "40%"
+                .mt-2 
+                  b = t('hello.wiphomepage.received_your_request').capitalize
+            tr
+              td.solid-grid
+                = t('hello.wiphomepage.specialty_referenct_number')
+                .mt-2 = t('shared.domain').capitalize
+                .mt-2 = t('shared.business_category').capitalize
+                .mt-2 = t('shared.specialty_title').capitalize
+                .mt-2 = t('hello.wiphomepage.languages_of_communication')
+              td.solid-grid.grid-60
+                = @specialty.id
+                .mt-2 = @specialty.business_sub_domain.name
+                .mt-2 = @specialty.business_category.name
+                .mt-2 = @specialty.title
+                .mt-2
+                  - @specialty.user.spoken_languages.each do |sl|
+                    = "#{t("locales.#{sl.language}")}, "
+        .mt-5.thanks-desc
+          = t("hello.wiphomepage.one_of_our_adviors")
+
+          .mt-4
+            = t("hello.wiphomepage.for_more_information_on_resource")
+            a.pl-1.form-click href="javascript:void(0)" = "#{t("hello.wiphomepage.click_here")}."
+
+          .mt-4
+            = "#{t("hello.wiphomepage.thanks_for_trusting")} #{t("shared.at")}"
+            a.pl-1.form-click href="http://collabmachine.com" = "CollabMachine.com."
+      

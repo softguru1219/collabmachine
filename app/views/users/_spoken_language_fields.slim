@@ -1,0 +1,10 @@
+tr.item-row
+  td
+    .form-group
+      = f.select :language, APP_LOCALES, {include_blank: false }, {class: "form-control"}
+  td
+    .form-group
+      = f.select :language_level, APP_LOCALE_LEVELS, {include_blank: false }, {class: "form-control"}
+    .text-right
+      .btn-group
+        = link_to_remove_fields t('g.remove').capitalize, f

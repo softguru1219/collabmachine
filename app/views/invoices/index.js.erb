@@ -1,0 +1,4 @@
+<% js = escape_javascript(
+  render('table', icreated_invoices: @created_invoices, customer_invoices: @customer_invoices)
+) %>
+$("#filterrific_results").html("<%= js %>");

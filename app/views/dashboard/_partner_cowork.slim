@@ -1,0 +1,43 @@
+.ibox
+  .ibox-content
+
+    a data-target="#myModalCowork" data-toggle="modal" type="button"
+      = image_tag "dashboard/cowork-collab.jpg", class: 'full-width m-b'
+
+    br
+    a(
+      href= t('dashboard.index.cowork.website_url')
+      title= t('dashboard.index.cowork.website_url')
+      target="_blank"
+      )
+      i.fa.fa-globe
+    a(
+      data-target="#myModalCowork"
+      data-toggle="modal"
+      type="button"
+      )  =< t('default.more_details')
+
+
+    #myModalCowork.modal.inmodal aria-hidden="true" role="dialog" tabindex="-1"
+      .modal-dialog
+        .modal-content.animated.slideInDown
+          .modal-header.black-bg
+            button.close data-dismiss="modal" type="button"
+              span aria-hidden="true"  &times;
+              span.sr-only = t('default.close')
+
+
+            h2.modal-title.text-white = t('dashboard.index.cowork.modal_title')
+
+          .modal-body.white-bg
+            //to be translated instead of a split partials
+            = render partial: "dashboard/partner_cowork_#{I18n.locale}_body"
+
+          .modal-footer
+            a.btn.btn-success.btn-outline(
+              href= t('dashboard.index.cowork.website_url')
+              target="_blank"
+              ) = t('dashboard.index.visit_website')
+            button.btn.btn-primary.btn-outline(
+              data-dismiss="modal"
+              type="button") = t('default.close').upf

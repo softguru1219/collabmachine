@@ -1,0 +1,39 @@
+.container.estimate
+  .row
+    .col-md-8.col-md-offset-2
+      .ibox
+        .ibox-content
+
+          .navy-line
+          h1.text-center = t('estimate.main_title')
+
+          .row.text-center.instructions
+            - t('estimate.instructions').each do |item|
+              .col-md-4
+                i.fa class=( item[:icon] )
+                .content
+                  h4 = item[:title]
+                  .description = item[:description]
+
+
+          = form_for @estimate, :html => { :class => 'ui form'} do |f|
+            .fields
+              h2.text-center = t('estimate.form.invite')
+
+              = render 'shared/error_messages', record: @estimate
+              = render 'shared/notices_banner'
+
+              = f.hidden_field :for
+
+              .form-group
+                = f.text_field :email, placeholder: t('estimate.form.email_placeholder'), class: 'form-control'
+              .form-group
+                = f.text_field :phone, placeholder: t('estimate.form.phone_placeholder'), class: 'form-control'
+              .form-group
+                = f.text_field :title, placeholder: t('estimate.form.title_placeholder'), class: 'form-control'
+              .form-group
+                = f.text_area :description, placeholder: t('estimate.form.description_placeholder'), row: 20, class: 'form-control'
+              .form-group.text-right
+                = recaptcha_tags
+              .form-group.text-center
+                = f.submit t('estimate.form.send'), class: 'btn btn-primary'

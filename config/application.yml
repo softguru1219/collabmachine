@@ -1,0 +1,80 @@
+# Changing content of this file requires a server restart
+# in order to be considered.
+
+# to use on other machines/devs too
+stripe_api_key: rk_test_ETl7NfAgiPmQjqZoE4tQ0tr2
+stripe_secret_key: sk_test_qUOfWwQUAGiM3d8KcxQkN0sn
+stripe_publishable_key: pk_test_1Tyqf5oZWvUpg5j0n9Ez73YE
+stripe_connect_client_id: ca_CnTE0MieFf0Z58flOphfhfK7gZP4XmEe
+
+streak_api_key: c2d71ca297bb431ebdef038d8bf638e1
+
+linkedin_app_id: '777vtjt7so79tq'
+linkedin_app_secret: 'EdeC8q8GVdKCxXCk'
+
+slack_invite_url: https://join.slack.com/t/collabmachine/shared_invite/enQtMjk4NTk1NTA3Nzk0LWQ0MzI5ZTVjMzRiM2FjNjA4OTA3YzRlYmQ2MGQ5NDg5OTNkMzY1MmNhNjZjYTNlYzg0MTcwOGQzMmM2Mjc5OTM
+SLACK_API_TOKEN: xoxp-15156829334-15156829350-249520324900-25f1372f7a3e3508c09b9dd5c516fa11
+
+veezav_url: "https://www.veeza-v.com/html/indexSylvain.php?Country=Canada&State=Québec&City=Montréal&Name=CollabMachine&LanguageDef=FR&"
+
+next_blitz_datetime: "2022-10-06 08:30:00"
+
+
+# User specific:
+gmail_domain: gmail.com
+gmail_username: arnouff@gmail.com
+gmail_password: __boboche
+
+default_url_options_host: localhost
+default_url_options_port: "3000"
+
+development:
+  default_url_options_host: localhost
+  default_url_options_port: "3000"
+  blitz_coaching_active: "true"
+  section_activity_feed: "false"
+  section_projects: "false"
+  section_missions: "true"
+  section_user_messages: "true"
+  RECAPTCHA_SITE_KEY: 6LeoC8QUAAAAAC9QHj_opxHlFvkMPLyUjIfvgOyt
+  RECAPTCHA_SECRET_KEY: 6LeoC8QUAAAAAOrIf4M5Go9buM1M-trBP17d2BKS
+  contactsplus_client_id: RGJPRvR6Y14dZoHj014lbxwyCyDW
+  contactsplus_client_secret: D8Aqb0EPitrB7rrCFfW9hqeN6F9j
+  contactsplus_redirect_uri: http://localhost:3000/dashboard
+  gcs_type: "service_account"
+  gcs_project_id: "collabwebsite"
+  gcs_private_key_id: "098eb15c566cebe15c1e425e7633643c63fc1bc4"
+  gcs_private_key: "-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQC1/kbHJub7hLpX\nueHmyojMDSVV8HbcjRwdio4kgLzVJPRQE3TAFmcD2pFoBPSgFNOsgj5T3GI8cBXo\nzOKj1nT7rZ69N4TU7QvyTCaysEG3z6yRs1R+tSYQVT0SnzmZ2XWk4A3zPEdHcKWh\nMP+/tIoPKkpsWYP/66SeR24iq0RumaqdpAR4+PtkcubmmE7/SLA/iSETiuIQAfj2\nMWaXUswlAnzCtd0W5qPiVi+7hnPzfG/yUOXy2JICCdydCbgvdjeSeIwKCbw4QZTl\noX4wI6cXK15pbopbzaBT4nLU62BC+nPGXkSu1aHdfIMkCqTIhdvkPK8rjcQ+vTuf\nZpzS+petAgMBAAECggEAAK50sOkK+uhPcU4e4zyjd8Q7+ImD8NH1+ndA3YkAtkiS\nH1SwD3toXPwA/DWo4u/AogvzICF5KN5YCIjzIId+1TMw5Hnitp0G3bo+3Qw97Ih3\n9ONXYbYBh88gUfrO/ImMh7yftUq8Ghyb1ApJ0BtR1A+PklY0rsRmzhlKlYAYGJKV\n6LD2O8mnJhcFEqCuaKJD1Gru35jlfh4nGNoFw/GFUQw5NZhCwjtq+qW+eP0D6GHq\nKZJt1YQfGzqPMtB1EaFG1WW9sXcAarBRMCLwcwtA+96GH9SawttS82kSUrJCT726\nIJ8Ow69/ioi8RpT8yxt6Wr4wW/ym00iDKR4p3FTrqwKBgQDvsJsFUKwfBjz3ABcA\njLVQn9VUoFAX57fFaiuMr1JSUJSsBCaMX88uHJRzaF+QOJfKTR8sGeB0xVywvF4Y\njsJlMyBy0JX0RnedVqwVm4BcRDdzOvQNMzgGcRPSNy56IZwA7+RF53EnXD4XLECs\nMc/0o1nhVEfuyCbuTfQEV4OhtwKBgQDCYJjPV4D9bQhChozLijHVqvlbPsnjxydd\nftAqcpoiD0AG250Rd86sdXtUkYE6OMoGULDPTZNtmlh1jD9vHLGp9q7xX/t0bQwH\nbbOL5i5V++ZHu6S2m0dPv7BWYTSKxHPhhcVnhtVnATQFU7Hrw/X20APn1XVSKqEe\n8nm4hFxBuwKBgQCO40x27bG+SPy9DsunozpP1wjZCzzUE2olgPZ3RukfczQ+G7dT\nRaZ/yb/h0N3vXx12F2W257I8So/IOHMr1qcip0j3yUsrtXqHTG0H8Iyj9HLN+d4V\npGwIww5a6lSFsFWM5XXDCocVPNMzA0mGnadoIp1pS9IaEi3LMKOAlx88nwKBgQC7\nQA81fth2SrjwTWoJEmIbsg9xhTU8Rrh3axjiK3CsawCFGr9e+omQvcRHnbxd+CM2\nnjkWG2dw6IVbB/Z79ap5T3kMcihs6jfyWA3lMaNllbsrU2rDtyalfsZDEHVrUQFJ\nOnMG3m9qQVB56Ty3IRor4AxDI/FXbFW22GPGC0xMzQKBgASLpUgzAjDfQSWXBRrN\ngmcwdPKLP506UJpO1K57/lArFHrQgfyRGt1b37IKv9JCGdZ9TWF6GACd9U4aAlZ6\nAQBnNGFoxw0fgTnjkcgFnPZ/dIul08M21Lmweds4F299izo/iP60bK/gz8hCNxVA\netvNVzayIJhSyMXZaAAtdKpF\n-----END PRIVATE KEY-----\n"
+  gcs_client_email: "collab-app-server@collabwebsite.iam.gserviceaccount.com"
+  gcs_client_id: "106869650771283471197"
+  gcs_auth_uri: "https://accounts.google.com/o/oauth2/auth"
+  gcs_token_uri: "https://oauth2.googleapis.com/token"
+  gcs_auth_provider_x509_cert_url: "https://www.googleapis.com/oauth2/v1/certs"
+  gcs_client_x509_cert_url: "https://www.googleapis.com/robot/v1/metadata/x509/collab-app-server%40collabwebsite.iam.gserviceaccount.com"
+  gcs_project: "collabwebsite"
+  gcs_bucket: "collab-local-activestorage"
+
+# Voir les vraies valeurs en prod.
+# ce fichier est dans .gitignore
+beta:
+  default_url_options_host: beta.collabmachine.com
+  default_url_options_port: "80"
+  blitz_coaching_active: "false"
+  section_activity_feed: "false"
+  section_projects: "true"
+  section_missions: "true"
+  section_user_messages: "true"
+
+# Voir les vraies valeurs en prod.
+# ce fichier est dans .gitignore
+production:
+  default_url_options_host: collabmachine.com
+  default_url_options_port: "80"
+  blitz_coaching_active: "true"
+  section_activity_feed: "false"
+  section_projects: "false"
+  section_missions: "false"
+  section_user_messages: "false"
+  contactsplus_client_id: RGJPRvR6Y14dZoHj014lbxwyCyDW
+  contactsplus_client_secret: D8Aqb0EPitrB7rrCFfW9hqeN6F9j
+  contactsplus_redirect_uri: https://collabmachine.com/dashboard

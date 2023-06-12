@@ -1,0 +1,280 @@
+.row#page--users-show[data-vue-component="userShow" data-vue-data="#{{productId: @selected_product&.id, productLocale: I18n.locale}.to_json}"]
+  .col-md-4
+    .ibox
+      .ibox-content
+
+        - if user_signed_in?
+          .profile-image
+            = image_tag @user.medium_avatar_url,
+              class: 'img-circle circle-border m-b-md',
+              title: @user.masked_name(current_user)
+
+         
+          .profile-info
+            div
+              h2.no-margins= @user.masked_name(current_user)
+              h4 = @user.headline
+              - if policy(@user).admin_or_mine?
+                .badge class="#{@user.access_level}"
+                  = @user.access_level
+            - if policy(@user).admin?
+              p score: #{@user.rating}
+            - if @user.invited_by_id
+              p
+                small = t('users.invited_by')
+                =< avatar_link_to_user(@user.invited_by_id, {class: 'ui image mini-avatar right spaced'})
+                =< link_to_user(@user.invited_by_id)
+            .clear
+        - else
+          .profile-image
+            = image_tag @user.medium_avatar_url,
+              class: 'img-circle circle-border m-b-md',
+              title: @user.first_name
+
+          .profile-info
+            div
+              h2.no-margins= @user.first_name
+              h4 = @user.headline
+            -if user_signed_in? and policy(@user).admin?
+              p score: #{@user.rating}
+            - if @user.invited_by_id
+              p
+                small = t('users.invited_by')
+                br
+                =< avatar_link_to_user(@user.invited_by_id, {class: 'ui image mini-avatar right spaced'})
+                =< link_to_user(@user.invited_by_id)
+            .clear
+        
+        - if !@user.is_employees?
+          p.status
+            .small.font-bold
+              span
+                i.fa.fa-circle class=(@user.available? ? 'text-navy' : 'text-danger')
+                - caption = @user.available ? t('shared.online.available') : t('shared.online.unavailable')
+                |  #{caption}
+            .small.font-bold
+              span
+                i.fa.fa-circle class=(@user.online? ? 'text-navy' : 'text-danger')
+                - caption = @user.online? ? t('shared.online.user_online') : t('shared.online.user_offline')
+                |  #{caption}
+
+
+        .border-top.action-links
+          - if edit_permitted?(@user)
+            = link_to edit_user_path(@user),
+              class: 'block', title: "Edit profile" do
+              span = t('users.show.edit_profile')
+
+            = link_to edit_user_registration_path,
+              class: 'block', title: "Change password" do
+              span = t('users.show.change_password')
+
+          / - if user_signed_in? and policy(@user).participant_mastermind_automne_2021?
+          /   = link_to trousse_participant_automne_2021_path,
+          /     class: 'block', title: "Trousse du participant" do
+          /     span = t('users.show.trousse_participant')
+          - if user_signed_in? and (current_user.admin? || policy(User).blitz_admin?)
+            - is_participating = @user.admin_tag_list.include?(next_blitz_tag) ? 'users.show.toggle_blitz_button_caption_is_participant' : 'users.show.toggle_blitz_button_caption_not_participant'
+
+            / = link_to t(is_participating),
+            /   "javascript:window.toggle_participation_next_blitz({user_id: #{@user.id}, blitz_role: 'entrepreneur'});",
+            /   class: 'action_toggle_participation_next_blitz',
+            /   title: "Blitz coaching",
+            /   data: { confirm: t('users.show.toggle_blitz_confirm_message') }
+            label Role au prochain blitz
+            - all_roles = User::BLITZ_ROLES.sort
+            - if policy(@user).admin?
+              - all_roles += User::BLITZ_ROLES_CONFIRMED
+            - @user.blitz_roles = [] unless @user.in_next_blitz?
+            = select(:blitz_roles, :blitz_roles,
+              options_for_select(all_roles.sort!, @user.blitz_roles),
+              { },
+              { multiple: true, class: "mdb-select colorful-select dropdown-primary filter-select", onchange: "javascript:window.set_participation_next_blitz({user_id: #{@user.id}, blitz_roles: getSelectValues(this) });" })
+        .clear
+
+    - if @products.any?
+      .ibox.products-sidebar
+        p.products-sidebar-header
+          - if user_signed_in?
+            = current_user == @user ? t('users.show.your_products') : t('g.products')
+        - @products.each do |product|
+          .sidebar-product[v-on:click="changeProduct(#{product.id})" :class="{active: productId == #{product.id} && tab === 'products'}"]
+            .triangle
+            .text
+              p.sidebar-product-category= product.categories.first&.title
+              h4.sidebar-product-title= product.title
+              p.sidebar-product-vendor= t('g.product_by_vendor', vendor: masked_name_or_handle(@user)) if user_signed_in?
+              p.sidebar-product-price= number_to_currency(product.price)
+        .clear
+
+  .col-md-8
+
+    .cm-tabs-container
+      .cm-tabs
+        .cm-tab[:class="{'active': tab === 'summary'}"]
+          a[v-on:click="changeTab('summary')"]= t('.summary')
+        - unless @user.has_company.present?
+          .cm-tab[:class="{'active': tab === 'products'}"]
+            a[v-on:click="changeTab('products')"]= t('g.products')
+        - if user_signed_in?
+          - if policy(@user).admin_or_mine?
+            - if enabled_section_missions?
+              .cm-tab[:class="{'active': tab === 'projects'}"]
+                a[v-on:click="changeTab('projects')"]= t('.projects')
+            - if policy(Invoice).create?
+              .cm-tab[:class="{'active': tab === 'finances'}"]
+                a[v-on:click="changeTab('finances')"]= t('.finances')
+              .cm-tab[:class="{'active': tab === 'rules_and_regs'}"]
+                a[v-on:click="changeTab('rules_and_regs')"]= t('.rules_and_regs')
+          - if policy(@user).admin?
+            .cm-tab[:class="{'active': tab === 'superadmin'}"]
+              a[v-on:click="changeTab('superadmin')"] Super Admin
+
+
+      .tab-content
+        = render 'users/tab_summary', user: @user
+        = render 'users/tab_products', products: @products, user: @user
+        - if user_signed_in? and policy(@user).admin_or_mine? and !@user.is_employees?
+          = render 'users/tab_projects', user: @user, user_level: @user_level, projects: @projects, projects_number: @projects_number, missions_number: @missions_number
+        - if user_signed_in? and policy(Invoice).create? and !@user.is_employees?
+          = render 'users/tab_finances', user: @user, taxes: @taxes, tax: @tax, infos: @infos, info: @info
+          = render 'users/tab_rules_and_regs'
+        - if user_signed_in? and policy(@user).admin? and !@user.is_employees?
+          = render 'users/tab_superadmin', superadmin_data: @superadmin_data, user: @user
+
+
+- if user_signed_in? and policy(User).admin? and !@user.is_employees?
+  .row#onboarding_message[data-vue-component="onboardingMessage" data-vue-data='#{@superadmin_data[:progress]}']
+    .col-md-12
+      .row
+        .col-md-12
+
+          h1 On boarding message
+          hr
+      .row
+        .col-md-6
+
+          h3 Chunks
+          .field-group
+            label A) la personne n’a pas de profil sur la plateforme
+
+            textarea#no_profile.full-width[ref="no_profile" rows="10"]
+              markdown:
+                Bienvenue [[firstname]]!
+
+                Afin de commencer à collaborer avec notre réseau, va sur la <a style="color:blue; text-decoration:underline" href="https://collabmachine.com">plateforme CollabMachine</a> pour créer un profil à ton image.
+
+                - Tu peux mettre des liens et en faire ton espace.
+                - Mettre une description complète
+                - Lister tes skills / intérêts
+                  - Les skills, c’est “tout ce que tu peux faire” en général.
+                  - Les intérêts, c’est ce que tu veux mettre de l’avant. Ce sur quoi tu voudrais mettre ton énergie.
+
+                  Si tu es intéressé à faire un appel pour en connaître davantage sur le fonctionnement de Collab Machine, nous pouvons nous fixer un <a style="color:blue; text-decoration:underline" href="https://calendly.com/collabmachine/30min">rendez-vous</a> pour un thé/café virtuel.
+
+          .field-group
+            label B) Si la personne a un profil mais il est peu rempli  (1-2)
+            textarea#light_profile.full-width[ref="light_profile" rows="10"]
+              markdown:
+                Bonjour [[firstname]]!
+
+                Pour être connecté comme jamais, va sur la <a style="color:blue; text-decoration:underline" href="https://collabmachine.com">plateforme CollabMachine</a> pour ajouter de l’information sur toi dans ton profil.
+
+                - Tu peux mettre des liens et en faire ton espace.
+                - Mettre une description complète
+                - Lister tes skills / intérêts
+                  - Les skills, c’est “tout ce que tu peux faire” en général.
+                  - Les intérêts, c’est ce que tu veux mettre de l’avant. Ce sur quoi tu voudrais mettre ton énergie.
+
+          .field-group
+            label C) Si le profil est bien rempli (> 3)
+            textarea#heavy_profile.full-width[ref="heavy_profile" rows="10"]
+              markdown:
+                Bonjour [[firstname]]!
+
+                Merci d’avoir rempli ton profil sur la <a style="color:blue; text-decoration:underline" href="https://collabmachine.com">plateforme CollabMachine</a>. Plus il contient d’information, plus il va ressortir par rapport aux autres lorsque des candidatures à des projets seront déposées. Faut pas hésiter à le mettre à jour souvent.
+
+          .field-group
+            label Si la personne n’a pas rejoint le slack
+            p =< link_to "ce lien", Figaro.env.slack_invite_url
+            textarea#slack.full-width[ref="slack" rows="10"]
+              - link = link_to "ce lien", Figaro.env.slack_invite_url
+              markdown:
+                ##### Communications:
+
+                - Pour rejoindre la communauté sur slack, tu peux peux trouver un bouton sur le dashboard qui dit "Communiquez sur slack" ou tu peux utiliser #{link}
+          .field-group
+            label Si la personne est dans slack
+            p =< link_to "ce lien", Figaro.env.slack_invite_url
+            textarea#slack_on.full-width[ref="slack_on" rows="10"]
+              - link = link_to "slack", Figaro.env.slack_invite_url, style: "color: blue; text-decoration:underline"
+              markdown:
+                ##### Communications:
+
+                - On est sur #{link}, jette un oeil au channel #random et #events pour participer aux activités.
+
+          .field-group
+            label Si elle n’a pas liké la page sur linkedin
+            / Réseaux sociaux
+            textarea#linkedin_page.full-width[ref="linkedin_page" rows="10"]
+              markdown:
+                - Rejoindre la <a style="color:blue; text-decoration:underline" href="https://www.linkedin.com/company/collab-machine/">page LinkedIn</a>
+
+          .field-group
+            label Si elle ne fait pas partie du groupe linkedin
+            / Réseaux sociaux
+            textarea#linkedin_group.full-width[ref="linkedin_group" rows="10"]
+              markdown:
+                - Rejoindre le <a style="color:blue; text-decoration:underline" href="https://www.linkedin.com/groups/8712490/">groupe LinkedIn</a>
+
+          .field-group
+            label Si elle ne fait pas partie du groupe facebook
+            textarea#facebook_page.full-width[ref="facebook_page" rows="10"]
+              markdown:
+                - Rejoindre la <a style="color:blue; text-decoration:underline" href="https://www.facebook.com/Collab-Machine-332570973787419/">page Facebook</a>
+
+          .field-group
+            label Si la personne n’est pas abonnée à la newsletter
+            textarea#newsletter.full-width[ref="newsletter" rows="10"]
+              markdown:
+                - Utilise ce lien pour t’inscrire à la <a style="color:blue; text-decoration:underline" href="https://collabmachine.us14.list-manage.com/subscribe?u=9bddd90028237e9572092c289&id=8c3288b060">newsletter</a>
+
+          .field-group
+            label Pour tout le monde :
+            <p>"general_info": 1 << to show this chunk</p>
+            textarea#general_info.full-width[ref="general_info" rows="10"]
+              markdown:
+                ##### Créer un projet:
+                - Tu peux <a style="color:blue; text-decoration:underline" href="https://collabmachine.com/fr/projects/new">créer un projet en tout temps</a>.
+
+                ##### Participer à un projet:
+                - Pour participer à un projet, il te faut rechercher les projets “<a style="color:blue; text-decoration:underline" href="https://collabmachine.com/fr/missions?filterrific[by_state]=open_for_candidates">ouverts aux candidatures</a>” et appliquer pour montrer ton intérêt.
+
+                ##### Invitations et références:
+                - Tu peux <a style="color:blue; text-decoration:underline" href="https://collabmachine.com/fr/users/invitation/new">inviter les gens</a> qui seraient intéressés à faire partie de l’aventure.
+
+                Pour toutes questions ou commentaires, vous pouvez écrire en tout temps à <a style="color:blue; text-decoration:underline" href="mailto:support@collabmachine.com">support@collabmachine.com</a>
+
+                À très bientôt!
+
+              / - Lire le document sur le fonctionnement du référencement.
+        .col-md-6
+          h3 User progress (object)
+
+          textarea#onboarding_progress.full-width[rows="10" ref="onboarding_progress"] = @superadmin_data[:progress]
+
+          a.btn.btn-primary.pull-right[v-on:click="refreshMessage"] Refresh message
+
+          h3 Onboarding Message
+          <p>This is the messsage we want to send.</p>
+
+          hr
+          #msg_email[v-bind:html="email"] {{this.email}}
+
+          hr
+          #msg_title CollabMachine - Informations pour toi!
+          hr
+          #msg_output[ref="msg_output" v-html="messageOutput"] {{this.messageOutput}}
+
+
+          a.btn.btn-primary.pull-right[v-on:click="sendOnboardingMessage"] Send message

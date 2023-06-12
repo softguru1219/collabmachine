@@ -1,0 +1,65 @@
+.container.work
+  .row
+    .col-md-12
+
+      section
+        .container
+          .row
+            .col-lg-6
+              h1.description
+                br
+                = t('hello.description.first').html_safe
+              h1.description
+                br
+                br
+                = t('hello.description.second').html_safe
+
+            .col-lg-6
+              .header-back style="background: url(#{image_path('landing/good-vibes.png')}) 50% no-repeat"
+
+      section
+        .container
+          .row
+            .col-lg-6
+              h1 = t 'hello.work.how.title'
+              ul.offer
+                li
+                  =< link_to t('hello.work.register'), new_user_registration_path, class: 'font-bold', role: 'button'
+                li = t 'hello.work.get_invite'
+                li = t 'hello.work.fill_profile'
+                li = t 'hello.work.execute'
+                li = t 'hello.work.loop'
+            .col-lg-6.five-pct
+              - t('hello.work.quotes').shuffle[0..1].each do |quote|
+                .vertical-timeline-block
+                  .vertical-timeline-icon.default-bg
+                      i.fa.fa-quote-left
+
+                  .vertical-timeline-content
+                    p.italic = quote[:content]
+                    p − #{quote[:author]}
+
+      section
+        .container
+          .row
+            .col-lg-6
+              h1 = t 'hello.work.benefits.title'
+              ul.offer.talent.square
+                - t('hello.work.benefits')[:rows].each do |row|
+                  li = row
+
+            .col-lg-6
+
+      section
+        .container
+          .row
+            .col-lg-12.text-center.well.final
+              h1 = t 'hello.work.next.title'
+              p = t 'hello.work.next.sub'
+              p
+                br
+                = link_to t('hello.work.next.register_here'),
+                  new_user_registration_path,
+                  class: 'btn btn-primary',
+                  role: 'button'
+

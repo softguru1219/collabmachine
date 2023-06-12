@@ -1,0 +1,94 @@
+.row.wrapper
+  .col-xs-12
+    .header-controls.btn-group.pull-right
+      / - if current_user.employees.present?
+      a.btn.btn-info.btn-outline data-target="#addNewEmployeeModal" data-toggle="modal" = t("users.registration.create_employee")
+    
+    .clear
+h1=< t('shared.top_nav.my_employees').capitalize
+.row
+  .col-md-12
+    #filterrific_results.row.clear
+      .ibox
+        .ibox-content
+          table.table.table-basic.table-striped.users
+            thead
+              tr.specialties-th
+                th.hidden
+                th width="32"
+                th = t('users.name')
+                th = t('users.status')
+                th = t("shared.languages").capitalize
+                th = t("specialty.specialties").capitalize
+                th Type
+                th.hidden Tags
+            
+            tbody
+              - @users.each_with_index do | user, index |
+                - classlist = ['client-link item']
+                - classlist.push('faded') if !user.available
+                tr
+                  td.hidden = index
+                  td.client-avatar
+                    .hidden = user.rating
+                    = link_to user_path(user)
+                      = image_tag user.medium_avatar_url, class: 'img-circle'
+                  td
+                    h3 = link_to name_or_handle(user), user_path(user), {class: classlist.join(' ')}
+
+                    - if user.headline
+                      .headline = user.headline
+
+                    h5 = user.company
+                    = render "tags/tag_list",
+                      collection: user.interests.collect {|t| t.name},
+                      locals: { counter: 0, max: 12, over: false }
+                    .hidden = user.email if policy(user).see_personal_info?
+                  td
+                    - if policy(current_user).admin?
+                      / p = user.rating
+                    .small.font-bold
+                      span
+                        i.fa.fa-circle class=(user.active? ? 'text-navy' : 'text-warning')
+                        - caption = user.active? ? 'active': 'inactive'
+                        |  #{caption}
+
+                    .small.font-bold
+                      span
+                        i.fa.fa-circle class=(user.available? ? 'text-navy' : 'text-warning')
+                        - caption = user.available? ? 'available' : 'off'
+                        |  #{caption}
+                  td
+                    - if user.spoken_languages.present?
+                      - user.spoken_languages.each do |sl|
+                        = t("locales.#{sl.language}")
+                        br
+                    - else
+                      span.badge.badge-orange.badge-outline.op70
+                        = link_to t("users.show.enter_language"), edit_user_path(user), class: "hide-text-underline"
+                  td
+                    - if user.specialties.present?
+                      = render "tags/tag_list",
+                        collection: user.specialties.collect {|t| t.title},
+                        locals: { counter: 0, max: 12, over: false }
+                    - else
+                      span.badge.badge-orange.badge-outline.op70
+                        = link_to t("users.show.enter_specialties"), new_specialty_path, class: "hide-text-underline"
+
+                  td = translate_profile_type(user.profile_type)
+                  td.hidden.client-status
+                    .tags
+                      = render "tags/tag_list",
+                        collection: user.skills.collect {|t| t.name},
+                        locals: { counter: 0, max: 12, over: false }
+
+
+- if current_user.employees.present?
+  .row.wrapper
+    .col-xs-12
+      .header-controls.btn-group.pull-right
+        a.btn.btn-info.btn-outline data-target="#addNewEmployeeModal" data-toggle="modal" = t("users.registration.create_employee")
+
+      .clear
+
+= render "specialties/add_new_employee_modal"

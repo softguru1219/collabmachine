@@ -1,0 +1,24 @@
+h1 Listing business_domains
+
+table.table.table-striped
+  thead
+    tr
+      th Name fr
+      th Name en
+      th
+      th
+      th
+
+  tbody
+    - @business_domains.each do |business_domain|
+      tr
+        td = business_domain.name_fr
+        td = business_domain.name_en
+        td = link_to "Show", business_domain
+        td = link_to "Edit", edit_business_domain_path(business_domain)
+        td = link_to "Destroy", business_domain, data: {confirm: "Are you sure?"}, method: :delete
+
+br
+
+.actions.text-right
+  = link_to "New Business domain", new_business_domain_path, class: 'btn btn-warning'

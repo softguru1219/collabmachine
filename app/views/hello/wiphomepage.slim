@@ -1,0 +1,230 @@
+section.wip-main-background.hero
+  = image_tag 'wip_shape2.png', :class => 'wip_shape2', srcset: { "wip_shape2@2x.png": "2x" }
+  = image_tag 'wip_shape3.png', :class => 'wip_shape3', srcset: { "wip_shape3@2x.png": "2x" }
+  = image_tag 'icons/svgs/resume-amico_bg.svg',  class: 'resume-amico_bg', alt: ''
+  .container
+    .row.flex-wrap.d-flex.align-items-center
+      .col-md-7
+        .hello-title = t("hello.index.ecommerce_marking_title")
+        .hello-subtitle.mt-5 = t("hello.index.specialized_personal")
+        .hello-subtitle = t("hello.index.realization_of_projects")
+      .col-md-5
+        = image_tag 'icons/svgs/resume-amico_new.svg',  class: 'full-width', alt: ''
+
+section
+  .container
+    .mb-2.hello-subtitle.blue-color.text-center = "#{t("hello.index.only_have_specialties")} - #{Specialty.all.length} #{t("hello.index.offer_specialties")}"
+
+    .row.flex-wrap.d-flex.align-items-center
+      .col-md-2
+        = image_tag 'icons/svgs/computer-troubleshooting-amico.svg',  class: 'full-width', alt: ''
+      .col-md-10
+        h2.section-title = "#{@information_specialties.length} #{t("hello.index.specialties_information")}"
+    
+    .mt-3
+      - @information_categories.in_groups_of(4, false).each do |group|
+        .row.flex-wrap.mb-3.font-14
+          - group.each do |businessCategory|
+            - if businessCategory.specialties.present?
+              .col-md-3.mt-3
+                a.td-category-name.column-truncate href="/hello/wiphomepage/results/?section=categories&id=#{businessCategory.id}" = "#{businessCategory.name}"
+                - @category_specialties = businessCategory.specialties.order(:title)
+                - @category_specialties.each do |specialty|
+                  .column-truncate
+                    a href=show_results_path(specialty) data-placement="bottom" data-toggle="tooltip" title="#{sector_exp_years(specialty)}" = "#{specialty.title}"
+                    br
+
+.container
+  .row.flex-wrap
+    .col-md-12
+      .section-line
+
+section
+  .container
+    .row.flex-wrap.d-flex.align-items-center
+      .col-md-2
+        = image_tag 'icons/svgs/starting-a-business-project-amico.svg',  class: 'full-width', alt: ''
+      .col-md-10
+        h2.section-title = "#{@marketing_specialties.length} #{t("hello.index.specialties_marketing")}"
+    
+    .mt-3
+      - @marketing_categories.in_groups_of(4, false).each do |group|
+        .row.flex-wrap.mb-3.font-14
+          - group.each do |businessCategory|
+            - if businessCategory.specialties.present?
+              .col-md-3.mt-3
+                a.td-category-name.column-truncate href="/hello/wiphomepage/results/?section=categories&id=#{businessCategory.id}" = "#{businessCategory.name}"
+                - @category_specialties = businessCategory.specialties.order(:title)
+                - @category_specialties.each do |specialty|
+                  .column-truncate
+                    a href=show_results_path(specialty) data-placement="bottom" data-toggle="tooltip" title="#{sector_exp_years(specialty)}" = "#{specialty.title}"
+                    br
+
+.container
+  .row.flex-wrap
+    .col-md-12
+      .section-line
+
+section
+  .container
+    .row.flex-wrap.d-flex.align-items-center
+      .col-md-2
+        = image_tag 'icons/svgs/construction-costs-amico.svg',  class: 'full-width', alt: ''
+      .col-md-10
+        h2.section-title = "#{t("sectors.industry_sectors")} (#{@sector_specialties_count} #{t("specialty.specialties")})"
+    
+    .mt-3
+      - @sectors.in_groups_of(2, false).each do |group|
+        .row.flex-wrap.font-14
+          - group.each do |sector|
+            .col-md-6.mb-3
+              - if sector.name == "Extraction minière, exploitation en carrière, et extraction de pétrole et de gaz"
+                - sector.name = 'Mines, pétrole et gaz (extraction)'
+              - if SpecialtyLine.where(sector_id: sector.id).present?
+                a.td-sector-name href="/hello/wiphomepage/results/?section=sectors&id=#{sector.id}" data-placement="bottom" data-toggle="tooltip" = sector.name
+              - else
+                span.td-sector-name data-placement="bottom" data-toggle="tooltip" = sector.name
+
+.container
+  .row.flex-wrap
+    .col-md-12
+      .section-line
+
+
+section
+  .container
+    .row.flex-wrap.d-flex.align-items-center
+      .col-md-2
+        = image_tag 'icons/svgs/android-amico.svg',  class: 'full-width', alt: ''
+      .col-md-10
+        h2.section-title = "#{t("shared.technologies_section_title")} (#{@technologies_specialties_count} #{t("specialty.specialties")})"
+    
+    .mt-3
+      - @technologies.in_groups_of(4, false).each do |group|
+        .row.flex-wrap.font-14
+          - group.each do |skill|
+            .col-md-3.mb-3
+              span.td-sector-name
+                - if @python_count > 0
+                  = "#{skill} (#{@python_count})"
+                - else
+                  = skill
+
+    .mt-3.font-14 = t("hello.index.specialties_search_text")
+
+.container
+  .row.flex-wrap
+    .col-md-12
+      .section-line
+
+section.relative-position
+  .footer-shape
+    = image_tag 'icons/svgs/wip_footer_shape1.svg', class: 'wip_footer_shape footer_shape_1'
+    = image_tag 'icons/svgs/wip_footer_shape2.svg', class: 'wip_footer_shape footer_shape_2'
+    = image_tag 'icons/svgs/wip_footer_shape3.svg', class: 'wip_footer_shape footer_shape_3'
+    = image_tag 'icons/svgs/wip_footer_shape4.svg', class: 'wip_footer_shape footer_shape_4'
+    = image_tag 'icons/svgs/wip_footer_shape5.svg', class: 'wip_footer_shape footer_shape_5'
+    = image_tag 'icons/svgs/wip_footer_shape6.svg', class: 'wip_footer_shape footer_shape_6'
+
+  .container
+    .row
+      .col-md-12
+        .row.flex-wrap
+
+          .col-md-6
+            .row.flex-wrap.d-flex.align-items-center
+              .col-md-5.d-none
+                = image_tag 'icons/svgs/team-spirit-amico.svg',  class: 'full-width', alt: ''
+              .col-md-7
+                .section-title = t("hello.wiphomepage.mission_vision")
+            .mt-3.font-14 = t("hello.wiphomepage.mission_description_1").html_safe
+            .mt-3.font-14 = t("hello.wiphomepage.mission_description_2").html_safe
+            .mt-3.font-14 = t("hello.wiphomepage.mission_description_3").html_safe
+
+
+            .row.flex-wrap.d-flex.mt-5.align-items-center
+              .col-md-5.d-none
+                = image_tag 'icons/svgs/instant-information-amico.svg',  class: 'full-width', alt: ''
+              .col-md-7
+                .section-title = t("hello.index.news_members")
+
+            .mt-3.font-14 = t("hello.wiphomepage.news_description_1").html_safe
+            .mt-3.font-14 = t("hello.wiphomepage.news_description_2").html_safe
+            .mt-3.font-14 = t("hello.wiphomepage.news_description_3").html_safe
+            .mt-3.font-14 = t("hello.wiphomepage.news_description_4").html_safe
+
+            div.d-none
+              .row.flex-wrap.d-flex.align-items-center.mt-5
+                .col-md-5
+                  = image_tag 'icons/svgs/time-management-amico.svg',  class: 'full-width', alt: ''
+                .col-md-7
+                  .section-title = t("specialist.now_available")
+
+              div
+                - @specialties.each do |specialty|
+                  a.right-sector-name href="/hello/wiphomepage/results/?section=specialties&id=#{specialty.id}"  data-placement="bottom" data-toggle="tooltip" title="#{sector_exp_years(specialty)}" = "#{specialty.title} | "
+
+                .mt-4.font-14
+                  span = t("hello.wiphomepage.now_available_description")
+                  a.pl-1 href="https://www.linkedin.com" Linkedin
+                  span.px-1 = t("shared.and")
+                  a href="https://www.facebook.com" Facebook
+
+
+            / - @missions.in_groups_of(4, false).each do |group|
+            /   .row.flex-wrap.font-14
+            /     - group.each do |mission|
+            /       .col-md-3.mb-3.column-truncate
+            /         a.td-sector-name href="javascript:void(0)" data-placement="bottom" data-toggle="tooltip" = mission.title
+            / .col-md-12
+
+          .col-md-6
+            .row.flex-wrap.d-flex.align-items-center
+              .col-md-5.d-none
+                = image_tag 'icons/svgs/online-connection-amico.svg',  class: 'full-width', alt: ''
+              .col-md-12
+                .section-title = t("shared.useful_links")
+
+            .mt-3.font-14 = t("hello.wiphomepage.info_description_1").html_safe
+            .mt-3.font-14 = t("hello.wiphomepage.info_description_2").html_safe
+            .mt-3.font-14 = t("hello.wiphomepage.info_description_3").html_safe
+
+            .mt-3.font-14.col-md-12 = link_to t("hello.index.how_to_find_specialist"), get_specialist_path
+            .mt-3.font-14.col-md-12 = link_to t("hello.index.how_to_propose_project"), propose_project_path
+            .mt-3.font-14.col-md-12 = link_to t("hello.index.how_to_get_contracts"), get_contracts_path
+            .mt-3.font-14.col-md-12.d-none = t("hello.wiphomepage.useful_links_description")
+
+
+
+          
+      .col-md-6
+
+css:
+  body.front {
+    position: relative;
+    margin-top: -10px;
+  }
+
+  .navbar {
+    background: #348DDB !important;
+  }
+
+  .navbar-nav li a:not(.btn-outline) {
+    border-bottom: 3px solid #348DDB;
+  }
+
+  .superfooter {
+    margin-top: -10px;
+  }
+
+javascript:
+  var prevScrollpos = window.pageYOffset;
+  window.onscroll = function() {
+    var currentScrollPos = window.pageYOffset;
+    if (prevScrollpos > currentScrollPos) {
+      $(".wip_shape1").show();
+    } else {
+      $(".wip_shape1").hide();
+    }
+    prevScrollpos = currentScrollPos;
+  }

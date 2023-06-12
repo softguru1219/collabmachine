@@ -1,0 +1,28 @@
+.container.well
+  h1.text-center = t(".contact_us")
+  .section.contact.col-md-12
+    .row
+      / .col-md-3
+      /   .row#contact-sign
+      /     <i class="fa fa-location-arrow"></i>
+      /     br= "ADDRESS"
+      /     br= "4258, rue Saint-Hubert, Montréal,QC H2J2W7"
+      .col-md-4
+        .row#contact-sign
+          <i class="fa fa-envelope"></i>
+          br= "EMAIL"
+          br= "support@collabmachine.com"
+
+      .col-md-4
+        .row#contact-sign.veezav-contact
+          / <i class="fa fa-comment"></i>
+          = link_to "https://www.veeza-v.com/html/indexSylvain.php?Country=Canada&State=Quebec&City=Notre-Dame%20Ile%20Perrot&Name=VeeZa-V%20Inc&Language=EN&&Language=FR&Client=collabmachine", target: "_blank" do
+              = image_tag "veeza-v-logo.png", width:"100px", class: 'block'
+          br.veeza-text = t('shared.veeza')
+
+
+      .col-md-4
+        .row#contact-sign
+          <i class="fa fa-phone"></i>
+          br= "PHONE"
+          br= "(514) 237-1731"

@@ -1,0 +1,20 @@
+#filterrific_results.row.clear
+  .ibox
+    .ibox-content
+      table.table.table-basic.table-striped.users
+        thead
+          tr
+            th ID
+            th = t("g.state")
+            th = t("g.failed")
+            th = filterrific_sorting_link(@filterrific, :created_at, label: t("g.created_at"))
+
+        tbody
+          - @orders.each do |order|
+            tr
+              td = link_to(order.id, order_path(order))
+              td = order.translated_state
+              td = friendly_bool(order.failed?)
+              td = order.created_at.to_date
+
+    = will_paginate @orders, renderer: BootstrapPagination::Rails, previous_label: t("g.previous"), next_label: t("g.next"), class: "pull-right"

@@ -1,0 +1,165 @@
+.row.wrapper.page-heading
+  .col-xs-12.col-sm-6
+    h2 = t('invoice.name')
+
+  .col-xs-12.col-sm-6
+    .header-controls.btn-group.pull-right
+      - if policy(@invoice).update?
+        = link_to t('invoice.show.edit'), edit_invoice_path(@invoice),
+          class: 'btn btn-outline btn-default'
+      - if policy(@invoice).destroy?
+        = link_to t('invoice.show.destroy'), @invoice, method: :delete, id: @invoice.id,
+          data: { confirm: 'Are you sure?', remote: true },
+          class: 'btn btn-outline btn-default', title: 'Delete'
+
+.container.invoice-container
+  .row
+    .col-sm-8.col-xs-6.invoice-header.dark.aligned-left
+      .header-huge-text =< "#{t('invoice.name')} #{@from_externe ? t('invoice.show.for', client: @invoice.external_name) : t('invoice.show.id', id: @invoice.id)}"
+      =< "Status: #{@invoice.paid? ? t('invoice.paid') : t('invoice.pending')}"
+    .col-sm-4.col-xs-6.invoice-header
+      div = t('invoice.show.amount_due_can')
+      .header-huge-text = number_to_currency @invoice.amount + @invoice.application_fee
+
+  .row
+    .col-xs-8
+      .wrapper.wrapper-content
+        .row
+          strong.col-xs-12.col-sm-4 = t('invoice.show.created_by')
+          .col-xs-12.col-sm-8
+            =< avatar_link_to_user(@invoice.user, {class: 'ui image mini-avatar right'})
+            =< link_to_user(@invoice.user)
+        .row
+          - if !@invoice.public_token?
+            strong.col-xs-12.col-sm-4 = t('invoice.show.customer')
+            .col-xs-12.col-sm-8
+              =< avatar_link_to_user(@invoice.customer, {class: 'ui image mini-avatar right'})
+              =< link_to_user(@invoice.customer)
+          - elsif @from_externe
+            strong.col-xs-12.col-sm-4 = t('invoice.show.customer')
+            .col-xs-12.col-sm-8
+              div =< @invoice.external_name
+              div =< @invoice.external_email
+          - else
+            strong.col-xs-12.col-sm-4 = t('invoice.show.public_url')
+            .col-xs-12.col-sm-8
+              #public-url = invoice_url(@invoice, token: @invoice.public_token)
+              button.clipboard-btn.btn.btn-primary.btn-sm data-clipboard-action="copy" data-clipboard-target="#public-url"
+                 = t('invoice.show.copy')
+        br/
+        .row
+          strong.col-xs-12.col-sm-4 = t('invoice.show.last_update')
+          .col-xs-6.col-sm-8 = @invoice.updated_at
+        .row
+          strong.col-xs-12.col-sm-4 = t('invoice.show.created')
+          .col-xs-12.col-sm-8 = @invoice.created_at
+
+        br/
+        .row
+          .col-xs-6
+            - @invoice.missions.any?
+              strong = t('invoice.show.missions')
+              - @invoice.missions.each do |mission|
+                p = link_to_mission(mission.id)
+          .col-xs-6
+            - @invoice.projects.any?
+              strong = t('invoice.show.projects')
+              - @invoice.projects.each do |project|
+                p = link_to_project(project.id)
+
+    .col-xs-4
+      .wrapper.wrapper-content
+        h4 = t('invoice.form.description')
+        =< @invoice.description
+
+  .row
+    .col-md-12
+      table.table.table-striped
+        thead
+          tr
+            th = t('invoice.form.description')
+            th = t('invoice.form.rate')
+            th = t('invoice.form.quantity')
+            th = t('invoice.form.amount')
+        tbody.item-rows
+          - @invoice.invoice_lines.each do |line|
+            tr
+              td= line.description
+              td= number_to_currency line.rate * @app_fee_rate
+              td= line.quantity
+              td= number_to_currency line.amount_without_tax * @app_fee_rate
+    .row.invoice-calculs
+      - if policy(@invoice).pay? or (@from_externe and not @invoice.paid?)
+        .col-xs-12.col-sm-6
+          - if  current_user and not current_user.has_payment_info?
+            = form_for current_user, url: update_payment_information_user_path(current_user, ), remote: true, html: { id: 'credit-card-form', class: 'form-horizontal' } do |f|
+              .ibox
+                .ibox-content
+                  .m-b-md
+                    .form-row
+                      label for="card-element"
+                        | Credit or debit card
+                      #card-element
+                        /! A Stripe Element will be inserted here.
+                      /! Used to display form errors.
+                      #card-errors role="alert"
+                  .m-b-md
+                    .actions
+                      = f.submit 'Add your credit card information', { class: 'btn btn-primary' }
+          - elsif @stripe_customer.present?
+            = form_for @invoice, url: update_payment_information_invoice_path(@invoice, stripe_customer: @stripe_customer ), remote: true, html: { id: 'credit-card-form', class: 'form-horizontal' } do |f|
+              .ibox
+                .ibox-content
+                  .m-b-md
+                    .form-row
+                      label for="card-element"
+                        | Credit or debit card
+                      #card-element
+                        /! A Stripe Element will be inserted here.
+                      /! Used to display form errors.
+                      #card-errors role="alert"
+                  .m-b-md
+                    .actions
+                      = f.submit t('invoice.show.pay'), { class: 'btn btn-primary' }
+
+          .invoice-pay-button-container.btn-toolbar
+            = link_to t('invoice.show.pay'), transactions_path(invoice_id: @invoice),
+              method: :post, class: "btn btn-lg btn-success", id: 'pay-button',
+              data: {disable_with: "<i class='fa fa-spinner fa-spin'></i> #{t('invoice.show.paying')}"}
+            = link_to t('invoice.show.new_card'), reset_card_path(invoice_id: @invoice),
+              method: :get, class: "btn btn-lg btn-primary", id: 'delete-card-button'
+      .col-xs-12.col-sm-6
+        .col-xs-6
+          strong = t('invoice.form.total_without_taxes')
+        .col-xs-6
+          =< number_to_currency @invoice.amount_without_tax * @app_fee_rate
+        - @invoice.taxes_with_total.each do |tax|
+          .col-xs-6
+            =< "#{tax[:name]} (#{tax[:rate].to_s}%) "
+          .col-xs-6
+            =< number_to_currency tax[:sum] * @app_fee_rate
+        .col-xs-6
+          strong = t('invoice.form.total')
+        .col-xs-6
+          =< number_to_currency @invoice.amount * @app_fee_rate
+        - if current_user.present? and current_user.id == @invoice.user_id
+          hr.col-xs-12
+          .col-xs-6
+            strong = t('invoice.form.total_collected')
+          .col-xs-6
+            =< number_to_currency @invoice.amount
+-if @from_externe
+  .container
+    .row
+      .col-xs-2
+        = render 'layouts/collab_machine_logo', klasses: 'full-width'
+      .col-xs-7.invoice-external-title
+        h1 = t('invoice.show.external_welcome_title')
+        div = t('invoice.show.external_welcome_text')
+        =< link_to t('hello.work.register'), new_user_registration_path,
+         class: 'btn btn-primary invoice-external-title', role: 'button'
+      .col-xs-3.invoice-external-title
+        h2 = t('invoice.show.powered_by')
+        = image_tag "stripe-logo.png",
+            class: 'stripe-logo',
+            title: 'stripe_logo'

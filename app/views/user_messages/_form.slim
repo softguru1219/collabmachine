@@ -1,0 +1,28 @@
+= form_for user_message do |f|
+  = render 'shared/error_messages', record: user_message
+
+  hr
+    .form-group
+      = f.label :title
+      br
+      = f.text_field :title, placeholder: 'Title', class: 'form-control'
+    .form-group
+      = f.label :message
+      br
+      = f.text_area :message, class: 'redactor item-desc', placeholder: 'Message'
+    - if user_signed_in?
+      .form-group
+        = f.check_box :anonymous, class: 'i-checks'
+        =< f.label :anonymous, 'Anonymous'
+        span.tooltip-button
+          button.btn.btn-xs.btn-warning.btn-outline.b-r-xl(
+              type="button"
+              data-toggle="tooltip"
+              data-placement="right"
+              title=""
+              data-original-title="By checking this option the admins won't be able to see who wrote the message"
+            )
+            i.fa.fa-question
+
+    .actions
+      = submit_tag 'Save', class: 'save btn btn-success'

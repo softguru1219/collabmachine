@@ -1,0 +1,65 @@
+fr:
+  activerecord:
+    models:
+      user: Utilisateur
+      project: Projet
+      estimate: Estimé
+      applicant: Applicant
+      exchange: Échange
+      tax: Taxe
+      invoice: Facture
+      user_message: Message Utilisateur
+      milestone: Étape
+      tag: Tag
+      message: Message
+    attributes:
+      user:
+        login: "Handle"
+        active: actif
+        first_name: Prénom
+        last_name: Nom
+        email: Courriel
+      estimate:
+        title: Titre
+        description: Description
+        email: Adresse de courriel
+        phone: Numéro de téléphone
+      product:
+        title: Titre
+        price: Prix (CAD)
+        carousel_images: Photos de carrousel
+        description: Description
+        intended_audience: Public ciblé
+        value_proposition: Proposition de valeur
+    enums:
+      applicant:
+        state:
+          unknown: inconnu
+          assigned: assigné
+          rejected: rejeté
+          suggested: suggéré
+      product:
+        state:
+          for_review: Pour évaluation
+          published: Publié
+          archived: Archivé
+          rejected: Rejeté
+      user:
+        access_level:
+          freemium: Freemium
+          premium: Premium
+          platinum: Platine
+          partner: Partenaire
+          admin: Admin
+      order:
+        state:
+          created: Créé
+          vendor_account_verified: Compte fournisseur vérifié
+          charged_buyer: Acheteur facturé
+          paid_out_to_vendor: Payé au vendeur
+    state_machine_events:
+      product:
+        state:
+          publish: Publier
+          reject: Rejeter
+          archive: Archiver

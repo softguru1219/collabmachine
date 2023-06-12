@@ -1,0 +1,30 @@
+
+
+#inSlider.carousel.carousel-fade data-ride="carousel"
+  ol.carousel-indicators
+    - t('home.slides').shuffle.each_with_index do |slide, i|
+      li class="#{'active' if i == 0}" data-slide-to="#{i}" data-target="#inSlider"
+  .carousel-inner role="listbox"
+    - t('home.slides').each_with_index do |slide, i|
+      .item class="#{'active' if i == 0}"
+        .container
+          .carousel-caption.blank
+            - rand_indice1 = rand(t('home.taglines').size)
+            h3 = slide[:tagline] || t('home.taglines')[rand_indice1].html_safe
+            p
+              / span = slide[:blurb] || t('home.blurb').html_safe
+            .ctas
+              = link_to t('get_project_done'), new_estimate_path, class: 'btn btn-lg btn-primary', role: 'button'
+              = link_to t('create_profile'), new_user_registration_path, class: 'caption-link', role: 'button'
+          .carousel-image.wow.zoomIn
+            / = image_tag 'landing/screenshots/laptop.png', alt: "laptop"
+          //! Set background for slide in css
+        .header-back style="background: url(#{image_path(slide[:bg_src])}) #{slide[:bg_disposition]}"
+
+
+  a.left.carousel-control data-slide="prev" href="#inSlider" role="button"
+    span.glyphicon.glyphicon-chevron-left aria-hidden="true"
+    span.sr-only Previous
+  a.right.carousel-control data-slide="next" href="#inSlider" role="button"
+    span.glyphicon.glyphicon-chevron-right aria-hidden="true"
+    span.sr-only Next
